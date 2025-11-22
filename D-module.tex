@@ -1,0 +1,54 @@
+\documentclass{book}
+\usepackage{amsmath, amsthm, amssymb}
+\usepackage{hyperref}
+\usepackage{chngcntr}
+\usepackage{tikz-cd}
+\usepackage{pifont}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+\usepackage{url}
+\usepackage{xcolor} % 用于还原红色的 (***)
+\hypersetup{colorlinks=true, linkcolor=blue}
+
+% 定义常用算子
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\rk}{rank}
+\DeclareMathOperator{\Img}{Im} % 像 Image
+\DeclareMathOperator{\Sym}{Sym}     % Sym 算子
+
+\counterwithout{section}{chapter}
+\renewcommand{\thesection}{\arabic{section}}
+\numberwithin{equation}{section}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{note}[theorem]{Note}
+
+\title{D-modules}
+\begin{document}
+\maketitle
+\tableofcontents
+
+\part{Week 1 (Sections 1--4)}
+\input{Week1_content}
+
+\part{Week 2 (Sections 5--6)}
+\input{Week2_content}
+
+\part{Week 3 (Sections 7--9)}
+\input{Week3_content}
+
+\bibliographystyle{alphaurl}
+\bibliography{ref}
+
+\end{document}

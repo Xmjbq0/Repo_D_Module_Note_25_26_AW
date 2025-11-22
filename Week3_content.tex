@@ -1,0 +1,533 @@
+\providecommand{\C}{\mathbb{C}}
+\providecommand{\A}{\mathbb{A}}
+\providecommand{\Z}{\mathbb{Z}}
+\providecommand{\Spec}{\operatorname{Spec}}
+\providecommand{\Supp}{\operatorname{Supp}}
+\providecommand{\Ch}{\operatorname{Ch}}
+\providecommand{\gr}{\operatorname{gr}}
+\providecommand{\Ann}{\operatorname{Ann}}
+\providecommand{\rad}{\operatorname{rad}}
+\providecommand{\Hom}{\operatorname{Hom}}
+\providecommand{\End}{\operatorname{End}}
+\providecommand{\D}{\mathcal{D}}
+\providecommand{\T}{\mathcal{T}}
+\providecommand{\Poisson}{\mathrm{P}}
+\providecommand{\Rees}{\operatorname{R}}
+
+% 定义切空间符号，手写体通常是 \mathcal{T}
+\newcommand{\Tv}{\mathcal{T}}
+% 为了美观，定义 smooth 的上标为正体
+\newcommand{\sm}{\mathrm{sm}}
+
+\section{Symplectic vector spaces}
+
+Let $V$ be a $k$-vector space equipped with a bilinear form
+$\sigma\colon V\times V\to k$.  We use the following terminology:
+\begin{itemize}
+  \item The form $\sigma$ is \emph{skew-symmetric} if
+        $\sigma(a,b)=-\sigma(b,a)$ for all $a,b\in V$.
+  \item A skew-symmetric bilinear form is \emph{nondegenerate} if for every
+        $0\ne a\in V$ there exists $v\in V$ such that $\sigma(a,v)\ne 0$.
+\end{itemize}
+A pair $(V,\sigma)$ is called a \emph{symplectic vector space} if $\sigma$
+is a nondegenerate skew-symmetric bilinear form.  In this case
+$\dim_k V=2n$ for some $n$.
+
+Nondegeneracy identifies $V$ with its dual: the map
+\[
+  \sharp \colon V \longrightarrow V^\ast,\qquad
+  v \longmapsto \sigma(-,v)
+\]
+is an isomorphism, called the \emph{Hamiltonian isomorphism}.
+
+\begin{definition}[Def.~7.1]
+Let $W\subseteq V$ be a linear subspace.
+\begin{enumerate}
+  \item The \emph{symplectic orthogonal} of $W$ is
+        $W^\perp:=\{v\in V\mid \sigma(v,W)=0\}$.
+  \item The subspace $W$ is called \emph{isotropic} if $W\subseteq W^\perp$,
+        \emph{Lagrangian} if $W=W^\perp$, and \emph{coisotropic} if
+        $W\supseteq W^\perp$.
+\end{enumerate}
+\end{definition}
+
+\begin{lemma}[Lemma~7.2]
+Let $W\subseteq V$ be as above.  If $W$ is isotropic then $\dim_k W\le n$.
+If $W$ is Lagrangian then $\dim_k W=n$, and if $W$ is coisotropic then
+$\dim_k W\ge n$.
+\end{lemma}
+\begin{proof}
+The Hamiltonian isomorphism identifies $W^\perp$ with the kernel of the
+composition $V\xrightarrow{\sharp}V^\ast\twoheadrightarrow W^\ast$.  Hence
+$\dim_k W^\perp=2n-\dim_k W$.  When $W\subseteq W^\perp$ we obtain
+$\dim_k W\le n$.  Equality occurs exactly when $W=W^\perp$, the defining
+property of a Lagrangian subspace.  Dually, $W\supseteq W^\perp$ implies
+$\dim_k W\ge n$, which is the coisotropic case.
+\end{proof}
+
+\begin{example}[Ex.~7.2]\label{ex:symplectic-standard}
+Let $W$ be an $n$-dimensional $k$-vector space with dual $W^\ast$.  Then
+$V:=W\oplus W^\ast$ becomes a symplectic vector space when we define
+\[
+  \sigma\big((x,\xi),(x',\xi')\big)
+  :=\langle x',\xi\rangle-\langle x,\xi'\rangle,
+  \qquad (x,\xi),(x',\xi')\in V,
+\]
+where $\langle\cdot,\cdot\rangle$ denotes the evaluation pairing between
+$W$ and $W^\ast$.
+\end{example}
+
+\section{Symplectic structure on $T^\ast X$}
+
+Let $X=\Spec R$ be a smooth affine algebraic variety over $\C$ (more generally
+over an algebraically closed field $k$ of characteristic $0$) with algebraic
+coordinates $(x_1,\dots,x_n)$.  The cotangent bundle is
+\[
+  T^\ast X = \Spec \gr \D_X = \Spec \Sym^\bullet T_X
+           \simeq \Spec R[\xi_1,\dots,\xi_n],
+\]
+where $\Sym^\bullet T_X:=\bigoplus_{i\ge0}\Sym^i T_X$ carries the natural
+grading.
+
+\begin{definition}[Def.~8.1]
+A subvariety $V\subseteq T^\ast X$ is called \emph{conic} if its defining ideal
+$I(V)\subseteq \Sym^\bullet T_X$ is homogeneous.
+\end{definition}
+
+\begin{remark}
+Under the identification $T^\ast X\simeq X\times k^n$, each fiber is an
+$n$-dimensional $k$-vector space, so $T^\ast X$ carries a canonical $k^\times$
+action.  A subvariety $V\subseteq T^\ast X$ is conic precisely when it is
+stable under this action.
+\end{remark}
+
+The canonical $1$-form on the cotangent bundle is
+\[
+  \alpha_X := \sum_{i=1}^n \xi_i\,dx_i \in \Omega^1_{T^\ast X},
+\]
+which does not depend on the chosen coordinates.  Its exterior derivative
+\[
+  \sigma_X := d\alpha_X = \sum_{i=1}^n d\xi_i\wedge dx_i \in \Omega^2_{T^\ast X}
+\]
+is the standard symplectic form on $T^\ast X$.
+
+For a closed point $p\in T^\ast X$ with maximal ideal $\mathfrak m_p$ we have
+the tangent space
+\[
+  T_{T^\ast X,p}=\Der_k(\mathfrak m_p,k)
+               \simeq \Omega^1_{T^\ast X}\otimes_S S/\mathfrak m_p
+               \simeq \mathfrak m_p/\mathfrak m_p^2.
+\]
+Evaluating $\sigma_X$ at $p$ yields a bilinear form
+$\sigma_p\colon T_{T^\ast X,p}\times T_{T^\ast X,p}\to k$.
+
+\begin{lemma}[Lemma~8.1]
+For every closed point $p\in T^\ast X$, the pair $(T_{T^\ast X,p},\sigma_p)$ is
+a symplectic vector space.
+\end{lemma}
+\begin{proof}
+The identification above shows that $T_{T^\ast X,p}\simeq
+\Omega^1_{T^\ast X}\otimes_S k(p)$.  Example~\ref{ex:symplectic-standard}
+(with $V=\Omega^1_{T^\ast X}\otimes k(p)$ and $\sigma=\sigma_p$) applies
+directly, so $\sigma_p$ is a nondegenerate skew-symmetric form.
+\end{proof}
+
+The global form $\sigma_X$ yields the Hamiltonian isomorphism
+\[
+  \mathcal H\colon \Omega^1_{T^\ast X}\xrightarrow{\sim}T_{T^\ast X},\qquad
+  \beta\longmapsto \mathcal H(\beta),
+\]
+characterized by $\sigma_X(-,\mathcal H(\beta))=\beta$.  For any function
+$f\in \Sym^\bullet T_X$ we define its \emph{Hamiltonian vector field} to be
+\[
+  H_f:=\mathcal H(df)\in \Gamma(T^\ast X,T_{T^\ast X}),
+\]
+which satisfies $\sigma_X(v,H_f)=df(v)$ for all vector fields $v$.
+
+\begin{lemma}[Lemma~8.2]\label{lem:hamiltonian-coordinates}
+With respect to the coordinates $(x_1,\dots,x_n,\xi_1,\dots,\xi_n)$ one has
+\[
+  H_f = \sum_{i=1}^n
+        \left(\frac{\partial f}{\partial \xi_i}\frac{\partial}{\partial x_i}
+             -\frac{\partial f}{\partial x_i}\frac{\partial}{\partial \xi_i}
+        \right).
+\]
+\end{lemma}
+\begin{proof}
+Write $H_f=\sum_i \big(\alpha_i\,\partial_{x_i}+\beta_i\,\partial_{\xi_i}\big)$.
+Because $\sigma_X(\partial_{x_i},\partial_{x_j})=0$ and
+$\sigma_X(\partial_{x_i},\partial_{\xi_j})=\delta_{ij}$, we obtain
+\[
+  df(\partial_{x_i})=\sigma_X(\partial_{x_i},H_f)=-\beta_i,\qquad
+  df(\partial_{\xi_i})=\sigma_X(\partial_{\xi_i},H_f)=\alpha_i.
+\]
+Thus $\alpha_i=\partial f/\partial \xi_i$ and $\beta_i=-\partial f/\partial
+x_i$, yielding the displayed formula.
+\end{proof}
+
+The Hamiltonian vector fields endow $\Sym^\bullet T_X$ with a Poisson bracket:
+for $f,g\in \Sym^\bullet T_X$ set
+\[
+  \{f,g\}_\sigma := H_f(g)=\sigma_X(H_f,H_g).
+\]
+It is skew-symmetric, satisfies the Jacobi identity, and acts as a derivation
+in each variable.
+
+\begin{lemma}[Lemma~8.3]
+$(\Sym^\bullet T_X,\{-,-\}_\sigma)$ is a Poisson algebra.
+\end{lemma}
+\begin{proof}
+The identities above translate the usual properties of Hamiltonian vector
+fields into the axioms of a Poisson bracket; this is standard and was assigned
+as homework.
+\end{proof}
+
+\begin{lemma}[Lemma~8.4]
+Under the identification $\gr \D_X\simeq \Sym^\bullet T_X$, the Poisson bracket
+constructed above coincides with $\{-,-\}_\sigma$.
+\end{lemma}
+\begin{proof}
+Because $\gr \D_X$ is a graded $R$-algebra isomorphic to $\Sym^\bullet T_X$, it
+is enough to compare the brackets on elements of the form
+$f=f_\alpha\xi^\alpha$, $g=g_\beta\xi^\beta$ with $f_\alpha,g_\beta\in R$ and
+multi-indices $\alpha,\beta\in\mathbb Z_{\ge0}^n$.  Using
+Lemma~\ref{lem:hamiltonian-coordinates} we compute
+\[
+  \{f,g\}_\sigma
+   = \sum_{i=1}^n
+       \left(
+         \alpha_i f_\alpha\,\frac{\partial g_\beta}{\partial x_i}
+         -\beta_i g_\beta\,\frac{\partial f_\alpha}{\partial x_i}
+       \right)
+       \xi^{\alpha+\beta-e_i},
+\]
+where $e_i$ is the $i$th standard basis vector.  This matches the explicit
+formula obtained earlier for the bracket on $\gr \D_X$, so the two Poisson
+structures agree.
+\end{proof}
+
+Now let $S:=\Sym^\bullet T_X$, so $T^\ast X=\Spec S$.  Let
+$V\subseteq T^\ast X$ be a closed subvariety with radical ideal
+$I_V\subseteq S$.  For a smooth closed point $p\in V$ write
+$\mathfrak m_p\subset S$ and $\overline{\mathfrak m}_p\subset S/I_V$ for the
+corresponding maximal ideals.  The exact sequence
+\[
+  0 \longrightarrow I_{V,p}/I_{V,p}^2
+    \longrightarrow \mathfrak m_p/\mathfrak m_p^2
+    \longrightarrow \overline{\mathfrak m}_p/\overline{\mathfrak m}_p^2
+    \longrightarrow 0
+\]
+dualizes to a natural embedding of tangent spaces
+\[
+  T_{V,p}\simeq (\overline{\mathfrak m}_p/\overline{\mathfrak m}_p^2)^\vee
+   \hookrightarrow
+  T_{T^\ast X,p}\simeq (\mathfrak m_p/\mathfrak m_p^2)^\vee.
+\]
+Equivalently, $T_{V,p}$ consists of those vectors $v\in T_{T^\ast X,p}$ such
+that $df(v)=0$ for every $f\in I_V$.
+
+\begin{definition}[Def.~8.4]
+A closed subvariety $V\subseteq T^\ast X$ is \emph{isotropic} (resp.
+\emph{Lagrangian}, \emph{coisotropic}) if for every smooth closed point
+$p\in V$ the tangent space $T_{V,p}$ is isotropic (resp. Lagrangian,
+coisotropic) inside the symplectic vector space $T_{T^\ast X,p}$.
+\end{definition}
+
+\begin{theorem}[Thm.~8.5]
+Let $V\subseteq T^\ast X$ be a closed subvariety with ideal $I_V$.  The
+following are equivalent:
+\begin{enumerate}
+  \item $V$ is coisotropic.
+  \item $I_V$ is involutive, i.e.\ $\{I_V,I_V\}_\sigma\subseteq I_V$.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+Take a smooth closed point $p \in V$.
+\begin{gather*}
+    \sigma(v, H_f) = df(v) \quad \text{and} \quad \textcolor{red}{(* * *)} \\
+    \Downarrow \\ % 换行直接画箭头
+    \begin{align*}
+      (\Tv_{V,p})^\perp &= \{ v \in \Tv_{T^*X, p} \mid \sigma_p(v, w) = 0, \quad \forall w \in \Tv_{V,p} \} \\
+      &= \text{the space spanned by } H_{f,p} \quad \forall f \in I_V.
+    \end{align*}
+\end{gather*}
+
+% 中间的方框注释
+\noindent If $h \in S$, then $h_p$ denotes the value of $h$ at the point $p$, i.e. $h_p = \bar{h} \in \frac{R}{\mathfrak{m}_p} \simeq k$.
+
+
+\vspace{1em}
+
+\noindent $V$ coisotropic
+\begin{align*}
+    &\implies H_{f,p} \in \Tv_{V,p} \implies \{f, g\}_p \\
+    &= H_f(g)_p = dg(H_f)_p = 0, \quad \forall \text{ regular } p.
+\end{align*}
+\[
+    \implies \exists \text{ open } U \subseteq V \quad \text{s.t.} \quad \forall p \in U \text{ is regular.}
+\]
+\[
+    \{f, g\}|_U = 0 \xrightarrow{HW} \{f, g\}|_V = 0.
+\]
+So (1) $\Rightarrow$ (2).
+
+\vspace{1em}
+\noindent (2) $\Rightarrow$ (1) is similar.
+\end{proof}
+
+As an immediate corollary we obtain the standard statement for characteristic
+varieties.
+
+\begin{theorem}[Thm.~8.6]
+Let $\mathcal M$ be a finitely generated $\D_X$-module.  Then its
+characteristic variety $\Ch(\mathcal M)\subseteq T^\ast X$ is conic and
+coisotropic.  In particular $\dim \Ch(\mathcal M)\ge n$.
+\end{theorem}
+
+\section{Conic Lagrangian subvarieties of $T^\ast X$}
+
+Write $Y=\Spec S$ for a smooth affine $k$-variety, and let
+$V\subseteq Y$ be a closed subscheme with radical ideal $I=I_V\subseteq S$.
+Set $\overline S:=S/I$, so $V=\Spec \overline S$.
+
+\begin{lemma}[Lemma~9.1]\label{lem:kahler-sequence}
+There is an exact sequence of $\overline S$-modules
+\[
+  I/I^2 \xrightarrow{\;\delta\;} \Omega_S\otimes_S \overline S
+    \longrightarrow \Omega_{\overline S}\longrightarrow 0,\qquad
+  \delta(\overline b)=db\otimes 1.
+\]
+\end{lemma}
+\begin{proof}
+The Leibniz rule shows that $\delta$ is well-defined: $d(bb')=b\,db'+b'\,db$.
+By the universal property of Kähler differentials the cokernel of $\delta$ is
+$\Omega_{\overline S}$, yielding the claimed exact sequence.
+\end{proof}
+
+Hence $\Omega_{\overline S}$ is finitely generated over $\overline S$.
+
+\begin{definition}[Def.~9.2]
+Let $V=\Spec \overline S$ be as above.
+\begin{enumerate}
+  \item The \emph{smooth locus} of $V$ is
+        \[
+          V^{\mathrm{sm}}
+          :=\{p\in \Spec \overline S\mid
+                (\Omega_{\overline S})_p
+                \text{ is free over }\overline S_p\}.
+        \]
+        For an affine algebraic variety the smooth locus is a non-empty open
+        subset (homework).
+  \item A closed subscheme $V\subseteq Y$ is a \emph{smooth subscheme} if
+        $V=V^{\mathrm{sm}}$.
+\end{enumerate}
+\end{definition}
+
+\begin{proposition}[Prop.~9.2]
+Let $V\subseteq Y$ be an irreducible subscheme.  The following are equivalent:
+\begin{enumerate}
+  \item $V\subseteq Y$ is a smooth subscheme.
+  \item $\Omega_{\overline S}$ is locally free.
+\end{enumerate}
+Moreover, in this case the sequence of Lemma~\ref{lem:kahler-sequence}
+restricts to a short exact sequence
+\[
+  0\longrightarrow I/I^2
+    \longrightarrow \Omega_Y\otimes_S \overline S
+    \longrightarrow \Omega_{\overline S}
+    \longrightarrow 0,
+\]
+so $I/I^2$ is locally free of rank $\operatorname{codim}_Y V$.
+\end{proposition}
+
+\begin{proof}
+Only need to prove ``$\Leftarrow$'':
+    
+\noindent By Lemma 9.1, we have
+\[
+    I/I^2 \to \Omega_Y \otimes_S \bar{S} \xrightarrow{\varphi} \Omega_{\bar{S}} \to 0
+\]
+Since $\Omega_{\bar{S}}$ is locally free, $\ker \varphi$ is also locally free.
+
+\noindent Take $U' \subseteq Y$, an open affine neighborhood s.t. $U = U' \cap V$ and $\ker \varphi|_U$ is free of rank $r = \dim Y - \dim V$ with generators $dx_1, \dots, dx_r \in \Omega_Y$.
+
+\noindent Lift $dx_i$ to $x_i \in I|_{U'}$.
+
+\noindent Take $I' = \langle x_1, \dots, x_r \rangle$ and
+\[
+    V' = \Spec \bar{S}', \quad \bar{S}' = S/I'
+\]
+Thanks to Lemma 9.1 again, we have
+\[
+    I'/{I'}^2 \xrightarrow{\sigma'} \Omega_Y \otimes_S S' \xrightarrow{\varphi'} \Omega_{S'} \to 0
+\]
+So $\ker \varphi'$ is generated by $dx_1, \dots, dx_r$ and thus also free of rank $r$.
+
+\noindent Since $I'$ is generated by $x_1, \dots, x_r$ and $\Img(\sigma')$ is free, $\sigma'$ is injective.
+
+\noindent So $\Omega_{S'}$ is free $\implies V' \subseteq Y$ smooth.
+
+\noindent So $V \subseteq V'$ is a smooth subvariety of the same dimension.
+
+\noindent So locally, $V = V'$ and $\sigma = \sigma'$.
+
+\noindent So $\sigma$ is injective.
+\end{proof}
+
+\noindent Now, we assume
+\[
+    Z \subset X \quad \text{smooth irreducible subvar.}
+\]
+\[
+    I \subseteq R, \text{ the ideal of } Z
+\]
+then $I/I^2$ is a locally free $\bar{R} = R/I$-mod.
+\\
+and we have a s.e.s. (short exact sequence)
+\[
+    0 \to \Tv_Z \to \underset{:= \Tv_X \otimes_R \bar{R}}{\Tv_X|_Z} \to (I/I^2)^* \to 0
+\]
+
+\noindent For $v \in \Tv_{X,z}$, we say $v$ is tangent to $Z$ at $z \in Z$
+\[
+    \text{if } v \in \Tv_{Z,z} \quad (\iff v|_{(I/I^2)_z} = 0)
+\]
+We define
+\begin{align*}
+    T^*_Z X &= \Spec \Sym (I/I^2)^* \\
+    &\hookrightarrow \underset{\substack{\mid \mid \\ \Spec \bar{R}[\xi_1, \dots, \xi_n]}}{\Spec \Sym \Tv_X|_U} \hookrightarrow \underset{\substack{\mid \mid \\ T^*X}}{\Spec \Sym^\bullet \Tv_X}
+\end{align*}
+called the \emph{conormal bundle} of $Z \subset X$.
+
+Over an affine open $U\subseteq X$
+where $I/I^2$ is free we can choose coordinates $(x_1,\dots,x_n)$ with
+$I=(x_1,\dots,x_r)$. \\
+Then $T^\ast_Z X$ carries coordinates
+$(\xi_1,\dots,\xi_r,x_{r+1},\dots,x_n)$.
+
+If $Z\subseteq X$ is irreducible, we define its conormal variety by
+\[
+  \Lambda_Z := \overline{T^\ast_{Z^{\mathrm{sm}}} X}
+  \subseteq T^\ast X,
+\]
+the closure of the conormal bundle over the smooth locus.  On a suitable open
+subset $U\subseteq X$ with $Z\cap U=Z^{\mathrm{sm}}\cap U$ this agrees with the
+previous description.
+
+\begin{theorem}[Thm.~9.3]\label{thm:conic-lagrangian}
+Let $\Lambda\subseteq T^\ast X$ be an irreducible conic Lagrangian subvariety.
+Then $\Lambda=\Lambda_Z$ for some irreducible subvariety $Z\subseteq X$.
+\end{theorem}
+
+To analyze conic subvarieties we use the Euler vector field.  Recall that the
+canonical one-form is $\alpha_X=\sum_i \xi_i\,dx_i$.  Its Hamiltonian
+\[
+  H(\alpha_X)=\sum_i \alpha_i\partial_{x_i}+\beta_i\partial_{\xi_i}
+\]
+is determined by $\sigma_X(\partial_{x_i},H(\alpha_X))=\alpha_X(\partial_{x_i})
+=\xi_i$ and $\sigma_X(\partial_{\xi_i},H(\alpha_X))=\alpha_X(\partial_{\xi_i})
+=0$.  Hence $H(\alpha_X)=-\sum_i \xi_i\,\partial_{\xi_i}$, the negative of the
+Euler vector field, and its flow generates the $k^\times$-action on $T^\ast X$.
+
+% \begin{lemma}[Lemma~9.4]\label{lem:tangent_vector}
+\begin{lemma}[Lemma~9.4]\label{lem:tangent_vector}
+If $V\subseteq T^\ast X$ is conic with ideal $I_V$, then $H(\alpha_X)$ is
+tangent to $V$, i.e.\ $H(\alpha_X)(I_V)\subseteq I_V$.
+\end{lemma}
+\begin{proof}
+Because $I_V$ is homogeneous we may assume its generators are of the form
+$f_\alpha\,\xi^\alpha$ with $f_\alpha\in R$.  The Euler vector field acts by
+$H(\alpha_X)(f_\alpha\,\xi^\alpha)=-|\alpha|\,f_\alpha\,\xi^\alpha$, which lies
+again in $I_V$.
+\end{proof}
+
+\begin{lemma}[Lemma~9.5]\label{lem:9.5}
+Let $V\subseteq T^\ast X$ be a smooth conic subvariety.  Then $V$ is isotropic
+if and only if $\alpha_X|_V\equiv 0$.
+\end{lemma}
+\begin{proof}
+\noindent ``$\Leftarrow$'': 
+\[
+    \alpha_X|_V \equiv 0 \implies \sigma_X|_V \equiv 0 \implies V \text{ is isotropic.}
+\]
+
+\noindent ``$\Rightarrow$'': 
+Take $v \in \Tv_V$.
+
+\vspace{1em}
+\noindent By Lemma~\ref{lem:tangent_vector}, $H(\alpha_X)|_V$ is tangent to $V$.
+\[
+    V \text{ isotropic} \implies \text{tangent vectors of } V \text{ at } p \subseteq \Tv_{V,p}^\perp
+\]
+So
+\[
+    \langle \alpha_X|_V, v \rangle = \sigma_X|_V ( v, H(\alpha_X|_V) ) = 0
+\]
+So
+\[
+    \alpha_X|_V \equiv 0. \qedhere
+\]
+\end{proof}
+
+\begin{corollary}[Cor.~9.6]
+Let $Z\subseteq X$ be irreducible.  Then $T^\ast_Z X\subseteq T^\ast X$ is a
+conic Lagrangian subvariety.
+\end{corollary}
+\begin{proof}
+Taking loc.\ coor.\ $(x_1, \dots, x_n, \xi_1, \dots, \xi_n)$
+s.t.\ $T^*_{Z^{\sm}} X$ has coor.
+\[
+    (\xi_1, \dots, \xi_r, x_{r+1}, \dots, x_n)
+\]
+So
+\[
+    \alpha_X|_{T^*_{Z^{\sm}} X} \equiv 0.
+\]
+\[
+    \implies T^*_{Z^{\sm}} X \text{ is isotropic}
+\]
+and since
+\[
+    \dim T^*_{Z^{\sm}} X = n
+\]
+\[
+    \implies T^*_{Z^{\sm}} X \text{ Lagrangian}
+\]
+$T^*_{Z^{\sm}} X$ conic $\implies \overline{T^*_{Z^{\sm}} X}$ conic. \qedhere
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:conic-lagrangian}]
+Let $\pi\colon T^\ast X\to X$ denote the projection and set $Z:=\pi(\Lambda)$.
+Because $\Lambda$ is conic, its image is closed and irreducible; write
+$\dim Z=n-r$.  The smooth locus $Z^{\mathrm{sm}}$ lifts to the open subset
+$\Lambda_0:=\pi^{-1}(Z^{\mathrm{sm}})\cap \Lambda\subseteq \Lambda$.  Choosing
+coordinates
+\[
+  (x_1,\dots,x_n,\xi_1,\dots,\xi_n)
+\]
+around a closed point $z\in Z^{\mathrm{sm}}$ with
+$Z^{\mathrm{sm}}=\{x_1=\cdots=x_r=0\}$ and
+$T^\ast_{Z^{\mathrm{sm}}} X=\{\xi_1=\cdots=\xi_r=\xi_{r+1}=\cdots=\xi_n=0\}$,
+\[
+    \alpha_X|_{\Lambda_0} = \xi_{r+1} dx_{r+1} + \dots + \xi_n dx_n
+\]
+By Lemma~\ref{lem:9.5}, $\forall p \in \Lambda_0$, $\xi_{i,p} = 0 \quad \forall i = r+1, \dots, n$.
+\[
+    \implies \Lambda_0 \subseteq T^*_{Z^{\sm}} X
+\]
+Since $\dim \Lambda_0 = n$, $\Lambda = \overline{\Lambda_0} = \overline{T^*_{Z^{\sm}} X} = T^*_Z X$.
+\end{proof}
+
+\begin{definition}[Def.~9.7]
+Let $\mathcal M$ be a finitely generated $\D_X$-module.  We say that
+$\mathcal M$ is \emph{holonomic} if $\dim \Ch(\mathcal M)=n$.
+\end{definition}
+
+\begin{corollary}
+If $\mathcal M$ is holonomic, then its characteristic cycle decomposes as
+\[
+  \operatorname{CC}(\mathcal M)
+    = \sum_i \ell_i\, T^\ast_{Z_i} X,
+\]
+where each $Z_i\subseteq X$ is an irreducible subvariety.
+\end{corollary}
