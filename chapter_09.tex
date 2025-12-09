@@ -1,0 +1,108 @@
+\section{Bjork’s approach to existence of b-functions}
+
+\begin{theorem}[Bj?rk]\label{Theorem 8.4}
+    Let $M$ be a holonomic $\mathcal{D}_X$-module with a good filtration $\Omega_{\bullet} M$ over $V_{\bullet} \mathcal{D}_X$. There exists $b(s) \in \mathbb{C}[s]$ s.t. $$b(t\partial_t - k) \text{ kills } \frac{\Omega_k M}{\Omega_{k-1} M}, \quad \forall k \in \mathbb{Z}$$The monic minimal degree $b(s)$ is called the $\textbf{b-function}$ of $M$ along $Y$.
+\end{theorem}
+\begin{lemma}\label{lemma 8.5}
+    Let $Y$ be a smooth variety over $\mathbb{C}$, $N$ a holonomic $\mathcal{D}_Y$-module, and $\theta\in End_{\mathcal{D}_Y}(N)$; then there exists $b(s)\in\mathbb{C}[s]$ s.t. $b(\theta)=0$. 
+\end{lemma}
+\begin{proof}
+    
+    Since $N$ is holomonic, we obtain that$\mathrm{ch}(N) = \bigcup\limits_{i} T^*_{Y_i} Y$, with $Y_{i}$ locally closed. Take a $Y_i$ of maximal dimension and take open subset $U \subset Y$ s.t. $Y_{i}^{\circ} \hookrightarrow U$ a closed embedding s.t. $\overline{Y_i^{\circ}} = Y_{i}$ and $U \cap \{\bigcup\limits_{j\neq i}Y_j\} = \varnothing$, then $\mathrm{ch}(N|_U) = T^*_{Y_i^\circ} Y\Rightarrow N|_U = \mathcal{O}_{Y_i^\circ} \otimes L[\partial_1, \ldots, \partial_k]$ with $L$ a local system on $Y_i^\circ$. We have $\mathrm{End}(N|_U) = \mathrm{End}_{\mathbb{C}}(L)$, therefore, $\exists b_i(s) \in \mathbb{C}[s]  \text{ s.t. } b_i(\theta|_{U}) = 0.$
+
+	Now, take $N_1 = b_1(\theta)N$, then $\mathrm{ch}(N_1) = \bigcup\limits_{j \neq i} T^*_{Y_j} X$, We are done by induction. 
+\end{proof}
+\begin{theorem}\label{Theorem 8.6}
+    Let $M$ be a finitely generated $\mathcal{D}_{X}$-module, and $\Omega_{\bullet}M$ a good filtration over $V_{\bullet}\mathcal{D}_{X}$, then $j(\mathrm{gr}_{\bullet}^\Omega M)\ge j(M)$.  
+\end{theorem}
+\begin{proof}
+    If $\mathrm{gr}^\Omega_{\bullet}M=0$, nothing to prove, so we assume $\mathrm{gr}^\Omega_{\bullet}M\neq 0$ and $\ell=j(\mathrm{gr}_{\bullet}^{\Omega}M)<j(M)$. 
+	Then the $E_1$-page of the spectral sequence that converges to $\mathrm{Ext}_{\mathcal{D}_{X}}^{j}(M,\mathcal{D}_{X})$ satisfies:$$0 \rightarrow \operatorname{Ext}^{\ell}(\operatorname{gr}_{\bullet}^{\Omega} M, \operatorname{gr}^{V}_{\bullet}\mathcal{D}_X) 
+\xrightarrow{d_1} 
+\operatorname{Ext}^{\ell+1}(\operatorname{gr}_{\bullet}^{\Omega} M, \operatorname{gr}^{V}_{\bullet}\mathcal{D}_X)$$So we obtain that $E^{\ell}_{\bullet}(2)=\mathrm{ker}d_{1}\subseteq\operatorname{Ext}^{\ell}(\operatorname{gr}_{\bullet}^{\Omega} M, \operatorname{gr}^{V}_{\bullet}\mathcal{D}_X)$ since no images map to $E^{\ell}_{\bullet}(1)$, then we have the following exact sequence with the quotient $N=E^{\ell}_{\bullet}(1) /\ker d_{1}\simeq d_{1}(E_{\bullet}^{\ell}(1))\subseteq E^{\ell+1}_{\bullet}(1)$: $$0 \rightarrow E_{\bullet}^{\ell}(2) \rightarrow \operatorname{Ext}^{\ell}(\operatorname{gr}_{\bullet}^{\Omega} M, \operatorname{gr}^{V}_{\bullet}\mathcal{D}_X) 
+\rightarrow N \rightarrow 0$$With $\mathrm{gr}_{\bullet}^V\mathcal{D}_{X}$ Auslander regular, we obtain that for $N\subseteq \mathrm{Ext}^{\ell+1}(\operatorname{gr}_{\bullet}^{\Omega} M, \operatorname{gr}^{V}_{\bullet}\mathcal{D}_X)$, $j(N)\ge \ell+1$. 
+	Since $j(M)>\ell$, we have $E_{\bullet}^{\ell}(r) = \operatorname{gr}_{\bullet} \operatorname{Ext}^{\ell}(M, \mathcal{D}_X) = 0$ for some $r\gg 0$, and $E^{\ell}_{\bullet}(r)=\mathrm{ker}d_{r}.$
+
+	Also $\mathrm{gr}_{\bullet}^V\mathcal{D}_{X}$ is a noetherian ring, we then have $j(\operatorname{Ext}^{\ell}(\operatorname{gr}_{\bullet}^{\Omega} M, \operatorname{gr}^{V}_{\bullet}\mathcal{D}_X) )\ge\ell+1$, a contradiction. 
+
+\end{proof}
+
+
+\begin{proof}[proof of (\ref{Theorem 8.4})]
+   \quad
+   
+   By Theorem \ref{Theorem 8.6}, $j(\mathrm{gr}_{\bullet}^\Omega M)\ge j(M)=n$. If $\mathrm{gr}_{\bullet}^\Omega M=0$, take $b(s)=0$. If not, then $\mathrm{dim\ ch}(\mathrm{gr}^\Omega_{\bullet}M)\ge n$. 
+
+   Since $\mathrm{gr}_{\bullet}^V\mathcal{D}_{X}$ is a Auslander regular ring, we obtain that $j(\mathrm{gr}_{\bullet}^\Omega M)+\mathrm{dim}(\mathrm{ch}(\mathrm{gr}_{\bullet}^\Omega M))=2n=2\mathrm{dim}T_{Y}X$, then $\mathrm{gr}^\Omega_{\bullet} M$ is holonomic over $T_Y X$. 
+
+   Now, take $\theta=\bigoplus \limits_{i}(t\partial_{t}-i),$ then $\theta\in\mathrm{End}_{\mathcal{D}_{T_{Y}X}}(\mathrm{gr}_{\bullet}^\Omega M)$. By Lemma \ref{lemma 8.5}, there exists $b(s)\in\mathbb{C}[s]$ s.t. $b(\theta)=0$, In particular, $b(t\partial_{t}-k)$ kills $\frac{\Omega_{k}M}{\Omega_{k-1}M}$ for all $k$. 
+\end{proof}
+
+\begin{remark}
+    It is poosible that $\mathrm{gr}_{\bullet}^\Omega M=0$. In fact, take $M=\mathbb{C}[t, \frac{1}{t}]e^{\frac{1}{t}}=\mathcal{D}_{X}\cdot e^{\frac{1}{t}}$, take $\Omega_{k}M=V_{k}\mathcal{D}_{X}\cdot e^{\frac{1}{t}}$, which is a good filtration. Since $t\partial_{t}e^{\frac{1}{t}}= -\frac{1}{t} e^{\frac{1}{t}}$, we have $\Omega_{k}M=M$ and $b(s)=1$. 
+\end{remark}
+
+\begin{theorem}[Kashiwara-Malgrange]\label{Theorem 8.7}
+    Let $M$ be a holonomic $\mathcal{D}_{X}$-module, there exists unique good filtration $V_{\bullet}M$ and $b(s)\in\mathbb{C}[s]$ s.t. 
+    \begin{enumerate}
+     \item $\mathrm{Re}(\text{roots of }b(s))\subseteq(-1,0]$;
+     \item $b(t\partial_{t}-k)$ kills $\frac{V_{k}M}{V_{k-1}M}$. 
+    \end{enumerate}
+    And the filtration is called $V$-filtration. 
+\end{theorem}
+\begin{proof}
+    This is Kashiwara's trick: 
+    Set $\Gamma_{n}=\Omega_{n+k}$, we then have $b(t\partial_{t}-n-k)$ kill $\Gamma_{n} /\Gamma_{n-1}$ for all $n$, thus taking $k\gg 0$, we can assume $\mathrm{Re}(\text{roots of }b(s))>0$. 
+    
+    Let $b(s)=(s-\alpha)^\ell b_{1}(s)$ s.t. $(s-\alpha)\nmid b_{1}(s)$; set $\Gamma_{n}'=\Gamma_{n-1}+(t\partial_{t}-\alpha-n)\Gamma_{n}$, then $(t\partial_{t}-(\alpha-1)-n)^\ell b_{1}(t\partial_{t}-n)$ kills $\frac{\Gamma_{n}'}{\Gamma_{n-1}'}$ for all $n$. 
+
+    If $\mathrm{Re}(\alpha-1)\notin(-1,0]$, repeat this until all roots moved in $(-1,0]$. 
+\end{proof}
+
+\begin{definition}
+    \quad
+
+    \begin{enumerate}
+        \item  $M$ is called $Q\textbf{-specializable}$ along $Y$ if the $b$-function has all its roots in $Q$, where $Q \subset \mathbb{C}$ is a subfield.
+        \item If $M$ is $Q$-specializable, then for all $\beta \in Q$, take $k = \lceil \beta \rceil$, then define $$V_{\beta} M = \pi^{-1} \left( \bigoplus_{\alpha \leq \beta} \left( \frac{V_k M}{V_{k-1} M} \right)^{\alpha} \right),$$and $$V_{<\beta} M = \pi^{-1} \left( \bigoplus_{\alpha < \beta} \left( \frac{V_k M}{V_{k-1} M} \right)^{\alpha} \right),$$where $\left( \frac{V_k M}{V_{k-1} M} \right)^{\alpha}$ is the $\alpha$-eigenspace of $\frac{V_k M}{V_{k-1} M}$ w.r.t. the $t\partial_t$-action, and $\pi: V_k M \rightarrow \frac{V_k M}{V_{k-1} M}$; then we get a $\mathbb{Q}$-indexed $V$-filtration s.t.  $$\mathrm{gr}_{\alpha}^{V} M = \frac{V^{\alpha} M}{V^{<\alpha} M} = \left( \frac{V_k M}{V_{k-1} M} \right)^{\alpha}$$ with $t\partial_t - \alpha$ acts on $\mathrm{gr}_{\alpha}^{V} M$ nilpotently. 
+    \end{enumerate}
+\end{definition}
+\begin{example}
+    Let $X=\mathbb{A}^{1}_{\mathbb{C}}$ and $M = \mathbb{C}\left[ t, \frac{1}{t} \right]e^{\frac{1}{t}}$ an irregular holonomic $\mathcal{D}$-mod.
+
+    Consider $V$-filtration along $t = 0$. The $V$-filtration on $M$ exists by Theorem \ref{Theorem 8.7}$$\partial_t e^{\frac{1}{t}} = -\frac{1}{t^2} e^{\frac{1}{t}}\text{ which implies that }t\partial_t e^{\frac{1}{t}} = -\frac{1}{t} e^{\frac{1}{t}}(\ast)$$Take $\Omega_i M = V_i \mathcal{D}_{X} \cdot e^{\frac{1}{t}}$ for $i \in \mathbb{Z}$, then $\Omega_0 M = M$ for $(\ast)$ holds, further, we obtain that $\Omega_1 M = t \Omega_0 M = t M = M$ and $\Omega_i M = M$ for all $i\in \mathbb{Z}$. Finally, we find out that $\Omega_{i}M$ is the $V$-filtration we want with the $b$-function of $M$ is $1$. 
+
+\end{example}
+
+\begin{theorem}
+    If M is a regular holonomic $\mathcal{D}_X$-mod, then its V-filtration is not trivial. In particular, its b-function is not $1$.
+\end{theorem}
+
+\begin{proof}[Sketch of proof]
+    First, each $V_i M$ is a $V_0 \mathcal{D}_X$-module and $V_0 \mathcal{D}_X = \mathcal{D}_X^{\log}$ w.r.t. $(t = 0)$. Since $V_i M$ has no $t$-torsion for all $i < 0$, $\mathrm{ch}(V_i M)$ has no component over $(t = 0)$, for all $i < 0$. 
+
+    Further, we obtain that $\mathrm{ch}^{\log}\left(\frac{V_i M}{V_{i-1} M}\right) = \mathrm{ch}^{\log}\left(\frac{V_i M}{t V_i M}\right)= \mathrm{ch}^{\log}(V_i M)\big|_{(t=0)}$, thus $\frac{V_i M}{V_{i-1} M} \neq 0.$ 
+
+\end{proof}
+
+
+\begin{example}\label{Example 8.11}
+
+Let $X = \mathbb{A}_{\mathbb{C}}^n$ and $Y = \mathbb{A}_{\mathbb{C}}^n \times \mathbb{A}_{\mathbb{C}}^1$, here $\mathbb{A}^{1}_{\mathbb{C}}$ is with coordinate $t$. 
+For $f \in \mathbb{C}[x_1, \cdots, x_n]$, Consider $M = \mathbb{C}[x_1, \cdots, x_n]_f[s] f^s$.
+
+Define $t M = f M$ and then $t^{-1} M = f^{-1} M$.  Take $s = -t\partial_t$, then $\partial_t = -t^{-1} s$, the $\partial_{t}$-action is defined, and further, $M$ is a $\mathcal{D}_Y = \mathcal{D}_X \langle t, \partial_t \rangle$-module. 
+
+Then $N := \mathbb{C}[x_1, \cdots, x_n][\partial_t] f^s = \mathbb{C}[x_1, \cdots, x_n][\partial_t] f^s= \mathbb{C}[x_1, \cdots, x_n][t^{-1} s] f^s$, and $\partial_{x_i} f^s = \partial_{x_i}(f) \cdot \frac{1}{f} s f^s= \partial_{x_i}(f) \cdot (-\partial_t) f^s$, thus $N$ is a $\mathcal{D}_Y$-submodule of $M$. Furthermore, we can check that $\mathrm{ch}(N)$ = the conormal bundle of the graph of $X$, which indicates that $N$ is a holonomic $\mathcal{D}_{Y}$-module. 
+
+We consider $V_{i}\mathcal{D}_{Y}\cdot f^{s}$ forming a good filtration of $N$: $$V_0 \mathcal{D}_Y \cdot f^s = \mathcal{D}_X \langle t, s \rangle f^s = \mathcal{D}_X[s] f^s$$Similarly, $V_{-1} \mathcal{D}_Y \cdot f^s = \mathcal{D}_X[s] f^{s+1}$. 
+
+By Theorem \ref{Theorem 8.4}, there exists $b(s) \in \mathbb{C}[s]$ s.t.$$
+b(s) \cdot \frac{V_0 \mathcal{D}_Y \cdot f^s}{V_{-1} \mathcal{D}_Y \cdot f^s} = b(s) \cdot \frac{\mathcal{D}_X[s] f^s}{\mathcal{D}_X[s] f^{s+1}} = 0.$$which is to say there exists $P(s)\in \mathcal{D}_{X}[s]$ such that $b(s) f^s = P(s) \cdot f^{s+1}$
+
+In fact, $N = \iota_{f,+} (\mathbb{C}[x_1, \ldots, x_n])$, the $\mathcal{D}$-module pushforward, where $$\iota_f: X \to Y = X \times \mathbb{A}^{1}_{\mathbb{C}}\atop x \mapsto (x, f(x))$$the graph embedding. So $N$ is regular holonomic, and $b(s) \neq 1$. 
+\end{example}
+
+\begin{remark}
+    One can replace $\mathbb{C}[x_1, \ldots, x_n]$ by any regular holonomic $\mathcal{D}_X$-module, to get similar results in general.
+\end{remark}

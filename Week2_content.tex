@@ -1,0 +1,471 @@
+
+\providecommand{\C}{\mathbb{C}}
+\providecommand{\A}{\mathbb{A}}
+\providecommand{\Z}{\mathbb{Z}}
+\providecommand{\Spec}{\operatorname{Spec}}
+\providecommand{\Supp}{\operatorname{Supp}}
+\providecommand{\Ch}{\operatorname{Ch}}
+\providecommand{\gr}{\operatorname{gr}}
+\providecommand{\Ann}{\operatorname{Ann}}
+\providecommand{\rad}{\operatorname{rad}}
+\providecommand{\Hom}{\operatorname{Hom}}
+\providecommand{\End}{\operatorname{End}}
+\providecommand{\D}{\mathcal{D}}
+\providecommand{\T}{\mathcal{T}}
+\providecommand{\Poisson}{\mathrm{P}}
+\providecommand{\Rees}{\operatorname{R}}
+
+% \newcommand{\uM}{\underline{M}}
+\newcommand{\uM}{\mathcal M}
+
+\section{Early properties of characteristic varieties}
+Last week we constructed characteristic varieties/cycles of $\D_X$-modules. We now discuss their
+basic properties. Throughout this section:
+\begin{itemize}
+  \item $X$ is a smooth affine variety over $\C$ with algebraic coordinates $(x_1,\dots,x_n)$,
+  \item $\D_X$ denotes the algebraic differential operators on $X$,
+  \item filtrations $F_\bullet$ are increasing and indexed by $\Z$.
+\end{itemize}
+
+\begin{proposition}[Prop.~5.1]\label{prop:charvar-union}
+Let $0\to \mathcal M_1\to \mathcal M\to \mathcal M_2\to 0$ be a short exact sequence of finitely
+generated $\D_X$-modules. Then $\Ch(\mathcal M)=\Ch(\mathcal M_1)\cup \Ch(\mathcal M_2)$.
+\end{proposition}
+\begin{proof}
+Take a good filtration $F_\bullet\mathcal M$ and define $F_\bullet\mathcal M_1:=F_\bullet\mathcal M
+\cap \mathcal M_1$ and $F_\bullet\mathcal M_2:=F_\bullet\mathcal M/F_\bullet\mathcal M_1$. These
+are good filtrations on $\mathcal M_1$ and $\mathcal M_2$. Passing to the associated graded gives a
+short exact sequence 
+\[
+ 0\to \gr \mathcal M_1\to \gr \mathcal M\to \gr \mathcal M_2\to 0,
+\]
+hence
+$\Supp(\gr \mathcal M)=\Supp(\gr \mathcal M_1)\cup \Supp(\gr \mathcal M_2)$, which implies the
+claim.
+\end{proof}
+
+Before moving on we recall some terminology. Let $N$ be a finitely generated $R$-module. We say that
+$N$ is \emph{locally free} if $N_{\mathfrak p}$ is free over $R_{\mathfrak p}$ for every
+$\mathfrak p\in\Spec R$ (equivalently $N_{\mathfrak m}$ is free over $R_{\mathfrak m}$ for every
+maximal $\mathfrak m$). Given a $\D_X$-module $\mathcal M$, we call it an \emph{integrable
+connection} if $\mathcal M$ is locally free as an $R$-module.
+
+\begin{proposition}[Prop.~5.2]\label{prop:integrable-connection-characterizations}
+Let $\mathcal M$ be a finitely generated $\D_X$-module. The following are equivalent:
+\begin{enumerate}
+  \item $\mathcal M$ is an integrable connection.
+  \item $\mathcal M$ is finitely generated over $R$.
+  \item $\Ch(\mathcal M)=T_X^\ast X$, the zero section in $T^\ast X$.
+\end{enumerate}
+\end{proposition}
+\begin{proof}\mbox{} \\
+\noindent (1)$\Rightarrow$(2) is clear. 
+\newline
+
+\noindent For (2)$\Rightarrow$(1), fix a maximal ideal $\mathfrak m\subset R$.
+After adjusting coordinates we may assume $\mathfrak m=(x_1,\dots,x_n)$, hence
+$\D_{X,\mathfrak m}=R_{\mathfrak m}\langle \partial_{x_1},\dots,\partial_{x_n}\rangle$. By
+Nakayama's lemma there exist $s_1,\dots,s_\ell\in\mathcal M_{\mathfrak m}$ such that
+$\mathcal M_{\mathfrak m}=\sum_i R_{\mathfrak m}s_i$ and the residues $\overline s_i$ form a free
+$R_{\mathfrak m}/\mathfrak mR_{\mathfrak m}$-basis. Suppose a non-trivial relation
+$\sum_i f_i s_i=0$ with $f_i\in R_{\mathfrak m}$ existed. Because the $\overline s_i$ are free, each
+$f_i$ lies in $\mathfrak mR_{\mathfrak m}$. Set $d(f_i):=\max\{k\mid f_i\in \mathfrak m^k\}$ and
+$d(f_1,\dots,f_\ell):=\min_i d(f_i)\ge 1$. Choose a relation minimizing this number. Applying some
+$\partial_{x_j}$ we obtain
+\[
+  0=\sum_i \partial_{x_j}(f_i)s_i + \sum_i f_i\,\partial_{x_j}(s_i)=\sum_i g_i s_i,
+\]
+where $\partial_{x_j}(f_i)\in \mathfrak m^{d(f_i)-1}$ and $f_i\,\partial_{x_j}(s_i)\in
+\mathfrak m^{d(f_i)}$. Thus $d(g_1,\dots,g_\ell)=d(f_1,\dots,f_\ell)-1$, contradicting the choice of
+the relation. Hence $\mathcal M_{\mathfrak m}$ is free and $\mathcal M$ is locally free.
+\newline
+
+\noindent (1)$\Rightarrow$(3) is standard (assigned as homework): if $F_\bullet\mathcal M$ is a good
+filtration, then $\gr \mathcal M$ is annihilated by the fiber coordinates $\xi_i$, so
+$\Ch(\mathcal M)$ is the zero section.
+\newline
+
+\noindent For (3)$\Rightarrow$(2), choose a good filtration
+$F_\bullet\mathcal M$ and write $I=(\xi_1,\dots,\xi_n)$ for the ideal of the zero section. Since
+$\Supp(\gr \mathcal M)=V(I)$, the Nullstellensatz gives $I^m\subseteq\Ann(\gr \mathcal M)$ for some
+$m$, i.e.\ $\xi^\alpha\cdot \gr \mathcal M=0$ for $|\alpha|=m$. Equivalently
+$\partial^\alpha(F_j\mathcal M)\subseteq F_{j+m-1}\mathcal M$ for all $j$. Because the filtration is
+good, $F_{j+1}\mathcal M=F_j\mathcal M$ for $j\gg 0$, so there exists $\ell$ with
+$F_{\ell+i}\mathcal M=F_\ell\mathcal M$ for $i\ge0$. Applying the previous inclusion with $j\ge\ell$
+shows $F_\ell\mathcal M$ is stable under all $\partial^\alpha$ with $|\alpha|=m$, hence under
+$\D_X$, and $\mathcal M=F_\ell\mathcal M$ is finitely generated over $R$.
+\end{proof}
+\providecommand{\rad}{\operatorname{rad}}
+\providecommand{\C}{\mathbb{C}}
+\providecommand{\A}{\mathbb{A}}
+\providecommand{\Z}{\mathbb{Z}}
+\providecommand{\Spec}{\operatorname{Spec}}
+\providecommand{\Supp}{\operatorname{Supp}}
+\providecommand{\Ch}{\operatorname{Ch}}
+\providecommand{\gr}{\operatorname{gr}}
+\providecommand{\Ann}{\operatorname{Ann}}
+\providecommand{\rad}{\operatorname{rad}}
+\providecommand{\Hom}{\operatorname{Hom}}
+\providecommand{\End}{\operatorname{End}}
+\providecommand{\D}{\mathcal{D}}
+\providecommand{\T}{\mathcal{T}}
+\providecommand{\Poisson}{\mathrm{P}}
+\providecommand{\Rees}{\operatorname{R}}
+\section{Gabber's Involutivity Theorem}
+Let $B$ be a commutative $\C$-algebra.
+
+\begin{definition}[Def.~6.1]
+\leavevmode
+\begin{enumerate}
+  \item A $\C$-bilinear map $\{\,,\,\}\colon B\otimes_{\C}B\to B$ is a \emph{Poisson bracket}
+    if $\{\,,\,\}$ is a Lie bracket and $\{a_1a_2,b\}=a_1\{a_2,b\}+a_2\{a_1,b\}$ for all $a_1,a_2,b\in B$.
+  \item If $B$ is Poisson, a closed subset $V\subseteq\Spec B$ with radical ideal $I_V$ is
+    \emph{coisotropic} (or \emph{involutive}) if $\{I_V,I_V\}\subseteq I_V$.
+\end{enumerate}
+\end{definition}
+
+Let $\Gamma A$ be a $\Z_{\ge0}$-filtered $\C$-algebra. We write $\sigma_k(x)$ for the image of
+$x\in \Gamma_kA$ in $\Gamma_kA/\Gamma_{k-1}A$ and define
+\[
+  \{\sigma_k(x),\sigma_\ell(y)\}:=\sigma_{k+\ell-1}(xy-yx).
+\]
+Since $xy-yx\in\Gamma_{k+\ell-1}A$, the definition is independent of the chosen lifts.
+
+\begin{lemma}[Lemma~6.3]
+$(\gr^{\Gamma}A,\{\,,\,\})$ is a Poisson algebra.
+\end{lemma}
+
+\begin{example}
+For a smooth affine $X$, the identification $\gr \D_X\cong \Sym^{\bullet}\T_X$ transports the
+Poisson structure on $\gr \D_X$ to $T^{\ast}X$.
+\end{example}
+
+If $\mathcal M$ is a finitely generated $A$-module with a good filtration, the characteristic
+variety $\Ch(\mathcal M):=\Supp(\gr^{\Gamma}\!\mathcal M)$ is a closed subset of
+$\Spec\gr^{\Gamma}A$; independence from the filtration follows from Lemma~6.3.
+
+\begin{theorem}[Thm.~6.4~Gabber's~Involutivity~I]\label{thm:gabber-I}
+If $\mathcal M$ is a finitely generated $A$-module, then $\Ch(\mathcal M)\subseteq\Spec\gr^{\Gamma}A$ is involutive.
+\end{theorem}
+
+\begin{corollary}[Cor.~6.5]
+For a finitely generated $\D_X$-module on a smooth affine variety $X$, the characteristic variety
+inside $T^{\ast}X$ is involutive.
+\end{corollary}
+
+\begin{definition}[Def.~6.6]
+Let $\mathbb E:=\C[u]/(u^2)$ be the ring of dual numbers. An $\mathbb E$-algebra $T$ (not
+necessarily commutative) is a \emph{Gabber ring} if
+\begin{enumerate}
+  \item $T$ is flat over $\mathbb E$, and
+  \item $\overline T:=T/uT$ is a commutative $\C$-algebra of finite type.
+\end{enumerate}
+\end{definition}
+
+\begin{lemma}[Lemma~6.7]
+For a $T$-module $\mathcal M$, the following are equivalent:
+\begin{enumerate}
+  \item $\mathcal M$ is $\mathbb E$-flat.
+  \item The map $\mathcal M/u\mathcal M \to u\mathcal M, \bar{m} \mapsto um$ is an isomorphism (equivalently, $u$ acts injectively on $\mathcal M$).
+\end{enumerate}
+\end{lemma}
+\begin{proof}\mbox{}\\
+\noindent Recall that
+\[
+    N : R\text{-mod}, \quad R : \text{commutative ring}
+\]
+\[
+    N \text{ is } R\text{-flat} \iff \forall \text{ proper ideal } I \subseteq R,
+\]
+\[
+    I \otimes_R N \to N \text{ is injective.}
+\]
+
+\noindent So $\uM$ is $E$-flat$\iff (u) \otimes \uM \hookrightarrow \uM$\\
+\noindent  (since $(u)$ is the only nontrivial ideal of $E$.)
+
+\noindent Consider the map:
+\[
+    \begin{aligned}
+        E/(u) &\to (u) \\
+        1 &\mapsto u
+    \end{aligned} 
+    \quad (\text{this map is iso}.)
+\]
+\noindent Tensoring with $\uM$:
+\[
+    \uM / (u)\uM = E/(u) \otimes_E \uM \to (u) \otimes \uM \quad \text{is iso.}
+\]
+\noindent Therefore,$\uM \text{ is } E\text{-flat} \iff \uM / (u)\uM \to u \cdot \uM \text{ is iso.} $
+\end{proof}
+
+Whenever $\mathcal M$ is $\mathbb E$-flat and $\overline a,\overline b\in\overline T$, we can pick
+lifts $a,b\in T$ and define $\{\overline a,\overline b\}=
+\overline c$ where $c$ solves $u\cdot c = ab-ba$; uniqueness follows from flatness.
+
+\begin{lemma}[Lemma~6.8]\label{lem:poisson}
+$(\overline T,\{\,,\,\})$ is a Poisson algebra.
+\end{lemma}
+\begin{proof}
+$\{\overline a,\overline b\}= -\{\overline b,\overline a\}$.\\
+Take lifts $a,b,c\in T$ of $\overline a,\overline b,\overline c$. Direct calculation gives
+\begin{align*}
+  \{\overline a,\{\overline b,\overline c\}\}
+    &= \overline{a(bc-cb) - (bc-cb) a}, \tag{1}\\
+  \{\overline b,\{\overline c,\overline a\}\}
+    &= \overline{b(ca-ac) - (ca-ac) b}, \tag{2}\\
+  \{\overline c,\{\overline a,\overline b\}\}
+    &= \overline{c(ab-ba) - (ab-ba) c}. \tag{3}
+\end{align*}
+Adding (1)--(3) yields zero because every term appears twice with opposite sign, so the Jacobi identity holds.
+For the Leibniz rule we compute
+\begin{align*}
+  \{\overline a\,\overline a',\overline b\}
+    &= \overline{aa' b - ba a'}
+     = \overline{a(a' b - b a')} + \overline{(ab - ba)a'} \\
+    &= \overline a\,\{\overline a',\overline b\} + \{\overline a,\overline b\}\,\overline a',
+\end{align*}
+and similarly for the second argument. Hence $(\overline T,\{\,,\,\})$ is a Poisson algebra.
+\end{proof}
+
+\begin{theorem}[Thm.~6.9]\label{thm:gabber-II}
+Let $T$ be a Gabber ring and $\mathcal M$ a $\mathbb E$-flat $T$-module. If
+$I:=\rad\Ann_{\overline T}(\overline{\mathcal M})$, then $\{I,I\}\subseteq I$.
+\end{theorem}
+
+We first explain how Theorem~\ref{thm:gabber-II} implies Theorem~\ref{thm:gabber-I}.  Put
+$\Rees^{\Gamma}(A):=\bigoplus_{p\ge0}\Gamma_pA\,u^p\subseteq A[u]$.  This is a finitely generated
+$\C[u]$-algebra, and by construction it is torsion free over $\C[u]$; since $\C[u]$ is a PID, the
+module $\Rees^{\Gamma}(A)$ is therefore flat over $\C[u]$.  Write
+\[
+  T := \Rees^{\Gamma}(A)\otimes_{\C[u]}\mathbb E
+      = \frac{\Rees^{\Gamma}(A)}{u^2\Rees^{\Gamma}(A)},
+  \qquad
+  \overline T \cong \frac{\Rees^{\Gamma}(A)}{u\,\Rees^{\Gamma}(A)}
+               = \gr^{\Gamma}A.
+\]
+Thus $T$ is a Gabber ring with reduction $\overline T=\gr^{\Gamma}A$.  If $F_\bullet\mathcal M$ is a
+good filtration on a finitely generated $A$-module, its Rees module
+$\Rees^{F}(\mathcal M)=\bigoplus_{p\ge0}F_p\mathcal M\,u^p$ is again torsion free over $\C[u]$,
+hence flat.  After base change we obtain the $\mathbb E$-flat $T$-module
+\[
+  \mathbb M := \Rees^{F}(\mathcal M)\otimes_{\C[u]}\mathbb E
+             = \frac{\Rees^{F}(\mathcal M)}{u^2\Rees^{F}(\mathcal M)},
+\]
+whose reduction modulo $u$ is
+$\overline{\mathbb M}=\Rees^{F}(\mathcal M)/u\,\Rees^{F}(\mathcal M)\cong\gr^{F}\mathcal M$.  Now
+Theorem~\ref{thm:gabber-II} applied to $(T,\mathbb M)$ says that
+$\Supp(\gr^{F}\mathcal M)\subseteq\Spec\gr^{\Gamma}A$ is involutive; in other words, the
+characteristic variety of $\mathcal M$ is involutive.  Lemma~\ref{lem:poisson} then identifies this
+bracket with the intrinsic one on $\gr^{\Gamma}A$, completing the deduction of
+Theorem~\ref{thm:gabber-I} from Theorem~\ref{thm:gabber-II}.
+
+\begin{lemma}[Lemma~6.10]\label{lem:rees}
+For $\overline T=\gr^{\Gamma}A$ and
+\[
+  T=\frac{\Rees(A)}{u^2\Rees(A)}
+\]
+(the $\mathbb E$-algebra that appeared above), the induced bracket coincides with the intrinsic
+bracket defined earlier on $\gr^{\Gamma}A$.
+\end{lemma}
+\begin{proof}
+Take $a,b\in\Rees(A)$ representing homogeneous elements of $\gr^{\Gamma}A$. In $T$ we have
+$ab-ba=u\,c$ for some $c\in\Rees(A)$ whose reduction modulo $u$ is precisely the commutator of the
+principal symbols $\sigma(a),\sigma(b)$. Hence the definition of $\{\,,\,\}$ coming from the Gabber
+construction agrees with the usual Poisson bracket on $\gr^{\Gamma}A$.
+\end{proof}
+
+\subsection*{Proof of Theorem~\ref{thm:gabber-II}}
+Write
+$\displaystyle I=
+ad\Ann_{\overline T}(\overline{\mathcal M})=
+\bigcap_{\text{min. }\mathfrak p_i} \mathfrak p_i$. Since $\{I,I\}\subseteq I$ iff
+$\{\mathfrak p_i,\mathfrak p_i\}\subseteq \mathfrak p_i$ for every minimal prime, we fix one such $\mathfrak p$ and work locally.
+\begin{lemma}[Lemma~6.11]\label{lem:noether}
+Let $R$ be a finite type $k$-algebra of dimension $\ell+d$ and $\mathfrak p\subset R$ a prime of codimension
+$\ell$. There exist algebraically independent elements $x_1,\dots,x_\ell,y_1,\dots,y_d\in R$ such that
+\begin{enumerate}
+  \item $R$ is finite over $k[x_1,\dots,x_\ell,y_1,\dots,y_d]$.
+  \item $\mathfrak p\cap k[x_1,\dots,x_\ell,y_1,\dots,y_d]=(x_1,\dots,x_\ell)$.
+  \item There exists $0\ne f\in k[y_1,\dots,y_d]$ for which $(R/\mathfrak p)_f$ is free over $k[y_1,\dots,y_d]_f$.
+\end{enumerate}
+\noindent
+This is a version of the Noether Normalization Theorem (see, for instance, Eisenbud,
+\emph{Commutative Algebra with a View Toward Algebraic Geometry}).
+\end{lemma}
+
+Choose a minimal prime $\mathfrak p=\mathfrak p_j$ of $\overline T$ containing $\Ann_{\overline T}(\overline{\mathcal M})$
+and write $d=\dim \mathfrak p$. Because $\rad\Ann_{\overline T}(\overline{\mathcal M})=\bigcap_i \mathfrak p_i$, we may
+replace $\overline{\mathcal M}$ by an isomorphic module and assume
+\[
+  \rad\Ann_{\overline T}(\overline{\mathcal M})
+    = \mathfrak p \cap \Bigl(\bigcap_{i\ne j} \mathfrak p_i\Bigr).
+\]
+Choose $\bar f\in\bigcap_{i\ne j}\mathfrak p_i\smallsetminus \mathfrak p$. Localizing at $\bar f$ removes all
+minimal primes except $\mathfrak p$, so $(\overline{\mathcal M})_{\bar f}$ is killed by some power
+$\mathfrak p_{\bar f}^\ell$.
+
+Apply Lemma~\ref{lem:noether} to the finite-type algebra $R=\overline T_{\bar f}$. We obtain algebraically
+independent elements $\bar t_1,\dots,\bar t_d\in\overline T_{\bar f}$ and some $h\in\C[\bar t_1,\dots,\bar t_d]$
+such that both $\overline T_{\bar f}$ and $(\overline T_{\bar f}/\mathfrak p_{\bar f})_h$ are finite and free over
+$S_h:=\C[\bar t_1,\dots,\bar t_d]_h$. Replacing $\bar f$ by $\bar f h$ if necessary (and keeping the notation $\bar f$
+for the product) ensures that all of these properties hold on the same localization.  Fix a lift
+$f\in T$ of $\bar f$.  With this choice $\mathfrak p_{\bar f}^\ell\overline{\mathcal M}_{\bar f}=0$ for some $\ell>0$, and each successive
+quotient
+\[
+  \mathfrak p_{\bar f}^i\overline{\mathcal M}_{\bar f} / \mathfrak p_{\bar f}^{i+1}\overline{\mathcal M}_{\bar f}
+\]
+is a free $S_h$-module.  For later use, fix $S_h$-bases
+$\{\overline m_{i,j}\}$ for these quotients such that
+\[
+  \mathfrak p_{\bar f}^i\overline m_{i,j_{1}}
+    \subseteq \sum_{i>j_{1}}\sum_{j} S_h\,\overline m_{i,j}
+\]
+
+\noindent and relable them gives 
+\[
+  \underbrace{\overline m_{k_0},\dots,\overline m_{k_1-1}}_{\text{basis of }\overline{\mathcal M}_{\bar f}},
+  \underbrace{\overline m_{k_1},\dots,\overline m_{k_2-1}}_{\text{basis of }\mathfrak p_{\bar f}\overline{\mathcal M}_{\bar f}/\mathfrak p_{\bar f}^2\overline{\mathcal M}_{\bar f}},
+  \ldots,
+  \underbrace{\overline m_{k_{\ell-1}},\dots,\overline m_{k_\ell-1}}_{\text{basis of }\mathfrak p_{\bar f}^{\ell-1}\overline{\mathcal M}_{\bar f}/\mathfrak p_{\bar f}^\ell\overline{\mathcal M}_{\bar f}}.
+\]
+These groups give sets of generators, not a single basis of $\mathcal M_f$, but the filtration is
+compatible with them.
+
+for all $i$, since each successive quotient is free on the corresponding block. Because $f^\ell$
+annihilates the torsion, each $\mathfrak p^i\mathcal M_f$ is generated
+by its block $\{m_{i,j}\}$, and every $m\in\mathcal M_f$ admits an expression
+$m=\sum_{i,j} s_{i,j} m_{i,j}$ with $s_{i,j}\in S_h$; the coefficients inside each block are uniquely
+determined.
+
+\begin{lemma}[Lemma~6.12]\label{lem:matrix}
+Let $a,b\in T$ have images $\bar a,\bar b\in \mathfrak p$. Then there exist integers
+$n_1,n_2,n_3\ge0$ and elements $e_{ij}\in T$ with $\overline{e_{ij}} \in S$ such that
+\begin{enumerate}
+  \item $f^{n_1}[f^{n_2}a,f^{n_3}b] m_i = u\sum_j e_{ij} m_j$ for every $i$, and
+  \item $\sum_j \overline{e_{ij}} = 0$ for every $i$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+If $k_{j_1} \le i < k_{j_1+1}$ for some $j_1$, then we have
+\[
+    f^{n_2} a m_i = \sum_{j \ge k_{j_1+1}} u_{ij} m_j + u \sum_j \alpha_{ij} m_j
+\]
+\[
+    \bar{u}_{ij}, \bar{\alpha}_{ij} \in S
+\]
+Similarly,
+\[
+    f^{n_3} b m_i = \sum_{j \ge k_{j_1+1}} v_{ij} m_j + u \sum_j \beta_{ij} m_j
+\]
+\[
+    \bar{v}_{ij}, \bar{\beta}_{ij} \in S
+\]
+Then
+\begin{align*}
+    f^{n_2} a f^{n_3} b m_i 
+    &= \sum_{j \ge k_{j_1+1}} \left( v_{ij} f^{n_2} a + [f^{n_2}a, v_{ij}] \right) m_j \\
+    &\quad + u \sum_j \beta_{ij} f^{n_2} a m_j \\
+    &\quad (\text{since } u^2=0)
+\end{align*}
+
+\noindent Take $U = [u_{ij}]$, $V = [v_{ij}]$, $\alpha = [\alpha_{ij}]$, $\beta = [\beta_{ij}]$.
+
+\begin{align*}
+    f^{n_2} a f^{n_3} b m_i 
+    &= \sum_{j \ge k_{j_1+1}} \left( (VU)_{ij} + [f^{n_2}a, v_{ij}] \right) m_j \\
+    &\quad + u \sum_j \left( (V \cdot \alpha)_{ij} + (\beta \cdot U)_{ij} \right) m_j
+\end{align*}
+
+\noindent Similarly,
+\begin{align*}
+    f^{n_3} b f^{n_2} a m_i 
+    &= \sum_{j \ge k_{j_1+1}} \left( (UV)_{ij} + [f^{n_3}b, u_{ij}] \right) m_j \\
+    &\quad + u \sum_j \left( (U \cdot \beta)_{ij} + (\alpha \cdot V)_{ij} \right) m_j
+\end{align*}
+
+\noindent Therefore,
+\[
+    [f^{n_2}a, f^{n_3}b] m_i = \sum_{j \ge k_{j_1+1}} c_{ij} m_j + u \sum_j \gamma_{ij} m_j
+\]
+where
+\[
+    c_{ij} = [V, U]_{ij} + [f^{n_2}a, v_{ij}] - [f^{n_3}b, u_{ij}]
+\]
+and
+\[
+    [\gamma_{ij}] = [V, \alpha] + [\beta, U]
+\]
+\noindent On the other hand, since $\overline{T}$ is commutative
+\[
+    [f^{n_2}a, f^{n_3}b] = u \cdot c \quad \text{for some } c \in T
+\]
+
+\[
+    \begin{aligned}
+        \implies [f^{n_2}a, f^{n_3}b] m_i &= u \cdot c m_i \\
+        &= \sum_j d'_{ij} m_j, \quad d'_{ij} \in S_f
+    \end{aligned}
+\]
+\noindent (Here we use the $E$-flatness of $\mathcal{M}$)
+
+\noindent Canceling the denominators of $d'_{ij}$, we set
+\[
+    f^{n_1} [f^{n_2}a, f^{n_3}b] m_i = u \cdot \sum_j e_{ij} m_j, \quad \bar{e}_{ij} \in S
+\]
+So
+\[
+    f^{n_1} \cdot [c_{ij}] + u f^{n_1} [\gamma_{ij}] = u [e_{ij}]
+\]
+But $[c_{ij}]$ is traceless b/c it is a sum of a commutator and a strict upper triangular matrix.
+\\
+$[\gamma_{ij}]$ is also traceless similarly.
+\\
+So $[\bar{e}_{ij}]$ is traceless.
+\end{proof}
+
+\noindent Now we go back to prove $\{\frak{p}, \frak{p}\} \subseteq \frak{p}$.
+\\
+We know
+$  f^{n_1} [f^{n_2}a, f^{n_3}b] = c $
+\begin{align*}
+    c &= f^{n_1} f^{n_2} a f^{n_3} b - f^{n_1} f^{n_3} b f^{n_2} a \\
+    &= f^{n_1+n_2+n_3} ab + f^{n_1+n_2} [a, f^{n_3}] b \\
+    &\quad - f^{n_1+n_2+n_3} ba - f^{n_1+n_3} [b, f^{n_2}] a \\
+    &= f^{n_1+n_2+n_3} [a, b] + f^{n_1+n_2} [a, f^{n_3}] b - f^{n_1+n_3} [b, f^{n_2}] a
+\end{align*}
+\[
+    \implies \overline{c} \in f^{n_1+n_2+n_3} \{a, b\} + \frak{p}.
+\]
+
+\noindent By Lemma~\ref{lem:matrix}, $\text{the trace of } \overline{c} \text{ on } \overline{\mathcal{M}}_f = \sum_i \bar{e}_{ii} = 0$
+Since $\frak{p} \cdot \overline{\mathcal{M}}_f = 0$, so its trace is also 0.
+\\
+So the trace of $\{a, b\}$ on $\overline{\mathcal{M}}_f$ is also 0
+\\
+(since $f \notin \frak{p}$).
+
+\noindent Then $\forall x \in \overline{T}_f$, $\{xa, b\} = x\{a, b\} + \{x, b\}a \in x\{a, b\} + \frak{p}_f$
+Similarly, we conclude
+\[
+    \text{the trace of } x\{a, b\} \text{ on } \overline{\mathcal{M}}_f \text{ is also } 0.
+\]
+
+\noindent Meanwhile, since $\overline{\mathcal{M}}_f$ is free over $B = \overline{T}_f / \frak{p}_f$ and $S_f \hookrightarrow B$ is a finite free extension, the trace of $y = x\{a, b\} \in \overline{T}_f$ on $\overline{\mathcal{M}}_f$ is
+\[
+    r \cdot (\text{the trace of } \bar{y} \text{ on } B),
+\]
+(For the properties of trace one can refer \cite[Theorem 7.8.5]{li2019algebraic})\\
+where $r$ is the rank of $\overline{\mathcal{M}}_f$ over $S_f$.
+
+\noindent Since finite extension is integral and we are over $\mathbb{C}$ (thus the corresponding field extension is separable), the trace form of $S_f \hookrightarrow B$ is non-degenerate.
+
+\noindent So
+\[
+    \bar{y} = 0 \in B \implies \{a, b\} \in \frak{p}. 
+\]
+
+This proves $\{\mathfrak p,\mathfrak p\}\subseteq \mathfrak p$, so $\mathfrak p$ (and thus $I$) is involutive.  The proof of
+Theorem~\ref{thm:gabber-II}---and hence Theorem~\ref{thm:gabber-I}---is complete.$\qed$
+
+

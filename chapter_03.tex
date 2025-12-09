@@ -1,0 +1,290 @@
+\section{Characteristic Varieties and Cycles of $\D_X$-modules}
+Let $X=\Spec R$ be smooth affine with algebraic coordinates $(x_1,\dots,x_n)$.
+Define an \textbf{order function} on $\D_X$ by
+\[
+  \ord(f)=0\ (f\in R), \qquad \ord(v)=1\ (v\in \T_X),
+\]
+and for a differential operator $P=\sum_{\underline{\alpha}} f_{\underline{\alpha}}\,\partial^{\underline{\alpha}}$ set
+\[
+  \ord(P)=\max\{\,|\underline{\alpha}|\mid f_{\underline{\alpha}}\ne 0\,\},\qquad |\underline{\alpha}|=\alpha_1+\cdots+\alpha_n.
+\]
+This gives an increasing $\mathbb Z_{\ge0}$-filtration $F_p\D_X:=\{\,P\in\D_X\mid \ord(P)\le p\,\}$.
+
+\begin{remark}\label{rmk:order-filtration-is-well-defined}
+  One should verify that this filtration is well-defined, i.e., independent of the choice of algebraic coordinates.
+  This can be achieved by considering an equivalent definition found in \cite[Definition 3.1.]{chen2024dmodules}, \cite[Definition 2.2.]{mustata2023dmodules}, and \cite[Exercise 1.1.4.]{hotta2008d}. 
+  By showing that these definitions are equivalent, it follows that our definition of the order filtration is coordinate-independent.
+\end{remark}
+
+
+
+\begin{lemma}\label{lem:grDx}
+There are natural isomorphisms of $R$-algebras
+\[
+  \gr \D_X \cong R[\xi_1,\dots,\xi_n] \cong \Sym\,\T_X.
+\]
+Consequently, $\Spec(\gr_\bullet \D_X)\simeq T^{\ast}X$.
+\end{lemma}
+\begin{proof}
+For a coordinate-free proof, see \cite[Theorem 5.2 (PBW for $\D_X$)]{chen2024dmodules}. We prove this using a local coordinate system $x_1, \dots, x_n$ with derivations $\partial_1, \dots, \partial_n$.
+
+Consider the homomorphism of graded $R$-algebras:
+\[
+    \varphi: R[\xi_1, \dots, \xi_n] \longrightarrow \gr \D_X
+\]
+defined by mapping variables $\xi_i \mapsto \sigma_1(\partial_i) = \partial_i \pmod{F_0 \D_X}$.
+
+Here $\sigma_i: F_i D_X \longrightarrow \frac{F_i D_X}{F_{i-1} D_X}$ denotes the principal symbol of the order-$i$ differential operator.
+
+\textbf{Surjectivity:} Since $\gr \D_X$ is generated as an $R$-algebra by the classes of order-1 operators $\sigma_1(\partial_1), \dots, \sigma_1(\partial_n)$, the map $\varphi$ is surjective.
+(Since $D_X$ is generated as an $\mathbb{C}$-algebra by $R, \partial_1, \dots, \partial_n$).
+
+\textbf{Injectivity:} Since $\varphi$ is a graded homomorphism, it suffices to verify injectivity for homogeneous elements.
+Let $f(\xi) \in R[\xi_1, \dots, \xi_n]$ be a non-zero homogeneous polynomial of degree $m$. We can write it as:
+\[
+    f(\xi) = \sum_{|\alpha|=m} a_\alpha(x) \xi^\alpha, \quad \text{with coefficients } a_\alpha(x) \in R.
+\]
+Let $P \in F_m \D_X$ be the differential operator obtained by replacing $\xi^\alpha$ with $\partial^\alpha$:
+\[
+    P = \sum_{|\alpha|=m} a_\alpha(x) \partial^\alpha.
+\]
+By definition, $\varphi(f)$ is the principal symbol $\sigma_m(P) \in F_m \D_X / F_{m-1} \D_X$.
+Since by Remark~\ref{rmk:order-filtration-is-well-defined}, the order filtration is well-defined, we have $\ord(P) = m$, so $P\not\in F_{m-1} \D_X$.
+Therefore, its class $\sigma_m(P) \neq 0$ in $\gr \D_X$. This proves $\varphi$ is injective.
+
+The second isomorphism $\gr_\bullet \D_X \cong \Sym^{\bullet} \T_X$ follows from the coordinate-free identification of the principal symbol with tangent vectors ($\sigma_1(\partial) \leftrightarrow \partial \in \Der(R)$) and the universal property of symmetric $R$-algebras. Taking spectra yields $\Spec(\gr \D_X) \simeq T^* X$.
+\end{proof}
+
+\begin{corollary}\label{cor:Dx-noeth}
+$\D_X$ is Noetherian.
+\end{corollary}
+\begin{proof}
+Use Lemma~\ref{lem:grDx} and Proposition~\ref{prop:noeth}.
+\end{proof}
+
+Let $M$ be a finitely generated $\D_X$-module.
+
+\begin{lemma}\label{lem:gr-class-independent}
+If $F_\bullet M$ and $G_\bullet M$ are two good filtrations on $M$, then
+\[
+  [\,\gr^{F}_\bullet M\,] = [\,\gr^{G}_\bullet M\,] \quad \text{in } K_0(\gr_\bullet\D_X).
+\]
+\end{lemma}
+\begin{proof}
+By Corollary~\ref{cor:compare-good-filtrations} there exists $a\ge0$ such that
+$G_{p-a}M\subseteq F_pM\subseteq G_{p+a}M$ for all $p$. We first consider the adjacent
+case: suppose $F_{p-1}M\subseteq G_{p-1}M\subseteq F_pM\subseteq G_pM$ for all
+$p$. Then we have short exact sequences
+\[
+  0\to G_{p-1}M/F_{p-1}M\to F_pM/F_{p-1}M\to F_pM/G_{p-1}M\to 0,
+\]
+\[
+  0\to F_pM/G_{p-1}M\to G_pM/G_{p-1}M\to G_pM/F_pM\to 0.
+\]
+Taking classes in $K_0(\gr_\bullet \D_X)$ and summing over $p$ yields
+$[\,\gr^{F}_\bullet M]=[\,\gr^{G}M]$. 
+
+\noindent In general, $\forall k \in \mathbb Z$ set
+\[
+    F^{(k)}_i M = F_i M + G_{i+k} M \quad \forall i
+\]
+Then
+\[
+    \begin{cases}
+        F^{(k)}_\bullet = F_\bullet \quad k \ll 0 \\
+        F^{(k)}_\bullet = G_{\bullet + k} \quad k \gg 0 \\
+        F^{(k)}_\bullet \text{ and } F^{(k+1)}_\bullet \text{ are adjacent}.
+    \end{cases}
+\]
+
+\vspace{1em} % 增加一点垂直间距
+
+\noindent By induction, we have
+\[
+    [\operatorname{gr}^F_\bullet M] = [\operatorname{gr}^G_{\bullet+k} M] = [\operatorname{gr}^G_\bullet M].
+\]
+\end{proof}
+
+\paragraph{Characteristic cycle and variety.}
+Given a finitely generated $\D_X$-module $M$ with a good filtration $F_\bullet M$,
+the associated graded $\gr^{F}_\bullet M$ is a finitely generated module over
+$\gr_\bullet \D_X\cong R[\xi_1,\dots,\xi_n]$. Its support is a closed subset of
+$T^{\ast}X\simeq\Spec(\gr_\bullet \D_X)$. \\
+Let {\it $\mathfrak p$} be the minimal primes in
+$\operatorname{Supp}(\gr^{F}_\bullet M)$. Define the \textbf{multiplicity} $\ell(\mathfrak p)$ to be the length of
+the localization $(\gr^{F}_\bullet M)_{\mathfrak p}$ as a module over $(\gr_\bullet \D_X)_{\mathfrak p}$. The
+\textbf{characteristic cycle}
+and \textbf{characteristic variety}
+of $M$ are
+\begin{align*}
+  \mathrm{CC}(M) &:= \sum_{\substack{\mathfrak p\in\operatorname{Supp}(\gr^{F}_\bullet M)\\ \text{minimal}}}
+  \ell(\mathfrak p)\,\overline{\{\mathfrak p\}}, \\
+  \mathrm{Ch}(M) &:= \operatorname{Supp}\,\mathrm{CC}(M)
+  = \bigcup_{\mathfrak p\,\text{minimal in }\operatorname{Supp}(\gr^{F}_\bullet M)} \overline{\{\mathfrak p\}}
+  \subseteq T^{\ast}X.
+\end{align*}
+
+By Lemma~\ref{lem:gr-class-independent}, $\mathrm{CC}(M)$ and $\mathrm{Ch}(M)$ do not depend on the
+choice of good filtration.
+
+\section{Early properties of characteristic varieties}
+Last week we constructed characteristic varieties/cycles of $\D_X$-modules. We now discuss their
+basic properties. Throughout this section:
+\begin{itemize}
+  \item $X$ is a smooth affine variety over $\C$ with algebraic coordinates $(x_1,\dots,x_n)$,
+  \item $\D_X$ denotes the algebraic differential operators on $X$,
+  \item filtrations $F_\bullet$ are increasing and indexed by $\Z$.
+\end{itemize}
+
+\begin{proposition}\label{prop:charvar-union}
+Let $0\to \mathcal M_1\to \mathcal M\to \mathcal M_2\to 0$ be a short exact sequence of finitely
+generated $\D_X$-modules. Then $\Ch(\mathcal M)=\Ch(\mathcal M_1)\cup \Ch(\mathcal M_2)$.
+\end{proposition}
+\begin{proof}
+Take a good filtration $F_\bullet\mathcal M$ and define $F_\bullet\mathcal M_1:=F_\bullet\mathcal M
+\cap \mathcal M_1$ and $F_\bullet\mathcal M_2:=F_\bullet\mathcal M/F_\bullet\mathcal M_1$. These
+are good filtrations on $\mathcal M_1$ and $\mathcal M_2$. Passing to the associated graded gives a
+short exact sequence 
+\[
+ 0\to \gr \mathcal M_1\to \gr \mathcal M\to \gr \mathcal M_2\to 0,
+\]
+hence
+$\Supp(\gr \mathcal M)=\Supp(\gr \mathcal M_1)\cup \Supp(\gr \mathcal M_2)$, which implies the
+claim.
+\end{proof}
+
+Before moving on we recall some terminology. Let $N$ be a finitely generated $R$-module. We say that
+$N$ is \textbf{locally free} if $N_{\mathfrak p}$ is free over $R_{\mathfrak p}$ for every
+$\mathfrak p\in\Spec R$ (equivalently $N_{\mathfrak m}$ is free over $R_{\mathfrak m}$ for every
+maximal $\mathfrak m$). Given a $\D_X$-module $\mathcal M$, we call it an \textbf{integrable
+connection} if $\mathcal M$ is locally free as an $R$-module.
+
+\begin{remark}
+  One should note that $R_{\mathfrak{p}}$ is a further localization of $R_{\mathfrak{m}}$ for some maximal ideal $\mathfrak{m}$ containing $\mathfrak{p}$, i.e.
+  $R_{\mathfrak{p}} = (R_{\mathfrak{m}})_{\mathfrak{p}R_{\mathfrak{m}}}$.
+\end{remark}
+
+\begin{proposition}\label{prop:integrable-connection-characterizations}
+    Let $\mathcal{M}$ be a finitely generated $\D_X$-module. The following are equivalent:
+    \begin{enumerate}
+        \item $\mathcal{M}$ is an integrable connection.
+        \item $\mathcal{M}$ is finitely generated over $R$.
+        \item $\Ch(\mathcal{M}) = T_X^* X$, the zero section in $T^* X$.
+    \end{enumerate}
+\end{proposition}
+
+
+\begin{proof}
+    \textbf{(1) $\implies$ (2):} is obvious.
+
+    \textbf{(2) $\implies$ (1):} Fix an arbitrary maximal ideal $\mathfrak{m} \subseteq R$.
+    By changing algebraic coordinates, we can assume $\mathfrak{m} = (x_1, \dots, x_n)$.
+
+    $M_{\mathfrak{m}}$ is a $\mathcal{D}_{X,\mathfrak{m}}$-module, where $\mathcal{D}_{X,\mathfrak{m}} = R_{\mathfrak{m}}\langle \partial_{x_1}, \dots, \partial_{x_n} \rangle$.
+
+    By Nakayama's Lemma, there exist $s_1, \dots, s_{\ell} \in M_{\mathfrak{m}}$ such that
+    \[
+        M_{\mathfrak{m}} = \sum_{i=1}^{\ell} R_{\mathfrak{m}} \cdot s_i
+    \]
+    and
+    \[
+        M_{\mathfrak{m}} \otimes R_{\mathfrak{m}}/\mathfrak{m} = \bigoplus_{i=1}^{\ell} \overline{s_i} \cdot R_{\mathfrak{m}}/\mathfrak{m}.
+    \]
+
+    If $M_{\mathfrak{m}}$ is not free, then we have a non-trivial relation:
+    \[
+        \sum f_i s_i = 0, \quad f_i \in R_{\mathfrak{m}}.
+    \]
+    Since $\overline{s_i}$ are free generators, we must have $f_i \in \mathfrak{m}$ for all $i$.
+
+    Define the order of vanishing:
+    \[
+        d(f_i) = \max \{ k \mid f_i \in \mathfrak{m}^k \}
+    \]
+    \[
+        d(f_1, \dots, f_{\ell}) = \min_{i} \{ d(f_i) \} \ge 1.
+    \]
+
+    For some $j$, apply the derivation $\partial_{x_j}$:
+    \[
+        \partial_{x_j} \left( \sum f_i s_i \right) = \sum \partial_{x_j}(f_i) s_i + \sum f_i \partial_{x_j}(s_i) = \sum g_i s_i = 0.
+    \]
+    One can see that $d(g_1, \dots, g_{\ell}) < d(f_1, \dots, f_{\ell})$.
+
+    If $d(g_1, \dots, g_{\ell}) \ge 1$, we take $\partial_{x_j}(\sum g_i s_i)$ again.
+    Finally, by repeating this process, we get:
+    \[
+        \sum h_i s_i = 0 \quad \text{s.t. } d(h_1, \dots, h_{\ell}) = 0.
+    \]
+    So $h_i \notin \mathfrak{m}$ for some $i$.
+    This implies $\sum \overline{h_i} \overline{s_i} = 0$ with some $\overline{h_i} \neq 0$, contradicting the assumption that $\overline{s_i}$ are free generators.
+
+    Therefore, $M_{\mathfrak{m}}$ is free for any maximal ideal $\mathfrak{m}$, which implies $M$ is a locally free $R$-module (an integrable connection).
+    So $(1) \iff (2)$.
+
+    \textbf{(1) $\implies$ (3)} is known (marked as Homework). \\
+
+    \textbf{(3) $\implies$ (1)}.
+    
+    Take a good filtration $F_{\bullet}M$ on $M$.
+    Recall that $\operatorname{ch}(M) = \operatorname{supp}(\operatorname{gr}_\bullet M) = V(\operatorname{Ann}(\operatorname{gr}_\bullet M))$.
+    Given condition (3), $\operatorname{ch}(M) = T^*_X X$ (the zero section), which implies the support is defined by the ideal generated by $\xi_1, \dots, \xi_n$.
+
+    By Hilbert's Nullstellensatz:
+    \[
+        \operatorname{rad}(\operatorname{Ann}(\operatorname{gr}_\bullet M)) = \sqrt{\operatorname{Ann}(\operatorname{gr}_\bullet M)} = I := (\xi_1, \dots, \xi_n) \subseteq R[\xi_1, \dots, \xi_n].
+    \]
+    
+    This implies that for $m \gg 0$:
+    \[
+        I^m \subseteq \operatorname{Ann}(\operatorname{gr}_\bullet M).
+    \]
+    Meanwhile, the ideal power $I^m$ is generated by monomials of degree $m$:
+    \[
+        I^m = \{ \xi^\alpha \mid |\alpha| = \sum \alpha_i = m \}.
+    \]
+    The condition $I^m \cdot \operatorname{gr}_\bullet M = 0$ means that the principal symbols of order $m$ annihilate the graded module.
+    Translated to the filtration $F_{\bullet}M$, this implies:
+    \[
+        \text{if } |\alpha| = m, \text{ then } \partial^\alpha F_j M \subseteq F_{j+m-1} M \quad \forall j.
+    \]
+
+    Since we chose a good filtration, for $j \gg 0$, we have the property $F_{m+j} M = F_m \mathcal{D}_X \cdot F_j M$.
+    We can expand the action of $F_m \mathcal{D}_X$:
+    \begin{align*}
+        F_{m+j} M &= F_m \mathcal{D}_X \cdot F_j M \\
+        &= \sum_{|\alpha| \le m} R \cdot \partial^\alpha \cdot F_j M \\
+        &\subseteq F_{m+j-1} M.
+    \end{align*}
+
+    This chain of inclusions implies that the filtration stabilizes:
+    \[
+        \Rightarrow F_\ell M = F_{\ell+1} M = \dots \quad \forall \ell \gg 0.
+    \]
+    \[
+        \Rightarrow F_\ell M = M.
+    \]
+    Since each $F_\ell M$ is finitely generated over $R$ (by definition of good filtration), this implies $M$ is finitely generated over $R$ (i.e., $M$ is f.g. / $R$).
+    
+    This proves condition (2). Since we have already shown $(2) \iff (1)$, the proof is complete.
+\end{proof}
+
+\begin{remark}
+  To see why $d(g_1, \dots, g_{\ell}) < d(f_1, \dots, f_{\ell})$, note that
+  \[
+      g_i = \partial_{x_j}(f_i) + f_i \cdot (\text{some term}).
+  \]
+  Since $f_i \in \mathfrak{m}^{d(f_1, \dots, f_{\ell})}$, the term $f_i \cdot (\text{some term})$ is in $\mathfrak{m}^{d(f_1, \dots, f_{\ell})}$.
+  It suffices to analyze $\partial_{x_j}(f_i)$.\\
+  By the definition of order of vanishing, we can write:
+  \[
+      f_i = \sum_{|\beta| = d(f_1, \dots, f_{\ell})} c_\beta x^\beta \quad \text{for } c_\beta \in R_{\mathfrak{m}}
+  \]
+  with some $c_\beta \neq 0$.
+  Applying $\partial_{x_j}$ yields:
+  \[
+      \partial_{x_j}(f_i) = \sum_{|\beta| = d(f_1, \dots, f_{\ell})} c_\beta \beta_j x^{\beta - e_j} + \text{terms in } \mathfrak{m}^{d(f_1, \dots, f_{\ell})},
+  \]
+  where $e_j$ is the standard basis vector with $1$ in the $j$-th position.
+  Since at least one $\beta \neq 0$, we have $\partial_{x_j}(f_i) \notin \mathfrak{m}^{d(f_1, \dots, f_{\ell})}$ for some $x_j$.
+\end{remark}

@@ -1,0 +1,24 @@
+# LaTeX 忽略文件
+*.aux
+*.bbl
+*.blg
+*.idx
+*.ind
+*.lof
+*.lot
+*.out
+*.toc
+*.acn
+*.acr
+*.alg
+*.glg
+*.glo
+*.gls
+*.ist
+*.fls
+*.log
+*.fdb_latexmk
+*.synctex.gz
+*.pdf
+# 注意：通常建议忽略 pdf，让每个人自己编译，或者用我后面说的 Action 自动生成。
+# 但如果你非要上传 PDF，把上面那行 *.pdf 删掉。

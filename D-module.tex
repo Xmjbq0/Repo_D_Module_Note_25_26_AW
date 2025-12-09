@@ -1,0 +1,107 @@
+\documentclass{book}
+\usepackage{amsmath, amsthm, amssymb}
+\usepackage{hyperref}
+\usepackage{geometry}
+\usepackage{chngcntr}
+\usepackage{tikz-cd}
+\usepackage{pifont}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+\usepackage{url}
+\usepackage{xcolor} % 用于还原红色的 (***)
+\hypersetup{colorlinks=true, linkcolor=blue}
+\geometry{
+  a4paper,
+  left=20mm,
+  right=20mm,
+  top=25mm,
+  bottom=25mm,
+  bindingoffset=0mm
+}
+
+% 定义常用算子
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\rk}{rank}
+\DeclareMathOperator{\Img}{Im} % 像 Image
+\DeclareMathOperator{\Sym}{Sym}     % Sym 算子
+\providecommand{\C}{\mathbb{C}}
+\providecommand{\T}{\mathcal{T}}
+\providecommand{\A}{\mathbb{A}}
+\providecommand{\End}{\operatorname{End}}
+\providecommand{\D}{\mathcal{D}}
+\providecommand{\Hom}{\operatorname{Hom}}
+\providecommand{\Der}{\operatorname{Der}}
+\providecommand{\gr}{\operatorname{gr}}
+\providecommand{\ord}{\operatorname{ord}}
+\providecommand{\Mod}{\mathrm{Mod}}
+\providecommand{\Z}{\mathbb{Z}}
+\providecommand{\Supp}{\operatorname{Supp}}
+\providecommand{\Ch}{\operatorname{Ch}}
+\providecommand{\Ann}{\operatorname{Ann}}
+\providecommand{\rad}{\operatorname{rad}}
+\providecommand{\Poisson}{\mathrm{P}}
+\providecommand{\Rees}{\operatorname{R}}
+
+
+\newcommand{\uM}{\mathcal{M}}
+
+% 为了方便，定义一些快捷命令
+\newcommand{\Dx}{\mathcal{D}_X}
+\newcommand{\ox}{\omega_X}
+\newcommand{\op}{\mathrm{op}}
+\newcommand{\oxinv}{\omega_X^{-1}}
+\newcommand{\oxstar}{\omega_X^*}
+
+% 定义环境和命令
+\newcommand{\FilM}[1]{\Omega_{#1} M}
+\newcommand{\FilF}[1]{F_{#1} M}
+\newcommand{\FilA}[1]{\Gamma_{#1} A}
+
+\counterwithout{section}{chapter}
+\renewcommand{\thesection}{\arabic{section}}
+\numberwithin{equation}{section}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{note}[theorem]{Note}
+
+\title{D-modules}
+\begin{document}
+\maketitle
+\tableofcontents
+
+\chapter{Basics of D-modules on smooth affine algebraic varieties}
+\input{chapter_01.tex}
+\chapter{Filtered rings and modules}
+\input{chapter_02.tex}
+\chapter{Characteristic varieties$\&$cycles of D-modules}
+\input{chapter_03.tex}
+\chapter{Gabber’s Theorem: Involutivity of Characteristic varieties}
+\input{chapter_04.tex}
+\chapter{Some symplectic geometry of affine $T^{\ast}X$}
+\input{chapter_05.tex}
+\chapter{Holonomicity and regular holonomicity}
+\input{chapter_06.tex}
+\chapter{Auslander regularity and more on filtered rings$\&$modules}
+\input{chapter_07.tex}
+\chapter{Algebraic normal deformation and V-filtrations}
+\input{chapter_08.tex}
+\chapter{Bjork’s approach to existance of b-functions}
+\input{chapter_09.tex}
+\chapter{Application: Nearby cycles and comparison}
+\input{chapter_10.tex}
+
+\bibliographystyle{alphaurl}
+\bibliography{ref}
+
+\end{document}
