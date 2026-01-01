@@ -1,0 +1,72 @@
+\documentclass[12pt]{article}
+\usepackage[letterpaper,margin=1.01in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{mathrsfs}
+\usepackage{microtype}
+
+\title{Homework: week 3}
+\date{September 30, 2025}
+
+\begin{document}
+\maketitle
+
+$k$: a field of characteristic zero.
+
+\bigskip
+\noindent
+\textbf{Problem 1.} Let $(V,\sigma)$ be a finite dimensional symplectic $k$-vector space. Prove that
+$\dim_k V$ is even.
+
+\bigskip
+$X=\operatorname{Spec}R$: a smooth affine algebraic variety over $\mathbb{C}$ of finite type Set $S^\bullet := \operatorname{Sym}^\bullet \mathcal{T}_X$,
+the symmetric algebra of $\mathcal{T}_X$, the module of vector fields on $X$. For $f,g \in S^\bullet$, define
+\[
+\{f,g\}^G = H_f(g)
+\]
+where $H_f$ is the Hamiltonian vector field of $f$.
+
+\bigskip
+\noindent
+\textbf{Problem 2.} Prove that $(S^\bullet,\{,\}^G)$ is a Poisson algebra.
+
+\bigskip
+If $f \in R$ is a section, then $f$ can be seen as a function defined on all the closed points
+$p \in \operatorname{Spec}R$ by
+\[
+ f_p = \overline{f} \in R/m_p \simeq \mathbb{C}
+\]
+where $m_p \subset R$ is the maximal ideal of $p$.
+
+\bigskip
+\noindent
+\textbf{Problem 3.} Let $V \subseteq R$ be a closed subvariety (i.e. $I_V$, the ideal of $V$ is radical) and let
+$U \subseteq V$ be a zariski open subset containing the generic points of all the irreducible component
+of $V$. For $f \in R$, prove that if $f_p=0$ for every closed point $p \in U$, then $f \in I_V$.
+
+\bigskip
+\noindent
+This is a challenge problem!
+
+\bigskip
+\noindent
+\textbf{Problem 4.} Let $V \subseteq X$ be a smooth subvariety. We a vector field $v \in \mathcal{T}_X$ is tangent to $V$
+if $v_p := \overline{v} \in \mathcal{T}_{X,p}$ is also in $\mathcal{T}_{V,p}$ for every closed point $p \in V$. Prove that $v$ is tangent to $V$ if
+and only if $v(I_V) \subseteq I_V$, where $I_V$ is the ideal of $V$.
+
+\bigskip
+\noindent
+Hint: use the short exact sequence
+\[
+0 \to I_V/I_V^2 \to \Omega_X|_V \to \Omega_V \to 0
+\]
+and its dual.
+
+\bigskip
+\noindent
+\textbf{Problem V.} Let $V$ be an affine algebraic variety over $k$. Prove that its smooth locus
+$V^{sm} \subseteq V$ is a non-empty zariski open subset.
+
+\bigskip
+\noindent
+Hint: you can first assume $V$ irreducible.
+\end{document}

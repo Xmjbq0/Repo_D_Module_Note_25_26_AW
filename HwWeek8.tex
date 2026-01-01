@@ -1,0 +1,49 @@
+\documentclass[12pt]{article}
+\usepackage[letterpaper,margin=1.01in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{mathrsfs}
+\usepackage{microtype}
+
+\title{Homework: week 6}
+\date{November 6, 2025}
+
+\begin{document}
+\maketitle
+
+$X=\operatorname{Spec}R$: a smooth affine variety with coordinate $(x_1,\ldots,x_n)$
+
+\bigskip
+\noindent
+\textbf{Problem 1.} Prove that the global dimension of $\mathcal{D}_X$ is $2n$.
+
+\bigskip
+\noindent
+\textbf{Problem 2.} Calculate the $V$-filtrations of $\mathcal{M}_\alpha=\mathbb{C}[t,1/t]\cdot t^\alpha$ and
+$\operatorname{Ext}^1_{\mathcal{D}_X}(\mathcal{M}_{-1},\mathcal{D}_X)$ along $(t=0)$ for $\alpha\in \mathbb{C}$.
+
+\bigskip
+Let $Y\subseteq X$ be the subvariety defined by $x_1=0$.
+
+\bigskip
+\noindent
+\textbf{Problem 3.} Calculate the $V$-filtration of the $\mathcal{D}_X$-module $N=\overline{R}[\partial_{x_1}]$ along $Y$, where
+$\overline{R}=R/(x_1)$.
+
+\bigskip
+\noindent
+Hint: use Kashiwara's equivalence.
+
+\bigskip
+\noindent
+\textbf{Problem 4.} Let $W$ be a $\mathbb{C}$-vector space and let $\varphi$ be a $\mathbb{C}$-linear operator on $W$ admitting
+a minimal polynomial. Set
+\[
+W_\infty=\bigoplus_{k=0}^{\infty} W\otimes e_k
+\]
+and for some $\alpha\in \mathbb{C}$ define
+\[
+\varphi_\infty(w\otimes e_i)=(\varphi-\alpha)\cdot w\otimes e_i-w\otimes e_{i-1},\quad \forall w\in W
+\]
+with $e_{-1}=0$. Prove that $W_\alpha$ is isomorphic to $\ker(\varphi_\infty)$, where $W_\alpha$ is the generalized
+$\alpha$-eigenspace with respect to $\varphi$-operation.
+\end{document}

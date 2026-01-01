@@ -1,0 +1,45 @@
+\documentclass[12pt]{article}
+\usepackage[letterpaper,margin=1.01in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{mathrsfs}
+\usepackage{microtype}
+
+\title{Homework: week 4 and 5}
+\date{October 16, 2025}
+
+\begin{document}
+\maketitle
+
+$X=\operatorname{Spec}R$: a smooth affine algebraic variety over $\mathbb{C}$ of finite type with algebraic coor-\\
+dinates $(x_1,\ldots,x_n)$.
+
+\bigskip
+\noindent
+\textbf{Problem 1.} Let $M$ be an integrable connection on $X$. Then prove
+\[
+\mathrm{DR}(M) \stackrel{q.i.}{\simeq} H^0(\mathrm{DR}(M))
+\]
+and that $H^0(\mathrm{DR}(M))$ is a local system on $X^{\mathrm{an}}$, where $q.i.$ denotes quasi-isomorphism.
+
+\bigskip
+Let $i:X\hookrightarrow Y$ be a closed embedding such that $Y$ is also a smooth affine algebraic
+variety over $\mathbb{C}$ of finite type with algebraic coordinates $(x_1,\ldots,x_n,y_1,\ldots,y_l)$ and that $X$ is
+given by the ideal $(y_1,\ldots,y_l)$.
+
+Let $N$ be a finitely generated $D_Y$-module. Then we define
+\[
+ i^\sharp N = H^0(K(N;y_1,\ldots,y_l)),
+\]
+where $K(N;y_1,\ldots,y_l)$ is the Koszul complex of $N$ with respect to the operations $N \xrightarrow{y_i} N$
+for all $i=1,\ldots,l$.
+
+\bigskip
+\noindent
+\textbf{Problem 2.} If $N$ is supported on $N$, then prove that $H^i(K(N;y_1,\ldots,y_l))=0$ for every
+$i\ne 0$.
+
+\bigskip
+\noindent
+\textbf{Problem 3.} If $N$ is supported on $N$, then prove that $\mathrm{Ch}(N)=T_X^*Y$ iff $i^\sharp N$ is an integrable
+connection on $X$.
+\end{document}

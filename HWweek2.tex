@@ -1,0 +1,106 @@
+\documentclass[12pt]{article}
+\usepackage[letterpaper,margin=1.01in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{mathrsfs}
+\usepackage{microtype}
+
+\title{Homework: week 2}
+\date{October 7, 2025}
+
+\begin{document}
+\maketitle
+
+\bigskip
+$A$: a ring with unit (possibly not commutative) with a $\mathbb{Z}_{\ge 0}$-filtration $\Gamma_\bullet A$.
+
+$X=\operatorname{Spec}R$: a smooth affine algebraic variety over $\mathbb{C}$ of finite type
+
+\bigskip
+\noindent
+\textbf{Problem 1.} Let $M$ be a finitely generated $D_X$-module. Prove that if $F_\bullet M$ is a good
+filtration, then $F_p M$ is a finitely generated $R$-module for every $p$.
+
+\bigskip
+\noindent
+Hint: prove $F_p D_X$ finitely generated over $R$ first.
+
+\bigskip
+\noindent
+\textbf{Problem 2.} Let $M$ be a $D_X$-module with a compatible filtration $\Omega_\bullet M$ such that $\Omega_p M$ is
+finite generated over $R$ for every $p$. Then $\Omega_\bullet M$ is called a ``good'' filtration if there exists
+$n_0 \gg 0$ such that
+\[
+F_j D_X\cdot \Omega_i M = \Omega_{i+j} M \quad \forall j \ge 0,\, i \ge n_0.
+\]
+Prove that $\Omega_\bullet M$ is ``good'' iff $\operatorname{gr}^\Omega_\bullet M$ is finitely generated over $\operatorname{gr}^F_\bullet D_X$,
+i.e. ``good'' filtrations $\Longleftrightarrow$ good filtrations we defined previously.
+
+\bigskip
+\noindent
+\textbf{Problem 3.} For $x \in X$ a closed point, we use $m_x$ to denote its maximal ideal. Prove that
+we have canonical isomorphisms
+\[
+(m_x/m_x^2)^* := \operatorname{Hom}(m_x/m_x^2,\mathbb{C}) \simeq T_{X,x} := T_X \otimes_R R/m.
+\]
+and
+\[
+ m_x/m_x^2 \simeq \Omega_{X,x} := \Omega_X \otimes_R R/m.
+\]
+
+\bigskip
+\noindent
+Hint: use the natural map $d:R\to \Omega_X$ to induce a map $(m_x/m_x^2)^* \to T_{X,x} = \operatorname{Hom}_R(\Omega_X,R/m_x);$
+then prove both of them are surjective.
+
+\noindent
+$(m_x/m_x^2)^*$ is called the \emph{zariski tangent space} of $X$ at $x$.
+
+\bigskip
+\noindent
+\textbf{Problem 4.} Use problem 3 to prove that if $m \subset R$ is a maximal ideal, then we can find
+$x_1,\ldots,x_n \in m$ such that $m = (x_1,\ldots,x_n)$ and $(x_1,\ldots,x_n)$ is an algebraic coordinate system
+on $X$.
+
+\bigskip
+\noindent
+Hint: use Nakayama's Lemma.
+
+Assume that $\Gamma_\bullet A$ is a almost commutative ring, i.e. $\operatorname{gr}^\Gamma_\bullet A$ is a commutative ring. For
+$x \in \Gamma_k A$, $\sigma_k(x)$ is the image $x$ in $\Gamma_k A/\Gamma_{k-1}A$. For $x \in \Gamma_k A$, $y \in \Gamma_l A$, since $\operatorname{gr}_\bullet A$ is commutative,
+we define
+\[
+\{\sigma_k(x),\sigma_l(y)\} = \sigma_{k+l-1}(xy - yx).
+\]
+
+\bigskip
+\noindent
+\textbf{Problem 5.} Prove that $(\operatorname{gr}_\bullet A,\{\cdot,\cdot\})$ is a well-defined Poisson algebra.
+
+\bigskip
+Meanwhile, we have its Rees ring $R_\bullet(A) = \bigoplus_i \Gamma_i A\cdot u^i$. Define $T := \frac{R_\bullet(A)}{u^2\cdot R_\bullet(A)}$.
+
+\bigskip
+\noindent
+\textbf{Problem 6.} Prove that $T/u\cdot T \xrightarrow{u} u\cdot T$ is an isomorphism.
+
+\bigskip
+\noindent
+We have another Poisson bracket on $\overline{T} = T/u\cdot T \simeq \operatorname{gr}^\Gamma_\bullet A$ defined by for $a,b\in T$
+\[
+\{\overline{a},\overline{b}\} = \overline{c}
+\]
+such that $\overline{c} \in \overline{T}$ is given by $ab - ba \in u\cdot T$ by using the isomorphism in Problem 6.
+
+\bigskip
+\noindent
+\textbf{Problem 7.} Prove that the above two Poisson structure on $\operatorname{gr}_\bullet A$ are the same.
+
+\bigskip
+\noindent
+\textbf{Problem 8.} If $M$ is an integrable connection on $X$, then prove that $Ch(M)=T_X^*X$.
+
+\bigskip
+\noindent
+Hint: First, prove that there exists a finite open covering $X=\bigcup_i U_i$ with $U_i=\operatorname{Spec}R_{f_i}$ for
+some $f_i \in R$ such that $M_{f_i}$ is free over $R_{f_i}$.
+\end{document}
