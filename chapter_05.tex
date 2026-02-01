@@ -262,7 +262,7 @@ is isotropic (resp. Lagrangian, coisotropic) with respect to the symplectic form
 \end{definition}
 
 \begin{theorem}\label{thm:coisotropic-iff-involutive}
-Let $V\subseteq T^\ast X$ be a closed subvariety with ideal $I_V$.  The
+Let $V\subseteq T^\ast X$ be a non-empty closed subvariety with ideal $I_V$.  The
 following are equivalent:
 \begin{enumerate}
   \item $V$ is coisotropic.
@@ -314,8 +314,8 @@ We get $\forall p\in V, \{f, g\}_p = 0 \in \kappa(p) \text{ of } R = \mathbb{C} 
 As an immediate corollary we obtain the standard statement for characteristic
 varieties.
 
-\begin{theorem}
-Let $\mathcal M$ be a finitely generated $\D_X$-module.  Then its
+\begin{theorem}\label{thm:Bernstein-inequality}
+Let $\mathcal M$ be a non-zero finitely generated $\D_X$-module.  Then its
 characteristic variety $\Ch(\mathcal M)\subseteq T^\ast X$ is conic and
 coisotropic.  In particular $\dim \Ch(\mathcal M)\ge n$.
 \end{theorem}
@@ -359,22 +359,18 @@ Let $V=\Spec \overline S$ be as above.
         \]
         For an affine algebraic variety the smooth locus is a non-empty open
         subset (homework).
+        \begin{proof}
+            when $V$ is an irreducible variety, see \cite[Corollary 8.16.]{hartshorne1977algebraic}, or an arbitrary variety \cite[Chap.~4, Lem.~2.21. and Prop.~2.24.]{liu2002algebraic}
+        \end{proof}
   \item A closed subscheme $V\subseteq Y$ is a \textbf{smooth subscheme} if
         $V=V^{\mathrm{sm}}$.
 \end{enumerate}
 \end{definition}
 
 \begin{remark}[\textcolor{red}{Warning}]\label{rmk:smooth-locus}
-The standard name of Definition~\ref{def:smooth-locus} is the \textbf{regular locus}, rather than smooth locus.
+The standard name of Definition~\ref{def:smooth-locus} is the \textbf{regular locus} \cite[Section~4.2.2, Definition~2.8.]{liu2002algebraic}, rather than smooth locus (\cite[\href{https://stacks.math.columbia.edu/tag/01V5}{Tag 01V5}]{stacks-project} or \cite[Section~4.3.3, Definition~3.28, Exercise~3.20.]{liu2002algebraic}).
 
-One should refer to the warning in the begging of \cite[\href{https://stacks.math.columbia.edu/tag/00TQ}{Tag 00TQ}]{stacks-project}, only when the base field is \textbf{perfect}, a regular point is a smooth point. But since $\mathbb{C}$ is of characteristic $0$, it is perfect.
-
-And for the true definition of smooth locus, see \cite[\href{https://stacks.math.columbia.edu/tag/01V5}{Tag 01V5}]{stacks-project} or \cite[Chap.~4, Def.~3.28.]{liu2002algebraic}.
-
-For proof of the openness and non-emptiness of the regular locus when $V$ is an irreducible variety, see \cite[Corollary 8.16.]{hartshorne1977algebraic}, or an arbitrary variety \cite[Chap.~4, Lem.~2.21. and Prop.~2.24.]{liu2002algebraic}.
-
-See \cite[\href{https://stacks.math.columbia.edu/tag/00TS}{Tag 00TS}]{stacks-project} for the equivalent definitions of a \textbf{regular closed point},
-and \cite[\href{https://stacks.math.columbia.edu/tag/00TX}{Tag 00TX}, \href{https://stacks.math.columbia.edu/tag/00TT}{Tag 00TT}]{stacks-project} for the equivalent definitions of regular locus.
+One should refer to the warning in the begging of \cite[\href{https://stacks.math.columbia.edu/tag/00TQ}{Tag 00TQ}]{stacks-project}, and since $\mathbb{C}$ is of \textbf{characteristic $0$}, and it is \textbf{perfect}, so by \cite[\href{https://stacks.math.columbia.edu/tag/00TX}{Tag 00TX}]{stacks-project}, the definition in this lecture note satisfies the standard definition of smooth points.
 
 \end{remark}
 
@@ -395,6 +391,8 @@ In this case $I/I^2$ is locally free of rank $\operatorname{codim}_Y V$.
 \end{proposition}
 
 \begin{proof}
+(For a Stacks-Project like proof, see \cite[Thm.~4.18.]{Mihatsch2024EllipticCurvesModuli}.)
+
 Only need to prove the exactness of the sequence on the left. One can see \cite[Chap.~2, Thm.~8.17.]{hartshorne1977algebraic} for a proof or see below.\\
 
     Since the problem is local, we work with the local rings (stalks) at a fixed point $p \in V$.

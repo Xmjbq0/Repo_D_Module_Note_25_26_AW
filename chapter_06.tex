@@ -484,11 +484,11 @@ H^0(i^\dagger N) = H^{0}(K(N; y_{1}, \ldots, y_{l})) &\longmapsfrom N
         by using a flat resolution of $M^*$.
         \item We will also use the \textbf{shifted inverse image} functor
             $$
-            f^\dagger = Lf^*[\dim X - \dim Y] : D^b(\D_Y) \to D^b(\D_X).
+            f^\dagger := Lf^*[\dim X - \dim Y] : D^b(\D_Y) \to D^b(\D_X).
             $$
         \item We can define a \textbf{direct image} ($f_+$ or $\int_f$) functor
         $$
-        \int_f M^* = Rf_*(\D_{Y \leftarrow X} \otimes_{\D_X}^L M^*) \quad (M^* \in D^b(\D_X)),\quad \int_f^k M^* = H^k \left( \int_f M^* \right).
+        \int_f M^* := Rf_*(\D_{Y \leftarrow X} \otimes_{\D_X}^L M^*) \quad (M^* \in D^b(\D_X)),\quad \int_f^k M^* := H^k \left( \int_f M^* \right).
         $$
         \item \cite[Ex.~1.5.23.]{hotta2008d} For the special case, we have:
         $$
@@ -506,12 +506,11 @@ H^0(i^\dagger N) = H^{0}(K(N; y_{1}, \ldots, y_{l})) &\longmapsfrom N
     \item \cite[Equation~1.5.1.]{hotta2008d} The Koszul complex is a free (hence flat) $i^{-1}\mathcal{O}_Y$-module resolution of $\mathcal{O}_X$.
         But the Koszul complex is a different definition \cite[\href{https://stacks.math.columbia.edu/tag/0623}{Tag 0623}]{stacks-project}, which can also be constructed as mapping cone \cite[\href{https://stacks.math.columbia.edu/tag/0629}{Tag 0629}]{stacks-project}:
         \begin{align*}
-            &\left[ 0 \to K^\bullet(i^{-1}\mathcal{O}_Y; y_{r+1}, \dots, y_{n}) \to \mathcal{O}_X \to 0 \right] := \\
-            &\left[ 0 \to K_{n-r} \to \dots \to K_1 \to K_0 \to \mathcal{O}_X \to 0 \right]
+            \left[\, 0 \to K^\bullet(i^{-1}\mathcal{O}_Y; y_{r+1}, \dots, y_{n}) \to \mathcal{O}_X \to 0\, \right] := \left[\, 0 \to K_{n-r} \to \dots \to K_1 \to K_0 \to \mathcal{O}_X \to 0\, \right]
         \end{align*}
         where the terms are defined as:
         $$
-        K_j = \bigwedge^j \left( \bigoplus_{k=r+1}^n i^{-1}\mathcal{O}_Y \mathrm{d}y_k \right).
+        K_j = \bigwedge^j \left( \bigoplus_{k=r+1}^n i^{-1}\mathcal{O}_Y\, \mathrm{d}y_k \right).
         $$
         The differential $K_j \to K_{j-1}$ is given by:
         $$
@@ -525,37 +524,51 @@ H^0(i^\dagger N) = H^{0}(K(N; y_{1}, \ldots, y_{l})) &\longmapsfrom N
 \end{remark}
 
 \begin{proof}
-    \quad
+    By induction on co-dimension, it is enough to assume 
+    \[
+    \begin{aligned}
+        i: X &\longrightarrow Y \\
+        (x_{1},\dots,x_{n}) &\longmapsto (x_{1},\cdots,x_{n},0)
+    \end{aligned}
+    \]
+    i.e. $X$ is defined by $\langle y = 0 \rangle$ in $Y$.
 
-    By induction on co-dimension, it is enough to assume $$i: X \longrightarrow Y\atop (x_{1},\dots,x_{n}) \longrightarrow (x_{1},\cdots,x_{n},0)$$i.e. $X$ is defined by $\langle y = 0 \rangle$ in $Y$.
+	Here we have $i_{+}: M\mapsto M[\partial_{y}]$, and we want to define a quasi-inverse of $i_{+}$. To define $i_{+}^{\#}$, we shall study how $\partial_{y}$ acts on $N$. 
 
-	Here we have $i_{+}: M\mapsto M[\partial_{y}]$, and we want to define a quasi-inverse of $i_{+}$, to define $i_{+}$, we shall study that how $\partial_{y}$ acts on $N$. 
+	For $N \in \mathrm{Mod}^{X}(\mathcal{D}_{Y})$, consider the eigenvectors $N^{j} = \{ s \in N \mid y\partial_{y} \cdot s = j s \}$. We want to show that $N=\bigoplus\limits_{i=1}^{\infty}N^{-i}$. 
 
-	For $N \in \mathrm{Mod}^{X}(\mathcal{D}_{Y})$, consider the eigenvectors $N^{j} = \{ s \in N \mid y\partial_{y} \cdot s = j s \}$, want to show that $N=\bigoplus\limits_{i=1}^{\infty}N^{-i}$. 
-
-	Since we have the relation $[\partial_{y}, y] = \partial_{y}y -  y\partial_{y} = 1$, we can check that $y N^{j} \subseteq N^{j+1}$, $\partial_{y} N^{j} \subseteq N^{j-1}$. 
-    
-    And we have $y\partial_{y}: N^{j}\rightarrow N^{j}$ is isomorphism for all $j \neq 0$.
-    
-    $\partial_{y}y = y\partial_{y} + 1: N^{j}\rightarrow N^{j}$, $s\mapsto (j+1)s$ is isomorphism for all $j \neq -1$.
-    
-    So for $j\neq -1$ and $0$, especially for $j<-1$, we have $\partial_{y}:N^{j+1}\rightarrow N^{j}$ and $y:N^{j}\rightarrow N^{j+1}$ are both isomorphisms. 
+	Since we have the relation $[\partial_{y}, y] = \partial_{y}y -  y\partial_{y} = 1$:
+    \begin{itemize}
+        \item We can check that $y N^{j} \subseteq N^{j+1}$ and $\partial_{y} N^{j} \subseteq N^{j-1}$. 
+        \item We have $y\partial_{y}: N^{j}\rightarrow N^{j}$ is an isomorphism for all $j \neq 0$.
+        \item $\partial_{y}y = y\partial_{y} + 1: N^{j}\rightarrow N^{j}$, $s\mapsto (j+1)s$ is an isomorphism for all $j \neq -1$.
+        \item So for $j\neq -1$ and $0$, especially for $j<-1$, we have $\partial_{y}:N^{j+1}\rightarrow N^{j}$ and $y:N^{j}\rightarrow N^{j+1}$ are both isomorphisms. 
+    \end{itemize}
 
 	Now we show $N=\bigoplus\limits_{i=1}^{\infty}N^{-i}$. 
-	Since $N$ is supported on $X$, by Nullstellensatz, $\forall s\in N$ where $y^{k}\cdot s = 0$ for some $k\gg0$, i.e., $N = \bigcup\limits_{k\geq1} \ker(N\xrightarrow{y^{k}} N)$. 
+	Since $N$ is supported on $X$, by Nullstellensatz, $\forall s\in N$, $y^{k}\cdot s = 0$ for some $k\gg0$, i.e., $N = \bigcup\limits_{k\geq1} \ker(N\xrightarrow{y^{k}} N)$. 
 
 	Since $N^{-i}$ are eigenspaces, $\bigoplus\limits_{i=1}^{\infty }N^{-i}\subseteq N$, it suffices to prove that $N\subseteq \bigoplus\limits_{i=1}^{\infty }N^{-i}$. To show this, it's enough to prove that for all $k\ge 1$, we have $\ker(N\xrightarrow{y^{k}} N)\subseteq\bigoplus\limits_{i=1}^{k}N^{-i}$, and we do induction on $k$. 
 
-	For $k=1$, $s\in \mathrm{ker}(N\xrightarrow{y}N)$, so we have $ys=0$, then $\partial_{y}ys=(y\partial_{y}+1)s=0\implies y\partial_{y}=-1\cdot s \implies S\in N^{-1}$. 
+    \begin{description}
+        \item[Base case ($k=1$):] Let $s\in \mathrm{ker}(N\xrightarrow{y}N)$, so we have $ys=0$. Then 
+        \[
+            \partial_{y}ys=(y\partial_{y}+1)s=0 \implies y\partial_{y}=-1\cdot s \implies s\in N^{-1}.
+        \]
 
-	For $k>1$, now take $s\in \ker(N \xrightarrow{y^{k}}N)$, so we have $y^{k}s=y^{k-1} \cdot(ys)=0$, then $ys \in \ker(N \xrightarrow{y^{k-1}}N)$, which suggests $ys \in \bigoplus\limits_{i=1}^{k-1} N^{-i}$ by inductive hypothesis. 
-	Since we have $\partial_{y}: N^{j+1}\rightarrow N^{j}$ , we obtain $\partial_{y}ys \in \bigoplus\limits_{i=2}^{k} N^{-i}$, and $\partial_{y}ys=y\partial_{y}s+s$. 
+        \item[Inductive step ($k>1$):] Now take $s\in \ker(N \xrightarrow{y^{k}}N)$, so we have $y^{k}s=y^{k-1} \cdot(ys)=0$. Then $ys \in \ker(N \xrightarrow{y^{k-1}}N)$, which suggests $ys \in \bigoplus\limits_{i=1}^{k-1} N^{-i}$ by inductive hypothesis. 
+    	Since we have $\partial_{y}: N^{j+1}\rightarrow N^{j}$, we obtain $\partial_{y}ys \in \bigoplus\limits_{i=2}^{k} N^{-i}$, and $\partial_{y}ys=y\partial_{y}s+s$. 
 
-	On the other hand, we obtain  $\partial_{y}y^{k}s=y^{k}\partial_{y}s+ky^{k-1}s=y^{k-1}(y\partial_{y}s+ks)=0$, so  $y\partial_{y}s+ks\in \bigoplus\limits_{i=1}^{k-1} N^{-i}$ by inductive hypothesis. 
+    	On the other hand, we obtain  
+        \[
+            \partial_{y}y^{k}s=y^{k}\partial_{y}s+ky^{k-1}s=y^{k-1}(y\partial_{y}s+ks)=0,
+        \]
+        so $y\partial_{y}s+ks\in \bigoplus\limits_{i=1}^{k-1} N^{-i}$ by inductive hypothesis. 
 
-	Thus, $(k-1)s=(y\partial_{y}s+ks)-(y\partial_{y}s+s)\in \bigoplus_{j=1}^{k} N^{-i}$  implies that $s\in \bigoplus_{j=1}^{k} N^{-j}$. 
+    	Thus, $(k-1)s=(y\partial_{y}s+ks)-(y\partial_{y}s+s)\in \bigoplus_{j=1}^{k} N^{-i}$ implies that $s\in \bigoplus_{j=1}^{k} N^{-j}$. 
+    \end{description}
 
-	With above, we now obtain $N=\bigoplus\limits_{i=1}^{\infty}N^{-i}$ with $N^{-1}=\mathrm{ker}(N\xrightarrow{y}N)$, so we have $N\simeq N^{-1}[\partial_{y}]$, and then we define $i^{\#}N = \ker(N \xrightarrow{y} N)$ (the standard notation is $i^{\natural}$ \cite[Thm.~1.6.1.]{hotta2008d}), $i^{\#}$ is the quasi-inverse of $i_{+}$. 
+	With above, we now obtain $N=\bigoplus\limits_{i=1}^{\infty}N^{-i}$ with $N^{-1}=\mathrm{ker}(N\xrightarrow{y}N)$, so we have $N\simeq N^{-1}[\partial_{y}]$. Then we define $i^{\#}N = \ker(N \xrightarrow{y} N)$ (the standard notation is $i^{\natural}$ \cite[Thm.~1.6.1.]{hotta2008d}), $i^{\#}$ is the quasi-inverse of $i_{+}$. 
 
 	In general, $i^{\#}N = H^{0}(K(N; y_{1}, \ldots, y_{k}))$.
 \end{proof}

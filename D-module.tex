@@ -1,5 +1,6 @@
 \documentclass{book}
 \usepackage{amsmath, amsthm, amssymb}
+\usepackage{amscd}
 \usepackage{hyperref}
 \usepackage{geometry}
 \usepackage{chngcntr}
@@ -33,6 +34,7 @@
 % \providecommand{\O}{\mathcal{O}}
 \providecommand{\D}{\mathcal{D}}
 \providecommand{\Hom}{\operatorname{Hom}}
+\providecommand{\Ext}{\operatorname{Ext}}
 \providecommand{\Der}{\operatorname{Der}}
 \providecommand{\gr}{\operatorname{gr}}
 \providecommand{\ord}{\operatorname{ord}}
@@ -44,6 +46,9 @@
 \providecommand{\rad}{\operatorname{rad}}
 \providecommand{\Poisson}{\mathrm{P}}
 \providecommand{\Rees}{\operatorname{R}}
+\providecommand{\Diff}{\operatorname{Diff}}
+\providecommand{\Ker}{\operatorname{Ker}}
+\providecommand{\Tor}{\operatorname{Tor}}
 
 
 \newcommand{\uM}{\mathcal{M}}
@@ -74,19 +79,22 @@
 \renewcommand{\thesection}{\arabic{section}}
 \numberwithin{equation}{section}
 
+\newtheoremstyle{thmdot}{}{}{\itshape}{}{\bfseries}{.}{ }{}
+\newtheoremstyle{defdot}{}{}{\upshape}{}{\bfseries}{.}{ }{}
+
+\theoremstyle{thmdot}
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{corollary}[theorem]{Corollary}
 
-\theoremstyle{definition}
+\theoremstyle{defdot}
 \newtheorem{definition}[theorem]{Definition}
 \newtheorem{example}[theorem]{Example}
 \newtheorem{exercise}[theorem]{Exercise}
-
-\theoremstyle{remark}
 \newtheorem{remark}[theorem]{Remark}
 \newtheorem{note}[theorem]{Note}
+\newtheorem{notation}[theorem]{Notation}
 
 \title{D-modules}
 \begin{document}

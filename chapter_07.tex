@@ -1,77 +1,107 @@
 \section{Auslander regular ring}
-Let $A$ be a noetherian ring (not necessarily commutative), and $\text{Mod}_{f}(A)$, $\text{Mod}_{f}^{op}(A)$ the abelian category of left/right finitely generated $A$-module. For $M \in \text{Mod}_{f}(A)$, the $\textbf{projective dimension}$ of $M$ is $\mathrm{pd}(M) =$min of length of projective resolution. We say $A$ is $\textbf{of finite global dimension}$, if $\exists w \in \mathbb{Z}_{>0}$ s.t for all $M \in \text{Mod}_{f}(A)$, have $\mathrm{pd}(M) \le w$. We now assume that $A$ is of finite global dimension. Then $\text{RHom}(M,A) \in \mathbf{D}^{b}(\text{Mod}^{op}_{f}(A))$ the bounded derived category of $\mathrm{Mod}_{f}^{op}(A)$. 
+Let $A$ be a noetherian ring (not necessarily commutative), and $\mathrm{Mod}_{f}(A)$, $\mathrm{Mod}_{f}^{op}(A)$ the abelian category of left/right finitely generated $A$-module. 
+
+For $M \in \mathrm{Mod}_{f}(A)$, the $\textbf{projective dimension}$ of $M$ is 
+$$\mathrm{pd}(M) = \text{minimum of length of projective resolution.}$$
+
+We say $A$ is $\textbf{of finite global dimension}$, if $\exists w \in \mathbb{Z}_{>0}$ s.t for all $M \in \mathrm{Mod}_{f}(A)$, have $\mathrm{pd}(M) \le w$. 
+
+We now assume that $A$ is finite type over $k$ and of finite global dimension. Then $\mathrm{RHom}(M,A) \in \mathbf{D}^{b}(\mathrm{Mod}^{op}_{f}(A))$, the derived category of bounded complexes in $\mathrm{Mod}_{f}^{op}(A)$. 
 
 \begin{definition}
 \quad
     \begin{enumerate}
-        \item The $\textbf{grade number}$ $j(M) := \min\left\{k \mid \text{Ext}^{k}(M,A) \neq 0\right\}$, we sometimes denote it as  $j_{A}(M)$ as well. In particular, define $j(M) = +\infty$ if $M = 0$. 
-        \item For a noetherian and of finite global dimension ring $A$, we say $A$ is $\textbf{Auslander regular}$ (AR for short) if for all $M \in \text{Mod}_{f}(A)$ and $v \in \mathbb{Z}_{\ge 0}$, given any $N \subseteq \text{Ext}^{v}(M,A)$ submodule, have $j(N) \ge v$. 
+        \item The $\textbf{grade number}$ $j(M) := \min\left\{k \middle| \mathrm{Ext}^{k}(M,A) \neq 0\right\}$, we sometimes denote it as  $j_{A}(M)$ as well. In particular, define $j(M) = +\infty$ if $M = 0$. 
+        \item For a noetherian and of finite global dimension ring $A$, we say $A$ is $\textbf{Auslander regular}$ (AR for short) if for all $M \in \mathrm{Mod}_{f}(A)$ and $v \in \mathbb{Z}_{\ge 0}$, given any $N \subseteq \mathrm{Ext}^{v}(M,A)$ submodule, have $j(N) \ge v$. 
     \end{enumerate}
 \end{definition}
 
-Let $S$ be a commutative $k$-algebra of finite type, we say $S$ is $\textbf{regular}$ if $\Omega_{S/k}$ is locally free. 
+Let $S$ be a commutative $k$-algebra of finite type, we say $S$ is $\textbf{regular}$ if $\Omega_{S/k}$ is locally free, see definition \cite[\href{https://stacks.math.columbia.edu/tag/00OD}{Tag 00OD}]{stacks-project}. 
 
 \begin{theorem}[Auslander]\label{theorem 7.2}
-    Let $S$ be regular, $M \in \text{Mod}_{f}(S)$, then 
+    Let $S$ be regular, $M \in \mathrm{Mod}_{f}(S)$, then 
 \begin{enumerate}
     \item $S$ is of finite global dimension; 
-    \item $j(M) + \dim(\text{supp}(M)) = m$; 
-    \item $\dim(\text{supp}(\text{Ext}^{i}(M,S))) \le m - i$ for all $i$; 
-    \item $\dim(\text{supp}(\text{Ext}^{j(M)}(M,S))) = \dim(\text{supp}(M))$.
+    \item $j(M) + \dim(\mathrm{supp}(M)) = m$; 
+    \item $\dim(\mathrm{supp}(\mathrm{Ext}^{i}(M,S))) \le m - i$ for all $i$; 
+    \item $\dim(\mathrm{supp}(\mathrm{Ext}^{j(M)}(M,S))) = \dim(\mathrm{supp}(M))$.
 \end{enumerate}
 \end{theorem}
-\begin{proof}
-    See Eisenbud for instance.
+\begin{proof}[Partial Proof]
+\mbox{}
+
+    For (1), see \cite[Thm.~19.12.]{eisenbud1995commutative} or \cite[\href{https://stacks.math.columbia.edu/tag/00OC}{Tag 00OC}]{stacks-project} for local ring case.
+    Then use \cite[\href{https://stacks.math.columbia.edu/tag/00O9}{Tag 00O9}]{stacks-project} to get global case, which is \cite[\href{https://stacks.math.columbia.edu/tag/00OE}{Tag 00OE}]{stacks-project}.
+
+    For (2), (3) and (4), in the case of $m$ is even, see \cite[Prop.~6.4.]{schnell_dmodules_notes}.
 \end{proof}
 \begin{corollary}
     Regular commutative $k$-algebra of finite type are Auslander regular.
 \end{corollary}
 
-Let $X = \text{Spec } R$ be a smooth-affine variety over $\mathbb{C}$, our next goal is to prove $\mathcal{D}_{X}$ is AR.
+Let $X = \mathrm{Spec } R$ be a smooth-affine variety over $\mathbb{C}$, our next goal is to prove $\mathcal{D}_{X}$ is AR.
 
 \section{Spectral sequences of filtered complex}
 
-Let $F^{\bullet}$ be a bounded complex of $\mathbb{Z}$-modules:$$\cdots \to F^{i-1} \xrightarrow{d} F^i \xrightarrow{d} F^{i+1} \to \cdots$$with an increasing $\mathbb{Z}$-filtration: $F_j^i \subseteq F_{j+1}^i \subseteq F^i \quad \forall j,i \in \mathbb{Z}$ satisfying: 
+Let $F^{\bullet}$ be a bounded complex of $\mathbb{Z}$-modules:$$\cdots \to F^{i-1} \xrightarrow{\mathrm{d}} F^i \xrightarrow{\mathrm{d}} F^{i+1} \to \cdots$$with an increasing $\mathbb{Z}$-filtration: $F_j^i \subseteq F_{j+1}^i \subseteq F^i \quad (\forall j,i \in \mathbb{Z})$ satisfying: 
 \begin{enumerate}
     \item Exhaustive condition $\bigcup\limits_j F_j^i = F^i \quad \forall i$ ;
     \item Hausdorff condition $\bigcap_j F_j^i = 0 \quad \forall i$ 
-    \item  Differential preserves filtration $d(F_j^i) \subseteq F_j^{i+1} \quad \forall i,j$ , which implies that $\dots\rightarrow F_{j}^{i-1}\xrightarrow{d} F_{j}^{i}\xrightarrow{d} F_{j}^{i+1}\rightarrow\dots$ is a complex. 
+    \item  Differential preserves filtration $\mathrm{d}(F_j^i) \subseteq F_j^{i+1} \, (\forall i,j)$ , which implies that $\dots\rightarrow F_{j}^{i-1}\xrightarrow{\mathrm{d}} F_{j}^{i}\xrightarrow{\mathrm{d}} F_{j}^{i+1}\rightarrow\dots$ is a complex. 
 \end{enumerate}
 Then, to every triple $(k, i, j)$ we set: 
 \begin{itemize}
     \item $Z_j^i(k) = \{u \in F_j^i \mid du \in F^{i+1}_{j-k}\}.$
-    \item $B^{i}_{j}(k)=F^{i}_{j}\cap d(F^{i-1}_{j+k-1})=d(Z^{i-1}_{j+k-1}(k-1))$
-    \item $E_j^i(k) = \dfrac{Z_j^i(k) + F_{j-1}^i}{B_j^i(k) + F_{j-1}^i}$, and $E_{k}^{-j,i+j}:=E_{j}^{i}(k)$. And $E_{\bullet}^i(k) = \bigoplus\limits_{j} E_j^i(k)$.     
+    \item $B^{i}_{j}(k)=F^{i}_{j}\cap \mathrm{d}(F^{i-1}_{j+k-1})=\mathrm{d}(Z^{i-1}_{j+k-1}(k-1))$
+    \item $E_j^i(k) = \dfrac{Z_j^i(k) + F_{j-1}^i}{B_j^i(k) + F_{j-1}^i}$, $E_{k}^{-j,i+j}:=E_{j}^{i}(k)$, and $E_{\bullet}^i(k) = \bigoplus\limits_{j} E_j^i(k)$.     
 \end{itemize}
 
 \begin{remark}
     Since we consider the increasing filtration $\dots\subseteq F_{j}\subseteq F_{j+1}\subseteq \dots \subseteq F$, while usually we consider a decreasing filtration for cochain complex, we can actually view $F_{j}$ as $F^{-j}$. That's the reason why we define $E_{k}^{-j,i+j}:=E_{j}^{i}(k)$.
 \end{remark}
-So $d(Z_j^i(k)) \subseteq Z_{j-k}^{i+1}(k)$, which induces $$ E_k^{-j,i+j} := E_j^i(k) \xrightarrow{d_k} E_k^{-j+k,i+j-k+1} = E_{j-k}^{i+1}(k) .$$Further, we have $$\dots\xrightarrow{d_{k}}E_{j+k}^{i-1}(k)\xrightarrow{d_{k}}E_{j}^{i}(k)\xrightarrow{d_{k}}E_{j-k}^{i+1}(k)\xrightarrow{d_{k}} \dots$$Consider $E^{i}_{\bullet}(k)=\bigoplus\limits_{j}E^{i}_{j}(k)$ and know that $d_{k}:E^{i}_{\bullet}(k)\rightarrow E^{i+1}_{\bullet}(k)$, this makes $E_\bullet(k)$ a complex of graded $\mathbb{Z}$-modules.  And $E_{j}^{i}(0) = F^{i}_{j} /F_{j-1}^{i}$, i.e. $E^{i}_{\bullet}(0)=\text{gr }_{\bullet}  F^{i}$ the associated graded complex of  $F^{i}$ for all $i$. 
+So $\mathrm{d}(Z_j^i(k)) \subseteq Z_{j-k}^{i+1}(k)$, which induces $$ E_k^{-j,i+j} := E_j^i(k) \xrightarrow{\mathrm{\mathrm{d}_{k}}} E_k^{-j+k,i+j-k+1} = E_{j-k}^{i+1}(k) .$$Further, we have $$\dots\xrightarrow{\mathrm{\mathrm{d}_{k}}}E_{j+k}^{i-1}(k)\xrightarrow{\mathrm{\mathrm{d}_{k}}}E_{j}^{i}(k)\xrightarrow{\mathrm{\mathrm{d}_{k}}}E_{j-k}^{i+1}(k)\xrightarrow{\mathrm{\mathrm{d}_{k}}} \dots$$Consider $E^{i}_{\bullet}(k)=\bigoplus\limits_{j}E^{i}_{j}(k)$ and know that $\mathrm{d}_{k}:E^{i}_{\bullet}(k)\rightarrow E^{i+1}_{\bullet}(k)$, this makes $E_\bullet(k)$ a complex of graded $\mathbb{Z}$-modules.  And $E_{j}^{i}(0) = F^{i}_{j} /F_{j-1}^{i}$, i.e. $E^{i}_{\bullet}(0)=\mathrm{gr }_{\bullet}  F^{i}$ the associated graded complex of  $F^{i}$ for all $i$. 
 
 $\{E_k^{-\ast,\bullet+\ast} = E_\ast^\bullet(k)\}_k$ is called the $\textbf{spectral sequence}$ of the filtered complex $F^{\bullet}$. 
 
 \begin{lemma}\label{lemma 7.4}
-    $E_\bullet^i(k+1) = H^i(E_{\bullet}^{\bullet}(k))$, more explicitly: $$E^{i}_{j}(k+1)\simeq \frac{\ker(E_{j}^{i}(k)\xrightarrow{d_{k}}E_{j-k}^{i+1}(k) )}{\mathrm{Im}(E_{j+k}^{i-1}(k)\xrightarrow{d_{k}}E_{j}^{i}(k))}.$$
+    $E_\bullet^i(k+1) = H^i(E_{\bullet}^{\bullet}(k))$, more explicitly: $$E^{i}_{j}(k+1)\simeq \frac{\ker(E_{j}^{i}(k)\xrightarrow{\mathrm{\mathrm{d}_{k}}}E_{j-k}^{i+1}(k) )}{\mathrm{Im}(E_{j+k}^{i-1}(k)\xrightarrow{\mathrm{\mathrm{d}_{k}}}E_{j}^{i}(k))}.$$
 \end{lemma}
 \begin{proof}
     \quad
 
-    First of all, consider $k=0$, we obtain that $E^{i}_{j}(0)= F^{i}_{j} /F^{i}_{j-1}$, so $\mathrm{ker}(E^{i}_{j }(0)\rightarrow E^{i+1}_{j}(0))=\ker(F^{i}_{j} /F^{i}_{j-1}\rightarrow F^{i+1}_{j} /F^{i+1}_{j-1})=\{u\in F^{i}_{j}:du\in F^{i+1}_{j-1}\}+F^{i}_{j-1} /F^{i}_{j-1}$ and $\mathrm{Im}(E^{i-1}_{j}(0)\rightarrow E^{i}_{j}(0))=\mathrm{Im}(F^{i-1}_{j} /F^{i-1}_{j-1}\rightarrow F^{i}_{j} /F^{i}_{j-1})=d(F^{i-1}_{j})+F^{i}_{j-1} /F^{i}_{j-1}$, then we get $E^{i}_{j}(1)\simeq \frac{\mathrm{ker}(E^{i}_{j }(0)\rightarrow E^{i+1}_{j}(0))}{\mathrm{Im}(E^{i-1}_{j}(0)\rightarrow E^{i}_{j}(0))}$. 
+    (After verifying that $\mathrm{d}_{k}$ is well-defined) Consider $k=0$, we obtain that $E^{i}_{j}(0)= F^{i}_{j} /F^{i}_{j-1}$, so 
+$$\mathrm{ker}(E^{i}_{j }(0)\rightarrow E^{i+1}_{j}(0))=\ker(F^{i}_{j} /F^{i}_{j-1}\rightarrow F^{i+1}_{j} /F^{i+1}_{j-1})=\left(\{u\in F^{i}_{j}:du\in F^{i+1}_{j-1}\}+F^{i}_{j-1}\right) /F^{i}_{j-1},$$
+and 
+$$\mathrm{Im}(E^{i-1}_{j}(0)\rightarrow E^{i}_{j}(0))=\mathrm{Im}(F^{i-1}_{j} /F^{i-1}_{j-1}\rightarrow F^{i}_{j} /F^{i}_{j-1})=\mathrm{d}(F^{i-1}_{j})+F^{i}_{j-1} /F^{i}_{j-1},$$
+ then we get $$E^{i}_{j}(1)\simeq \frac{\mathrm{ker}(E^{i}_{j }(0)\rightarrow E^{i+1}_{j}(0))}{\mathrm{Im}(E^{i-1}_{j}(0)\rightarrow E^{i}_{j}(0))}.$$
 
-	For $k\ge 1$, we obtain that $F_{j-1}^{i}\subseteq F_{j+k-1}^{i}$$$E^{i}_{j}(k+1)=\frac{\{u\in F^{i}_{j}:du\in F^{i+1}_{j-k-1}\}+F^{i}_{j-1}}{F^{i}_{j}\cap d(F^{i-1}_{j+k})+F^{i}_{j-1}}.$$
+	For $k\ge 1$, we obtain that $F_{j-1}^{i}\subseteq F_{j+k-1}^{i}$$$E^{i}_{j}(k+1)=\frac{\{u\in F^{i}_{j}:du\in F^{i+1}_{j-k-1}\}+F^{i}_{j-1}}{F^{i}_{j}\cap \mathrm{d}(F^{i-1}_{j+k})+F^{i}_{j-1}}.$$
     
-    For $Z^{i}_{j}(k)+F^{i}_{j-1} /F^{i}_{j-1}\xrightarrow{d_{k}}Z_{j-k}^{i+1}(k)+F^{i+1}_{j-k-1} /F^{i+1}_{j-k-1}$, $\ker d_{k}:=\{u\in F^{i}_{j} /F_{j-1}^{i}: \exists x\in u\ s.t. dx\in F^{i+1}_{j-k-1}\}=Z^{i}_{j}(k+1)+F^{i}_{j-1} /F^{i}_{j-1}$. And $\mathrm{Im}(Z^{i-1}_{j+k}(k)+F^{i-1}_{j+k-1} /F^{i-1}_{j+k-1}\xrightarrow{d_{k}}Z^{i}_{j}(k)+F^{i}_{j-1}(k) /F^{i}_{j-1}(k))=d(Z^{i-1}_{j+k}(k))+F^{i}_{j-1}(k) /F^{i}_{j-1}(k)$, done. 
+    For $\left(Z^{i}_{j}(k)+F^{i}_{j-1}\right) /F^{i}_{j-1}\xrightarrow{\mathrm{\mathrm{d}_{k}}}\left(Z_{j-k}^{i+1}(k)+F^{i+1}_{j-k-1}\right) /F^{i+1}_{j-k-1}$, 
+    $$\ker \mathrm{d}_{k}:=\{u\in F^{i}_{j} /F_{j-1}^{i}: \exists x\in u\ s.t.\, \mathrm{d}x\in F^{i+1}_{j-k-1}\}=\left(Z^{i}_{j}(k+1)+F^{i}_{j-1}\right) /F^{i}_{j -1}$$
+    And 
+    $$\mathrm{Im}\left(\left(Z^{i-1}_{j+k}(k)+F^{i-1}_{j+k-1}\right) /F^{i-1}_{j+k-1}\xrightarrow{\mathrm{\mathrm{d}_{k}}}\left(Z^{i}_{j}(k)+F^{i}_{j-1}(k)\right) /F^{i}_{j-1}(k)\right)=\left(\mathrm{d}(Z^{i-1}_{j+k}(k))+F^{i}_{j-1}(k)\right) /F^{i}_{j-1}(k).$$ 
 \end{proof}
 
 \quad
 
-The filtration of $F^{\bullet}$ induces a filtration of $H^i(F^{\bullet})$ by $$F_j H^i(F^\bullet) = \frac{Z_j^{i}(\infty) + dF^{i-1}}{dF^{i-1}}.$$where $Z_j^{i}(\infty) = \text{Ker}(d) \cap F_j^i$. 
+\begin{definition}[Induced filtration on Cohomology]\label{def:induced_filtration_cohomology}
+The filtration of $F^{\bullet}$ induces a filtration of $H^i(F^{\bullet})$ by $$F_j H^i(F^\bullet) = \frac{Z_j^{i}(\infty) + dF^{i-1}}{dF^{i-1}}.$$where $Z_j^{i}(\infty) := \mathrm{Ker}(d) \cap F_j^i$.
+\end{definition} 
 
-In fact, we often view $Z^{i}_{j}(k)$ and $B^{i}_{j}(k)$ in $F^{i}_{j} /F^{i}_{j-1}$. Namely, we define $\eta^{i}_{j}:F^{i}_{j}\mapsto F^{i}_{j} /F^{i}_{j-1}$, and $\overline{Z}^{i}_{j}(k):=\eta^{i}_{j}(Z^{i}_{j}(k)),\overline{B}^{i}_{j}(k):=\eta^{i}_{j}(B^{i}_{j}(k))$, we obtain that $E^{i}_{j}(k)\simeq \frac{\overline{Z}^{i}_{j}(k)}{\overline{B}^{i}_{j}(k)}$. Moreover, we have a tower for all $i,j:$ $$
+In fact, we often view $Z^{i}_{j}(k)$ and $B^{i}_{j}(k)$ in $F^{i}_{j} /F^{i}_{j-1}$. Namely, we define 
+$$\eta^{i}_{j}:F^{i}_{j}\mapsto F^{i}_{j} /F^{i}_{j-1},$$ 
+and 
+$$\overline{Z}^{i}_{j}(k):=\eta^{i}_{j}(Z^{i}_{j}(k)),$$
+$$\overline{B}^{i}_{j}(k):=\eta^{i}_{j}(B^{i}_{j}(k)),$$
+we obtain that $E^{i}_{j}(k)\simeq \frac{\overline{Z}^{i}_{j}(k)}{\overline{B}^{i}_{j}(k)}$. Moreover, we have a tower for all $i,j:$ $$
 0 \subseteq \overline{B}_j^i(0) \subseteq \overline{B}_j^i(1) \subseteq \cdots \subseteq \overline{B}_j^i(r) \subseteq \cdots \subseteq \overline{B}_j^i(\infty)
 \subseteq \overline{Z}_j^i(\infty) \subseteq \cdots \subseteq \overline{Z}_j^i(r) \subseteq \overline{Z}_j^i(r-1) \subseteq \cdots \subseteq \overline{Z}_j^i(0)
-$$With $\overline{B}_j^i(\infty) =\varinjlim\limits_{r} \overline{B}_j^i(r) = \eta_j^i(F_j^i \cap d(F^{i-1}))$ (Using Exhaustive Condition for the second equality) and $\overline{Z}_j^i(\infty) = \varprojlim\limits_{ r} \overline{Z}_j^i(r) = \eta_j^i(Z_j^i(\infty))$ (Using Hausdorff Condition).  
+$$With 
+$$\overline{B}_j^i(\infty) :=\varinjlim\limits_{r} \overline{B}_j^i(r) = \eta_j^i(F_j^i \cap \mathrm{d}(F^{i-1}))$$ 
+(Using Exhaustive Condition for the second equality) and 
+$$\overline{Z}_j^i(\infty) := \varprojlim\limits_{ r} \overline{Z}_j^i(r) = \eta_j^i(Z_j^i(\infty))$$ 
+(Using Hausdorff Condition).  
 
 \begin{proposition}
     $\mathrm{gr}_{\bullet}^{F}H^{i}(F)\simeq \frac{\overline{Z}^{i}_{j}(\infty)}{\overline{B}^{i}_{j}(\infty)}$. 
@@ -80,11 +110,11 @@ $$With $\overline{B}_j^i(\infty) =\varinjlim\limits_{r} \overline{B}_j^i(r) = \e
 \quad
 
 \begin{definition}
-    We say the spectral sequence $\{E_{\bullet}^{\bullet}(k)\}_k$ $\textbf{converges to}$ $H^i(F^{\bullet})$ if for all $i,j$, there exists $k \gg 0$ s.t. $$E_j^i(k) \cong \text{gr}_j^F H^i(F^{\bullet}).$$
+    We say the spectral sequence $\{E_{\bullet}^{\bullet}(k)\}_k$ $\textbf{converges to}$ $H^i(F^{\bullet})$ if for all $i,j$, there exists $k \gg 0$ s.t. $$E_j^i(k) \cong \mathrm{gr}_j^F H^i(F^{\bullet}).$$
 \end{definition}
 
 \begin{definition}$\textbf{The regularity condition}:$
-    if there exists a $\omega \in \mathbb{Z}_{\ge0}$ s.t.$$F_j^i \cap d(F^{i-1}_{}) \subset d(F_{j+\omega}^{i-1})$$for every pair $(i,j)$, then we say the filtered complex is $\omega$-regular.     
+    if there exists a $\omega \in \mathbb{Z}_{\ge0}$ s.t.$$F_j^i \cap \mathrm{d}(F^{i-1}_{}) \subset \mathrm{d}(F_{j+\omega}^{i-1})$$for every pair $(i,j)$, then we say the filtered complex is $\omega$-regular.     
 \end{definition}
 
 \begin{lemma}\label{lemma 7.8}
@@ -93,23 +123,29 @@ $$With $\overline{B}_j^i(\infty) =\varinjlim\limits_{r} \overline{B}_j^i(r) = \e
 
 \begin{proof}
     First of all, we show that $E^{i}_{j}(\omega+k)\simeq E^{i}_{j}(\omega+1)$ for all $k\ge 1$. 
-	We have the long exact sequence:$$ \cdots \rightarrow E_{j+\omega+1}^{i-1}(\omega+1) \xrightarrow{d_{\omega+1}} E_j^i(\omega+1) \longrightarrow E_{j-\omega-1}^{i+1}(\omega+1) \rightarrow \cdots $$Suffices to show that every $d_{\omega+1}$ is zero map. 
+	We have the long exact sequence:$$ \cdots \rightarrow E_{j+\omega+1}^{i-1}(\omega+1) \xrightarrow{\mathrm{d}_{\omega+1}} E_j^i(\omega+1) \longrightarrow E_{j-\omega-1}^{i+1}(\omega+1) \rightarrow \cdots $$Suffices to show that every $\mathrm{d}_{\omega+1}$ is zero map. 
 
-	By Lemma \ref{lemma 7.4}, $E_j^i(\omega+1) = \left\{ \overline{u} \mid u \in E_j^i(\omega), d_\omega(\omega) = 0 \right\} = \left\{ \overline{u} \mid u \in F_j^i, du \in d\left(Z_{j-1}^i(\omega-1)\right) \right\}.$
+	By Lemma \ref{lemma 7.4}, $E_j^i(\omega+1) = \left\{ \overline{u} \mid u \in E_j^i(\omega), \mathrm{d}_\omega(\omega) = 0 \right\} = \left\{ \overline{u} \mid u \in F_j^i, \mathrm{d}u \in \mathrm{d}\left(Z_{j-1}^i(\omega-1)\right) \right\}.$
 
-    For any $\overline{\nu} \in d_{\omega+1}\left(E_{j+\omega+1}^{i-1}(\omega+1)\right)$, since the filtered complex is $\omega$-regular, we have $$ \nu \in F_j^i \cap d(F^{i-1}_{j+\omega+1}) \subseteq d(F_{j+\omega}^{i-1}), $$ then we get $E_j^i(\omega+1) = \frac{Z_j^i(\omega+1) + F_{j-1}^i}{B_j^i(\omega+1) + F_{j-1}^i} = \frac{Z_j^i(\omega+1) + F_{j-1}^i}{d\left(Z_{j+\omega}^{i-1}(\omega)\right) + F_{j-1}^i}$, where $d\left(Z_{j+\omega}^{i-1}(\omega)\right)=d\left( \left\{ u \in F_{j+\omega}^{i-1} \mid du \in F_j^i \right\} \right)$. 
-	Thus we have $\overline{v}=0$ in $E^{i}_{j}(\omega+1)$, $E^{i}_{j}(\omega+k)\simeq E^{i}_{j}(\omega+1)$ for all $k\ge 1$, which implies that $\frac{\overline{Z}^{i+1}_{j}(\omega+k)}{\overline{B}^{i+1}_{j}(\omega+k)}\simeq\frac{\overline{Z}^{i+1}_{j}(\omega)}{\overline{B}^{i+1}_{j}(\omega)}$. 
-	By Proposition, we obtain that $\frac{\overline{Z}^{i}_{j}(\infty)}{\overline{B}^{i}_{j}(\infty)}\simeq \mathrm{gr}_{\bullet}^{F}H^{i}(F)$, take $r\gg 0$, we consider the following map: 
+    For any $\overline{v} \in \mathrm{d}_{\omega+1}\left(E_{j+\omega+1}^{i-1}(\omega+1)\right)$, since the filtered complex is $\omega$-regular, we have 
+    $$ v \in F_j^i \cap \mathrm{d}(F^{i-1}_{j+\omega+1}) \subseteq \mathrm{d}(F_{j+\omega}^{i-1}), $$ 
+    then we get 
+    $$E_j^i(\omega+1) = \frac{Z_j^i(\omega+1) + F_{j-1}^i}{B_j^i(\omega+1) + F_{j-1}^i} = \frac{Z_j^i(\omega+1) + F_{j-1}^i}{\mathrm{d}\left(Z_{j+\omega}^{i-1}(\omega)\right) + F_{j-1}^i}, $$
+    where $\mathrm{d}\left(Z_{j+\omega}^{i-1}(\omega)\right)=\mathrm{d}\left( \left\{ u \in F_{j+\omega}^{i-1} \mid \mathrm{d}u \in F_j^i \right\} \right)$. 
+	
+    Thus we have $\overline{v}=0$ in $E^{i}_{j}(\omega+1)$, so $E^{i}_{j}(\omega+k)\simeq E^{i}_{j}(\omega+1)$ for all $k\ge 1$, i.e. $\frac{\overline{Z}^{i+1}_{j}(\omega+k)}{\overline{B}^{i+1}_{j}(\omega+k)}\simeq\frac{\overline{Z}^{i+1}_{j}(\omega)}{\overline{B}^{i+1}_{j}(\omega)}$. 
+	
+    By Proposition, we obtain that $\frac{\overline{Z}^{i}_{j}(\infty)}{\overline{B}^{i}_{j}(\infty)}\simeq \mathrm{gr}_{\bullet}^{F}H^{i}(F)$, take $r\gg 0$, we consider the following map: 
+
     \begin{center}
         \begin{tikzcd}
             {\frac{\overline{Z}_j^i(r)}{\overline{B}_j^i(r)}} & {\frac{\overline{Z}_j^i(\infty)}{\overline{B}_j^i(r)}} & {\frac{\overline{Z}_j^i(\infty)}{\overline{B}_j^i(\infty)}} \\
-             & {\frac{\overline{Z}_j^{i+1}(r+k)}{\overline{B}_j^{i+1}(r+k)}} 
-             \arrow["\simeq"', draw=none, from=1-1, to=2-2]
-             \arrow["\Phi"', hook', from=1-2, to=1-1] 
-             \arrow["\Psi", two heads, from=1-2, to=1-3] 
-             \arrow[from=1-2, to=2-2] 
-             \end{tikzcd}
-           
+            & {\frac{\overline{Z}_j^{i+1}(r+k)}{\overline{B}_j^{i+1}(r+k)}} 
+            \arrow["\simeq", from=1-1, to=2-2, sloped, dash]
+            \arrow["\Phi"', hook', from=1-2, to=1-1] 
+            \arrow["\Psi", two heads, from=1-2, to=1-3] 
+            \arrow[from=1-2, to=2-2] 
+        \end{tikzcd}
     \end{center}
 
 	1. $\forall \overline{a} \in \frac{\overline{Z}_j^i(r)}{\overline{B}_j^i(r)}, \forall k > 0, \exists a \in \overline{Z}_j^i(r+k)$ s.t. $\overline{a} \in \frac{\overline{Z}_j^i(r+k)}{\overline{B}_j^i(r)}$ $\Rightarrow \overline{a} \in \frac{\overline{Z}_j^i(\infty)}{\overline{B}_j^i(r)} \Rightarrow \Phi$ is isomorphic. 
@@ -128,24 +164,55 @@ $$With $\overline{B}_j^i(\infty) =\varinjlim\limits_{r} \overline{B}_j^i(r) = \e
 
 \section{More on filtered rings }
 
+Recall that we have defined a $\mathbb{Z}$-filtration of a ring in Definition \ref{def:z_filtration}.
+
 Let $A$ be a ring and $\Gamma_{\bullet} = \Gamma_{\bullet}A$ a $\mathbb{Z}$-filtration on $A$, recall that $\Gamma_{\bullet}A$ is called a $\textbf{noetherian } \mathbb{Z}\textbf{-filtration}$ if additionally $\mathrm{gr}^{\Gamma}_\bullet A$ is also noetherian.
 
+From now on, we assume that $A$ is a $\C$-algebra and has a noetherian $\mathbb{Z}$-filtration $\Gamma_{\bullet}$, so it's rees algebra $R_{\bullet}^{\Gamma}A$ is a $\C[u]$ algebra.
+
 Let $M$ be a finitely-generated $A$-module, and $\Omega_{\bullet}M$ a good filtration on $M$ s.t. $\mathrm{gr}^{\Omega} M \neq 0$. 
-Since $\mathrm{gr}^{\Gamma} A$ is noetherian, $R^{\Omega} M$ has a graded free resolution: $$\dots\rightarrow P_{\bullet}^{-1}\rightarrow P^{0}_{\bullet}\rightarrow R^{\Omega} _{\bullet}M\rightarrow0$$s.t. each $P^{i}_{\bullet}$ is a free graded $R_{\bullet}^{\Gamma}A$-module of finite rank. 
-And $\mathrm{RHom}_{R_{\bullet}A}(R_{\bullet}M, R_{\bullet}A)$ is the complex $$\mathrm{Hom}_{R_{\bullet}A}(P^{\bullet}_{\bullet}, R_{\bullet}A).$$
-Tensoring $\mathbb{C}[u]/(u-1)$, we get a free resolution:
+Since $\mathrm{gr}^{\Gamma} A$ is noetherian, $R^{\Omega} M$ has a graded free resolution:
+$$ \dots\rightarrow P_{\bullet}^{-1}\rightarrow P^{0}_{\bullet}\rightarrow R^{\Omega} _{\bullet}M\rightarrow0$$
+s.t. each $P^{i}_{\bullet}$ is a free graded $R_{\bullet}^{\Gamma}A$-module of finite rank. 
+So in derived category, $\mathrm{RHom}_{R_{\bullet}A}(R_{\bullet}M, R_{\bullet}A)$ is the complex \cite[\href{https://stacks.math.columbia.edu/tag/0A8H}{Tag 0A8H}, \href{https://stacks.math.columbia.edu/tag/0A66}{Tag 0A66}]{stacks-project} (well-defined up to quasi-isomorphism in $\mathbf{D}(R_{\bullet}A)$):
+$$\mathrm{Hom}_{R_{\bullet}A}(P^{\bullet}_{\bullet}, R_{\bullet}A).$$
+Tensoring with $\mathbb{C}[u]/(u-1)$ over $\mathbb{C}[u]$, we get a free resolution:
 $$ \cdots \to F^{-1} \to F^0 \to M \to 0$$
-with $F^i = P^i_{\bullet} \otimes \mathbb{C}[u]/(u-1)$.
-Define the filtration on $F^i_{\bullet}$ by:$$F_j^i = \text{Im}(P_j^i \longrightarrow F^i)$$This filtered complex:$$\cdots \longrightarrow F_{\bullet}^{-1} \longrightarrow F_{\bullet}^0 \longrightarrow 0$$is called a $\textbf{filtered free resolution}$ of $M$.
+with $F^i = P^i_{\bullet} \otimes_{\mathbb{C}[u]} \mathbb{C}[u]/(u-1)$.
+Define the filtration on $F^i_{\bullet}$ by:$$F_j^i := \mathrm{Im}(P_j^i \longrightarrow F^i)$$
+This filtered complex:
+$$\cdots \longrightarrow F_{\bullet}^{-1} \longrightarrow F_{\bullet}^0 \longrightarrow 0$$
+is called a $\textbf{filtered free resolution}$ of $M$, which is $\C[u]/(u-1)\otimes^{L}_{\C[u]} R^{\Omega}M = A\otimes^{L}_{R_{\bullet}^{\Gamma}A} R^{\Omega}M$ in derived category, \cite[\href{https://stacks.math.columbia.edu/tag/0FNB}{Tag 0FNB}, \href{https://stacks.math.columbia.edu/tag/064M}{Tag 064M}]{stacks-project}
+so it is well-defined up to quasi-isomorphism in $\mathbf{D}(A)$.
 
-Since $\mathrm{Hom}(\underline{},A)$ functor is contravariant, we define a filtered complex $$ \check{F}^{\bullet} = \operatorname{Hom}_{A}(F^{\bullet}, A) \quad \text{s.t.} \check{F}^{i} = \operatorname{Hom}_{A}(F^{-i}, A) $$We consider $\mathrm{Hom}_{R_{\bullet}A}(P^{\bullet}_{\bullet},R_{\bullet}A)\otimes \mathbb{C}[u] /(u-1)$, since $P^\bullet_{\bullet}$ is a free $R_{\bullet}A$-module, we then have $\mathrm{Hom}_{R_{\bullet}A}(P^\bullet_{\bullet},R_{\bullet}A)\otimes \mathbb{C}[u]/(u-1)\simeq \mathrm{Hom}_{A}(F^{-1},A)$ and filtration  $\check{F}^{i}_{j} = \operatorname{Im}\left( \operatorname{Hom}_{R_{\bullet}A}(P^{-i}_{j} , R_{\bullet}A)\rightarrow \check{F}^{i} \right)$. 
+Since $\mathrm{Hom}({-},A)$ functor is contravariant, we define a filtered complex $$ \check{F}^{\bullet} = \operatorname{Hom}_{A}(F^{\bullet}, A) \quad \mathrm{s.t.}\quad \check{F}^{i} = \operatorname{Hom}_{A}(F^{-i}, A) $$
+We consider $\mathrm{Hom}_{R_{\bullet}A}(P^{\bullet}_{\bullet},R_{\bullet}A)\otimes \mathbb{C}[u] /(u-1)$,
+since $P^\bullet_{\bullet}$ is a free $R_{\bullet}A$-module,
+we then have 
+$$\mathrm{Hom}_{R_{\bullet}A}(P^\bullet_{\bullet},R_{\bullet}A)\otimes \mathbb{C}[u]/(u-1)\simeq \mathrm{Hom}_{A}(F^{\bullet},A) \quad (\text{quasi-isomorphism in } \mathbf{D}(A)),$$
+and filtration  $\check{F}^{i}_{j} = \operatorname{Im}\left( \operatorname{Hom}_{R_{\bullet}A}(P^{-i}_{\bullet} , R_{\bullet}A)_j \rightarrow \check{F}^{i} \right)$. 
 
-\begin{lemma}
+\begin{remark}[{Induced filtration on $\Hom$ (cf. \cite[Appendix~D, after Lemma~D.2.2]{hotta2008d})}]\label{rmk:induced-filtration-on-Hom}
+\mbox{}
+
+    One have already seen above that $\operatorname{Hom}_{R_{\bullet}A}(P^{-i}_{\bullet} , R_{\bullet}A)_{\bullet}$ above also has a filtration, but what is its exact meaning?
+
+    For filtered $A$-modules $(M,F)$ and $(N,F)$ and $p\in\mathbb Z$, set
+\[
+F^{p}\Hom_{A}(M,N)
+=
+\bigl\{\, f\in \Hom_{A}(M,N)\ \bigm|\ f(F_qM)\subset F_{q+p}N\ \ (\forall q\in\mathbb Z)\,\bigr\}.
+\]
+\end{remark}
+
+
+
+\begin{lemma}\label{lem:checkF-regular}
     $\check{F}^{\bullet}$ is  $\omega$-regular for some $\omega \gg 0.$
 \end{lemma}
 \begin{proof}
-    Take $N = d(\check{F}^{k}) \subseteq \check{F}^{k+1}$, then $N_j = d(\check{F}_{j}^{k})$ gives a good filtration on $N$.
-	On the other hand, $N \cap \check{F}_{j}^{k+1}$ gives another good filtration. By Corollary 3.4, there exists a uniform $\omega$ s.t. $$ \check{F}_{j}^{k+1} \cap d(\check{F}^{k}) = N \cap \check{F}_{j}^{k+1} \subseteq N_{j+\omega} = d(\check{F}_{j+\omega}^{k}), \quad \forall j. $$
+    Take $N = \mathrm{d}(\check{F}^{k}) \subseteq \check{F}^{k+1}$, then $N_j = \mathrm{d}(\check{F}_{j}^{k})$ gives a good filtration on $N$.
+	On the other hand, $N \cap \check{F}_{j}^{k+1}$ gives another good filtration. By Corollary \ref{cor:compare-good-filtrations}, there exists a uniform $\omega$ s.t. $$ \check{F}_{j}^{k+1} \cap \mathrm{d}(\check{F}^{k}) = N \cap \check{F}_{j}^{k+1} \subseteq N_{j+\omega} = \mathrm{d}(\check{F}_{j+\omega}^{k}), \quad \forall j. $$
 \end{proof}
 
 \begin{corollary}\label{corollary 7.11}
@@ -155,58 +222,106 @@ Since $\mathrm{Hom}(\underline{},A)$ functor is contravariant, we define a filte
     This is just a special case of Theorem $\ref{tehorem 7.9}$. 
 \end{proof}
 
+
+\begin{remark}[{Induced filtration on $\Ext$ (cf. \cite[Appendix~D, in the proof of Lemma~D.2.4]{hotta2008d})}]\label{rmk:induced-filtration-on-Ext}
+\mbox{}
+
+To let the proof make sense, one should define the filtration on $\mathrm{Ext}$ group.
+
+See Rmk.~\ref{rmk:induced-filtration-on-Hom} first, then the \textbf{induced filtration} on
+\[
+\Ext_A^i(M,N)\cong H^i(K^\bullet)
+\]
+is defined by
+\[
+F_p\Ext_A^i(M,N)
+:= F_pH^i(K^\bullet)
+:= \mathrm{Im}\!\left(H^i(F_pK^\bullet)\longrightarrow H^i(K^\bullet)\right),
+\]
+where $F_pK^\bullet$ denotes the subcomplex with $(F_pK^\bullet)^i=F_pK^i$.
+\end{remark}
+
 \section{Duality for $\mathcal{D}_{X}$-mod}
 
-Let $X = \text{Spec } R$ a smooth affine variety with algebraic coordinates $(x_1, \ldots, x_n)$ and $M$ a nonzero f.g. $\mathcal{D}_X$-module. 
+Let $X = \mathrm{Spec}\, R$ a smooth affine variety with algebraic coordinates $(x_1, \ldots, x_n)$ and $M$ a nonzero f.g. $\mathcal{D}_X$-module. 
 
 \begin{theorem}\label{theorem 7.12}
     We have:
     \begin{enumerate}
-        \item $\dim \operatorname{ch}(\operatorname{Ext}_{\mathcal{D}_X}^i(M, \mathcal{D}_X)) \leq 2n - i$; 
-        \item $\operatorname{Ext}_{\mathcal{D}_X}^i(M, \mathcal{D}_X) = 0$ for $i < 2n - \dim(\operatorname{ch}(M))$ or $i > n$; 
-        \item $j(M) + \dim \operatorname{ch}(M) = 2n$. 
+        \item $\dim \operatorname{Ch}(\operatorname{Ext}_{\mathcal{D}_X}^i(M, \mathcal{D}_X)) \leq 2n - i$.
+        \item $\operatorname{Ext}_{\mathcal{D}_X}^i(M, \mathcal{D}_X) = 0$ for $i < 2n - \dim(\operatorname{Ch}(M))$ or $i > n$.
+        \item $j(M) + \dim \operatorname{Ch}(M) = 2n$.
     \end{enumerate}
 \end{theorem}
 \begin{proof}
-    1) and 2) holds for Theorem \ref{theorem 7.2} and Corollary \ref{corollary 7.11}. 
+    \textbf{(1) and (2)} 
+    By Corollary~\ref{corollary 7.11}, and the fact that the support of a subquotient is contained in the support of the original module, we have:
+    $$ \operatorname{Ch}(\operatorname{Ext}_{\mathcal{D}_X}^i(M, \mathcal{D}_X)) = \operatorname{Supp}(\operatorname{gr}_{\bullet}(\operatorname{Ext}_{\mathcal{D}_X}^i(M, \mathcal{D}_X))) \subseteq \Ch(\mathrm{Ext}^{j}_{\mathrm{gr}_{\bullet}\mathcal{D}_{X}}(\mathrm{gr}_{\bullet}M,\mathrm{gr}_{\bullet}\mathcal{D}_{X})). $$
+    Then apply Theorem \ref{theorem 7.2} to $\Ch(\mathrm{Ext}^{j}_{\mathrm{gr}_{\bullet}\mathcal{D}_{X}}(\mathrm{gr}_{\bullet}M,\mathrm{gr}_{\bullet}\mathcal{D}_{X}))$, since $\gr_{\bullet}\mathcal{D}_{X}$ is commutative.
+    
+    \medskip
 
-    $3)$ Know that $j(\mathrm{gr}_{\bullet}M)+\mathrm{dim}(Ch(M))=\mathrm{dim}R[\xi_{1},\dots,\xi_{n}]=2n$, suffices to show that $j(M)=j(\mathrm{gr}_{\bullet}M)$. Since $\mathrm{gr}_{\bullet}\mathrm{Ext}_{\mathcal{D}_{X}}^{j}(M,\mathcal{D}_{X})$ is a subquotient of $\mathrm{Ext}^{i}_{\mathrm{gr_{\bullet}\mathcal{D}_{X}}}(\mathrm{gr}_{\bullet}M,\mathrm{gr}_{\bullet}\mathcal{D}_{X})$, we obtain that $j(M)\ge j(\mathrm{gr}_{\bullet}M)=2n-\mathrm{dim}(Ch(M))$. 
+    \textbf{(3)}  We know that $j(\mathrm{gr}_{\bullet}M)+\dim(\operatorname{Ch}(M)) = \dim R[\xi_{1},\dots,\xi_{n}] = 2n$ by Theorem \ref{theorem 7.2}(2). Thus, it suffices to show that $j(M)=j(\mathrm{gr}_{\bullet}M)$.
+    
+    Since $\mathrm{gr}_{\bullet}\mathrm{Ext}_{\mathcal{D}_{X}}^{j}(M,\mathcal{D}_{X})$ is a subquotient of $\mathrm{Ext}^{i}_{\mathrm{gr_{\bullet}\mathcal{D}_{X}}}(\mathrm{gr}_{\bullet}M,\mathrm{gr}_{\bullet}\mathcal{D}_{X})$, we obtain the inequality:
+    \[
+    j(M) \ge j(\mathrm{gr}_{\bullet}M) = 2n - \dim(\operatorname{Ch}(M)).
+    \]
 
-	Assume $j(\mathrm{gr}_{\bullet}M)=j_{0}$, which is to say that $\mathrm{Ext}^{j_{0}}_{\mathrm{gr_{\bullet}A}}(\mathrm{gr}_{\bullet}M,\mathrm{gr}_{\bullet}\mathcal{D}_{X})\neq 0$, and $\mathrm{Ext}^{j}_{\mathrm{gr}_{\bullet}\mathcal{D}_{X}}(\mathrm{gr}_{\bullet}M,\mathrm{gr}_{\bullet}\mathcal{D}_{X})$ is the $E^{1}$-pages of spectral sequence that converges to $\mathrm{Ext}_{\mathcal{D}_{X}}^{j}(M,\mathcal{D}_{X})$. Also, $E^{i}_{\bullet}(0)=\mathrm{gr}_{\bullet}\check{F}^{i}$. 
-
-	We consider $E^{j}_{\bullet}(1)\simeq \mathrm{Ext}^{j}_{\mathrm{gr}_{\bullet}\mathcal{D}_{X}}(\mathrm{gr}_{\bullet}M,\mathrm{gr}_{\bullet}\mathcal{D}_{X})$, and then for $j<j_{0}$, we then have $E^{j}_{\bullet}(1)=0$. Thus $E^{j}_{\bullet}(k+1)\simeq \mathrm{ker}(E^{i}(k)\rightarrow E^{i+1}(k))$ for $k\ge 1$. 
-
-	Since we take the order filtration of $\mathrm{gr}_{\bullet}\mathcal{D}_{X}$, which is a $\mathbb{Z}_{\ge 0}$-filtration and a good filtration on $M$ up to $\mathrm{gr}_{\bullet}\mathcal{D}_{X}$, we have $\Omega_{p}M=\sum\limits_{\text{finite}}\Gamma_{p-k_{i}}\mathcal{D}_{X}\cdot m_{i}$ for some $m_{i}\in \Omega_{k_{i}}M$. We will get $\Omega_{p}M=0$ for $p<\min\{k_{i}\}$, i.e. $\Omega_{p}M=0$ for $p\ll0$. Same for the filtration induced by a free resolution of $\Omega_{p}M$, it must be bounded below. Take $p_{0}$ the minimal integer s.t. $\check{F}^{j_{0}}_{p_{0}}\neq 0$. We know that $E^{j_{0}}_{p_{0}}(0)=\check{F}^{j_{0}}_{p_{0}}\neq 0$ and for $k\ge 1$, $d_{k}:E^{j_{0}}_{p_{0}}(k)\rightarrow E^{j_{0}+1}_{p_{0}-k}(k)$ must be zero map. So $E^{j_{0}}_{p_{0}}(\infty)=E^{j_{0}}_{p_{0}}(0)\neq 0$, we which suggests that $\mathrm{gr}_{p_{0}}\mathrm{Ext}_{\mathcal{D}_{X}}^{j_{0}}(M,\mathcal{D}_{X})\neq 0$, and thus $\mathrm{Ext}_{\mathcal{D}_{X}}^{j_{0}}(M,\mathcal{D}_{X})\neq 0$, we then have $j(M)\leq j(\mathrm{gr}_{\bullet}M)$, done.  
+    Now, assume $j(\mathrm{gr}_{\bullet}M)=j_{0}$. This means $\mathrm{Ext}^{j_{0}}_{\mathrm{gr_{\bullet}\mathcal{D}_{X}}}(\mathrm{gr}_{\bullet}M,\mathrm{gr}_{\bullet}\mathcal{D}_{X})\neq 0$.
+    Consider the spectral sequence (of $\check{F}^\bullet$) converging to $\mathrm{Ext}_{\mathcal{D}_{X}}^{\bullet}(M,\mathcal{D}_{X})$ (resulting from the $\omega$-regularity of $\check{F}^\bullet$, see Lemma \ref{lemma 7.8} and Lemma \ref{lem:checkF-regular}). 
+    We have $E^{j}_{\bullet}(1) \simeq \mathrm{Ext}^{j}_{\mathrm{gr}_{\bullet}\mathcal{D}_{X}}(\mathrm{gr}_{\bullet}M,\mathrm{gr}_{\bullet}\mathcal{D}_{X})$ (the filtration on $\mathrm{Ext}$ mentioned in Rmk.~\ref{rmk:induced-filtration-on-Ext} is the same as the one in Def.~\ref{def:induced_filtration_cohomology}).
+    \begin{itemize}
+        \item For $j < j_0$, $E^{j}_{\bullet}(1) = 0$.
+        \item Thus $E^{j}_{\bullet}(k+1) \simeq \ker(E^{i}(k)\rightarrow E^{i+1}(k))$ for $k \ge 1$.
+    \end{itemize}
+    
+    The order filtration on $\mathrm{gr}_{\bullet}\mathcal{D}_{X}$ is a $\mathbb{Z}_{\ge 0}$-filtration. Since $\Omega_{\bullet}M$ is a good filtration, it is bounded below (i.e., $\Omega_{p}M=0$ for $p \ll 0$). Consequently, the induced filtration on the resolution $\check{F}^{\bullet}$ is also bounded below.
+    
+    Let $p_{0}$ be the minimal integer such that $\check{F}^{j_{0}}_{p_{0}} \neq 0$.
+    Then:
+    \[
+        E^{j_{0}}_{p_{0}}(0) = \check{F}^{j_{0}}_{p_{0}} \neq 0.
+    \]
+    For $k \ge 1$, the differential $\mathrm{d}_{k}: E^{j_{0}}_{p_{0}}(k) \rightarrow E^{j_{0}+1}_{p_{0}-k}(k)$ must be the zero map (since $p_0-k < p_0$, the target term is 0).
+    Therefore,
+    \[
+        E^{j_{0}}_{p_{0}}(\infty) = E^{j_{0}}_{p_{0}}(0) \neq 0.
+    \]
+    This implies $\mathrm{gr}_{p_{0}}\mathrm{Ext}_{\mathcal{D}_{X}}^{j_{0}}(M,\mathcal{D}_{X}) \neq 0$, so $\mathrm{Ext}_{\mathcal{D}_{X}}^{j_{0}}(M,\mathcal{D}_{X}) \neq 0$.
+    
+    Hence $j(M) \le j_{0} = j(\mathrm{gr}_{\bullet}M)$. Combining with the reverse inequality, we get $j(M) = j(\mathrm{gr}_{\bullet}M)$.
 \end{proof}
 
-\begin{proposition}
-    The global dimension of $D_X$ is also finite. Furthermore, the global dimension of $\mathcal{D}_X$ $=n$.
+\begin{proposition}\label{prop:DX-has-finite-global-dimension}
+    The global dimension of $\mathrm{d}_X$ is also finite. Furthermore, the global dimension of $\mathcal{D}_X$ $=n$.
 \end{proposition}
 \begin{proof}
-    We have $\mathrm{dim}X=n$ with coordinates $(x_{1},\dots,x_{n})$, since $X$ is smooth affine, we have $\Omega_{X /k}$ is free thus locally free. Then $X$ is regular with $\mathrm{gl\ dim}X=\mathrm{dim}X=n$. 
+    First, we show $\operatorname{gl.dim}\mathcal{D}_X \ge n$. Take $M=\mathcal{O}_{X}$. Since $M$ is holonomic, $\dim(\operatorname{Ch}(M))=n$. Using Theorem \ref{theorem 7.12}(3), we have $j(M)=2n-n=n$, which implies $\operatorname{Ext}^n(M, \mathcal{D}_X) \neq 0$. Thus $\operatorname{pd}(M) \ge n$, so $\operatorname{gl.dim}\mathcal{D}_X \ge n$.
 
-	Pick $M$ a finitely-generated $\mathcal{D}_{X}$-module, with $M$ is finitely-generated over $R$, or just take $M=\mathcal{O}_{X}$, know that $M$ is an integrable connection, thus $M$ is holonomic with $\mathrm{dim}(\mathrm{ch}(M))=n$, which indicates that $j(M)=2n-n=n$. Thus the $\mathrm{pd}(\mathcal{O}_{X})\ge n$, and $\mathrm{gl\ dim}\mathcal{D}_{X}\ge n$. 
-
-	Claim that for $\mathcal{D}_{X}$, we obtain that $\mathrm{pd}(M)=j(M)$, and then since $j(M)=2n-\mathrm{dim}(\mathrm{ch}(M))\leq n$ , we have $\mathrm{gl\ dim}\mathcal{D}_{X}\leq n$. 
-
-	To prove the claim, easy to check that $j(M)\leq \mathrm{pd}(M)$, since $j(M)\leq n$ is finite.  
-
-	For $\mathrm{pd}(M)=0$, thus $j(M)=0$.  
-	
-    Assume for $\mathrm{pd}_{R}(M)<k$, we have $j(M)=\mathrm{pd}(M)$, now consider $\mathrm{pd}(M)=k$, we know that there exists a resolution of $M$ s.t. $$0\rightarrow P\rightarrow F_{k-1}\rightarrow \dots\rightarrow F_{0}\rightarrow M\rightarrow0$$ with $F_{i}$ are all free and $P$ is projective. we consider the exact sequence $$0\rightarrow K\rightarrow F_{0}\twoheadrightarrow M\rightarrow 0 ,$$where we take $K$ to be the kernel, then $\mathrm{pd}K=\mathrm{pd}M-1<k$. And we know that $\mathrm{Ext}^{i}(K,\mathcal{D}_{X})=\mathrm{Ext}^{i+1}(M,\mathcal{D}_{X})$, since $\mathrm{Ext}^{i}(K,\mathcal{D}_{X})=0$ for $i\neq \mathrm{pd}(K)=j(K)=k-1$, then $\mathrm{Ext}^{i}(M,\mathcal{D}_{X})=0$ for all $i\neq k$, thus $j(M)=k$, done. 
+    Now we show $\operatorname{gl.dim}\mathcal{D}_X \le n$. It suffices to show that for any non-zero finitely generated $\mathcal{D}_X$-module $M$, $\operatorname{Ext}^i(M, \mathcal{D}_X) = 0$ for all $i > n$.
+    Suppose $\operatorname{Ext}^i(M, \mathcal{D}_X) \neq 0$ for some $i > n$. By Theorem \ref{theorem 7.12}(1), we have:
+    $$\dim \operatorname{Ch}(\operatorname{Ext}^i(M, \mathcal{D}_X)) \le 2n - i < 2n - n = n.$$
+    However, by Bernstein's Inequality (Theorem \ref{thm:Bernstein-inequality}, which implies $\dim \operatorname{Ch}(M) \ge n$), the dimension of the characteristic variety must be at least $n$. This is a contradiction.
+    Therefore, $\operatorname{Ext}^i(M, \mathcal{D}_X) = 0$ for all $i > n$, which means $\operatorname{pd}(M) \le n$. Consequently, $\operatorname{gl.dim}\mathcal{D}_X \le n$.
 \end{proof}
 
 \begin{theorem}
     $\mathcal{D}_{X}$ is Auslander regular. 
 \end{theorem}
 \begin{proof}
-    If $N \subset \operatorname{Ext}^{i}(M, \mathcal{D}_X)$ is a nonzero submodule, then $\operatorname{ch}(N) \subset \operatorname{ch}(\operatorname{Ext}^{i}(M, \mathcal{D}_X))$. So $\dim(\operatorname{ch}(N)) \leq \mathrm{dim}(\operatorname{ch}(\operatorname{Ext}^{i}(M, \mathcal{D}_X)))\leq 2n - i$ by Theorem \ref{theorem 7.12}.1. Then $j(N) \geq i$ by Theorem \ref{theorem 7.12}.3. 
+    By Proposition \ref{prop:DX-has-finite-global-dimension}, $\operatorname{gl.dim}\mathcal{D}_X = n$, a finite number.
+
+    If $N \subset \operatorname{Ext}^{i}(M, \mathcal{D}_X)$ is a nonzero submodule, then $\operatorname{Ch}(N)\subset\operatorname{Ch}(\operatorname{Ext}^{i}(M, \mathcal{D}_X))$. 
+    
+    So $\dim(\operatorname{Ch}(N)) \leq \mathrm{dim}(\operatorname{Ch}(\operatorname{Ext}^{i}(M, \mathcal{D}_X)))\leq 2n - i$ by Theorem \ref{theorem 7.12}(1). 
+    Then $j(N) \geq i$ by Theorem \ref{theorem 7.12}(3). 
 \end{proof}
 
 \begin{corollary}
     \quad
     \begin{enumerate}
-        \item $M$ is holonomic iff $\operatorname{Ext}^i(M, \mathcal{D}_X) = 0$, $i \neq n$; 
-        \item If $M$ is holonomic then $\operatorname{Ext}^n(M, \mathcal{D}_X)$ is also holonomic.
+        \item $M$ is holonomic iff $\operatorname{Ext}^i(M, \mathcal{D}_X) = 0$, $i \neq n$.
+        \item If $M$ is holonomic, then $\operatorname{Ext}^n(M, \mathcal{D}_X)$ is also holonomic.
     \end{enumerate}
 \end{corollary}
