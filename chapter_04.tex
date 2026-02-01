@@ -2,36 +2,36 @@
 Let $B$ be a commutative $\C$-algebra.
 
 \begin{definition}
-\leavevmode
-\begin{enumerate}
-  \item A $\C$-bilinear map $\{\,,\,\}\colon B\otimes_{\C}B\to B$ is a \textbf{Poisson bracket}
-    if it is a Lie bracket and satisfies the Leibniz rule $\{a_1a_2,b\}=a_1\{a_2,b\}+a_2\{a_1,b\}$ for all $a_1,a_2,b\in B$.
-  \item If $B$ is Poisson, a closed subset $V\subseteq\Spec B$ with radical ideal $I_V$ is
-    \textbf{coisotropic} (or \textbf{involutive}) if $\{I_V,I_V\}\subseteq I_V$.
-\end{enumerate}
+  \leavevmode
+  \begin{enumerate}
+    \item A $\C$-bilinear map $\{\,,\,\}\colon B\otimes_{\C}B\to B$ is a \textbf{Poisson bracket}
+          if it is a Lie bracket and satisfies the Leibniz rule $\{a_1a_2,b\}=a_1\{a_2,b\}+a_2\{a_1,b\}$ for all $a_1,a_2,b\in B$.
+    \item If $B$ is Poisson, a closed subset $V\subseteq\Spec B$ with radical ideal $I_V$ is
+          \textbf{coisotropic} (or \textbf{involutive}) if $\{I_V,I_V\}\subseteq I_V$.
+  \end{enumerate}
 \end{definition}
 
 \noindent $\Gamma_\bullet A : \text{a } \mathbb{Z}_{\ge 0}\text{-filtered } \mathbb{C}\text{-algebra}$
 \begin{definition}
-\leavevmode
-\begin{enumerate}
-  \item $\Gamma_\bullet A$ is called \textbf{almost commutative} if $\operatorname{gr}^\Gamma_\bullet A$ is a commutative $\mathbb{C}$-algebra of finite type.
-  \item For $x \in \Gamma_k A$, we use $\sigma_k(x) \text{ to denote its image in } \frac{\Gamma_k A}{\Gamma_{k-1} A}$.
-  \item For $x \in \Gamma_k A$, $y \in \Gamma_{\ell} A$, we define $\{ \sigma_k(x), \sigma_{\ell}(y) \} = \sigma_{k+\ell-1}(xy - yx)$
-(Since $\operatorname{gr}_\bullet A$ is commutative, $xy - yx \in \Gamma_{k+\ell-1} A$)
-\end{enumerate}
+  \leavevmode
+  \begin{enumerate}
+    \item $\Gamma_\bullet A$ is called \textbf{almost commutative} if $\operatorname{gr}^\Gamma_\bullet A$ is a commutative $\mathbb{C}$-algebra of finite type.
+    \item For $x \in \Gamma_k A$, we use $\sigma_k(x) \text{ to denote its image in } \frac{\Gamma_k A}{\Gamma_{k-1} A}$.
+    \item For $x \in \Gamma_k A$, $y \in \Gamma_{\ell} A$, we define $\{ \sigma_k(x), \sigma_{\ell}(y) \} = \sigma_{k+\ell-1}(xy - yx)$
+          (Since $\operatorname{gr}_\bullet A$ is commutative, $xy - yx \in \Gamma_{k+\ell-1} A$)
+  \end{enumerate}
 \end{definition}
 
 \begin{lemma}[Lemma~6.3]
-$(\gr^{\Gamma}_\bullet A,\{\,\,\})$ is a Poisson algebra.
+  $(\gr^{\Gamma}_\bullet A,\{\,\,\})$ is a Poisson algebra.
 \end{lemma}
 \begin{proof}
   Homework.
 \end{proof}
 
 \begin{example}
-For a smooth affine $X$, the identification $\gr \D_X\cong \Sym^{\bullet}\T_X$ transports the
-Poisson structure on $\gr \D_X$ to $T^{\ast}X$.
+  For a smooth affine $X$, the identification $\gr \D_X\cong \Sym^{\bullet}\T_X$ transports the
+  Poisson structure on $\gr \D_X$ to $T^{\ast}X$.
 \end{example}
 
 If $\mathcal M$ is a finitely generated $A$-module with a good filtration, the characteristic
@@ -39,353 +39,353 @@ variety $\Ch(\mathcal M):=\Supp(\gr^{\Gamma}_\bullet\!\mathcal M)$ is a closed s
 $\Spec\gr^{\Gamma}_\bullet A$.
 
 \begin{theorem}[Gabber's~Involutivity~I]\label{thm:gabber-I}
-If $\mathcal M$ is a finitely generated $A$-module, then $\Ch(\mathcal M)\subseteq\Spec\gr^{\Gamma}_\bullet A$ is involutive.
+  If $\mathcal M$ is a finitely generated $A$-module, then $\Ch(\mathcal M)\subseteq\Spec\gr^{\Gamma}_\bullet A$ is involutive.
 \end{theorem}
 
 \begin{corollary}
-For a finitely generated $\mathcal{D}_X$-module $\mathcal{M}$ on a smooth affine variety $X$, the characteristic variety $\operatorname{Ch}(\mathcal{M})$ inside $T^{\ast}X$ is conic and involutive. In particular $\dim \operatorname{Ch}(\mathcal{M}) \ge n$.
+  For a finitely generated $\mathcal{D}_X$-module $\mathcal{M}$ on a smooth affine variety $X$, the characteristic variety $\operatorname{Ch}(\mathcal{M})$ inside $T^{\ast}X$ is conic and involutive. In particular $\dim \operatorname{Ch}(\mathcal{M}) \ge n$.
 \end{corollary}
 
 To prove Theorem~\ref{thm:gabber-I}, we introduce Gabber rings.
 
 \begin{definition}
-Let $\mathbb E:=\C[u]/(u^2)$ be the \textbf{ring of dual numbers}. An $\mathbb E$-algebra $T$ (not
-necessarily commutative) is a \textbf{Gabber ring} if
-\begin{enumerate}
-  \item $T$ is flat over $\mathbb E$, and
-  \item $\overline T:=T/uT$ is a commutative $\C$-algebra of finite type.
-\end{enumerate}
+  Let $\mathbb E:=\C[u]/(u^2)$ be the \textbf{ring of dual numbers}. An $\mathbb E$-algebra $T$ (not
+  necessarily commutative) is a \textbf{Gabber ring} if
+  \begin{enumerate}
+    \item $T$ is flat over $\mathbb E$, and
+    \item $\overline T:=T/uT$ is a commutative $\C$-algebra of finite type.
+  \end{enumerate}
 \end{definition}
 
 \begin{lemma}\label{E-flatness}
-For a $T$-module $\underline{\mathcal M}$, the following are equivalent:
-\begin{enumerate}
-  \item $\underline{\mathcal M}$ is $\mathbb E$-flat.
-  \item The map $\underline{\mathcal M}/u\underline{\mathcal M} \to u\underline{\mathcal M},\ \bar{m} \mapsto um$ is an isomorphism.
-\end{enumerate}
+  For a $T$-module $\underline{\mathcal M}$, the following are equivalent:
+  \begin{enumerate}
+    \item $\underline{\mathcal M}$ is $\mathbb E$-flat.
+    \item The map $\underline{\mathcal M}/u\underline{\mathcal M} \to u\underline{\mathcal M},\ \bar{m} \mapsto um$ is an isomorphism.
+  \end{enumerate}
 \end{lemma}
 \begin{proof}
-    Recall that for an $R$-module $N$ over a commutative ring $R$,
-    \[
-        N \text{ is } R\text{-flat} \iff \forall \text{ proper ideal } I \subseteq R, \quad I \otimes_R N \to N \text{ is injective.}
-    \]
-    
-    So $\underline{M}$ is $\mathbb{E}$-flat $\iff (u) \otimes_{\mathbb{E}} \underline{M} \hookrightarrow \underline{M}$
-    (since $(u)$ is the only non-trivial ideal of $\mathbb{E}$).
-    
-    Note that the image of the map is $(u)\underline{M} = u \cdot \underline{M}$.
-    Consider the map $\mathbb{E}/(u) \to (u)$ given by $1 \mapsto u$. This map is an $\mathbb{E}$-module isomorphism.
-    
-    Thus, we have an $\mathbb{E}$-module isomorphism:
-    \[
-        \underline{M}/(u)\underline{M} = \mathbb{E}/(u) \otimes_{\mathbb{E}} \underline{M} \xrightarrow{\sim} (u) \otimes_{\mathbb{E}} \underline{M}.
-    \]
-    
-    Therefore, $\underline{M}$ is $\mathbb{E}$-flat $\iff$ the composite map $\underline{M}/(u)\underline{M} \longrightarrow u \cdot \underline{M} $
-    is an isomorphism.
+  Recall that for an $R$-module $N$ over a commutative ring $R$,
+  \[
+    N \text{ is } R\text{-flat} \iff \forall \text{ proper ideal } I \subseteq R, \quad I \otimes_R N \to N \text{ is injective.}
+  \]
+
+  So $\underline{M}$ is $\mathbb{E}$-flat $\iff (u) \otimes_{\mathbb{E}} \underline{M} \hookrightarrow \underline{M}$
+  (since $(u)$ is the only non-trivial ideal of $\mathbb{E}$).
+
+  Note that the image of the map is $(u)\underline{M} = u \cdot \underline{M}$.
+  Consider the map $\mathbb{E}/(u) \to (u)$ given by $1 \mapsto u$. This map is an $\mathbb{E}$-module isomorphism.
+
+  Thus, we have an $\mathbb{E}$-module isomorphism:
+  \[
+    \underline{M}/(u)\underline{M} = \mathbb{E}/(u) \otimes_{\mathbb{E}} \underline{M} \xrightarrow{\sim} (u) \otimes_{\mathbb{E}} \underline{M}.
+  \]
+
+  Therefore, $\underline{M}$ is $\mathbb{E}$-flat $\iff$ the composite map $\underline{M}/(u)\underline{M} \longrightarrow u \cdot \underline{M} $
+  is an isomorphism.
 \end{proof}
 
 Whenever $\underline{\mathcal M}$ is $\mathbb E$-flat and $\overline a,\overline b\in\overline T$, we can pick
 lifts $a,b\in T$ and define $\{\overline a,\overline b\} := \overline c$ where $c$ solves $u\cdot c = ab-ba$. Since $\overline{T}$ is commutative, such a $c$ exists.
 
 \begin{lemma}\label{lem:poisson}
-$(\overline T,\{\,\,\})$ is a Poisson algebra.
+  $(\overline T,\{\,\,\})$ is a Poisson algebra.
 \end{lemma}
 \begin{proof}
-Skew-symmetry is immediate from the definition. Take lifts $a,b,c\in T$ of
-$\overline a,\overline b,\overline c$. Direct calculation gives
-\begin{align*}
-  \{\overline a,\{\overline b,\overline c\}\}
-    &= \overline{a(bc-cb) - (bc-cb) a}, \\
-  \{\overline b,\{\overline c,\overline a\}\}
-    &= \overline{b(ca-ac) - (ca-ac) b}, \\
-  \{\overline c,\{\overline a,\overline b\}\}
-    &= \overline{c(ab-ba) - (ab-ba) c}.
-\end{align*}
-Adding the three lines shows Jacobi. For the Leibniz rule we compute
-\begin{align*}
-  \{\overline a\,\overline a',\overline b\}
-    &= \overline{aa' b - ba a'}
-     = \overline{a(a' b - b a')} + \overline{(ab - ba)a'} \\
-    &= \overline a\,\{\overline a',\overline b\} + \{\overline a,\overline b\}\,\overline a',
-\end{align*}
-and similarly in the second argument. Hence $(\overline T,\{\,\,\})$ is Poisson.
+  Skew-symmetry is immediate from the definition. Take lifts $a,b,c\in T$ of
+  $\overline a,\overline b,\overline c$. Direct calculation gives
+  \begin{align*}
+    \{\overline a,\{\overline b,\overline c\}\}
+     & = \overline{a(bc-cb) - (bc-cb) a}, \\
+    \{\overline b,\{\overline c,\overline a\}\}
+     & = \overline{b(ca-ac) - (ca-ac) b}, \\
+    \{\overline c,\{\overline a,\overline b\}\}
+     & = \overline{c(ab-ba) - (ab-ba) c}.
+  \end{align*}
+  Adding the three lines shows Jacobi. For the Leibniz rule we compute
+  \begin{align*}
+    \{\overline a\,\overline a',\overline b\}
+     & = \overline{aa' b - ba a'}
+    = \overline{a(a' b - b a')} + \overline{(ab - ba)a'}                                        \\
+     & = \overline a\,\{\overline a',\overline b\} + \{\overline a,\overline b\}\,\overline a',
+  \end{align*}
+  and similarly in the second argument. Hence $(\overline T,\{\,\,\})$ is Poisson.
 \end{proof}
 
 \begin{theorem}[Gabber's~Involutivity~II]\label{thm:gabber-II}
-Let $T$ be a Gabber ring and $\underline{\mathcal M}$ a finitely generated $\mathbb E$-flat $T$-module. If
-$I:=\rad\Ann_{\overline T}(\overline{\underline{\mathcal M}})$, then $\{I,I\}\subseteq I$.
+  Let $T$ be a Gabber ring and $\underline{\mathcal M}$ a finitely generated $\mathbb E$-flat $T$-module. If
+  $I:=\rad\Ann_{\overline T}(\overline{\underline{\mathcal M}})$, then $\{I,I\}\subseteq I$.
 \end{theorem}
 
 \begin{proof}[Theorem~\ref{thm:gabber-II} implies Theorem~\ref{thm:gabber-I}]
-Put $\Rees^{\Gamma}_\bullet(A):=\bigoplus_{p\ge0}\Gamma_pA\,u^p\subseteq A[u]$.  This is a finitely generated
-$\C[u]$-algebra, and by construction it is torsion free over $\C[u]$; since $\C[u]$ is a PID, the
-module $\Rees^{\Gamma}_\bullet(A)$ is therefore flat over $\C[u]$.  Write
-\[
-  T := \Rees^{\Gamma}_\bullet(A)\otimes_{\C[u]}\mathbb E
-      = \frac{\Rees^{\Gamma}_\bullet(A)}{u^2\Rees^{\Gamma}_\bullet(A)},
-  \qquad
-  \overline T \cong \frac{\Rees^{\Gamma}_\bullet(A)}{u\,\Rees^{\Gamma}_\bullet(A)}
-               = \gr^{\Gamma}_\bullet A.
-\]
-Thus $T$ is a Gabber ring with reduction $\overline T=\gr^{\Gamma}_\bullet A$.  If $F_\bullet\underline{\mathcal M}$ is a
-good filtration on a finitely generated $A$-module, its Rees module
-$\Rees^{F}_\bullet(\underline{\mathcal M})=\bigoplus_{p\ge0}F_p\underline{\mathcal M}\,u^p$ is again torsion free over $\C[u]$,
-hence flat.  After base change we obtain the $\mathbb E$-flat $T$-module
-\[
-  \underline{\mathcal{M}} := \Rees^{F}_\bullet(\underline{\mathcal M})\otimes_{\C[u]}\mathbb E
-             = \frac{\Rees^{F}_\bullet(\underline{\mathcal M})}{u^2\Rees^{F}_\bullet(\underline{\mathcal M})},
-\]
-whose reduction modulo $u$ is
-$\overline{\underline{\mathcal{M}}}=\Rees^{F}_\bullet(\underline{\mathcal M})/u\,\Rees^{F}_\bullet(\underline{\mathcal M})\cong\gr^{F}_\bullet\underline{\mathcal M}$.  Now
-Theorem~\ref{thm:gabber-II} applied to $(T,\underline{\mathcal{M}})$ says that
-$\Supp(\gr^{F}_\bullet\underline{\mathcal M})\subseteq\Spec\gr^{\Gamma}_\bullet A$ is involutive. 
+  Put $\Rees^{\Gamma}_\bullet(A):=\bigoplus_{p\ge0}\Gamma_pA\,u^p\subseteq A[u]$.  This is a finitely generated
+  $\C[u]$-algebra, and by construction it is torsion free over $\C[u]$; since $\C[u]$ is a PID, the
+  module $\Rees^{\Gamma}_\bullet(A)$ is therefore flat over $\C[u]$.  Write
+  \[
+    T := \Rees^{\Gamma}_\bullet(A)\otimes_{\C[u]}\mathbb E
+    = \frac{\Rees^{\Gamma}_\bullet(A)}{u^2\Rees^{\Gamma}_\bullet(A)},
+    \qquad
+    \overline T \cong \frac{\Rees^{\Gamma}_\bullet(A)}{u\,\Rees^{\Gamma}_\bullet(A)}
+    = \gr^{\Gamma}_\bullet A.
+  \]
+  Thus $T$ is a Gabber ring with reduction $\overline T=\gr^{\Gamma}_\bullet A$.  If $F_\bullet\underline{\mathcal M}$ is a
+  good filtration on a finitely generated $A$-module, its Rees module
+  $\Rees^{F}_\bullet(\underline{\mathcal M})=\bigoplus_{p\ge0}F_p\underline{\mathcal M}\,u^p$ is again torsion free over $\C[u]$,
+  hence flat.  After base change we obtain the $\mathbb E$-flat $T$-module
+  \[
+    \underline{\mathcal{M}} := \Rees^{F}_\bullet(\underline{\mathcal M})\otimes_{\C[u]}\mathbb E
+    = \frac{\Rees^{F}_\bullet(\underline{\mathcal M})}{u^2\Rees^{F}_\bullet(\underline{\mathcal M})},
+  \]
+  whose reduction modulo $u$ is
+  $\overline{\underline{\mathcal{M}}}=\Rees^{F}_\bullet(\underline{\mathcal M})/u\,\Rees^{F}_\bullet(\underline{\mathcal M})\cong\gr^{F}_\bullet\underline{\mathcal M}$.  Now
+  Theorem~\ref{thm:gabber-II} applied to $(T,\underline{\mathcal{M}})$ says that
+  $\Supp(\gr^{F}_\bullet\underline{\mathcal M})\subseteq\Spec\gr^{\Gamma}_\bullet A$ is involutive.
 
-\begin{lemma}\label{lem:rees}
-For $\overline T=\gr^{\Gamma}_\bullet A$ and $T=\frac{\Rees^{\Gamma}_\bullet(A)}{u^2\Rees^{\Gamma}_\bullet(A)}$
-(the $\mathbb E$-algebra that appeared above), the induced bracket coincides with the intrinsic
-bracket defined earlier on $\gr^{\Gamma}_\bullet A$.
-\end{lemma}
-\begin{proof}
-The editor of this lecture note think it is straightforward. And it is assigned as homework.
-\end{proof}
+  \begin{lemma}\label{lem:rees}
+    For $\overline T=\gr^{\Gamma}_\bullet A$ and $T=\frac{\Rees^{\Gamma}_\bullet(A)}{u^2\Rees^{\Gamma}_\bullet(A)}$
+    (the $\mathbb E$-algebra that appeared above), the induced bracket coincides with the intrinsic
+    bracket defined earlier on $\gr^{\Gamma}_\bullet A$.
+  \end{lemma}
+  \begin{proof}
+    The editor of this lecture note think it is straightforward. And it is assigned as homework.
+  \end{proof}
 
-Then we complete the deduction of Theorem~\ref{thm:gabber-I} from Theorem~\ref{thm:gabber-II}.
+  Then we complete the deduction of Theorem~\ref{thm:gabber-I} from Theorem~\ref{thm:gabber-II}.
 \end{proof}
 
 \begin{proof}[Proof of Theorem~\ref{thm:gabber-II}]
-  
 
 
-Write
-\[
-  I=\rad\Ann_{\overline T}(\overline{\underline{\mathcal M}})
+
+  Write
+  \[
+    I=\rad\Ann_{\overline T}(\overline{\underline{\mathcal M}})
     = \bigcap_{\substack{
-    \text{minimal prime ideal } \\ 
-    \mathfrak p_i \supseteq \Ann_{\overline T}(\overline{\underline{\mathcal M}})
-  }} \mathfrak p_i.
-\]
-Since $\{I,I\}\subseteq I$ iff $\{\mathfrak p_i,\mathfrak p_i\}\subseteq \mathfrak p_i$ for every minimal prime, we fix one such $\mathfrak p$ and work locally.
+        \text{minimal prime ideal } \\
+        \mathfrak p_i \supseteq \Ann_{\overline T}(\overline{\underline{\mathcal M}})
+      }} \mathfrak p_i.
+  \]
+  Since $\{I,I\}\subseteq I$ iff $\{\mathfrak p_i,\mathfrak p_i\}\subseteq \mathfrak p_i$ for every minimal prime, we fix one such $\mathfrak p$ and work locally.
 
-\begin{lemma}\label{lem:noether}
-Let $R$ be a finite type $k$-algebra of dimension $\ell+d$ and $\mathfrak p\subset R$ a prime of codimension
-$\ell$. There exist algebraically independent elements $x_1,\dots,x_\ell,y_1,\dots,y_d\in R$ such that
-\begin{enumerate}
-  \item $R$ is finite over $k[x_1,\dots,x_\ell,y_1,\dots,y_d]$.
-  \item $\mathfrak p\cap k[x_1,\dots,x_\ell,y_1,\dots,y_d]=(x_1,\dots,x_\ell)$.
-  \item There exists $0\ne f\in k[y_1,\dots,y_d]$ for which $(R/\mathfrak p)_f$ is free over $k[y_1,\dots,y_d]_f$.
-\end{enumerate}
-\noindent
-This is a version of the Noether Normalization Theorem (see, for instance, Eisenbud,
-\textbf{Commutative Algebra with a View Toward Algebraic Geometry}).
-\end{lemma}
+  \begin{lemma}\label{lem:noether}
+    Let $R$ be a finite type $k$-algebra of dimension $\ell+d$ and $\mathfrak p\subset R$ a prime of codimension
+    $\ell$. There exist algebraically independent elements $x_1,\dots,x_\ell,y_1,\dots,y_d\in R$ such that
+    \begin{enumerate}
+      \item $R$ is finite over $k[x_1,\dots,x_\ell,y_1,\dots,y_d]$.
+      \item $\mathfrak p\cap k[x_1,\dots,x_\ell,y_1,\dots,y_d]=(x_1,\dots,x_\ell)$.
+      \item There exists $0\ne f\in k[y_1,\dots,y_d]$ for which $(R/\mathfrak p)_f$ is free over $k[y_1,\dots,y_d]_f$.
+    \end{enumerate}
+    \noindent
+    This is a version of the Noether Normalization Theorem (see, for instance, Eisenbud,
+    \textbf{Commutative Algebra with a View Toward Algebraic Geometry}).
+  \end{lemma}
 
-\begin{proof}[Sketch of Lemma~\ref{lem:noether}]
-By \cite[Theorem 13.3(Noether Normalization).]{eisenbud1995commutative} We proved (1) and (2).
+  \begin{proof}[Sketch of Lemma~\ref{lem:noether}]
+    By \cite[Theorem 13.3(Noether Normalization).]{eisenbud1995commutative} We proved (1) and (2).
 
-To prove (3), we use the following result called \textbf{Generic Freeness},
-This notion will be used again in the proof of Theorem~\ref{thm:gabber-II}:
+    To prove (3), we use the following result called \textbf{Generic Freeness},
+    This notion will be used again in the proof of Theorem~\ref{thm:gabber-II}:
 
-\begin{lemma}[{\cite[\href{https://stacks.math.columbia.edu/tag/051R}{Tag 051R}]{stacks-project} or \cite[Theorem 14.4(Grothendieck's Generic Freeness Lemma).]{eisenbud1995commutative}}]\label{algebra-lemma-generic-flatness-Noetherian}
-\mbox{}\\
-Let $R \to S$ be a ring map.
-Let $M$ be an $S$-module.
-Assume
-\begin{enumerate}
-\item $R$ is Noetherian,
-\item $R$ is a domain,
-\item $R \to S$ is of finite type, and
-\item $M$ is a finite type $S$-module.
-\end{enumerate}
-Then there exists a nonzero $f \in R$ such that
-$M_f$ is a free $R_f$-module.% Lemma content goes here
-\end{lemma}
+    \begin{lemma}[{\cite[\href{https://stacks.math.columbia.edu/tag/051R}{Tag 051R}]{stacks-project} or \cite[Theorem 14.4(Grothendieck's Generic Freeness Lemma).]{eisenbud1995commutative}}]\label{algebra-lemma-generic-flatness-Noetherian}
+      \mbox{}\\
+      Let $R \to S$ be a ring map.
+      Let $M$ be an $S$-module.
+      Assume
+      \begin{enumerate}
+        \item $R$ is Noetherian,
+        \item $R$ is a domain,
+        \item $R \to S$ is of finite type, and
+        \item $M$ is a finite type $S$-module.
+      \end{enumerate}
+      Then there exists a nonzero $f \in R$ such that
+      $M_f$ is a free $R_f$-module.% Lemma content goes here
+    \end{lemma}
 
-Using this Lemma~\ref{algebra-lemma-generic-flatness-Noetherian}, we proved (3) of Lemma~\ref{lem:noether}.
-\end{proof}
+    Using this Lemma~\ref{algebra-lemma-generic-flatness-Noetherian}, we proved (3) of Lemma~\ref{lem:noether}.
+  \end{proof}
 
 
 
-Choose a minimal prime $\mathfrak p$ of $\overline T$ containing $\Ann_{\overline T}(\overline{\underline{\mathcal M}})$
-and write $d=\dim \mathfrak p$. Since $\overline T$ is a finite type $\C$-algebra, we have primary decomposition that is:
-\[
-  \rad\Ann_{\overline T}(\overline{\underline{\mathcal M}})
+  Choose a minimal prime $\mathfrak p$ of $\overline T$ containing $\Ann_{\overline T}(\overline{\underline{\mathcal M}})$
+  and write $d=\dim \mathfrak p$. Since $\overline T$ is a finite type $\C$-algebra, we have primary decomposition that is:
+  \[
+    \rad\Ann_{\overline T}(\overline{\underline{\mathcal M}})
     = \mathfrak p \cap \Bigl(\bigcap_{i\ne j} \mathfrak p_i\Bigr).
-\]
-and we assume $\mathfrak p$ and $\mathfrak p_i$ are all distinct minimal primes.
+  \]
+  and we assume $\mathfrak p$ and $\mathfrak p_i$ are all distinct minimal primes.
 
-Choose $g\in\bigcap_{i\ne j}\mathfrak p_i\smallsetminus \mathfrak p$. Localizing at $g$ removes all
-minimal primes except $\mathfrak p$, so $(\overline{\underline{\mathcal M}})_{g}$ is killed by some power
-$\mathfrak p_{g}^\ell$.
+  Choose $g\in\bigcap_{i\ne j}\mathfrak p_i\smallsetminus \mathfrak p$. Localizing at $g$ removes all
+  minimal primes except $\mathfrak p$, so $(\overline{\underline{\mathcal M}})_{g}$ is killed by some power
+  $\mathfrak p_{g}^\ell$.
 
-Since $\overline{\underline{\mathcal M}}$ is finitely generated over $\overline T$, by repeatedly applying Lemma~\ref{algebra-lemma-generic-flatness-Noetherian}, we get:
-\[
-\exists g,\, \forall k,\, \frac{\mathfrak p^k_g \overline{\underline{\mathcal M}}}{\mathfrak p^{k+1}_g \overline{\underline{\mathcal M}}} \text{ is free over } \overline{T}_g/\mathfrak p_g.
-\]
-(One should note that $\overline{T}/ \mathfrak p$ is a noetherian domain, and $\mathfrak p^k \overline{\underline{\mathcal M}}/ \mathfrak p^{k+1} \overline{\underline{\mathcal M}}$ is finitely generated over $\overline{T}/ \mathfrak p$.)
-
-
-Apply Lemma~\ref{lem:noether} to the finite-type algebra $R=\overline T_{g}$. We obtain algebraically
-independent elements $y_1=t_1,\dots,y_d=t_d\in\overline T_{g}$ and some $h\in\C[t_1,\dots,t_d]$ such that both $\overline T_{g}$ and $(\overline T_{g}/\mathfrak p_{g})_h$ are finite and free
-over $S_h:=\C[t_1,\dots,t_d]_h$ (i.e. $S:=\C[t_1,\dots,t_d]$). Replacing $\bar f$ by $g h$ if necessary (and keeping the notation $\bar f$
-for the product).  
-
-With this choice we have:
-$\mathfrak p_{\bar f}^\ell\overline{\underline{\mathcal M}}_{\bar f}=0$ for some $\ell>0$, and each successive
-quotient $\mathfrak p_{\bar f}^i\overline{\underline{\mathcal M}}_{\bar f} / \mathfrak p_{\bar f}^{i+1}\overline{\underline{\mathcal M}}_{\bar f}$ 
-is a free $S_h$-module. \\
-
-For later use, fix $S_h$-bases
-$\{\overline m_{i,j}\}$ such that for each $i$, $\{\overline m_{i,j}\}$(fix $i$, and change $j$) is a $S_h$-basis of
-$\mathfrak p_{\bar f}^i\overline{\underline{\mathcal M}}_{\bar f}$.
-This basis $\{\overline m_{i,j}\}$ can also be regarded as a $S_h$-basis of $\overline{\underline{\mathcal M}}_{\bar f}$
-(The $S_h$-action on $\overline{\underline{\mathcal M}}_{\bar f}$ is through $\overline{T}_{\bar f}$, not through $\overline{T}_{\bar f}/\mathfrak p_{\bar f}$).\\
-
-Relabelling we obtain:
-\[
-  \underbrace{\overline m_{k_0},\dots,\overline m_{k_1-1}}_{\text{basis of }\overline{\underline{\mathcal M}}_{\bar f}/\mathfrak p_{\bar f}\overline{\underline{\mathcal M}}_{\bar f}},\quad
-  \underbrace{\overline m_{k_1},\dots,\overline m_{k_2-1}}_{\text{basis of }\mathfrak p_{\bar f}\overline{\underline{\mathcal M}}_{\bar f}/\mathfrak p_{\bar f}^2\overline{\underline{\mathcal M}}_{\bar f}},\quad
-  \ldots,\quad
-  \underbrace{\overline m_{k_{\ell-1}},\dots,\overline m_{k_\ell-1}}_{\text{basis of }\mathfrak p_{\bar f}^{\ell-1}\overline{\underline{\mathcal M}}_{\bar f}}.
-\]
-
-We then take a lift $f\in T$ of $\bar f\in \overline T$.
-
-\begin{lemma}[Lemma~6.12]\label{lem:matrix}
-Let $a,b\in T$ have images $\bar a,\bar b\in \mathfrak p$. Then there exist integers
-$n_1,n_2,n_3\ge0$ and elements $e_{ij}\in T$ with $\overline{e_{ij}} \in S\subseteq \overline{T}$ such that
-\begin{enumerate}
-  \item $f^{n_1}[f^{n_2}a,f^{n_3}b] m_i = u\sum_j e_{ij} m_j$ for every $i$, and
-  \item $\sum_j \overline{e_{ij}} = 0$ for every $i$.
-\end{enumerate}
-\end{lemma}
-\begin{proof}
-If $k_{j_1} \le i < k_{j_1+1}$ for some $j_1$, then we have
-\[
-    f^{n_2} a m_i = \sum_{j \ge k_{j_1+1}} u_{ij} m_j + u \sum_j \alpha_{ij} m_j,\quad \bar{u}_{ij}, \bar{\alpha}_{ij} \in S
-\]
+  Since $\overline{\underline{\mathcal M}}$ is finitely generated over $\overline T$, by repeatedly applying Lemma~\ref{algebra-lemma-generic-flatness-Noetherian}, we get:
+  \[
+    \exists g,\, \forall k,\, \frac{\mathfrak p^k_g \overline{\underline{\mathcal M}}}{\mathfrak p^{k+1}_g \overline{\underline{\mathcal M}}} \text{ is free over } \overline{T}_g/\mathfrak p_g.
+  \]
+  (One should note that $\overline{T}/ \mathfrak p$ is a noetherian domain, and $\mathfrak p^k \overline{\underline{\mathcal M}}/ \mathfrak p^{k+1} \overline{\underline{\mathcal M}}$ is finitely generated over $\overline{T}/ \mathfrak p$.)
 
 
-\begin{remark}
-By abuse of notation, let us clarify how to get this expression, this equality makes sense in $\underline{\mathcal{M}}$:
+  Apply Lemma~\ref{lem:noether} to the finite-type algebra $R=\overline T_{g}$. We obtain algebraically
+  independent elements $y_1=t_1,\dots,y_d=t_d\in\overline T_{g}$ and some $h\in\C[t_1,\dots,t_d]$ such that both $\overline T_{g}$ and $(\overline T_{g}/\mathfrak p_{g})_h$ are finite and free
+  over $S_h:=\C[t_1,\dots,t_d]_h$ (i.e. $S:=\C[t_1,\dots,t_d]$). Replacing $\bar f$ by $g h$ if necessary (and keeping the notation $\bar f$
+  for the product).
 
-\begin{enumerate}
-    \item \textbf{Filtration:} 
-    $\overline{m_i} \in \mathfrak{p}^{k_i}_{\bar f}\overline{\underline{\mathcal{M}}}_{\bar f}/\mathfrak{p}^{k_i+1}_{\bar f}\overline{\underline{\mathcal{M}}}_{\bar f}$. Then $\overline{a}\overline{m_i} \in \mathfrak{p}^{k_i+1}_{\bar f}\overline{\underline{\mathcal{M}}}_{\bar f}$. So we have $\overline{a}\overline{m_i} = \sum_{j \ge k_{j_1+1}} \overline{u_{ij}}\overline{m_j} \in \overline{\underline{\mathcal{M}}}_{\bar f}$.
+  With this choice we have:
+  $\mathfrak p_{\bar f}^\ell\overline{\underline{\mathcal M}}_{\bar f}=0$ for some $\ell>0$, and each successive
+  quotient $\mathfrak p_{\bar f}^i\overline{\underline{\mathcal M}}_{\bar f} / \mathfrak p_{\bar f}^{i+1}\overline{\underline{\mathcal M}}_{\bar f}$
+  is a free $S_h$-module. \\
 
-    \item \textbf{Localization:}
-    So we have $\overline{f^{n_2} a m_i} = \sum_{j \ge k_{j_1+1}} \overline{u_{ij}} \overline{m_j} \in \overline{\underline{\mathcal{M}}}$, here we canceled the denominators of $\overline{u_{ij}}$, and use the same symbol to denote the new $\overline{u_{ij}}$.
+  For later use, fix $S_h$-bases
+  $\{\overline m_{i,j}\}$ such that for each $i$, $\{\overline m_{i,j}\}$(fix $i$, and change $j$) is a $S_h$-basis of
+  $\mathfrak p_{\bar f}^i\overline{\underline{\mathcal M}}_{\bar f}$.
+  This basis $\{\overline m_{i,j}\}$ can also be regarded as a $S_h$-basis of $\overline{\underline{\mathcal M}}_{\bar f}$
+  (The $S_h$-action on $\overline{\underline{\mathcal M}}_{\bar f}$ is through $\overline{T}_{\bar f}$, not through $\overline{T}_{\bar f}/\mathfrak p_{\bar f}$).\\
 
-    \item \textbf{Flatness:}
-    By Lemma~\ref{E-flatness}, we have the isomorphism $\overline{\underline{\mathcal{M}}} \xrightarrow{\sim} u \underline{\mathcal{M}}$. So every element in $u\underline{\mathcal{M}}$ can be expressed by the form 
-\[
-    u \cdot \text{ elements lifted from }\overline{\underline{\mathcal{M}}}.
-\]
-    So we have $f^{n_2} a m_i = \sum_{j \ge k_{j_1+1}} u_{ij} m_j + u \sum_j \alpha_{ij} m_j\quad  \in \underline{\mathcal{M}}$.
-\end{enumerate}
-\end{remark}
+  Relabelling we obtain:
+  \[
+    \underbrace{\overline m_{k_0},\dots,\overline m_{k_1-1}}_{\text{basis of }\overline{\underline{\mathcal M}}_{\bar f}/\mathfrak p_{\bar f}\overline{\underline{\mathcal M}}_{\bar f}},\quad
+    \underbrace{\overline m_{k_1},\dots,\overline m_{k_2-1}}_{\text{basis of }\mathfrak p_{\bar f}\overline{\underline{\mathcal M}}_{\bar f}/\mathfrak p_{\bar f}^2\overline{\underline{\mathcal M}}_{\bar f}},\quad
+    \ldots,\quad
+    \underbrace{\overline m_{k_{\ell-1}},\dots,\overline m_{k_\ell-1}}_{\text{basis of }\mathfrak p_{\bar f}^{\ell-1}\overline{\underline{\mathcal M}}_{\bar f}}.
+  \]
+
+  We then take a lift $f\in T$ of $\bar f\in \overline T$.
+
+  \begin{lemma}[Lemma~6.12]\label{lem:matrix}
+    Let $a,b\in T$ have images $\bar a,\bar b\in \mathfrak p$. Then there exist integers
+    $n_1,n_2,n_3\ge0$ and elements $e_{ij}\in T$ with $\overline{e_{ij}} \in S\subseteq \overline{T}$ such that
+    \begin{enumerate}
+      \item $f^{n_1}[f^{n_2}a,f^{n_3}b] m_i = u\sum_j e_{ij} m_j$ for every $i$, and
+      \item $\sum_j \overline{e_{ij}} = 0$ for every $i$.
+    \end{enumerate}
+  \end{lemma}
+  \begin{proof}
+    If $k_{j_1} \le i < k_{j_1+1}$ for some $j_1$, then we have
+    \[
+      f^{n_2} a m_i = \sum_{j \ge k_{j_1+1}} u_{ij} m_j + u \sum_j \alpha_{ij} m_j,\quad \bar{u}_{ij}, \bar{\alpha}_{ij} \in S
+    \]
 
 
+    \begin{remark}
+      By abuse of notation, let us clarify how to get this expression, this equality makes sense in $\underline{\mathcal{M}}$:
 
-Similarly,
-\[
-    f^{n_3} b m_i = \sum_{j \ge k_{j_1+1}} v_{ij} m_j + u \sum_j \beta_{ij} m_j,\quad \bar{v}_{ij}, \bar{\beta}_{ij} \in S
-\]
-Then, since $u^2=0$,
-\begin{align*}
-    f^{n_2} a f^{n_3} b m_i = \sum_{j \ge k_{j_1+1}} \left( v_{ij} f^{n_2} a + [f^{n_2}a, v_{ij}] \right) m_j + u \sum_j \beta_{ij} f^{n_2} a m_j
-\end{align*}
+      \begin{enumerate}
+        \item \textbf{Filtration:}
+              $\overline{m_i} \in \mathfrak{p}^{k_i}_{\bar f}\overline{\underline{\mathcal{M}}}_{\bar f}/\mathfrak{p}^{k_i+1}_{\bar f}\overline{\underline{\mathcal{M}}}_{\bar f}$. Then $\overline{a}\overline{m_i} \in \mathfrak{p}^{k_i+1}_{\bar f}\overline{\underline{\mathcal{M}}}_{\bar f}$. So we have $\overline{a}\overline{m_i} = \sum_{j \ge k_{j_1+1}} \overline{u_{ij}}\overline{m_j} \in \overline{\underline{\mathcal{M}}}_{\bar f}$.
 
-\noindent Take $U = [u_{ij}]$, $V = [v_{ij}]$, $\alpha = [\alpha_{ij}]$, $\beta = [\beta_{ij}]$, we get:
+        \item \textbf{Localization:}
+              So we have $\overline{f^{n_2} a m_i} = \sum_{j \ge k_{j_1+1}} \overline{u_{ij}} \overline{m_j} \in \overline{\underline{\mathcal{M}}}$, here we canceled the denominators of $\overline{u_{ij}}$, and use the same symbol to denote the new $\overline{u_{ij}}$.
 
-\begin{align*}
-    f^{n_2} a f^{n_3} b m_i 
-    = \sum_{j \ge k_{j_1+1}} \left( (VU)_{ij} + [f^{n_2}a, v_{ij}] \right) m_j 
-     + u \sum_j \left( (V \cdot \alpha)_{ij} + (\beta \cdot U)_{ij} \right) m_j
-\end{align*}
+        \item \textbf{Flatness:}
+              By Lemma~\ref{E-flatness}, we have the isomorphism $\overline{\underline{\mathcal{M}}} \xrightarrow{\sim} u \underline{\mathcal{M}}$. So every element in $u\underline{\mathcal{M}}$ can be expressed by the form
+              \[
+                u \cdot \text{ elements lifted from }\overline{\underline{\mathcal{M}}}.
+              \]
+              So we have $f^{n_2} a m_i = \sum_{j \ge k_{j_1+1}} u_{ij} m_j + u \sum_j \alpha_{ij} m_j\quad  \in \underline{\mathcal{M}}$.
+      \end{enumerate}
+    \end{remark}
 
 
 
-\noindent Similarly,
-\begin{align*}
-    f^{n_3} b f^{n_2} a m_i 
-    = \sum_{j \ge k_{j_1+1}} \left( (UV)_{ij} + [f^{n_3}b, u_{ij}] \right) m_j 
-    + u \sum_j \left( (U \cdot \beta)_{ij} + (\alpha \cdot V)_{ij} \right) m_j
-\end{align*}
+    Similarly,
+    \[
+      f^{n_3} b m_i = \sum_{j \ge k_{j_1+1}} v_{ij} m_j + u \sum_j \beta_{ij} m_j,\quad \bar{v}_{ij}, \bar{\beta}_{ij} \in S
+    \]
+    Then, since $u^2=0$,
+    \begin{align*}
+      f^{n_2} a f^{n_3} b m_i = \sum_{j \ge k_{j_1+1}} \left( v_{ij} f^{n_2} a + [f^{n_2}a, v_{ij}] \right) m_j + u \sum_j \beta_{ij} f^{n_2} a m_j
+    \end{align*}
 
-\noindent Therefore,
-\[
-    [f^{n_2}a, f^{n_3}b] m_i = \sum_{j \ge k_{j_1+1}} c_{ij} m_j + u \sum_j \gamma_{ij} m_j
-\]
-where
-\[
-    c_{ij} = [V, U]_{ij} + [f^{n_2}a, v_{ij}] - [f^{n_3}b, u_{ij}],
-\]
-and
-\[
-    [\gamma_{ij}] = [V, \alpha] + [\beta, U].
-\]
-\noindent On the other hand, since $\overline{T}$ is commutative
-\[
-    [f^{n_2}a, f^{n_3}b] = u \cdot c \quad \text{for some } c \in T
-\]
+    \noindent Take $U = [u_{ij}]$, $V = [v_{ij}]$, $\alpha = [\alpha_{ij}]$, $\beta = [\beta_{ij}]$, we get:
 
-\noindent This implies
-\[
-  [f^{n_2}a, f^{n_3}b] m_i = u \cdot c m_i = u \cdot \sum_j d'_{ij} m_j, \quad \overline{d'_{ij}} \in S_{\bar f}
-\]
-\noindent (Here we use the $E$-flatness of $\mathcal{M}$, that is the isomorphism $\overline{\underline{\mathcal{M}}} \xrightarrow{\sim} u \underline{\mathcal{M}}$.)
+    \begin{align*}
+      f^{n_2} a f^{n_3} b m_i
+      = \sum_{j \ge k_{j_1+1}} \left( (VU)_{ij} + [f^{n_2}a, v_{ij}] \right) m_j
+      + u \sum_j \left( (V \cdot \alpha)_{ij} + (\beta \cdot U)_{ij} \right) m_j
+    \end{align*}
 
-\noindent Canceling the denominators of $d'_{ij}$, we set
-\[
-    f^{n_1} [f^{n_2}a, f^{n_3}b] m_i = u \cdot \sum_j e_{ij} m_j, \quad \overline{e_{ij}} \in S
-\]
-So
-\[
-    f^{n_1} \cdot [c_{ij}] + u f^{n_1} [\gamma_{ij}] = u [e_{ij}]
-\]
-But $[c_{ij}]$ is traceless because it is a sum of a commutator and a strict upper triangular matrix.
-$[\gamma_{ij}]$ is also traceless similarly.
-So $[\overline{e_{ij}}]$ is traceless.
-\end{proof}
 
-\noindent Now we go back to prove $\{\frak{p}, \frak{p}\} \subseteq \frak{p}$.\\
 
-\noindent We know
-$  f^{n_1} [f^{n_2}a, f^{n_3}b] = c $
-\begin{align*}
-    c &= f^{n_1} f^{n_2} a f^{n_3} b - f^{n_1} f^{n_3} b f^{n_2} a \\
-    &= f^{n_1+n_2+n_3} ab + f^{n_1+n_2} [a, f^{n_3}] b  - f^{n_1+n_2+n_3} ba - f^{n_1+n_3} [b, f^{n_2}] a \\
-    &= f^{n_1+n_2+n_3} [a, b] + f^{n_1+n_2} [a, f^{n_3}] b - f^{n_1+n_3} [b, f^{n_2}] a
-\end{align*}
+    \noindent Similarly,
+    \begin{align*}
+      f^{n_3} b f^{n_2} a m_i
+      = \sum_{j \ge k_{j_1+1}} \left( (UV)_{ij} + [f^{n_3}b, u_{ij}] \right) m_j
+      + u \sum_j \left( (U \cdot \beta)_{ij} + (\alpha \cdot V)_{ij} \right) m_j
+    \end{align*}
 
-\noindent This implies $\overline{c} \in \bar{f}^{n_1+n_2+n_3} \{\bar{a}, \bar{b}\} + \frak{p}$.\\
+    \noindent Therefore,
+    \[
+      [f^{n_2}a, f^{n_3}b] m_i = \sum_{j \ge k_{j_1+1}} c_{ij} m_j + u \sum_j \gamma_{ij} m_j
+    \]
+    where
+    \[
+      c_{ij} = [V, U]_{ij} + [f^{n_2}a, v_{ij}] - [f^{n_3}b, u_{ij}],
+    \]
+    and
+    \[
+      [\gamma_{ij}] = [V, \alpha] + [\beta, U].
+    \]
+    \noindent On the other hand, since $\overline{T}$ is commutative
+    \[
+      [f^{n_2}a, f^{n_3}b] = u \cdot c \quad \text{for some } c \in T
+    \]
 
-\noindent By Lemma~\ref{lem:matrix}, $\text{the trace of } \overline{c} \text{ on } \overline{\underline{\mathcal{M}}}_{\bar f} = \sum_i \overline{e_{ii}} = 0$.
-Since $\frak{p}^l_{\bar f} \cdot \overline{\underline{\mathcal{M}}}_{\bar f} = 0$, its trace is also 0.
-So the trace of $\{\bar{a}, \bar{b}\}$ on $\overline{\underline{\mathcal{M}}}_{\bar f}$ is also 0 (since $\bar{f} \notin \frak{p}$).\\
+    \noindent This implies
+    \[
+      [f^{n_2}a, f^{n_3}b] m_i = u \cdot c m_i = u \cdot \sum_j d'_{ij} m_j, \quad \overline{d'_{ij}} \in S_{\bar f}
+    \]
+    \noindent (Here we use the $E$-flatness of $\mathcal{M}$, that is the isomorphism $\overline{\underline{\mathcal{M}}} \xrightarrow{\sim} u \underline{\mathcal{M}}$.)
 
-\noindent Then $\forall x \in \overline{T}_{\bar f}$, $\{x\bar{a}, \bar{b}\} = x\{\bar{a}, \bar{b}\} + \{x, \bar{b}\}\bar{a} \in x\{\bar{a}, \bar{b}\} + \frak{p}_{\bar f}$.
-Similarly, we conclude
-\[
+    \noindent Canceling the denominators of $d'_{ij}$, we set
+    \[
+      f^{n_1} [f^{n_2}a, f^{n_3}b] m_i = u \cdot \sum_j e_{ij} m_j, \quad \overline{e_{ij}} \in S
+    \]
+    So
+    \[
+      f^{n_1} \cdot [c_{ij}] + u f^{n_1} [\gamma_{ij}] = u [e_{ij}]
+    \]
+    But $[c_{ij}]$ is traceless because it is a sum of a commutator and a strict upper triangular matrix.
+    $[\gamma_{ij}]$ is also traceless similarly.
+    So $[\overline{e_{ij}}]$ is traceless.
+  \end{proof}
+
+  \noindent Now we go back to prove $\{\frak{p}, \frak{p}\} \subseteq \frak{p}$.\\
+
+  \noindent We know
+  $  f^{n_1} [f^{n_2}a, f^{n_3}b] = c $
+  \begin{align*}
+    c & = f^{n_1} f^{n_2} a f^{n_3} b - f^{n_1} f^{n_3} b f^{n_2} a                                          \\
+      & = f^{n_1+n_2+n_3} ab + f^{n_1+n_2} [a, f^{n_3}] b  - f^{n_1+n_2+n_3} ba - f^{n_1+n_3} [b, f^{n_2}] a \\
+      & = f^{n_1+n_2+n_3} [a, b] + f^{n_1+n_2} [a, f^{n_3}] b - f^{n_1+n_3} [b, f^{n_2}] a
+  \end{align*}
+
+  \noindent This implies $\overline{c} \in \bar{f}^{n_1+n_2+n_3} \{\bar{a}, \bar{b}\} + \frak{p}$.\\
+
+  \noindent By Lemma~\ref{lem:matrix}, $\text{the trace of } \overline{c} \text{ on } \overline{\underline{\mathcal{M}}}_{\bar f} = \sum_i \overline{e_{ii}} = 0$.
+  Since $\frak{p}^l_{\bar f} \cdot \overline{\underline{\mathcal{M}}}_{\bar f} = 0$, its trace is also 0.
+  So the trace of $\{\bar{a}, \bar{b}\}$ on $\overline{\underline{\mathcal{M}}}_{\bar f}$ is also 0 (since $\bar{f} \notin \frak{p}$).\\
+
+  \noindent Then $\forall x \in \overline{T}_{\bar f}$, $\{x\bar{a}, \bar{b}\} = x\{\bar{a}, \bar{b}\} + \{x, \bar{b}\}\bar{a} \in x\{\bar{a}, \bar{b}\} + \frak{p}_{\bar f}$.
+  Similarly, we conclude
+  \[
     \text{the trace of } x\{\bar{a}, \bar{b}\} \text{ on } \overline{\underline{\mathcal{M}}}_{\bar f} \text{ is also } 0.
-\]
+  \]
 
-\noindent Meanwhile, since $\overline{\underline{\mathcal{M}}}_{\bar f}$ is free over $B = \overline{T}_{\bar f} / \frak{p}_{\bar f}$ and $S_{\bar f} \hookrightarrow B$ is a finite free extension, the trace of $y = x\{\bar{a}, \bar{b}\} \in \overline{T}_{\bar f}$ on $\overline{\underline{\mathcal{M}}}_{\bar f}$ is
-\[
+  \noindent Meanwhile, since $\overline{\underline{\mathcal{M}}}_{\bar f}$ is free over $B = \overline{T}_{\bar f} / \frak{p}_{\bar f}$ and $S_{\bar f} \hookrightarrow B$ is a finite free extension, the trace of $y = x\{\bar{a}, \bar{b}\} \in \overline{T}_{\bar f}$ on $\overline{\underline{\mathcal{M}}}_{\bar f}$ is
+  \[
     r \cdot (\text{the trace of } \bar{y} \text{ on } B),
-\]
-where $r$ is the rank of $\overline{\underline{\mathcal{M}}}_{\bar f}$ over $S_{\bar f}$.
-(For this properties of trace one can refer \cite[Theorem 7.8.5]{li2019algebraic})\\
+  \]
+  where $r$ is the rank of $\overline{\underline{\mathcal{M}}}_{\bar f}$ over $S_{\bar f}$.
+  (For this properties of trace one can refer \cite[Theorem 7.8.5]{li2019algebraic})\\
 
-\noindent Since finite extension is integral and we are over $\mathbb{C}$ (thus the corresponding field extension is separable), the trace form of $S_{\bar f} \hookrightarrow B$ is non-degenerate.
+  \noindent Since finite extension is integral and we are over $\mathbb{C}$ (thus the corresponding field extension is separable), the trace form of $S_{\bar f} \hookrightarrow B$ is non-degenerate.
 
-\noindent So
-\[
-    \bar{y} = 0 \in B \implies \{\bar{a}, \bar{b}\} \in \frak{p}. 
-\]
+  \noindent So
+  \[
+    \bar{y} = 0 \in B \implies \{\bar{a}, \bar{b}\} \in \frak{p}.
+  \]
 
-This proves $\{\mathfrak p,\mathfrak p\}\subseteq \mathfrak p$, so $\mathfrak p$ (and thus $I$) is involutive.  The proof of
-Theorem~\ref{thm:gabber-II}---and hence Theorem~\ref{thm:gabber-I}---is complete.
+  This proves $\{\mathfrak p,\mathfrak p\}\subseteq \mathfrak p$, so $\mathfrak p$ (and thus $I$) is involutive.  The proof of
+  Theorem~\ref{thm:gabber-II}---and hence Theorem~\ref{thm:gabber-I}---is complete.
 
 \end{proof}

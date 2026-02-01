@@ -1,44 +1,48 @@
 \section{$V$-filtration and normal deformation}
-Let $X = \text{Spec } R$ be a smooth affine variety over $\mathbb{C}$ with algebraic coordinates $(t, x_2, \ldots, x_n)$. 
+Let $X = \text{Spec } R$ be a smooth affine variety over $\mathbb{C}$ with algebraic coordinates $(t, x_2, \ldots, x_n)$.
 
-Take $I^j :=\begin{cases}\left< t \right>^{j},& j > 0\\R,&j\leq0\end{cases}$, 
-we define a filtration of $\mathcal{D}_{X}$: 
+\begin{remark}
+    Editor thinks $R$ should be a domain in this chapter, which will be used to prove the normal bundle $T_Y X$ is smooth over $\mathbb{C}$, and V-filtration is Hausdorff.
+\end{remark}
+
+Take $I^j :=\begin{cases}\left< t \right>^{j},& j > 0\\R,&j\leq0\end{cases}$,
+we define a filtration of $\mathcal{D}_{X}$:
 $$V_{k} \mathcal{D}_X := \{P \in \mathcal{D}_X \mid P I^{j} \subseteq I^{j-k}\text{ for all }j\in \mathbb{Z}\}.$$
 
-Then we obtain that $V_0 \mathcal{D}_X = R \langle t\partial_t, \partial_{x_2}, \ldots, \partial_{x_n} \rangle$ and for all $i>0$: 
+Then we obtain that $V_0 \mathcal{D}_X = R \langle t\partial_t, \partial_{x_2}, \ldots, \partial_{x_n} \rangle$ and for all $i>0$:
 \begin{align*}
-V_{-i} \mathcal{D}_{X} &= t^{i} V_{0 }\mathcal{D}_{X } = V_{0} \mathcal{D}_{X} t^{i}\\
-V_i \mathcal{D}_X &= \partial_t V_{i-1} \mathcal{D}_X + V_{i-1} \mathcal{D}_X.
+    V_{-i} \mathcal{D}_{X} & = t^{i} V_{0 }\mathcal{D}_{X } = V_{0} \mathcal{D}_{X} t^{i} \\
+    V_i \mathcal{D}_X      & = \partial_t V_{i-1} \mathcal{D}_X + V_{i-1} \mathcal{D}_X.
 \end{align*}
-Next, we will prove $V_{\bullet} \mathcal{D}_X$ is a noetherian $\mathbb{Z}$-filtration s.t. $\mathrm{gr}^V \mathcal{D}_X$ is Auslander regular. 
+Next, we will prove $V_{\bullet} \mathcal{D}_X$ is a noetherian $\mathbb{Z}$-filtration s.t. $\mathrm{gr}^V \mathcal{D}_X$ is Auslander regular.
 
 We obtain that $V_{j} \mathcal{O}_X = I^{-j} \in \mathcal{O}_X = R$ for $j \in \mathbb{Z}$ defines an increasing $\mathbb{Z}$-filtration on $\mathcal{O}_X$.
-We have 
+We have
 $$\mathcal{R}_{\bullet}(\mathcal{O}_X) = \mathcal{R}^V_{\bullet}(\mathcal{O}_X) = \bigoplus_{j \in \mathbb{Z}} I^{-j} \otimes u^j \in R[u, u^{-1}]$$
 The ring $\mathcal{R}_{\bullet}(\mathcal{O}_X)$ is smooth over $\mathbb{C}$, since
 \[
-\psi:R[u,v]/(uv-t) \cong\ \mathcal R^\bullet(\mathcal{O}_X)\ \subseteq\ R[u,u^{-1}], \quad \text{via } 
-\begin{cases} \overline{u} \mapsto u \\ \overline{v} \mapsto tu^{-1} \end{cases}
+    \psi:R[u,v]/(uv-t) \cong\ \mathcal R^\bullet(\mathcal{O}_X)\ \subseteq\ R[u,u^{-1}], \quad \text{via }
+    \begin{cases} \overline{u} \mapsto u \\ \overline{v} \mapsto tu^{-1} \end{cases}
 \]
 Furthermore, $\operatorname{Spec}(R[u,v]/(uv-t))$ is smooth over $\mathbb{C}$. Indeed, viewing $f = uv - t$ as an element of the polynomial ring $R[u,v]$ with coordinates $(t, x_2, \ldots, x_n, u, v)$, we have
 \[
-\frac{\partial f}{\partial u} = v, \quad \frac{\partial f}{\partial v} = u, \quad \frac{\partial f}{\partial x_i} = 0, \quad \frac{\partial f}{\partial t} = -1.
+    \frac{\partial f}{\partial u} = v, \quad \frac{\partial f}{\partial v} = u, \quad \frac{\partial f}{\partial x_i} = 0, \quad \frac{\partial f}{\partial t} = -1.
 \]
 Since $\frac{\partial f}{\partial t} = -1$ is a unit, by \cite[\href{https://stacks.math.columbia.edu/tag/00T7}{Tag 00T7}]{stacks-project}, $\operatorname{Spec}(R[u,v]/(uv-t))$ has algebraic coordinates $(\overline{x_2}, \ldots, \overline{x_n}, \overline{u}, \overline{v})$.
 
 \medskip
 
-The embedding $\mathbb{C}[u] \hookrightarrow R_{\bullet}(\mathcal{O}_X)=R[u]\bigoplus\limits_{j\ge 1}I^{j}\otimes u^{-j}$ induces a family $\widetilde{X}= \operatorname{Spec} R_{\bullet}(\mathcal{O}_X)\xrightarrow{\varphi}\mathbb{A}^{1}_{\mathbb{C}}$ s.t. 
+The embedding $\mathbb{C}[u] \hookrightarrow R_{\bullet}(\mathcal{O}_X)=R[u]\bigoplus\limits_{j\ge 1}I^{j}\otimes u^{-j}$ induces a family $\widetilde{X}= \operatorname{Spec} R_{\bullet}(\mathcal{O}_X)\xrightarrow{\varphi}\mathbb{A}^{1}_{\mathbb{C}}$ s.t.
 \begin{enumerate}
-    \item $\varphi$ is smooth affine (see Definition~\ref{def:smooth-morphism}, applying \cite[\href{https://stacks.math.columbia.edu/tag/00RS}{Tag 00RS}]{stacks-project} to $\C \to \C[u] \to \mathcal{R}_{\bullet}(\mathcal{O}_X)$, we obtain that $\Omega_{\mathcal{R}_{\bullet}(\mathcal{O}_X)/\mathbb{C}[u]}$ is free with a basis $(\mathrm{d}\psi(\overline{x_2}), \ldots, \mathrm{d}\psi(\overline{x_n}), \mathrm{d}\psi(\overline{v}))$); 
-    \item  $\varphi^{-1}(a) \simeq X, \quad \forall \text{ nonzero } a \in \mathbb{A}^1_{\mathbb{C}}$, since $\varphi ^{-1}(a)=X\times_{\mathbb{A}^{1}_{C}}\mathrm{Spec}(\mathbb{C}[u] /(u-a))=\mathrm{Spec}(R\otimes_{\mathbb{C}[u]}\mathbb{C}[u] /(u-a))=\mathcal{R}_{\bullet}(\mathcal{O}_{X}) /(u-a)\simeq R$. 
-    \item $\varphi^{-1}(0) = \operatorname{Spec} \bigoplus\limits_{j \in \mathbb{Z}_{\geq 0}} I^j/I^{j+1} = T_Y X$ the normal bundle of $Y$ in $X$, where $Y = \{t = 0\} \subseteq X$. 
+    \item $\varphi$ is smooth affine (see Definition~\ref{def:smooth-morphism}, applying \cite[\href{https://stacks.math.columbia.edu/tag/00RS}{Tag 00RS}]{stacks-project} to $\C \to \C[u] \to \mathcal{R}_{\bullet}(\mathcal{O}_X)$, we obtain that $\Omega_{\mathcal{R}_{\bullet}(\mathcal{O}_X)/\mathbb{C}[u]}$ is free with a basis $(\mathrm{d}\psi(\overline{x_2}), \ldots, \mathrm{d}\psi(\overline{x_n}), \mathrm{d}\psi(\overline{v}))$);
+    \item  $\varphi^{-1}(a) \simeq X, \quad \forall \text{ nonzero } a \in \mathbb{A}^1_{\mathbb{C}}$, since $\varphi ^{-1}(a)=X\times_{\mathbb{A}^{1}_{C}}\mathrm{Spec}(\mathbb{C}[u] /(u-a))=\mathrm{Spec}(R\otimes_{\mathbb{C}[u]}\mathbb{C}[u] /(u-a))=\mathcal{R}_{\bullet}(\mathcal{O}_{X}) /(u-a)\simeq R$.
+    \item $\varphi^{-1}(0) = \operatorname{Spec} \bigoplus\limits_{j \in \mathbb{Z}_{\geq 0}} I^j/I^{j+1} = T_Y X$ the normal bundle of $Y$ in $X$, where $Y = \{t = 0\} \subseteq X$.
 
 \end{enumerate}
 
-We say $\varphi$ is the $\textbf{normal deformation}$ along $Y$. 
+We say $\varphi$ is the $\textbf{normal deformation}$ along $Y$.
 
-Recall the following definition: 
+Recall the following definition:
 
 \begin{definition}
     Let $A$, $B$ be two commutative rings with units with $\phi: A \to B$: a ring homomorphism. Then $\Omega_{\phi} = \Omega_{B/A}$ is the $B$-module generated by $\{\mathrm{d}f \mid f \in B\}$ subject to the relations:
@@ -46,18 +50,18 @@ Recall the following definition:
         \item  $\mathrm{d}(fg) = f\mathrm{d}g + g\mathrm{d}f$
         \item $\mathrm{d}(af + bg) = a\mathrm{d}f + b\mathrm{d}g, \, \forall f,g \in B$, $a,b \in A$
     \end{enumerate}
- called the $\textbf{module of K\"{a}hler differentials}$ of $B$ over $A$. 
+    called the $\textbf{module of K\"{a}hler differentials}$ of $B$ over $A$.
 \end{definition}
 
- Furthermore, we have the following definition: 
+Furthermore, we have the following definition:
 
 \begin{definition}
 
- \begin{enumerate}
-    \item  $\phi$ is called $\textbf{smooth}$\label{def:smooth-morphism} if $\Omega_{\phi}$ is a free $B$-module of finite rank.
-    \item If $\phi$ is smooth, we define $$\mathcal{T}_{\phi} := \mathrm{Hom}_B(\Omega_{\phi}, B),$$which is called the $\textbf{module of derivatives}$ of $B$ over $A$.
-    \item $\mathcal{D}_{\phi} \subseteq \mathrm{End}_A(B)$ is the $A$-subalgebra generated by $\mathcal{T}_{\phi}$ and $B$, the $\textbf{ring of (algebraic) relative differential operators}$ of $B$ over $A$. 
- \end{enumerate}
+    \begin{enumerate}
+        \item  $\phi$ is called $\textbf{smooth}$\label{def:smooth-morphism} if $\Omega_{\phi}$ is a free $B$-module of finite rank.
+        \item If $\phi$ is smooth, we define $$\mathcal{T}_{\phi} := \mathrm{Hom}_B(\Omega_{\phi}, B),$$which is called the $\textbf{module of derivatives}$ of $B$ over $A$.
+        \item $\mathcal{D}_{\phi} \subseteq \mathrm{End}_A(B)$ is the $A$-subalgebra generated by $\mathcal{T}_{\phi}$ and $B$, the $\textbf{ring of (algebraic) relative differential operators}$ of $B$ over $A$.
+    \end{enumerate}
 
 \end{definition}
 
@@ -69,49 +73,49 @@ Recall the following definition:
     In fact, the definition of smooth morphism given above is not standard.
 
     For standard definition of smooth morphism, see \cite[Section~4.3.3, Definition~3.35]{liu2002algebraic} or its equivalent ring-theoretic counterpart \cite[\href{https://stacks.math.columbia.edu/tag/00TF}{Tag 00TF}]{stacks-project}, which is equivalent to \cite[\href{https://stacks.math.columbia.edu/tag/00T2}{Tag 00T2}]{stacks-project}.
-    
+
     We essentially use the standard definition in Stacks Project or Liuqing's book below in the proof of Corollary~\ref{cor:Rees-ring-of-V-filtration-D-module}.
-    
+
     So we need to show $\phi$ is smooth in the standard sense.
 
-\begin{proof}
-$R$ is smooth over $\mathbb{C}$. So by \cite[\href{https://stacks.math.columbia.edu/tag/00TA}{Tag 00TA}]{stacks-project}, locally we have standard smooth presentation, that is taking an open cover $\Spec R = \bigcup_g \Spec R_g$ such that
-$$
-    R_g \simeq \mathbb{C}[t, x_2, \ldots, x_n, x_{n+1}, \ldots, x_{n+m}]/(f_{n+1}, \ldots, f_{n+m})
-$$
-where 
-$$
-    \det \begin{pmatrix} \frac{\partial f_{n+1}}{\partial x_{n+1}} & \cdots & \frac{\partial f_{n+1}}{\partial x_{n+m}} \\ \vdots & \ddots & \vdots \\ \frac{\partial f_{n+m}}{\partial x_{n+1}} & \cdots & \frac{\partial f_{n+m}}{\partial x_{n+m}} \end{pmatrix}
-$$
-is invertible in $R_g$.
+    \begin{proof}
+        $R$ is smooth over $\mathbb{C}$. So by \cite[\href{https://stacks.math.columbia.edu/tag/00TA}{Tag 00TA}]{stacks-project}, locally we have standard smooth presentation, that is taking an open cover $\Spec R = \bigcup_g \Spec R_g$ such that
+        $$
+            R_g \simeq \mathbb{C}[t, x_2, \ldots, x_n, x_{n+1}, \ldots, x_{n+m}]/(f_{n+1}, \ldots, f_{n+m})
+        $$
+        where
+        $$
+            \det \begin{pmatrix} \frac{\partial f_{n+1}}{\partial x_{n+1}} & \cdots & \frac{\partial f_{n+1}}{\partial x_{n+m}} \\ \vdots & \ddots & \vdots \\ \frac{\partial f_{n+m}}{\partial x_{n+1}} & \cdots & \frac{\partial f_{n+m}}{\partial x_{n+m}} \end{pmatrix}
+        $$
+        is invertible in $R_g$.
 
 
-So $R[u,v]/(uv-t)$ also locally has a presentation.
-$$
-    R[u,v]/(uv-t)_g = R_g[u,v]/(uv-t) \simeq \mathbb{C}[u][t, x_2, \ldots, x_n, x_{n+1}, \ldots, x_{n+m}, v]/(f_{n+1}, \ldots, f_{n+m}, uv-t)
-$$
-Which shows $R[u,v]/(uv-t)_g$ is a standard smooth $\mathbb{C}[u]$-algebra. Indeed, consider the Jacobian matrix with respect to variables $x_{n+1}, \ldots, x_{n+m}, t$:
-$$
-    \det \begin{pmatrix} 
-    \frac{\partial f_{n+1}}{\partial x_{n+1}} & \cdots & \frac{\partial f_{n+1}}{\partial x_{n+m}} & \frac{\partial f_{n+1}}{\partial t} \\ 
-    \vdots & \ddots & \vdots & \vdots \\ 
-    \frac{\partial f_{n+m}}{\partial x_{n+1}} & \cdots & \frac{\partial f_{n+m}}{\partial x_{n+m}} & \frac{\partial f_{n+m}}{\partial t} \\
-    \frac{\partial (uv-t)}{\partial x_{n+1}} & \cdots & \frac{\partial (uv-t)}{\partial x_{n+m}} & \frac{\partial (uv-t)}{\partial t}
-    \end{pmatrix}
-    =
-    \det \begin{pmatrix} 
-    \frac{\partial f_{n+1}}{\partial x_{n+1}} & \cdots & \frac{\partial f_{n+1}}{\partial x_{n+m}} & \frac{\partial f_{n+1}}{\partial t} \\ 
-    \vdots & \ddots & \vdots & \vdots \\ 
-    \frac{\partial f_{n+m}}{\partial x_{n+1}} & \cdots & \frac{\partial f_{n+m}}{\partial x_{n+m}} & \frac{\partial f_{n+m}}{\partial t} \\
-    0 & \cdots & 0 & -1
-    \end{pmatrix}
-    = (-1) \cdot \det(J_R)
-$$
-where $J_R$ is the Jacobian matrix which is invertible in $R_g[u,v]/(uv-t)$.
+        So $R[u,v]/(uv-t)$ also locally has a presentation.
+        $$
+            R[u,v]/(uv-t)_g = R_g[u,v]/(uv-t) \simeq \mathbb{C}[u][t, x_2, \ldots, x_n, x_{n+1}, \ldots, x_{n+m}, v]/(f_{n+1}, \ldots, f_{n+m}, uv-t)
+        $$
+        Which shows $R[u,v]/(uv-t)_g$ is a standard smooth $\mathbb{C}[u]$-algebra. Indeed, consider the Jacobian matrix with respect to variables $x_{n+1}, \ldots, x_{n+m}, t$:
+        $$
+            \det \begin{pmatrix}
+                \frac{\partial f_{n+1}}{\partial x_{n+1}} & \cdots & \frac{\partial f_{n+1}}{\partial x_{n+m}} & \frac{\partial f_{n+1}}{\partial t} \\
+                \vdots                                    & \ddots & \vdots                                    & \vdots                              \\
+                \frac{\partial f_{n+m}}{\partial x_{n+1}} & \cdots & \frac{\partial f_{n+m}}{\partial x_{n+m}} & \frac{\partial f_{n+m}}{\partial t} \\
+                \frac{\partial (uv-t)}{\partial x_{n+1}}  & \cdots & \frac{\partial (uv-t)}{\partial x_{n+m}}  & \frac{\partial (uv-t)}{\partial t}
+            \end{pmatrix}
+            =
+            \det \begin{pmatrix}
+                \frac{\partial f_{n+1}}{\partial x_{n+1}} & \cdots & \frac{\partial f_{n+1}}{\partial x_{n+m}} & \frac{\partial f_{n+1}}{\partial t} \\
+                \vdots                                    & \ddots & \vdots                                    & \vdots                              \\
+                \frac{\partial f_{n+m}}{\partial x_{n+1}} & \cdots & \frac{\partial f_{n+m}}{\partial x_{n+m}} & \frac{\partial f_{n+m}}{\partial t} \\
+                0                                         & \cdots & 0                                         & -1
+            \end{pmatrix}
+            = (-1) \cdot \det(J_R)
+        $$
+        where $J_R$ is the Jacobian matrix which is invertible in $R_g[u,v]/(uv-t)$.
 
-Since $\bigcup_g \Spec R_g[u,v]/(uv-t)$ also gives an open cover for $\Spec R[u,v]/(uv-t)$, by \cite[\href{https://stacks.math.columbia.edu/tag/00TC}{Tag 00TC}]{stacks-project}, we obtain that $R[u,v]/(uv-t)$ is smooth over $\mathbb{C}[u]$.
+        Since $\bigcup_g \Spec R_g[u,v]/(uv-t)$ also gives an open cover for $\Spec R[u,v]/(uv-t)$, by \cite[\href{https://stacks.math.columbia.edu/tag/00TC}{Tag 00TC}]{stacks-project}, we obtain that $R[u,v]/(uv-t)$ is smooth over $\mathbb{C}[u]$.
 
-\end{proof}
+    \end{proof}
 
 \end{remark}
 
@@ -120,7 +124,7 @@ Since $\bigcup_g \Spec R_g[u,v]/(uv-t)$ also gives an open cover for $\Spec R[u,
 
 
 \begin{lemma}
-    
+
     Consider the ring homomorphism $\mathbb{C}[u]\hookrightarrow \mathcal{R}_\bullet(\mathcal{O}_X)$ mentioned in this chapter, we obtain that:
 
     \begin{enumerate}
@@ -130,11 +134,11 @@ Since $\bigcup_g \Spec R_g[u,v]/(uv-t)$ also gives an open cover for $\Spec R[u,
 \end{lemma}
 \begin{proof}
     For (1), recall $\mathcal{R}_{\bullet}(\mathcal{O}_X)$ has algebraic coordinates $(\psi(\overline{x_2}), \ldots, \psi(\overline{x_n}), \psi(\overline{u}), \psi(\overline{v})) = (x_2, \ldots, x_n, u, tu^{-1})$ with $\overline{u}\overline{v}= \overline{t}$.
-    
+
     By applying \cite[\href{https://stacks.math.columbia.edu/tag/00RS}{Tag 00RS}]{stacks-project} to $\C \to \C[u] \to \mathcal{R}_{\bullet}(\mathcal{O}_X)$, we obtain that $\Omega_{\mathcal{R}_{\bullet}(\mathcal{O}_X)/\mathbb{C}[u]}$ is free with a basis $(\mathrm{d}\psi(\overline{x_2}), \ldots, \mathrm{d}\psi(\overline{x_n}), \mathrm{d}\psi(\overline{v}))$.
-    
+
     Since $\mathrm{d}\psi(\overline{v}) = \mathrm{d}(t u^{-1}) = u^{-1}\mathrm{d}t  - t u^{-2} \mathrm{d}u = u^{-1} \mathrm{d}t $ in $\Omega_{\mathcal{R}_{\bullet}(\mathcal(O)_X)/\C[u]}$, we have $\{\mathrm{d}x_2, \ldots, \mathrm{d}x_n, u^{-1}\mathrm{d}t\}$ as a basis of $\Omega_{\phi}:=\Omega_{\mathcal{R}_{\bullet}(\mathcal{O}_X)/\mathbb{C}[u]}$.
-    
+
     For (2), taking graded dual.
 \end{proof}
 
@@ -144,150 +148,188 @@ Since $\bigcup_g \Spec R_g[u,v]/(uv-t)$ also gives an open cover for $\Spec R[u,
         \item $\mathcal{R}_{\bullet}^V \mathcal{D}_X = \mathcal{D}_\varphi$
         \item  $\mathrm{gr}_{\bullet}^V \mathcal{D}_X \cong \mathcal{D}_{T_Y X}$
     \end{enumerate}
-    Then $\mathcal{R}^V_{\bullet} \mathcal{D}_X$ is noetherian and  $\mathrm{gr}^{V}_{\bullet} \mathcal{D}_X$ is Auslander regular. Meanwhile, we obtain that $\bigcap\limits_{i \in \mathbb{Z}} V_i \mathcal{D}_X = 0$.  
+    Then $\mathcal{R}^V_{\bullet} \mathcal{D}_X$ is noetherian and  $\mathrm{gr}^{V}_{\bullet} \mathcal{D}_X$ is Auslander regular. Meanwhile, we obtain that $\bigcap\limits_{i \in \mathbb{Z}} V_i \mathcal{D}_X = 0$.
 
 \end{corollary}
 
 \begin{proof}
-\mbox{}
+    \mbox{}
 
-\noindent\textbf{For (1)}, Let $B:=\mathcal{R}_{\bullet}(\mathcal{O}_X)$, we claim that there is a isomorphism of $\mathbb{C}[u]$-algebras
-\begin{align*}
-    \Phi: \mathcal{R}^V \mathcal{D}_X \;&\xrightarrow{\ \sim\ }\; \mathcal{D}_{B/\mathbb{C}[u]} \subseteq \End_{\mathbb{C}[u]}(B) \subseteq \End_{\mathbb{C}}(B) \subseteq \End_{\mathbb{C}}(R[u,u^{-1}])\\
-    Pu^k \;&\mathrel{\mapstochar\xrightarrow{\phantom{\ \sim\ }}} [fu^j \mapsto P(f)u^{j+k}], \qquad (P\in V_k\mathcal{D}_X,\ f\in I^{-j}).
-\end{align*}
-After verifying that 
-\begin{enumerate}
-    \item $\Phi$ is a ring homomorphism, and codomain can be restricted to $\End_{\mathbb{C}}(B) \subseteq \End_{\mathbb{C}}(R[u,u^{-1}])$.
-    \item image $[fu^j \mapsto P(f)u^{j+k}] \in \End_{\mathbb{C}}(B)$ is trully $\C[u]$-linear, i.e. $[fu^j \mapsto P(f)u^{j+k}] \in \End_{\mathbb{C}[u]}(B) \subseteq \End_{\mathbb{C}}(B)$.
-    \item image $[fu^j \mapsto P(f)u^{j+k}] \in \mathcal{D}_{B/\mathbb{C}[u]} \subseteq \End_{\mathbb{C}[u]}(B)$.
-\end{enumerate}
-We can finally verify injectivity and surjectivity of $\Phi$.
+    \noindent\textbf{For (1)}, Let $B:=\mathcal{R}_{\bullet}(\mathcal{O}_X)$, we claim that there is a isomorphism of $\mathbb{C}[u]$-algebras
+    \begin{align*}
+        \Phi: \mathcal{R}^V \mathcal{D}_X \; & \xrightarrow{\ \sim\ }\; \mathcal{D}_{B/\mathbb{C}[u]} \subseteq \End_{\mathbb{C}[u]}(B) \subseteq \End_{\mathbb{C}}(B) \subseteq \End_{\mathbb{C}}(R[u,u^{-1}]) \\
+        Pu^k \;                              & \mathrel{\mapstochar\xrightarrow{\phantom{\ \sim\ }}} [fu^j \mapsto P(f)u^{j+k}], \qquad (P\in V_k\mathcal{D}_X,\ f\in I^{-j}).
+    \end{align*}
+    After verifying that
+    \begin{enumerate}
+        \item $\Phi$ is a ring homomorphism, and codomain can be restricted to $\End_{\mathbb{C}}(B) \subseteq \End_{\mathbb{C}}(R[u,u^{-1}])$.
+        \item image $[fu^j \mapsto P(f)u^{j+k}] \in \End_{\mathbb{C}}(B)$ is trully $\C[u]$-linear, i.e. $[fu^j \mapsto P(f)u^{j+k}] \in \End_{\mathbb{C}[u]}(B) \subseteq \End_{\mathbb{C}}(B)$.
+        \item image $[fu^j \mapsto P(f)u^{j+k}] \in \mathcal{D}_{B/\mathbb{C}[u]} \subseteq \End_{\mathbb{C}[u]}(B)$.
+    \end{enumerate}
+    We can finally verify injectivity and surjectivity of $\Phi$.
 
-\medskip
+    \medskip
 
-For surjectivity, since $\mathcal{T}_\varphi = \bigoplus\limits_{j \in \mathbb{Z}} I^{-j} (\partial_t \otimes u^{j+1} \bigoplus_{i=2}^n \partial_i \cdot u^j)$, we get $\mathcal{D}_{B/\mathbb{C}[u]} = B\langle u\partial_t, \partial_2, \ldots, \partial_n \rangle$, it remains to verify that $B$ and $u\partial_t, \partial_2, \ldots, \partial_n$ are in the image of $\Phi$.
+    For surjectivity, since $\mathcal{T}_\varphi = \bigoplus\limits_{j \in \mathbb{Z}} I^{-j} (\partial_t \otimes u^{j+1} \bigoplus_{i=2}^n \partial_i \cdot u^j)$, we get $\mathcal{D}_{B/\mathbb{C}[u]} = B\langle u\partial_t, \partial_2, \ldots, \partial_n \rangle$, it remains to verify that $B$ and $u\partial_t, \partial_2, \ldots, \partial_n$ are in the image of $\Phi$.
 
-\medskip
+    \medskip
 
-For injectivity, we have $\mathcal{R}^V \mathcal{D}_X \subseteq \mathcal{D}_X[u,u^{-1}]$ and $\mathcal{D}_{B/\mathbb{C}[u]} \subseteq \End_{\mathbb{C}[u]}(B)$ are both $\mathbb{C}[u]$-torsion free. 
-So the injectivity of $\Phi$ is equivalent to the injectivity of $\Phi_u: \mathcal{R}^V \mathcal{D}_X[u^{-1}] \to \End_{\mathbb{C}[u]}(B)[u^{-1}]$, i.e. localization by a multiplicative set $S = \{u^k\}_{k \in \mathbb{N}}$.
+    For injectivity, we have $\mathcal{R}^V \mathcal{D}_X \subseteq \mathcal{D}_X[u,u^{-1}]$ and $\mathcal{D}_{B/\mathbb{C}[u]} \subseteq \End_{\mathbb{C}[u]}(B)$ are both $\mathbb{C}[u]$-torsion free.
+    So the injectivity of $\Phi$ is equivalent to the injectivity of $\Phi_u: \mathcal{R}^V \mathcal{D}_X[u^{-1}] \to \End_{\mathbb{C}[u]}(B)[u^{-1}]$, i.e. localization by a multiplicative set $S = \{u^k\}_{k \in \mathbb{N}}$.
 
-For every $f/u^k\in\End_{\C[u]}(B)[u^{-1}],\,f\in\End_{\C[u]}(B)$ we define its image in $\End_{\C[u,u^{-1}]}\bigl(B[u^{-1}]\bigr)$:
-\[
-\left(\frac{f}{u^k}\right)\!
-\left(\frac{b}{u^j}\right)=\frac{f(b)}{u^{j+k}}\qquad(b\in B,\ k,j\ge 0).
-\]
-Since $B[u^{-1}] = R[u,u^{-1}]$, hence there is a ring homomorphism:
-\[
-\End_{\C[u]}(B)[u^{-1}]\lhook\joinrel\longrightarrow \End_{\C[u,u^{-1}]}\bigl(B[u^{-1}]\bigr)
-\subset \End_{\C}\bigl(B[u^{-1}]\bigr) = \End_{\C}(R[u,u^{-1}]),
-\]
-So we get a commutative diagram:
-\[
-\begin{tikzcd}
-\mathcal{R}^V \mathcal{D}_X[u^{-1}] \arrow[r, "\Phi_u"] \arrow[d, equal] & \End_{\C[u]}(B)[u^{-1}] \arrow[d, hook] \\
-\mathcal{D}_X[u,u^{-1}] \arrow[r, hook] & \End_{\C}(R[u,u^{-1}])
-\end{tikzcd}
-\]
-Which compels $\Phi_u$ to be injective.
+    For every $f/u^k\in\End_{\C[u]}(B)[u^{-1}],\,f\in\End_{\C[u]}(B)$ we define its image in $\End_{\C[u,u^{-1}]}\bigl(B[u^{-1}]\bigr)$:
+    \[
+        \left(\frac{f}{u^k}\right)\!
+        \left(\frac{b}{u^j}\right)=\frac{f(b)}{u^{j+k}}\qquad(b\in B,\ k,j\ge 0).
+    \]
+    Since $B[u^{-1}] = R[u,u^{-1}]$, hence there is a ring homomorphism:
+    \[
+        \End_{\C[u]}(B)[u^{-1}]\lhook\joinrel\longrightarrow \End_{\C[u,u^{-1}]}\bigl(B[u^{-1}]\bigr)
+        \subset \End_{\C}\bigl(B[u^{-1}]\bigr) = \End_{\C}(R[u,u^{-1}]),
+    \]
+    So we get a commutative diagram:
+    \[
+        \begin{tikzcd}
+            \mathcal{R}^V \mathcal{D}_X[u^{-1}] \arrow[r, "\Phi_u"] \arrow[d, equal] & \End_{\C[u]}(B)[u^{-1}] \arrow[d, hook] \\
+            \mathcal{D}_X[u,u^{-1}] \arrow[r, hook] & \End_{\C}(R[u,u^{-1}])
+        \end{tikzcd}
+    \]
+    Where $\mathcal{D}_X[u,u^{-1}] \to \End_{\C}(R[u,u^{-1}])$ is injective (i.e. a faithful action) since $\mathcal{D}_X \to \End_{\C}(R)$ is injective, which compels $\Phi_u$ to be injective.
 
-\medskip
+    \medskip
 
-\noindent\textbf{For (2)}, we introduce the following lemma.
+    \noindent\textbf{For (2)}, we introduce the following lemma.
 
-\begin{lemma}[Base change for relative differential operators in the smooth case]
-Let $A\to B$ be a smooth morphism of finite type $k$-algebras, and let $A\to A'$ be any ring map.
-Set $B' := B\otimes_A A'$. Then there is a canonical isomorphism of rings
-\[
-D_{B/A}\otimes_A A' \;\cong\; D_{B'/A'} .
-\]
-Equivalently, for each $k\ge 0$ there is a canonical isomorphism
-\[
-\Diff^k_{B/A}(B,B)\otimes_A A' \;\cong\; \Diff^k_{B'/A'}(B',B'),\quad \text{see \cite[\href{https://stacks.math.columbia.edu/tag/09CH}{Tag 09CH}]{stacks-project} for definition,}
-\]
-and taking the union over $k$ yields the claim.
-\end{lemma}
+    \begin{lemma}[Base change for relative differential operators in the smooth case]\label{lem:base_change_of_D_modules}
+        Let $A\to B$ be a smooth morphism of finite type $k$-algebras, and let $A\to A'$ be any ring map.
+        Set $B' := B\otimes_A A'$. Then there is a canonical isomorphism of rings
+        \[
+            \mathcal{D}_{B/A}\otimes_A A' \;\cong\; \mathcal{D}_{B'/A'} .
+        \]
+        Equivalently, for each $k\ge 0$ there is a canonical isomorphism
+        \[
+            \Diff^k_{B/A}(B,B)\otimes_A A' \;\cong\; \Diff^k_{B'/A'}(B',B'),\quad \text{see \cite[\href{https://stacks.math.columbia.edu/tag/09CH}{Tag 09CH}]{stacks-project} for definition,}
+        \]
+        and taking the union over $k$ yields the claim.
+    \end{lemma}
 
-\begin{proof}
-Write $P^k := P^k_{B/A}(B)$ for the $k$-th principal parts module (see \cite[\href{https://stacks.math.columbia.edu/tag/09CK}{Tag 09CK}]{stacks-project} for definition). For each $k$ we have
-\[
-\Diff^k_{B/A}(B,B)\;\cong\;\Hom_B(P^k,B).
-\]
-Since $A\to B$ is smooth, we verify that the diagonal kernel $J$ is locally generated by a regular sequence.
-Since smoothness is local on $\Spec(B)$, after replacing $B$ by $B_g$ for some $g\notin \mathfrak p$ (where $\mathfrak p$ is a prime in $B$), 
-we may assume that B admits \textbf{étale coordinates}: there exists a polynomial algebra $P:=A[z_1,\dots,z_d]$ and an étale map $P\to B$ (one can use standard smooth presentation to get such coordinates \cite[\href{https://stacks.math.columbia.edu/tag/00TA}{Tag 00TA}]{stacks-project}).
+    \begin{proof}
+        Write $P^k := P^k_{B/A}(B)$ for the $k$-th principal parts module (see \cite[\href{https://stacks.math.columbia.edu/tag/09CK}{Tag 09CK}]{stacks-project} for definition). For each $k$ we have
+        \[
+            \Diff^k_{B/A}(B,B)\;\cong\;\Hom_B(P^k,B).
+        \]
+        Since $A\to B$ is smooth, we verify that the diagonal kernel $J$ is locally generated by a regular sequence.
+        Since smoothness is local on $\Spec(B)$, after replacing $B$ by $B_g$ for some $g\notin \mathfrak p$ (where $\mathfrak p$ is a prime in $B$),
+        we may assume that B admits \textbf{étale coordinates}: there exists a polynomial algebra $P:=A[z_1,\dots,z_d]$ and an étale map $P\to B$ (one can use standard smooth presentation to get such coordinates \cite[\href{https://stacks.math.columbia.edu/tag/00TA}{Tag 00TA}]{stacks-project}).
 
-\begin{enumerate}
-    \item \emph{Diagonal ideal of $P$ is generated by a regular sequence.}
-    
-    Let $S_P:=P\otimes_A P\cong A[z_1,\dots,z_d,w_1,\dots,w_d]$ and let $I:=\ker(S_P\xrightarrow{\mu_P} P)$ where $\mu_P$ is multiplication. Then $I=(w_1-z_1,\dots,w_d-z_d)$, 
-    and this is a regular sequence in $S_P$: indeed, mod $(w_1-z_1,\dots,w_{i-1}-z_{i-1})$ the ring is still a polynomial ring in $w_i,\dots,w_d$, and $w_i-z_i$ is monic in $w_i$, 
-    hence a nonzerodivisor in $S_P/(w_1-z_1,\dots,w_{i-1}-z_{i-1})$.
+        \begin{enumerate}
+            \item \emph{Diagonal ideal of $P$ is generated by a regular sequence.}
 
-    \item \emph{Flat base change preserves regularity of the sequence.}
-    
-    Set $S:=B\otimes_A B$. Since $P\to B$ is étale, it is flat \cite[\href{https://stacks.math.columbia.edu/tag/00U2}{Tag 00U2}]{stacks-project}, since base change and composition preserve flatness, 
-    hence $S_P = P\otimes_A P\to B\otimes_A P \to B\otimes_A B = S$ is flat. 
-    
-    Let $\Delta_i$ be the image of $(w_i-z_i)$ in $S$; 
-    by flatness, $\Delta_1,\dots,\Delta_d$ is a regular sequence in $S$ (if we ignore the requirement that $(\Delta_1,\dots,\Delta_d)$ should not be the unit ideal \cite[\href{https://stacks.math.columbia.edu/tag/00LF}{Tag 00LF}]{stacks-project}), 
-    hence a regular sequence after localizing at $\mathfrak q$ (localization is also flat, and ignore the don't be the unit ideal requirement).
+                  Let $S_P:=P\otimes_A P\cong A[z_1,\dots,z_d,w_1,\dots,w_d]$ and let $I:=\ker(S_P\xrightarrow{\mu_P} P)$ where $\mu_P$ is multiplication. Then $I=(w_1-z_1,\dots,w_d-z_d)$,
+                  and this is a regular sequence in $S_P$: indeed, mod $(w_1-z_1,\dots,w_{i-1}-z_{i-1})$ the ring is still a polynomial ring in $w_i,\dots,w_d$, and $w_i-z_i$ is monic in $w_i$,
+                  hence a nonzerodivisor in $S_P/(w_1-z_1,\dots,w_{i-1}-z_{i-1})$.
 
-    \item \emph{The $\Delta_i$ generate $J_{\mathfrak q}$.}
-    
-    Let $J=\Ker(S\to B)$ be the diagonal ideal. 
-    In general one has a canonical identification $\Omega_{B/A}\cong J/J^2$, 
-    sending $a\mathrm{d}b$ to the class of $a\otimes b-ab\otimes 1$ \cite[\href{https://stacks.math.columbia.edu/tag/00RW}{Tag 00RW}]{stacks-project}.
-    
-    Because $P=A[z_1,\dots,z_d]$ and $P\to B$ is étale, we have $\Omega_{B/A}\cong \Omega_{P/A}\otimes_P B$ (Jacobi-Zariski sequence, see \cite[\href{https://stacks.math.columbia.edu/tag/00RW}{Tag 00RW}, \href{https://stacks.math.columbia.edu/tag/00U1}{Tag 00U1}, \href{https://stacks.math.columbia.edu/tag/08RB}{Tag 08RB}]{stacks-project}), 
-    hence $\Omega_{B/A}$ is locally free of rank $d$ with local basis $\mathrm{d}z_1,\dots,\mathrm{d}z_d$.
-    
-    Under $J/J^2\simeq \Omega_{B/A}$ the class of $\Delta_i$ maps to $\mathrm{d}z_i$, 
-    so the images of $\Delta_1,\dots,\Delta_d$ form a basis of $(J/J^2)_{\mathfrak q}$. 
-    By Nakayama's lemma they generate $J_{\mathfrak q}$.
+            \item \emph{Flat base change preserves regularity of the sequence.}
 
-\end{enumerate}
+                  Set $S:=B\otimes_A B$. Since $P\to B$ is étale, it is flat \cite[\href{https://stacks.math.columbia.edu/tag/00U2}{Tag 00U2}]{stacks-project}, since base change and composition preserve flatness,
+                  hence $S_P = P\otimes_A P\to B\otimes_A P \to B\otimes_A B = S$ is flat.
 
-Combining (2) and (3), we conclude that $J:=\Ker(B\otimes_A B\to B)$ is locally generated by a regular sequence.
+                  Let $\Delta_i$ be the image of $(w_i-z_i)$ in $S$;
+                  by flatness, $\Delta_1,\dots,\Delta_d$ is a regular sequence in $S$ (if we ignore the requirement that $(\Delta_1,\dots,\Delta_d)$ should not be the unit ideal \cite[\href{https://stacks.math.columbia.edu/tag/00LF}{Tag 00LF}]{stacks-project}),
+                  hence a regular sequence after localizing at $\mathfrak q$ (localization is also flat, and ignore the don't be the unit ideal requirement).
 
-\medskip
+            \item \emph{The $\Delta_i$ generate $J_{\mathfrak q}$.}
 
-Hence $J_{\mathfrak q}$ is quasi-regular in $(B\otimes_A B)_{\mathfrak q}$ \cite[\href{https://stacks.math.columbia.edu/tag/00LN}{Tag 00LN}]{stacks-project}, so the graded pieces $J_{\mathfrak{q}}^n/J_{\mathfrak{q}}^{n+1}$ are symmetric
-powers of $J_{\mathfrak{q}}/J_{\mathfrak{q}}^2$ (by definition of a quasi-regular sequence \cite[\href{https://stacks.math.columbia.edu/tag/061P}{Tag 061P}]{stacks-project}). Using the canonical identification \cite[\href{https://stacks.math.columbia.edu/tag/0H90}{Tag 0H90}]{stacks-project}
-\[
-P^k \;\cong\; (B\otimes_A B)/J^{k+1},
-\]
-we observe that $P^k$ has a filtration by $B$-submodules $F_n = J^n/J^{k+1}$ for $0 \le n \le k+1$, with successive quotients
-\[
-(F_n/F_{n+1})_{\mathfrak q} \cong (J^n/J^{n+1})_{\mathfrak q} \cong \Sym^n(J_{\mathfrak{q}}/J_{\mathfrak{q}}^2).
-\]
-Since $\Sym^n(J_{\mathfrak{q}}/J_{\mathfrak{q}}^2)$ is free, and an extension of finite locally free modules is finite locally free (projective \cite[\href{https://stacks.math.columbia.edu/tag/00NX}{Tag 00NX}]{stacks-project} modules make short exact sequence split), it follows that $P^k$ is finite locally free (hence finite projective) as a $B$-module.
+                  Let $J=\Ker(S\to B)$ be the diagonal ideal.
+                  In general one has a canonical identification $\Omega_{B/A}\cong J/J^2$,
+                  sending $a\mathrm{d}b$ to the class of $a\otimes b-ab\otimes 1$ \cite[\href{https://stacks.math.columbia.edu/tag/00RW}{Tag 00RW}]{stacks-project}.
 
-Now set $B' = B\otimes_A A'$. For any $B$-module $M$ we have a canonical identification
-$M\otimes_A A' \cong M\otimes_B B'$. Since we proved that $P^k$ is projective, it follows that
-\begin{align*}
-    \Hom_B(P^k,B)\otimes_A A' \;
-    &\cong\; \Hom_B(P^k,B)\otimes_B B' \\
-    &\cong\; \Hom_B(P^k,B') \quad \text{(by projectivity of $P^k$ \cite[\href{https://stacks.math.columbia.edu/tag/0DVB}{Tag 0DVB}]{stacks-project})}\\
-    &\cong\; \Hom_{B'}(P^k\otimes_B B',B') \\
-    &\cong\; \Hom_{B'}(P^k_{B'/A'}(B'),B') \quad \text{(by \cite[\href{https://stacks.math.columbia.edu/tag/08HZ}{Tag 08HZ}]{stacks-project})}\\
-    &\cong\; \Diff^k_{B'/A'}(B',B')
-\end{align*}
-so the right-hand side is $\Hom_{B'}(P^k_{B'/A'}(B'),B')\cong \Diff^k_{B'/A'}(B',B')$.
-This proves the isomorphism for each $k$, hence also for $D=\bigcup_k \Diff^k$.
+                  Because $P=A[z_1,\dots,z_d]$ and $P\to B$ is étale, we have $\Omega_{B/A}\cong \Omega_{P/A}\otimes_P B$ (Jacobi-Zariski sequence, see \cite[\href{https://stacks.math.columbia.edu/tag/00RW}{Tag 00RW}, \href{https://stacks.math.columbia.edu/tag/00U1}{Tag 00U1}, \href{https://stacks.math.columbia.edu/tag/08RB}{Tag 08RB}]{stacks-project}),
+                  hence $\Omega_{B/A}$ is locally free of rank $d$ with local basis $\mathrm{d}z_1,\dots,\mathrm{d}z_d$.
+
+                  Under $J/J^2\simeq \Omega_{B/A}$ the class of $\Delta_i$ maps to $\mathrm{d}z_i$,
+                  so the images of $\Delta_1,\dots,\Delta_d$ form a basis of $(J/J^2)_{\mathfrak q}$.
+                  By Nakayama's lemma they generate $J_{\mathfrak q}$.
+
+        \end{enumerate}
+
+        Combining (2) and (3), we conclude that $J:=\Ker(B\otimes_A B\to B)$ is locally generated by a regular sequence.
+
+        \medskip
+
+        Hence $J_{\mathfrak q}$ is quasi-regular in $(B\otimes_A B)_{\mathfrak q}$ \cite[\href{https://stacks.math.columbia.edu/tag/00LN}{Tag 00LN}]{stacks-project}, so the graded pieces $J_{\mathfrak{q}}^n/J_{\mathfrak{q}}^{n+1}$ are symmetric
+        powers of $J_{\mathfrak{q}}/J_{\mathfrak{q}}^2$ (by definition of a quasi-regular sequence \cite[\href{https://stacks.math.columbia.edu/tag/061P}{Tag 061P}]{stacks-project}). Using the canonical identification \cite[\href{https://stacks.math.columbia.edu/tag/0H90}{Tag 0H90}]{stacks-project}
+        \[
+            P^k \;\cong\; (B\otimes_A B)/J^{k+1},
+        \]
+        we observe that $P^k$ has a filtration by $B$-submodules $F_n = J^n/J^{k+1}$ for $0 \le n \le k+1$, with successive quotients
+        \[
+            (F_n/F_{n+1})_{\mathfrak q} \cong (J^n/J^{n+1})_{\mathfrak q} \cong \Sym^n(J_{\mathfrak{q}}/J_{\mathfrak{q}}^2).
+        \]
+        Since $\Sym^n(J_{\mathfrak{q}}/J_{\mathfrak{q}}^2)$ is free, and an extension of finite locally free modules is finite locally free (projective \cite[\href{https://stacks.math.columbia.edu/tag/00NX}{Tag 00NX}]{stacks-project} modules make short exact sequence split), it follows that $P^k$ is finite locally free (hence finite projective) as a $B$-module.
+
+        Now set $B' = B\otimes_A A'$. For any $B$-module $M$ we have a canonical identification
+        $M\otimes_A A' \cong M\otimes_B B'$. Since we proved that $P^k$ is projective, it follows that
+        \begin{align*}
+            \Hom_B(P^k,B)\otimes_A A' \;
+             & \cong\; \Hom_B(P^k,B)\otimes_B B'                                                                                                                \\
+             & \cong\; \Hom_B(P^k,B') \quad \text{(by projectivity of $P^k$ \cite[\href{https://stacks.math.columbia.edu/tag/0DVB}{Tag 0DVB}]{stacks-project})} \\
+             & \cong\; \Hom_{B'}(P^k\otimes_B B',B')                                                                                                            \\
+             & \cong\; \Hom_{B'}(P^k_{B'/A'}(B'),B') \quad \text{(by \cite[\href{https://stacks.math.columbia.edu/tag/08HZ}{Tag 08HZ}]{stacks-project})}        \\
+             & \cong\; \Diff^k_{B'/A'}(B',B')
+        \end{align*}
+        so the right-hand side is $\Hom_{B'}(P^k_{B'/A'}(B'),B')\cong \Diff^k_{B'/A'}(B',B')$.
+        This proves the isomorphism for each $k$.
+
+        After verifying the commutativity of the following diagram
+        \begin{equation*}
+            \begin{tikzcd}[row sep=0.5em]
+                \Diff^k_{B/A}(B,B) \otimes_A A' \arrow[r, "\sim"] \arrow[d, phantom, "{\rotatebox[origin=c]{-90}{$\subseteq$}}", "\otimes \mathrm{id}_{A'}"{anchor=center, xshift=2em}] & \Diff^k_{B'/A'}(B',B') \arrow[d, phantom, "{\rotatebox[origin=c]{-90}{$\subseteq$}}"] \\
+                \Diff^{k+1}_{B/A}(B,B) \otimes_A A' \arrow[r, "\sim"] & \Diff^{k+1}_{B'/A'}(B',B')
+            \end{tikzcd},
+        \end{equation*}
+        we finally pass the isomorphism to the direct limit (filtered union)
+        $$\mathcal{D}_{B/A} \otimes_A A' = \left(\lim\limits_{\substack{\longrightarrow \\ k}} \Diff^k_{B/A}(B,B)\right)\otimes_A A' = \lim\limits_{\substack{\longrightarrow \\ k}}\left(\Diff^k_{B/A}(B,B)\otimes_A A'\right) \xrightarrow{\sim} \lim\limits_{\substack{\longrightarrow \\ k}}\mathcal{D}_{B'/A'}(B',B') = \mathcal{D}_{B'/A'}.$$
+
+    \end{proof}
+
+    To get $\mathcal{D}_{B/A} \cong \mathcal{D}_{T_Y X}$.
+    Apply the lemma to $A=\C[u]$, $A'=\C[u]/(u)=\C$, and $B=\mathcal{R}_{\bullet}(\mathcal{O}_X)$,
+    we get
+    \begin{align*}
+        \gr^V_{\bullet}\mathcal{D}_X
+         & = \mathcal{R}_{\bullet}(\mathcal{O}_X) \otimes_{\C[u]} \C                                                                                               \\
+         & = \mathcal{D}_{\mathcal{R}_{\bullet}(\mathcal{O}_X)/\C[u]}\otimes_{\C[u]} \C                                                                            \\
+         & = \mathcal{D}_{\bigl(\mathcal{R}_{\bullet}(\mathcal{O}_X) \otimes_{\C[u]} \C\bigr)/\C}\quad (\text{Lemma~\ref{lem:base_change_of_D_modules} used here}) \\
+         & = \mathcal{D}_{T_Y X}.
+    \end{align*}
+
+    \noindent\textbf{For the remaining parts},
+    $\mathcal{R}^V_{\bullet}(\mathcal{O}_X)$ is Noetherian since $\mathcal{D}_{\phi}$ is so, since order filtration is also well-defined in relative case \cite[\href{https://stacks.math.columbia.edu/tag/09CI}{Tag 09CI}]{stacks-project}.
+
+    \medskip
+
+    To prove $\gr^V_n \mathcal{D}_X$ is Auslander regular, it suffices to show that $T_Y X$ is smooth over $\C$.
+
+    We will reuse some intermediate results in Lemma~\ref{lem:base_change_of_D_modules}.
+    That is since $I=(t)$ (as a single element proper ideal) is a regular sequence in the domain $R$,
+    so quasi-regular, get
+    $$\bigoplus\limits_{j \in \mathbb{Z}_{\geq 0}} I^j/I^{j+1} = \Sym^{\bullet}_{R/I}(I/I^2) = (R/I)[T].$$
+    $R/I$ has algebraic coordinates $(\overline{x_2},\dots,\overline{x_d})$ by Lemma~\ref{lem:second_fundamental_exact_sequence}, so $(R/I)[T]$ has algebraic coordinates $(\overline{x_2},\dots,\overline{x_d},T)$, so $T_Y X$ is smooth over $\C$.
+
+    \medskip
+
+    For $\bigcap\limits_{i \in \mathbb{Z}} V_i \mathcal{D}_X = 0$, we have
+    $$\bigcap\limits_{i \in \mathbb{Z}} V_i \mathcal{D}_X = \left\{P \in \mathcal{D}_X \middle| P I^{j} \subseteq \bigcap\limits_{k \in \mathbb{Z}} I^{j-k}\text{ for all }j\in \mathbb{Z}\right\},$$
+    Choose a maximal ideal $\mathfrak m\subset R$ with $I\subset\mathfrak m$ (possible since $I=(t)$ is proper). Localizing at $\mathfrak m$,
+    then $R_{\mathfrak m}$ is Noetherian local and $I_{\mathfrak m}$ is a proper ideal, Krull's intersection theorem yields
+    \[
+        \bigcap_{m\ge 1} I_{\mathfrak m}^m = 0 \quad\text{in }R_{\mathfrak m},
+    \]
+    $R$ is a domain, then the localization map $R\hookrightarrow R_{\mathfrak m}$ is injective, hence $\bigcap\limits_{m\ge 1} I^m = 0$ in $R$. So
+    $$\bigcap\limits_{i \in \mathbb{Z}} V_i \mathcal{D}_X = \left\{P \in \mathcal{D}_X \middle| P I^{0} = P R = 0 \right\},$$
+    For such $P$, we have $P=0$ since $D_X\subset \End_{\C}(R)$ acts faithfully on $R$.
+
 \end{proof}
 
-Apply the lemma to $A=\C[u]$, $A'=\C[u]/(u)=\C$, and $B=\mathcal{R}_{\bullet}(\mathcal{O}_X)$, 
-we get 
-\begin{align*}
-    \gr^V_{\bullet}\mathcal{D}_X 
-    &= \mathcal{R}_{\bullet}(\mathcal{O}_X) \otimes_{\C[u]} \C \\
-    &= \mathcal{D}_{\mathcal{R}_{\bullet}(\mathcal{O}_X)/\C[u]}\otimes_{\C[u]} \C \\
-    &= \mathcal{D}_{\bigl(\mathcal{R}_{\bullet}(\mathcal{O}_X) \otimes_{\C[u]} \C\bigr)/\C}\\
-    &= \mathcal{D}_{T_Y X}.
-\end{align*}
 
-\noindent\textbf{For the remaining parts}, 
-
-\end{proof}

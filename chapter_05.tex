@@ -272,7 +272,7 @@ following are equivalent:
 \begin{proof}
 Take a smooth closed point $p \in V$.
 
-By Lemma~\ref{lem:kahler-sequence} that will be introduced later, after taking the fiber at $p$, we can extend $\hyperlink{triple_ast}{\textcolor{red}{(* * *)}}$
+By Lemma~\ref{lem:second_fundamental_exact_sequence} that will be introduced later, after taking the fiber at $p$, we can extend $\hyperlink{triple_ast}{\textcolor{red}{(* * *)}}$
 to the following exact sequence:
 \[
   I_p/I_p^2 \xrightarrow{\delta_p} \mathfrak m_p/\mathfrak m_p^2 \rightarrow \overline{\mathfrak m}_p/\overline{\mathfrak m}_p^2 \rightarrow 0
@@ -326,7 +326,7 @@ Write $Y=\Spec S$ for a smooth affine $k$-variety, and let
 $V\subseteq Y$ be a closed subscheme with radical ideal $I=I_V\subseteq S$.
 Set $\overline S:=S/I$, so $V=\Spec \overline S$.
 
-\begin{lemma}\label{lem:kahler-sequence}
+\begin{lemma}\label{lem:second_fundamental_exact_sequence}
 There is an exact sequence of $\overline S$-modules
 \[
   I/I^2 \xrightarrow{\;\delta\;} \Omega_S\otimes_S \overline S
@@ -378,7 +378,7 @@ One should refer to the warning in the begging of \cite[\href{https://stacks.mat
 Let $V\subseteq Y$ be an irreducible subvariety.  $V\subseteq Y$ is a smooth subvariety if and only if
 \begin{enumerate}
   \item $\Omega_{\overline S}$ is locally free.
-  \item the sequence of Lemma~\ref{lem:kahler-sequence}
+  \item the sequence of Lemma~\ref{lem:second_fundamental_exact_sequence}
 restricts to a short exact sequence
 \[
   0\longrightarrow I/I^2
@@ -409,7 +409,7 @@ by \cite[Chap.~2.~Thm.~8.6A. and Chap.~1.~1.8A.]{hartshorne1977algebraic}, since
     By \cite[Chap.~2.~Thm.~8.8.]{hartshorne1977algebraic}, $B$ is a regular local ring. We also have $M := \Omega_{Y/k, p}$ is a free $A$-module of rank $n = \dim Y$ with $A$ a regular local ring.\\
 
     \textbf{Step 1: Rank Calculation in the Residue/Fraction Field.}
-    Use Lemma~\ref{lem:kahler-sequence}, taking stalks, we get an exact sequence of $B$-modules (Conormal Sequence for $A \to B$):
+    Use Lemma~\ref{lem:second_fundamental_exact_sequence}, taking stalks, we get an exact sequence of $B$-modules (Conormal Sequence for $A \to B$):
     \[
         I/I^2 \xrightarrow{\sigma} M \otimes_A B \xrightarrow{\varphi} N \longrightarrow 0.
     \]
