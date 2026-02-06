@@ -1,5 +1,5 @@
 \section{Holonomic $\mathcal{D}$-modules}
-Let $X = \text{spec} R$ be a smooth affine scheme with algebraic coordinates $(x_1, \ldots, x_n)$ and let $M$ be a finite generated $\mathcal{D}_X$-module. We already know $\Ch(M) \subset T^*X$ is a conic involutive (or coisotropic) subvariety. In particular, $\dim \Ch(M) \geq n$. 
+Let $X = \text{spec} R$ be a smooth affine scheme with algebraic coordinates $(x_1, \ldots, x_n)$ and let $M$ be a finite generated $\mathcal{D}_X$-module. We already know $\Ch(M) \subset T^*X$ is a conic involutive (or coisotropic) subvariety. In particular, $\dim \Ch(M) \geq n$.
 
 \begin{definition}
     $M$ is called $\textbf{holonomic}$ if $\dim \Ch(M) = n$.
@@ -10,52 +10,52 @@ Let $X = \text{spec} R$ be a smooth affine scheme with algebraic coordinates $(x
 \end{corollary}
 
 \begin{remark}
-    Recall that for a linear subspace $W \subseteq \Tv_{X,p}$, Lagrangian means $W=W^{\perp}\iff \mathrm{dim}_{k}W=n$, and we define $V\subseteq T^{\ast}X$ is Lagrangian if for any smooth closed point $p\in V$, we have $\mathcal{T}_{V,p}\subseteq \mathcal{T}_{T^{\ast}X,p}$ is a Lagrangian linear subspace. Here $T^{\ast}_{E_{i}}X$ is the conormal bundle of irreducible subvariety $E_{i}$. 
+    Recall that for a linear subspace $W \subseteq \Tv_{X,p}$, Lagrangian means $W=W^{\perp}\iff \mathrm{dim}_{k}W=n$, and we define $V\subseteq T^{\ast}X$ is Lagrangian if for any smooth closed point $p\in V$, we have $\mathcal{T}_{V,p}\subseteq \mathcal{T}_{T^{\ast}X,p}$ is a Lagrangian linear subspace. Here $T^{\ast}_{E_{i}}X$ is the conormal bundle of irreducible subvariety $E_{i}$.
 \end{remark}
 
 \begin{example}
     \quad
     \begin{enumerate}
         \item $R$ is a $\mathcal{D}_X$-module. $\mathrm{CC}(R) = T^*_X X\simeq X \Rightarrow R$ is holonomic.
-        \item Let $M$ be an integrable connection on $X$, we obtain that $\Ch(M)=T^{\ast}_{X}X$ and $\mathrm{dim}_{k}V(\xi_{1},\dots,\xi_{n})=n$, we have $M$ is holonomic. 
+        \item Let $M$ be an integrable connection on $X$, we obtain that $\Ch(M)=T^{\ast}_{X}X$ and $\mathrm{dim}_{k}V(\xi_{1},\dots,\xi_{n})=n$, we have $M$ is holonomic.
     \end{enumerate}
 \end{example}
 
 \section{The de Rham Complexes and Analytification}
 
-Let $M$ be a $\mathcal{D}_X$-module, and denote $\partial_i = \partial_{x_i}$ be the vector field along $x_i$.  
-Define a complex of $\mathbb{C}$-vector spaces (since $\partial_1$ is only $\mathbb{C}$-linear): $$K(M; \partial_1) = [M \xrightarrow{\partial_1} M].$$Here $[M\xrightarrow{\partial_{1}} M]$ means a complex concentrated on degree 0 and degree 1, with $\partial_{1}$ as coboundary map. 
+Let $M$ be a $\mathcal{D}_X$-module, and denote $\partial_i = \partial_{x_i}$ be the vector field along $x_i$.
+Define a complex of $\mathbb{C}$-vector spaces (since $\partial_1$ is only $\mathbb{C}$-linear): $$K(M; \partial_1) = [M \xrightarrow{\partial_1} M].$$Here $[M\xrightarrow{\partial_{1}} M]$ means a complex concentrated on degree 0 and degree 1, with $\partial_{1}$ as coboundary map.
 
 \quad
 
 \begin{note}[The cone of a morphism of complexes]\label{note 6.2}
-Let $f: A^\bullet \longrightarrow B^\bullet$ be a morphism of complexes:
+    Let $f: A^\bullet \longrightarrow B^\bullet$ be a morphism of complexes:
 
-\begin{center}
- \begin{tikzcd}
- \cdots \arrow[r] & A^{n-1} \arrow[r, "\mathrm{d}_A^{n-1}"] \arrow[d, "f^{n-1}"] & A^n \arrow[r, "\mathrm{d}_A^n"] \arrow[d, "f^n"] & A^{n+1} \arrow[r] \arrow[d, "f^{n+1}"] & \cdots \\
- \cdots \arrow[r] & B^{n-1} \arrow[r, "\mathrm{d}_B^{n-1}"] & B^n \arrow[r, "\mathrm{d}_B^n"] & B^{n+1} \arrow[r] & \cdots
- \end{tikzcd}
-\end{center}
+    \begin{center}
+        \begin{tikzcd}
+            \cdots \arrow[r] & A^{n-1} \arrow[r, "\mathrm{d}_A^{n-1}"] \arrow[d, "f^{n-1}"] & A^n \arrow[r, "\mathrm{d}_A^n"] \arrow[d, "f^n"] & A^{n+1} \arrow[r] \arrow[d, "f^{n+1}"] & \cdots \\
+            \cdots \arrow[r] & B^{n-1} \arrow[r, "\mathrm{d}_B^{n-1}"] & B^n \arrow[r, "\mathrm{d}_B^n"] & B^{n+1} \arrow[r] & \cdots
+        \end{tikzcd}
+    \end{center}
 
-then $\mathrm{\mathrm{Cone}}(f)=C^{\bullet}$ defined by $C^n = A^n \oplus B^{n-1}$ with differential $$\mathrm{d}_C^n = \begin{pmatrix}
- \mathrm{d}_A^n & 0 \\
- f^n & -\mathrm{d}_B^{n-1}
- \end{pmatrix}: A^n \oplus B^{n-1} \longrightarrow A^{n+1} \oplus B^n.$$The cone construction gives a short exact sequence of complexes:
-\begin{center}
-\begin{tikzcd}
-0 \arrow[r] & B^\bullet[-1] \arrow[r] & \mathrm{Cone}(f)^\bullet \arrow[r] & A^\bullet \arrow[r] & 0.
-\end{tikzcd}
-\end{center}
+    then $\mathrm{\mathrm{Cone}}(f)=C^{\bullet}$ defined by $C^n = A^n \oplus B^{n-1}$ with differential $$\mathrm{d}_C^n = \begin{pmatrix}
+            \mathrm{d}_A^n & 0                   \\
+            f^n            & -\mathrm{d}_B^{n-1}
+        \end{pmatrix}: A^n \oplus B^{n-1} \longrightarrow A^{n+1} \oplus B^n.$$The cone construction gives a short exact sequence of complexes:
+    \begin{center}
+        \begin{tikzcd}
+            0 \arrow[r] & B^\bullet[-1] \arrow[r] & \mathrm{Cone}(f)^\bullet \arrow[r] & A^\bullet \arrow[r] & 0.
+        \end{tikzcd}
+    \end{center}
 \end{note}
 
 
 With Note \ref{note 6.2}, for $k \geq 2$, we inductively define     $$K(M; \partial_1, \cdots, \partial_k) = \mathrm{Cone}\left(K(M; \partial_1, \cdots, \partial_{k-1}) \xrightarrow{\partial_k} K(M; \partial_1, \cdots, \partial_{k-1})\right).$$ Then the $\textbf{de Rham complex}$ of $M$ is   $$K(M; \partial_1, \cdots, \partial_n),$$ denoted as $\mathrm{DR}(M).$
 
-Meanwhile, we have another way to define $\mathrm{DR}(M)$: 
+Meanwhile, we have another way to define $\mathrm{DR}(M)$:
 $$M \to \Omega^{1}_{X} \otimes_{R} M \to \Omega^{2}_{X} \otimes_{R} M \to \cdots \to \Omega^{n}_{X} \otimes_{R} M.$$
 With $M \to \Omega^{1}_{X}: m\rightarrow \sum\limits_{i}dx_{i}\otimes \partial_{i}(m)$, and $\Omega^{i}_{X} \otimes_{R} M \to \Omega^{i+1}_{X} \otimes_{R} M:\eta \otimes m \mapsto \sum\limits_{i} dx_i \wedge \eta \otimes \partial_i(m)$ for $i\ge 1$.
-This definition of $\mathrm{DR}(M)$ is independent of algebraic coordinates. 
+This definition of $\mathrm{DR}(M)$ is independent of algebraic coordinates.
 
 \begin{remark}
     Here $\sum\limits_{i} dx_i \otimes \partial_i \in \Omega^1 \otimes_R \mathcal{T}_X$ is canonical (i.e., independent of coordinates).
@@ -67,77 +67,77 @@ This definition of $\mathrm{DR}(M)$ is independent of algebraic coordinates.
 \begin{proof}[Sketch of proof]
     When $n = 2$:
 
-% 1. Koszul Complex
-Koszul Complex $K(M; \partial_{1}, \partial_{2})$ is:
-\[
-\begin{tikzcd}[row sep=tiny, column sep=4em]
-    M \arrow[r] 
-    & M \oplus M \arrow[r] 
-    & M \\
-    m \arrow[r, mapsto] 
-    & (\partial_{1} m, \partial_{2} m) 
-    & \\
-    & (m_1, m_2) \arrow[r, mapsto] 
-    & \partial_2(m_1) - \partial_1(m_2)
-\end{tikzcd}
-\]
+    % 1. Koszul Complex
+    Koszul Complex $K(M; \partial_{1}, \partial_{2})$ is:
+    \[
+        \begin{tikzcd}[row sep=tiny, column sep=4em]
+            M \arrow[r]
+            & M \oplus M \arrow[r]
+            & M \\
+            m \arrow[r, mapsto]
+            & (\partial_{1} m, \partial_{2} m)
+            & \\
+            & (m_1, m_2) \arrow[r, mapsto]
+            & \partial_2(m_1) - \partial_1(m_2)
+        \end{tikzcd}
+    \]
 
-% 2. de Rham Complex
-De Rham Complex $\mathrm{DR}(M)$ is:
-\[
-\begin{tikzcd}[row sep=tiny, column sep=large]
-    M \arrow[r] 
-    & \Omega^{1}_{X}\otimes_{R} M \arrow[r] 
-    & \Omega_{X}^{2}\otimes_{R}M \\
-    m \arrow[r, mapsto] 
-    & dx_{1}\otimes\partial_{1} m + dx_{2}\otimes\partial_{2}m 
-    & \\
-    & dx_{1}\otimes m_{1} + dx_{2}\otimes m_{2} \arrow[r, mapsto] 
-    & dx_{1}\wedge dx_{2}\otimes(\partial_{1} m_{2}-\partial_{2} m_{1})
-\end{tikzcd}
-\]
+    % 2. de Rham Complex
+    De Rham Complex $\mathrm{DR}(M)$ is:
+    \[
+        \begin{tikzcd}[row sep=tiny, column sep=large]
+            M \arrow[r]
+            & \Omega^{1}_{X}\otimes_{R} M \arrow[r]
+            & \Omega_{X}^{2}\otimes_{R}M \\
+            m \arrow[r, mapsto]
+            & dx_{1}\otimes\partial_{1} m + dx_{2}\otimes\partial_{2}m
+            & \\
+            & dx_{1}\otimes m_{1} + dx_{2}\otimes m_{2} \arrow[r, mapsto]
+            & dx_{1}\wedge dx_{2}\otimes(\partial_{1} m_{2}-\partial_{2} m_{1})
+        \end{tikzcd}
+    \]
 
-The general case is similar, and we can construct an explicit isomorphism between the two complexes.
+    The general case is similar, and we can construct an explicit isomorphism between the two complexes.
 \end{proof}
-	
+
 \begin{example}\label{ex:first-examples-of-d-modules}
-\quad
-\begin{enumerate}
-    \item Given $\alpha \in \mathbb{C}$, and $X = \mathbb{A}^1_{\mathbb{C}}$, we define $M_{\alpha} := \mathcal{D}_X / \mathcal{D}_X \cdot (x\partial_x - \alpha)$.
-    we denote $\overline{1}$, the class of $1$ in $M_{\alpha}$, by $x^{\alpha}$, the formal symbol.
-    
-    We explain the notation $M_{\alpha} = \mathbb{C}[x, \frac{1}{x}] \cdot x^{\alpha}$, this notation only works for $\alpha \not\in \mathbb{Z}$:
+    \quad
+    \begin{enumerate}
+        \item Given $\alpha \in \mathbb{C}$, and $X = \mathbb{A}^1_{\mathbb{C}}$, we define $M_{\alpha} := \mathcal{D}_X / \mathcal{D}_X \cdot (x\partial_x - \alpha)$.
+              we denote $\overline{1}$, the class of $1$ in $M_{\alpha}$, by $x^{\alpha}$, the formal symbol.
 
-    Firstly, one should note that we are looking the global section, so $\frac{1}{x}$ is not a regular function on $X$, we should deal with it carefully.
-    
-    Secondly, $M_\alpha = \mathcal{D}_X \cdot \overline{1} = \mathbb{C}\langle x, \partial_x \rangle \cdot \overline{1}$, it is a rank $1$ $\mathcal{D}_X$-module.
+              We explain the notation $M_{\alpha} = \mathbb{C}[x, \frac{1}{x}] \cdot x^{\alpha}$, this notation only works for $\alpha \not\in \mathbb{Z}$:
 
-    So $M_\alpha = \mathbb{C}[x] \cdot x^{\alpha} + \sum_{k \ge 0} \mathbb{C}[x]\partial_x^k \cdot x^{\alpha}$, we have $\{\bar{1}, x\cdot \bar{1}, \cdots, \partial_x\cdot \bar{1}, \cdots\}$ as $\mathbb{C}[x]$-module generators.
+              Firstly, one should note that we are looking the global section, so $\frac{1}{x}$ is not a regular function on $X$, we should deal with it carefully.
 
-    We do a formal ``calculation'', we assume $\alpha \not\in \mathbb{Z}$:
-$$
-\partial_{x} \cdot \raisebox{1.2ex}{$\ulcorner$} \frac{1}{x^{k}} x^{\alpha} \raisebox{1.2ex}{$\urcorner$} 
-= (\alpha - k) \cdot \raisebox{1.2ex}{$\ulcorner$} \frac{1}{x^{k+1}} x^{\alpha} \raisebox{1.2ex}{$\urcorner$} 
-\quad \text{for } k \ge 0
-$$
-    In this case, any attempt trying to define what $\raisebox{0.6ex}{$\ulcorner$} \frac{1}{x^{k}} x^{\alpha} \raisebox{0.6ex}{$\urcorner$} := \frac{1}{\alpha(\alpha - 1)\cdots(\alpha - k + 1)} \partial_x^k \cdot \overline{1}\in\mathbb{C} \partial_x^k \cdot \overline{1}$ is will turn out to be non-canonical, but is well defined upto a constant in $\mathbb{C}$.
+              Secondly, $M_\alpha = \mathcal{D}_X \cdot \overline{1} = \mathbb{C}\langle x, \partial_x \rangle \cdot \overline{1}$, it is a rank $1$ $\mathcal{D}_X$-module.
 
-    So the notation $M_{\alpha} = \mathbb{C}[x, \frac{1}{x}] \cdot x^{\alpha}$means, as a $\C[x]$-module, it have generators $\{\raisebox{0.6ex}{$\ulcorner$} \frac{1}{x^{k}} x^{\alpha} \raisebox{0.6ex}{$\urcorner$} \mid k \in \mathbb{Z}_{\ge 0}\}$.
+              So $M_\alpha = \mathbb{C}[x] \cdot x^{\alpha} + \sum_{k \ge 0} \mathbb{C}[x]\partial_x^k \cdot x^{\alpha}$, we have $\{\bar{1}, x\cdot \bar{1}, \cdots, \partial_x\cdot \bar{1}, \cdots\}$ as $\mathbb{C}[x]$-module generators.
 
-    From now on we use $\frac{1}{x^k}x^\alpha$ to denote $\raisebox{0.6ex}{$\ulcorner$} \frac{1}{x^{k}} x^{\alpha} \raisebox{0.6ex}{$\urcorner$}$ for simplicity.
+              We do a formal ``calculation'', we assume $\alpha \not\in \mathbb{Z}$:
+              $$
+                  \partial_{x} \cdot \raisebox{1.2ex}{$\ulcorner$} \frac{1}{x^{k}} x^{\alpha} \raisebox{1.2ex}{$\urcorner$}
+                  = (\alpha - k) \cdot \raisebox{1.2ex}{$\ulcorner$} \frac{1}{x^{k+1}} x^{\alpha} \raisebox{1.2ex}{$\urcorner$}
+                  \quad \text{for } k \ge 0
+              $$
+              In this case, any attempt trying to define what $\raisebox{0.6ex}{$\ulcorner$} \frac{1}{x^{k}} x^{\alpha} \raisebox{0.6ex}{$\urcorner$} := \frac{1}{\alpha(\alpha - 1)\cdots(\alpha - k + 1)} \partial_x^k \cdot \overline{1}\in\mathbb{C} \partial_x^k \cdot \overline{1}$ is will turn out to be non-canonical, but is well defined upto a constant in $\mathbb{C}$.
 
-    When $\alpha \not\in \mathbb{Z}$, we obtain $\frac{1}{x^{k}}x^{\alpha}$ as a generator of $M_{\alpha}$ as $\mathcal{D}_{X}$-module, 
-    we have $M_{\alpha} \simeq \mathcal{D}_{X} /\mathrm{Ann}_{\mathcal{D}_{X}}( \frac{1}{x^{k}}\cdot x^{\alpha})\simeq\mathcal{D}_X / \mathcal{D}_X \cdot (x\partial_x - (\alpha - k))$. 
+              So the notation $M_{\alpha} = \mathbb{C}[x, \frac{1}{x}] \cdot x^{\alpha}$means, as a $\C[x]$-module, it have generators $\{\raisebox{0.6ex}{$\ulcorner$} \frac{1}{x^{k}} x^{\alpha} \raisebox{0.6ex}{$\urcorner$} \mid k \in \mathbb{Z}_{\ge 0}\}$.
 
-    One should recall for a module with one generator, the structure is compeletely determined by the annihilator of the generator.
+              From now on we use $\frac{1}{x^k}x^\alpha$ to denote $\raisebox{0.6ex}{$\ulcorner$} \frac{1}{x^{k}} x^{\alpha} \raisebox{0.6ex}{$\urcorner$}$ for simplicity.
 
-    Or we can use $\mathcal{D}_X /\mathcal{D}_X \cdot (x\partial_x - \alpha)\to\mathcal{D}_X /\mathcal{D}_X \cdot (x\partial_x - (\alpha - k)): \overline{P} \mapsto \overline{P\cdot x^k}$, multiplication on the right gives a left $\mathcal{D}_X$-module homomorphism, which is an isomorphism.
+              When $\alpha \not\in \mathbb{Z}$, we obtain $\frac{1}{x^{k}}x^{\alpha}$ as a generator of $M_{\alpha}$ as $\mathcal{D}_{X}$-module,
+              we have $M_{\alpha} \simeq \mathcal{D}_{X} /\mathrm{Ann}_{\mathcal{D}_{X}}( \frac{1}{x^{k}}\cdot x^{\alpha})\simeq\mathcal{D}_X / \mathcal{D}_X \cdot (x\partial_x - (\alpha - k))$.
 
-    With $\mathrm{Ch}(M)=V(\sigma(P))\subseteq T^{\ast}X$ in which $\sigma$ is the principal symbol, and $\sigma(P)=x\xi$. Consider $T^{\ast}X\xrightarrow{\pi} X,\, \C[x]\hookrightarrow\C[x,\xi]$, we obtain $V(x)=\pi ^{-1}(\langle x-0 \rangle)=T^{\ast}_{\{0\}}X$ and $V(\xi)=T^{\ast}_{X}X$ zero section.  $\mathrm{Ch}(M)=V(\sigma(x\partial_{x}))=T^{\ast}_{\{0\}}X\cup T_{X}^{\ast}X$ and  $$\mathrm{CC}(M_{\alpha}) = T_{\{0\}}^*X + T_X^*X.$$Since $\mathrm{dim}\Ch(M)=1$ for $\mathrm{dim}T^{\ast}_{X}X=\mathrm{dim}X=1$, and $T^{\ast}_{\{0\}}X$ is the fiber of $T^{\ast}M$ at $0$, thus the cotangent space of $X$ at $0$, $\mathrm{dim}T^{\ast}_{\{0\}}X=\mathrm{dim}X=1$ as well. So  $M_{\alpha}$ is holonomic for all $\alpha \in \mathbb{C}$.
-    
-    \item Take $N = \C[\delta] := \mathcal{D}_X / \mathcal{D}_X \cdot x = \mathbb{C}[\overline{\partial_x}]$, where $\delta := \overline{1}\in \mathcal{D}_X / \mathcal{D}_X \cdot x$ is the Dirac delta function. Then $$\mathrm{CC}(N) = T_{\{0\}}^*X$$also be holonomic.
-    
-\end{enumerate}
+              One should recall for a module with one generator, the structure is compeletely determined by the annihilator of the generator.
+
+              Or we can use $\mathcal{D}_X /\mathcal{D}_X \cdot (x\partial_x - \alpha)\to\mathcal{D}_X /\mathcal{D}_X \cdot (x\partial_x - (\alpha - k)): \overline{P} \mapsto \overline{P\cdot x^k}$, multiplication on the right gives a left $\mathcal{D}_X$-module homomorphism, which is an isomorphism.
+
+              With $\mathrm{Ch}(M)=V(\sigma(P))\subseteq T^{\ast}X$ in which $\sigma$ is the principal symbol, and $\sigma(P)=x\xi$. Consider $T^{\ast}X\xrightarrow{\pi} X,\, \C[x]\hookrightarrow\C[x,\xi]$, we obtain $V(x)=\pi ^{-1}(\langle x-0 \rangle)=T^{\ast}_{\{0\}}X$ and $V(\xi)=T^{\ast}_{X}X$ zero section.  $\mathrm{Ch}(M)=V(\sigma(x\partial_{x}))=T^{\ast}_{\{0\}}X\cup T_{X}^{\ast}X$ and  $$\mathrm{CC}(M_{\alpha}) = T_{\{0\}}^*X + T_X^*X.$$Since $\mathrm{dim}\Ch(M)=1$ for $\mathrm{dim}T^{\ast}_{X}X=\mathrm{dim}X=1$, and $T^{\ast}_{\{0\}}X$ is the fiber of $T^{\ast}M$ at $0$, thus the cotangent space of $X$ at $0$, $\mathrm{dim}T^{\ast}_{\{0\}}X=\mathrm{dim}X=1$ as well. So  $M_{\alpha}$ is holonomic for all $\alpha \in \mathbb{C}$.
+
+        \item Take $N = \C[\delta] := \mathcal{D}_X / \mathcal{D}_X \cdot x = \mathbb{C}[\overline{\partial_x}]$, where $\delta := \overline{1}\in \mathcal{D}_X / \mathcal{D}_X \cdot x$ is the Dirac delta function. Then $$\mathrm{CC}(N) = T_{\{0\}}^*X$$also be holonomic.
+
+    \end{enumerate}
 
 \end{example}
 
@@ -149,14 +149,14 @@ But in order to well define this problem, we need to take localization at $x \ne
 We need several facts to give the true de Rham complex on $X \backslash \{0\}$ that makes sense.
 
 \begin{lemma}[Quasi-coherent sheaf and localization of $\D$-modules]
-Assume the base field is algebraically closed field of characteristic $0$.
-\begin{enumerate}
-    \item For an arbitrary smooth (not necessarily affine) variety $X$, $\D_X$ is a quasi-coherent sheaf of $\mathcal{O}_X$-module \cite[Cor.~4.9.]{chen2024dmodules} or \cite[Beginning of Sec.~1.4.]{hotta2008d}.
-    \item The definition of a \textbf{quasi-coherent $\D_X$-module} means it is quasi-coherent as an $\mathcal{O}_X$-module \cite[Def.~6.3.]{chen2024dmodules} or \cite[Notation~1.4.1.]{hotta2008d}.
-    \item So the localization of a quasi-coherent $\D_X$-module $M$ at an open subset $U \subseteq X$ is the localization as an $\mathcal{O}_X$-module, that is, given by $\mathcal{O}_U \otimes_{\mathcal{O}_X} M$.
-    \item The $\Gamma(U,\D_X)$-action on $M_U$ is completely determined by $\Gamma(V,\D_X)$-action on $M_V$ for open sets $U\subseteq V$ \cite[\href{https://stacks.math.columbia.edu/tag/0G36}{Tag 0G36}]{stacks-project} or \cite[Lem.~4.1., Lem.~4.2.]{chen2024dmodules}.
-    \item In particular assume $X=\Spec R$ and $U=\Spec R_{f}$, for a derivation (order 1 differential operator) $\theta\in \Tv_X \subseteq \D_X$, we have: $$\theta|_U\left(\frac{m}{f}\right) = \frac{\theta(m)}{f} + \frac{m}{f^2}\cdot \theta(f)$$
-\end{enumerate}
+    Assume the base field is algebraically closed field of characteristic $0$.
+    \begin{enumerate}
+        \item For an arbitrary smooth (not necessarily affine) variety $X$, $\D_X$ is a quasi-coherent sheaf of $\mathcal{O}_X$-module \cite[Cor.~4.9.]{chen2024dmodules} or \cite[Beginning of Sec.~1.4.]{hotta2008d}.
+        \item The definition of a \textbf{quasi-coherent $\D_X$-module} means it is quasi-coherent as an $\mathcal{O}_X$-module \cite[Def.~6.3.]{chen2024dmodules} or \cite[Notation~1.4.1.]{hotta2008d}.
+        \item So the localization of a quasi-coherent $\D_X$-module $M$ at an open subset $U \subseteq X$ is the localization as an $\mathcal{O}_X$-module, that is, given by $\mathcal{O}_U \otimes_{\mathcal{O}_X} M$.
+        \item The $\Gamma(U,\D_X)$-action on $M_U$ is completely determined by $\Gamma(V,\D_X)$-action on $M_V$ for open sets $U\subseteq V$ \cite[\href{https://stacks.math.columbia.edu/tag/0G36}{Tag 0G36}]{stacks-project} or \cite[Lem.~4.1., Lem.~4.2.]{chen2024dmodules}.
+        \item In particular assume $X=\Spec R$ and $U=\Spec R_{f}$, for a derivation (order 1 differential operator) $\theta\in \Tv_X \subseteq \D_X$, we have: $$\theta|_U\left(\frac{m}{f}\right) = \frac{\theta(m)}{f} + \frac{m}{f^2}\cdot \theta(f)$$
+    \end{enumerate}
 \end{lemma}
 
 
@@ -176,29 +176,29 @@ In particular, there is no longer any ``up to a constant'' ambiguity. With $\par
 
 \mbox{}
 
-$\text{Ker}(\partial_x|_U) = \{f \cdot x^{\alpha} \mid f\in \C[x,\frac{1}{x}],\,\partial_x(f \cdot x^{\alpha}) = 0\}\simeq \{f \in \mathbb{C}[x, \frac{1}{x}] \mid xf' + \alpha f= 0\} = 0$, know that $x^{-\alpha}$ should be the solution of $xf'+\alpha f$, but $\alpha\not\in \mathbb{Z}$ makes $x^{-\alpha}\not\in \mathbb{C}\left[ x, \frac{1}{x} \right]$, thus has no solution in $\mathbb{C}[x, \frac{1}{x}]$. 
+$\text{Ker}(\partial_x|_U) = \{f \cdot x^{\alpha} \mid f\in \C[x,\frac{1}{x}],\,\partial_x(f \cdot x^{\alpha}) = 0\}\simeq \{f \in \mathbb{C}[x, \frac{1}{x}] \mid xf' + \alpha f= 0\} = 0$, know that $x^{-\alpha}$ should be the solution of $xf'+\alpha f$, but $\alpha\not\in \mathbb{Z}$ makes $x^{-\alpha}\not\in \mathbb{C}\left[ x, \frac{1}{x} \right]$, thus has no solution in $\mathbb{C}[x, \frac{1}{x}]$.
 
 Yet, from ODE \cite[Chap.~XIX, n\textsuperscript{o}~384]{Goursat1933CoursAnalyseT2},
-we know that the differential equation $xf'+\alpha f=0$ has unique (given initial value at some point) holomorphic solutions at least locally, which suggests that the current definition of de Rham complex is not enough, and we need to extend scalars. 
+we know that the differential equation $xf'+\alpha f=0$ has unique (given initial value at some point) holomorphic solutions at least locally, which suggests that the current definition of de Rham complex is not enough, and we need to extend scalars.
 
 \quad
 
 Let $Y = \text{Spec } S$ be an affine variety of finite type over $\mathbb{C}$ with $\dim Y = n$. Define a close immersion $Y \longrightarrow \mathbb{A}^{m}_{\mathbb{C}}$ by a $\C$-algebra map:
 \begin{align*}
-    \mathbb{C}[z_1, \ldots, z_m] &\longrightarrow S \\
-    z_i &\longmapsto \text{generators of } S
+    \mathbb{C}[z_1, \ldots, z_m] & \longrightarrow S                   \\
+    z_i                          & \longmapsto \text{generators of } S
 \end{align*}
-And denote $I = I(Y) = \langle f_1, \ldots, f_k \rangle, \, f_i \in \mathbb{C}[z_1, \ldots, z_m]$. 
+And denote $I = I(Y) = \langle f_1, \ldots, f_k \rangle, \, f_i \in \mathbb{C}[z_1, \ldots, z_m]$.
 
-In particular, $f_i$ are holomorphic functions on $\mathbb{C}^m$, then $f_1 = \cdots = f_k = 0$ defines an analytic subvariety $Y^{\mathrm{an}}$ of the complex manifold $\mathbb{C}^m$. We have a continuous map: 
-$$ \lambda: Y^{\mathrm{an}} \longrightarrow Y $$For all$\ y \in Y^{\mathrm{an}}$, by Implicit Function Theorem, $Y^{\mathrm{an}}$ is smooth around $y$ if and only if the Jacobian matrix $J(f_1, \ldots, f_k)(y)$ at $y$ has rank $m-n$. 
+In particular, $f_i$ are holomorphic functions on $\mathbb{C}^m$, then $f_1 = \cdots = f_k = 0$ defines an analytic subvariety $Y^{\mathrm{an}}$ of the complex manifold $\mathbb{C}^m$. We have a continuous map:
+$$ \lambda: Y^{\mathrm{an}} \longrightarrow Y $$For all$\ y \in Y^{\mathrm{an}}$, by Implicit Function Theorem, $Y^{\mathrm{an}}$ is smooth around $y$ if and only if the Jacobian matrix $J(f_1, \ldots, f_k)(y)$ at $y$ has rank $m-n$.
 
 \begin{definition} We define
 
-\begin{enumerate}
-    \item $Y$ is $\textbf{smooth}$ at a closed point $p$ if $$\dim_{\mathbb{C}} \mathfrak{m}_p/\mathfrak{m}_p^2 = n,$$ where $\mathfrak{m}_p$ is the maximal ideal of $p$ in $\mathcal{O}_Y$.
-    \item $Y$ is $\textbf{smooth}$ if $Y$ is smooth at every closed point.
-\end{enumerate}
+    \begin{enumerate}
+        \item $Y$ is $\textbf{smooth}$ at a closed point $p$ if $$\dim_{\mathbb{C}} \mathfrak{m}_p/\mathfrak{m}_p^2 = n,$$ where $\mathfrak{m}_p$ is the maximal ideal of $p$ in $\mathcal{O}_Y$.
+        \item $Y$ is $\textbf{smooth}$ if $Y$ is smooth at every closed point.
+    \end{enumerate}
 \end{definition}
 \begin{remark}
     For other equivalent definitions of smoothness, see Definition~\ref{def:smooth-locus} and Remark~\ref{rmk:smooth-locus}.
@@ -208,34 +208,34 @@ $$ \lambda: Y^{\mathrm{an}} \longrightarrow Y $$For all$\ y \in Y^{\mathrm{an}}$
     $Y$ is smooth $\iff$ $Y^{\mathrm{an}}$ is a complex manifold.
 \end{lemma}
 \begin{proof}
-    Enough to prove for closed point $p$ of $Y$ we have: 
+    Enough to prove for closed point $p$ of $Y$ we have:
     $$\text{rank}(J(f_1, \ldots, f_k)(p)) = m-n \quad \textcolor{red}{(*)}\iff \quad \dim_{\mathbb{C}} \mathfrak{m}_{p}/\mathfrak{m}_p^2 = n.$$
     Know that $p$ is also a closed point of $\mathbb{A}^{m}_{\mathbb{C}}$ with maximal ideal $\mathfrak{m} = (z_1 - \alpha_1, \cdots, z_m - \alpha_m)$. So $\mathfrak{m}_p = \mathfrak{m}/I$.
-    Define 
+    Define
     \begin{align*}
-    \mathbb{C}[z_1, \ldots, z_m] &\longrightarrow V = \mathbb{C}^m \\
-    f &\longmapsto \left( \frac{\partial f}{\partial z_1}(p), \cdots, \frac{\partial f}{\partial z_m}(p) \right)
+        \mathbb{C}[z_1, \ldots, z_m] & \longrightarrow V = \mathbb{C}^m                                                                          \\
+        f                            & \longmapsto \left( \frac{\partial f}{\partial z_1}(p), \cdots, \frac{\partial f}{\partial z_m}(p) \right)
     \end{align*}
     By HW.2. Prob.3., since $\A^n_\C$ is smooth, this matches the following isomorphism:
-\begin{alignat*}{3}
-    \varphi: \m/\m^2  &\xrightarrow{\sim}   \Omega_{\A^n_\C,p}=\Omega_{\A^n_\C}\otimes_{\C[z_1, \ldots, z_m]} \C[z_1, \ldots, z_m]/\mathfrak{m} &&=\bigoplus_{i=1}^m \C \overline{\mathrm{d}z_i} \\
-    \overline{f}  &\xmapsto{\hspace*{17em}}  \overline{\mathrm{d}f} &&= \sum_{i=1}^m \frac{\partial f}{\partial z_i}(p) \cdot \overline{\mathrm{d}z_i} \\
-\end{alignat*}
+    \begin{alignat*}{3}
+        \varphi: \m/\m^2 & \xrightarrow{\sim}   \Omega_{\A^n_\C,p}=\Omega_{\A^n_\C}\otimes_{\C[z_1, \ldots, z_m]} \C[z_1, \ldots, z_m]/\mathfrak{m} &  & =\bigoplus_{i=1}^m \C\, \overline{\mathrm{d}z_i}                                 \\
+        \overline{f}     & \xmapsto{\hspace*{17em}}  \overline{\mathrm{d}f}                                                                         &  & = \sum_{i=1}^m \frac{\partial f}{\partial z_i}(p) \cdot \overline{\mathrm{d}z_i} \\
+    \end{alignat*}
 
-    Since $I\subseteq \mathfrak{m}$ is generated by $f_{1},f_{2},\dots,f_{k}$, $\frac{I+\m^2}{\m^2}$ is generated by $\overline{f_{1}},\overline{f_{2}},\dots,\overline{f_{k}}$ as $\C[z_1, \ldots, z_m]/\mathfrak{m} = \C$-vector space. So we have: 
+    Since $I\subseteq \mathfrak{m}$ is generated by $f_{1},f_{2},\dots,f_{k}$, $\frac{I+\m^2}{\m^2}$ is generated by $\overline{f_{1}},\overline{f_{2}},\dots,\overline{f_{k}}$ as $\C[z_1, \ldots, z_m]/\mathfrak{m} = \C$-vector space. So we have:
     $$\dim(\varphi(I)) = \operatorname{rank} \left( J(f_1, \cdots, f_k)(p) \right).$$
 
-    On the other hand, we have short exact sequence 
+    On the other hand, we have short exact sequence
     $$0\rightarrow \frac{I+\m^2}{\m^2}\rightarrow \frac{\m}{\m^2}\rightarrow \frac{\m}{\m^2 + I}\rightarrow 0.$$
 
-    And we have $\mathfrak{m}_{p}=\mathfrak{m} /I$, $\mathfrak{m}_{p} /\mathfrak{m}_{p}^{2}=\frac{\mathfrak{m}/I}{\mathfrak{m}^{2}+I /I}\simeq \frac{\mathfrak{m}}{\mathfrak{m}^{2}+I}$,  with $\mathrm{dim}_{\mathbb{C}}\, \mathfrak{m} /\mathfrak{m}^{2}=m$, we get $\operatorname{rank} \left( J(f_1, \cdots, f_k)(p) \right)+\mathrm{dim}_{\mathbb{C}}\,\mathfrak{m}_{p} /\mathfrak{m}_{p}^{2}=m$, done. 
+    And we have $\mathfrak{m}_{p}=\mathfrak{m} /I$, $\mathfrak{m}_{p} /\mathfrak{m}_{p}^{2}=\frac{\mathfrak{m}/I}{\mathfrak{m}^{2}+I /I}\simeq \frac{\mathfrak{m}}{\mathfrak{m}^{2}+I}$,  with $\mathrm{dim}_{\mathbb{C}}\, \mathfrak{m} /\mathfrak{m}^{2}=m$, we get $\operatorname{rank} \left( J(f_1, \cdots, f_k)(p) \right)+\mathrm{dim}_{\mathbb{C}}\,\mathfrak{m}_{p} /\mathfrak{m}_{p}^{2}=m$, done.
 \end{proof}
 \quad
 
-Let $Z$ be a complex manifold (or variety) and $\mathcal{O}_{Z}$ the sheaf of all holomorphic functions on $Z$. 
+Let $Z$ be a complex manifold (or variety) and $\mathcal{O}_{Z}$ the sheaf of all holomorphic functions on $Z$.
 
 We consider $Z=Y^{\mathrm{an}}$, have $\lambda:Y^{\mathrm{an}}\rightarrow Y$, it is a morphism between locally ringed space, so by definition we are also given a morphism of sheaves of rings $S \longrightarrow \mathcal{O}_{Y^{\mathrm{an}}}$ (In this case is to identify regular algebraic functions as holomorphic functions). If $M$ is an $S$-module, then $$
-M^{\mathrm{an}} \coloneqq M \otimes_S \mathcal{O}_{Y^{\mathrm{an}}}$$
+    M^{\mathrm{an}} \coloneqq M \otimes_S \mathcal{O}_{Y^{\mathrm{an}}}$$
 
 To be precise, $Y^{\mathrm{an}}$ rather than $Y$ is where we stand, so $S = \lambda^{-1}\mathcal{O}_{Y}$, and $M^{\mathrm{an}} := \mathcal{O}_{Y^{\mathrm{an}}} \otimes_{\lambda^{-1}\mathcal{O}_Y} \lambda^{-1}M$.
 
@@ -248,109 +248,109 @@ So $M^{\mathrm{an}}$ got its $\mathcal{D}_{Y^{\mathrm{an}}}$-module structure by
 
 Then we finally define
 $$
-\operatorname{DR}(M) = K(M^{\mathrm{an}}; \partial_1, \cdots, \partial_n).
+    \operatorname{DR}(M) = K(M^{\mathrm{an}}; \partial_1, \cdots, \partial_n).
 $$
 
 On the other side, also by associativity of tensor product, which is a natural isomorphism, so also gives the definitions of arrows on the second row:
 \begin{align*}
-    \mathrm{DR}(M) &= [0 \to M^{\mathrm{an}} \to M^{\mathrm{an}} \otimes_S \Omega_Y^1 \to \cdots \to M^{\mathrm{an}} \otimes_S \Omega_Y^n \to 0] \\
-    &= [0 \to M^{\mathrm{an}} \to M^{\mathrm{an}} \otimes_{\mathcal{O}_{Y^{\mathrm{an}}}} \Omega_{Y^{\mathrm{an}}}^1 \to \cdots \to M^{\mathrm{an}} \otimes_{\mathcal{O}_{Y^{\mathrm{an}}}} \Omega_{Y^{\mathrm{an}}}^n \to 0].
+    \mathrm{DR}(M) & = [0 \to M^{\mathrm{an}} \to M^{\mathrm{an}} \otimes_S \Omega_Y^1 \to \cdots \to M^{\mathrm{an}} \otimes_S \Omega_Y^n \to 0]                                                                                              \\
+                   & = [0 \to M^{\mathrm{an}} \to M^{\mathrm{an}} \otimes_{\mathcal{O}_{Y^{\mathrm{an}}}} \Omega_{Y^{\mathrm{an}}}^1 \to \cdots \to M^{\mathrm{an}} \otimes_{\mathcal{O}_{Y^{\mathrm{an}}}} \Omega_{Y^{\mathrm{an}}}^n \to 0].
 \end{align*}
 
 One should note that, no matter algebraic case or analytic case, the de Rham complex is always a complex of sheaves of $\mathbb{C}$-vector spaces.
 
-Now, let's calculate $\mathrm{DR}(M_{\mathfrak{\alpha}})$. 
+Now, let's calculate $\mathrm{DR}(M_{\mathfrak{\alpha}})$.
 
 \begin{proposition}\label{prop:classification-of-local-system}
-    For definition of local system, see Definition~\ref{def:local-system}. 
-    
-Assume the underlying Euclidean topology of $Y^{\mathrm{an}}$ is connected, for a fixed base point $y\in Y^{\mathrm{an}}$, we
-we have a categorical equivalence:
-\begin{align*}
-    \{\text{local systems on } Y^{\mathrm{an}}\} &\longleftrightarrow \{\text{representations of } \pi_1(Y^{\mathrm{an}},y)\} \\
-    \mathcal{L} &\longmapsto \mathcal{L}_y 
-\end{align*}
+    For definition of local system, see Definition~\ref{def:local-system}.
 
-For reference see an English translation of \cite[Prop.~1.3., Cor.~1.4.]{DeligneLNM163}.
+    Assume the underlying Euclidean topology of $Y^{\mathrm{an}}$ is connected, for a fixed base point $y\in Y^{\mathrm{an}}$, we
+    we have a categorical equivalence:
+    \begin{align*}
+        \{\text{local systems on } Y^{\mathrm{an}}\} & \longleftrightarrow \{\text{representations of } \pi_1(Y^{\mathrm{an}},y)\} \\
+        \mathcal{L}                                  & \longmapsto \mathcal{L}_y
+    \end{align*}
+
+    For reference see an English translation of \cite[Prop.~1.3., Cor.~1.4.]{DeligneLNM163}.
 \end{proposition}
 
 \begin{example}\label{ex:regular-holonomic-simple-module-in-dimension-1}
     $X = \mathbb{A}^1_{\mathbb{C}}$,  $M_{\alpha} := \mathbb{C}[x, \frac{1}{x}] \cdot x^{\alpha}$, an algebraic $\D_X$-module.
-    \begin{enumerate} 
-\item $\alpha \not\in \mathbb{Z}$, $\mathrm{DR}(M_{\alpha}) \cong [M_{\alpha} \xrightarrow{\mathrm{d}_{\alpha}} M_{\alpha}]$. 
-\begin{enumerate}
-    \item \textbf{On the punctured disk } $X^\mathrm{an} \setminus \{0\}$:
-    The kernel of the connection describes the local system. Since
-    \[
-        \partial_{x}(x^{-\alpha} \cdot x^{\alpha}) = \partial_{x} \cdot 1 = 0,
-    \]
-    we have $\operatorname{Ker}(\partial_{x})|_{X^\mathrm{an} \setminus \{0\}} = \mathbb{C} \cdot x^{-\alpha} \cdot x^{\alpha}$. This implies that the kernel corresponds to the non-trivial local system $L_{\lambda}$ defined by the multivalued function $x^{-\alpha}$ (1-dimensional $\C$-vector space). The monodromy $T$ (action of the generator of $\pi_1(X^{\mathrm{an}} \setminus \{0\}, x_0) $) acts as follows:
-    \begin{align*}
-        T \cdot x^{-\alpha} &= T \cdot e^{-\alpha \log x} \\
-        &:= e^{-\alpha(\log x + 2\pi i)} \\
-        &= e^{-2\pi i \alpha} \cdot e^{-\alpha \log x} \\
-        &= \lambda \cdot x^{-\alpha}, \quad \text{where } \lambda = e^{-2\pi i \alpha}.
-    \end{align*}
-    Since $\partial_{x}$ is surjective on $X^\mathrm{an} \setminus \{0\}$, we obtain the quasi-isomorphism:
-    \[
-        \mathrm{DR}(M_{\alpha})|_{X^\mathrm{an} \setminus \{0\}} \overset{\text{qiso.}}{\simeq} L_{\lambda}[0].
-    \]
+    \begin{enumerate}
+        \item $\alpha \not\in \mathbb{Z}$, $\mathrm{DR}(M_{\alpha}) \cong [M_{\alpha} \xrightarrow{\mathrm{d}_{\alpha}} M_{\alpha}]$.
+              \begin{enumerate}
+                  \item \textbf{On the punctured disk } $X^\mathrm{an} \setminus \{0\}$:
+                        The kernel of the connection describes the local system. Since
+                        \[
+                            \partial_{x}(x^{-\alpha} \cdot x^{\alpha}) = \partial_{x} \cdot 1 = 0,
+                        \]
+                        we have $\operatorname{Ker}(\partial_{x})|_{X^\mathrm{an} \setminus \{0\}} = \mathbb{C} \cdot x^{-\alpha} \cdot x^{\alpha}$. This implies that the kernel corresponds to the non-trivial local system $L_{\lambda}$ defined by the multivalued function $x^{-\alpha}$ (1-dimensional $\C$-vector space). The monodromy $T$ (action of the generator of $\pi_1(X^{\mathrm{an}} \setminus \{0\}, x_0) $) acts as follows:
+                        \begin{align*}
+                            T \cdot x^{-\alpha} & = T \cdot e^{-\alpha \log x}                                                   \\
+                                                & := e^{-\alpha(\log x + 2\pi i)}                                                \\
+                                                & = e^{-2\pi i \alpha} \cdot e^{-\alpha \log x}                                  \\
+                                                & = \lambda \cdot x^{-\alpha}, \quad \text{where } \lambda = e^{-2\pi i \alpha}.
+                        \end{align*}
+                        Since $\partial_{x}$ is surjective on $X^\mathrm{an} \setminus \{0\}$, we obtain the quasi-isomorphism:
+                        \[
+                            \mathrm{DR}(M_{\alpha})|_{X^\mathrm{an} \setminus \{0\}} \overset{\text{qiso.}}{\simeq} L_{\lambda}[0].
+                        \]
 
-    \item \textbf{The stalk/fiber At the origin } $\{0\}$:
-    For $\alpha \notin \mathbb{Z}$, the cohomology vanishes locally at the origin:
-    \[
-        H^{0}\mathrm{DR}(M_{\alpha})|_{\{0\}} = H^{1}\mathrm{DR}(M_{\alpha})|_{\{0\}} = 0.
-    \]
-\end{enumerate}
+                  \item \textbf{The stalk/fiber At the origin } $\{0\}$:
+                        For $\alpha \notin \mathbb{Z}$, the cohomology vanishes locally at the origin:
+                        \[
+                            H^{0}\mathrm{DR}(M_{\alpha})|_{\{0\}} = H^{1}\mathrm{DR}(M_{\alpha})|_{\{0\}} = 0.
+                        \]
+              \end{enumerate}
 
 
-\item $\alpha \in \mathbb{Z} \Rightarrow \lambda = 1$, $\mathrm{DR}(M_{\alpha}) \mid_{X^\mathrm{an} \setminus \{0\}} = \mathbb{C}_{X^\mathrm{an} \setminus \{0\}}$ (a 1-dimensional local system with trivial monodromy), $H^{0}\mathrm{DR}(M_{\alpha}) \cong H^{1}\mathrm{DR}(M_{\alpha}) \cong \mathbb{C}_{\{0\}}$ (skycraper sheaf).
+        \item $\alpha \in \mathbb{Z} \Rightarrow \lambda = 1$, $\mathrm{DR}(M_{\alpha}) \mid_{X^\mathrm{an} \setminus \{0\}} = \mathbb{C}_{X^\mathrm{an} \setminus \{0\}}$ (a 1-dimensional local system with trivial monodromy), $H^{0}\mathrm{DR}(M_{\alpha}) \cong H^{1}\mathrm{DR}(M_{\alpha}) \cong \mathbb{C}_{\{0\}}$ (skycraper sheaf).
 
-\item $N=\mathbb{C}[\delta]\simeq \mathbb{C}[\partial_{x}]$, $\mathrm{DR}(N)\overset{\text{qiso.}}{\simeq} \mathbb{C}_{\{0\}}[-1]$ (quasi-isomorphism). 
+        \item $N=\mathbb{C}[\delta]\simeq \mathbb{C}[\partial_{x}]$, $\mathrm{DR}(N)\overset{\text{qiso.}}{\simeq} \mathbb{C}_{\{0\}}[-1]$ (quasi-isomorphism).
     \end{enumerate}
 \end{example}
 
 \section{Basic version Riemman-Hilbert correspondence}
 
-Let $Y$ be a complex manifold, $\mathcal{O}_Y$: the sheaf of holomorphic functions on $Y$, $\mathcal{L}$: a sheaf of $\mathbb{C}$-vector spaces. 
+Let $Y$ be a complex manifold, $\mathcal{O}_Y$: the sheaf of holomorphic functions on $Y$, $\mathcal{L}$: a sheaf of $\mathbb{C}$-vector spaces.
 
 \begin{definition}\label{def:local-system}
     $\mathcal{L}$ is called a $\textbf{local system}$ if $\forall y \in Y$, $\exists$ open neighborhood $U_y$ of $y$ s.t. $\mathcal{L}|_{U_y} \simeq\underline{\mathbb{C}}^r_{U_y}$, where $\underline{\mathbb{C}}^{r}_{U_y}$ is the constant sheaf on $U_y$.
 \end{definition}
 
 \begin{theorem}\label{thm:basic-RH-corr}
-    Let $X = \text{Spec } R$ be a smooth affine algebraic variety over $\mathbb{C}$ and $M$ an integrable connection on $X$, 
-then $$M^{\mathrm{an}} \simeq \mathcal{L} \otimes_{\underline{\mathbb{C}}_{X^{\mathrm{an}}}} \mathcal{O}_{X^{\mathrm{an}}}$$
-with $\mathcal{L} \subseteq M^{\mathrm{an}}$, the collection of flat sections of $M^{\mathrm{an}}$, which forms a local system.
+    Let $X = \text{Spec } R$ be a smooth affine algebraic variety over $\mathbb{C}$ and $M$ an integrable connection on $X$,
+    then $$M^{\mathrm{an}} \simeq \mathcal{L} \otimes_{\underline{\mathbb{C}}_{X^{\mathrm{an}}}} \mathcal{O}_{X^{\mathrm{an}}}$$
+    with $\mathcal{L} \subseteq M^{\mathrm{an}}$, the collection of flat sections of $M^{\mathrm{an}}$, which forms a local system.
 \end{theorem}
 \begin{remark}[Remarks on this version of Riemann-Hilbert correspondence]
-\mbox{}
-\begin{enumerate}
-    \item $\mathcal{L}$ is the kernel of the connection $\nabla := \sum_{i} \partial_{x_i}\otimes \mathrm{d}x_i : M^{\mathrm{an}} \to M^{\mathrm{an}} \otimes_{\mathcal{O}_{X^{\mathrm{an}}}} \Omega_{X^{\mathrm{an}}}^1$, i.e. the sheaf of \textbf{flat sections} of $M^{\mathrm{an}}$.
-    \item The $\D_{X^{\mathrm{an}}}$-module structure of $\mathcal{L} \otimes_{\underline{\mathbb{C}}_{X^{\mathrm{an}}}} \mathcal{O}_{X^{\mathrm{an}}}$ is to only apply differential operators on the second factor.
-    \item With the Corollary~\ref{cor:basic-RH-corr}, we get the complete description Riemann-Hilbert correspondence, which claims that taking de Rham complexes between derived categories gives an categorical equivalence \cite[Thm.~7.2.2.]{hotta2008d}.
-    \item So the $\mathcal{L} \mapsto \mathcal{L} \otimes_{\underline{\mathbb{C}}_{X^{\mathrm{an}}}} \mathcal{O}_{X^{\mathrm{an}}}$ actually gives a quasi-inverse of de Rham functor in this basic (affine + integrable connection) case.
-\end{enumerate}
+    \mbox{}
+    \begin{enumerate}
+        \item $\mathcal{L}$ is the kernel of the connection $\nabla := \sum_{i} \partial_{x_i}\otimes \mathrm{d}x_i : M^{\mathrm{an}} \to M^{\mathrm{an}} \otimes_{\mathcal{O}_{X^{\mathrm{an}}}} \Omega_{X^{\mathrm{an}}}^1$, i.e. the sheaf of \textbf{flat sections} of $M^{\mathrm{an}}$.
+        \item The $\D_{X^{\mathrm{an}}}$-module structure of $\mathcal{L} \otimes_{\underline{\mathbb{C}}_{X^{\mathrm{an}}}} \mathcal{O}_{X^{\mathrm{an}}}$ is to only apply differential operators on the second factor.
+        \item With the Corollary~\ref{cor:basic-RH-corr}, we get the complete description Riemann-Hilbert correspondence, which claims that taking de Rham complexes between derived categories gives an categorical equivalence \cite[Thm.~7.2.2.]{hotta2008d}.
+        \item So the $\mathcal{L} \mapsto \mathcal{L} \otimes_{\underline{\mathbb{C}}_{X^{\mathrm{an}}}} \mathcal{O}_{X^{\mathrm{an}}}$ actually gives a quasi-inverse of de Rham functor in this basic (affine + integrable connection) case.
+    \end{enumerate}
 \end{remark}
 \begin{proof}
-   \quad
+    \quad
 
     Goal: $M$ is locally free, we want to show for small enough neighborhood, we can pick a basis $s_{1},\dots,s_{r}$ makes $\partial_{x_{i}}s_{j}=0$, thus
-	We have known $M$ is a locally free $R$-module, $\forall x \in X$, take an open neighborhood $U \subset X$ s.t. $M|_U$ is free, then $M^{\mathrm{an}}|_{U^{\mathrm{an}}}$ is a free $\mathcal{O}_{U^{\mathrm{an}}}$-module, generated by $\underline{\mathfrak{m}} = (m_1, \cdots, m_r)$ (underline stands for vector presentation).
+    We have known $M$ is a locally free $R$-module, $\forall x \in X$, take an open neighborhood $U \subset X$ s.t. $M|_U$ is free, then $M^{\mathrm{an}}|_{U^{\mathrm{an}}}$ is a free $\mathcal{O}_{U^{\mathrm{an}}}$-module, generated by $\underline{\mathfrak{m}} = (m_1, \cdots, m_r)$ (underline stands for vector presentation).
 
-	Denote $(x_1, \cdots, x_n)$ coordinates of $U^{\mathrm{an}}$, then we have $\partial_{n} \underline{\mathfrak{m}} = X \cdot\underline{ \mathfrak{m}}$,
-where $X$ is a matrix of holomorphic functions on $U^{\mathrm{an}}$. Expand $X$ w.r.t. $x_n$ in a small enough neighborhood of
-$x\in V\subseteq U^{\mathrm{an}}$, we have $$X = \sum_{i\ge0} x_n^i \cdot X_i,$$where $X_i$ is a $r\times r$ matrix of holomorphic functions in $(x_1, \cdots, x_{n-1})$. 
+    Denote $(x_1, \cdots, x_n)$ coordinates of $U^{\mathrm{an}}$, then we have $\partial_{n} \underline{\mathfrak{m}} = X \cdot\underline{ \mathfrak{m}}$,
+    where $X$ is a matrix of holomorphic functions on $U^{\mathrm{an}}$. Expand $X$ w.r.t. $x_n$ in a small enough neighborhood of
+    $x\in V\subseteq U^{\mathrm{an}}$, we have $$X = \sum_{i\ge0} x_n^i \cdot X_i,$$where $X_i$ is a $r\times r$ matrix of holomorphic functions in $(x_1, \cdots, x_{n-1})$.
 
-	Take $\Psi=\sum\limits_{i\ge 0} \frac{1}{i+1} x_{n}^{i+1}X_{i}$, so $\partial_{n}(\Psi)=X$, then $\Phi=\mathrm{\exp}(-\Psi)$, which is an invertible matrix. Set $\underline{s}=(s_{1},\dots,s_{r})=\Phi(\underline{\mathfrak{m}})$, so $\partial_{n}\underline{s}=\partial_{n}(\Phi)\cdot \underline{\mathfrak{m}}+\Phi \cdot(\partial_{n} \underline{\mathfrak{m}})=(\partial_{n}(\Phi)+\Phi \cdot X)\underline{\mathfrak{m}}=0$. 
+    Take $\Psi=\sum\limits_{i\ge 0} \frac{1}{i+1} x_{n}^{i+1}X_{i}$, so $\partial_{n}(\Psi)=X$, then $\Phi=\mathrm{\exp}(-\Psi)$, which is an invertible matrix. Set $\underline{s}=(s_{1},\dots,s_{r})=\Phi(\underline{\mathfrak{m}})$, so $\partial_{n}\underline{s}=\partial_{n}(\Phi)\cdot \underline{\mathfrak{m}}+\Phi \cdot(\partial_{n} \underline{\mathfrak{m}})=(\partial_{n}(\Phi)+\Phi \cdot X)\underline{\mathfrak{m}}=0$.
 
-	Since $\Phi$ is an invertible matrix, we obtain $s_{1},\dots,s_{r}$ also a basis of $U^{\mathrm{an}}|_{V}$, so we have $M^{\mathrm{an}}|_{V}=\bigoplus\limits_{i=1}^{r}\mathcal{O}_{V}s_{i}$ s.t. $\partial_{n}s_{i}=0$. 
+    Since $\Phi$ is an invertible matrix, we obtain $s_{1},\dots,s_{r}$ also a basis of $U^{\mathrm{an}}|_{V}$, so we have $M^{\mathrm{an}}|_{V}=\bigoplus\limits_{i=1}^{r}\mathcal{O}_{V}s_{i}$ s.t. $\partial_{n}s_{i}=0$.
 
-	Want to clarify the relation of $s_{i}$ and other $\partial_{x_{j}}\, (j < n)$, then Take $M_1 = \ker[M^{\mathrm{an}}|_V \xrightarrow{\partial_n} M^{\mathrm{an}}|_V]=\left\{ \partial_{n}\left( \sum f_{i}s_{i} \right)=0:f_{i}\in \mathcal{O}_{V} \right\}=\left\{ \sum\limits_{i=1}^{n}\partial_{n}(f_{i})s_{i}=0 \right\}.$ So we get $\partial_n(f_i) = 0$ for all $i=1,\dots,r$, i.e., $f_{i}$ is independent of $x_{n}$. 
+    Want to clarify the relation of $s_{i}$ and other $\partial_{x_{j}}\, (j < n)$, then Take $M_1 = \ker[M^{\mathrm{an}}|_V \xrightarrow{\partial_n} M^{\mathrm{an}}|_V]=\left\{ \partial_{n}\left( \sum f_{i}s_{i} \right)=0:f_{i}\in \mathcal{O}_{V} \right\}=\left\{ \sum\limits_{i=1}^{n}\partial_{n}(f_{i})s_{i}=0 \right\}.$ So we get $\partial_n(f_i) = 0$ for all $i=1,\dots,r$, i.e., $f_{i}$ is independent of $x_{n}$.
 
-	So we have $M_{1}=\bigoplus\limits_{i=1}^{r}\mathcal{O}_{V}^{n-1}s_{i}$, $\mathcal{O}_{V}^{n-1}$ are holomorphic functions that are independent of $x_{n}$, which suggests that we do not need the variable $x_{n}$. And do the same thing for $M_{1}$,we get a new basis with $\partial_{n}s_{i}=\partial_{n-1}s_{i}=0$ for all $i=1,\dots,r$, and the change of basis is via an invertible matrix of homomorphic functions in $(x_{1},\dots,x_{n-1})$. 
+    So we have $M_{1}=\bigoplus\limits_{i=1}^{r}\mathcal{O}_{V}^{n-1}s_{i}$, $\mathcal{O}_{V}^{n-1}$ are holomorphic functions that are independent of $x_{n}$, which suggests that we do not need the variable $x_{n}$. And do the same thing for $M_{1}$,we get a new basis with $\partial_{n}s_{i}=\partial_{n-1}s_{i}=0$ for all $i=1,\dots,r$, and the change of basis is via an invertible matrix of homomorphic functions in $(x_{1},\dots,x_{n-1})$.
 
-	By induction, we finally obtain:  $$ M_n = \bigoplus_{i=1}^r \mathbb{C} \cdot s_i $$with $\partial_j(s_i) = 0 \, (\forall i, j)$. After a sequence of invertible changes of basis, we know that for a small enough neighborhood $V \subseteq U^{\mathrm{an}}$, we get $M^{\mathrm{an}}|_{V}=\bigoplus\limits_{i=1}^{r}\mathcal{O}_{V}s_{i}$, with $\partial_{j}(s_{i})=0$ . 
+    By induction, we finally obtain:  $$ M_n = \bigoplus_{i=1}^r \mathbb{C} \cdot s_i $$with $\partial_j(s_i) = 0 \, (\forall i, j)$. After a sequence of invertible changes of basis, we know that for a small enough neighborhood $V \subseteq U^{\mathrm{an}}$, we get $M^{\mathrm{an}}|_{V}=\bigoplus\limits_{i=1}^{r}\mathcal{O}_{V}s_{i}$, with $\partial_{j}(s_{i})=0$ .
 \end{proof}
 
 \begin{corollary}\label{cor:basic-RH-corr}
@@ -363,60 +363,60 @@ $x\in V\subseteq U^{\mathrm{an}}$, we have $$X = \sum_{i\ge0} x_n^i \cdot X_i,$$
 
 \begin{remark}
     In Example~\ref{ex:regular-holonomic-simple-module-in-dimension-1},
-$M_\alpha$ and $N$ are integrable connections on $X\setminus \{0\} = \Spec \C[x]_x$ (a 1-dimensional smooth affine variety), so Theorem~\ref{thm:basic-RH-corr} and Corollary~\ref{cor:basic-RH-corr} apply.
+    $M_\alpha$ and $N$ are integrable connections on $X\setminus \{0\} = \Spec \C[x]_x$ (a 1-dimensional smooth affine variety), so Theorem~\ref{thm:basic-RH-corr} and Corollary~\ref{cor:basic-RH-corr} apply.
 
-Taking de Rham complexes $\DR(\cdot)|_{X^\mathrm{an}\setminus\{0\}}$ gives a 1-dimensional local systems (centered at degree 0 as complexes).
+    Taking de Rham complexes $\DR(\cdot)|_{X^\mathrm{an}\setminus\{0\}}$ gives a 1-dimensional local systems (centered at degree 0 as complexes).
 \end{remark}
 
 
 \begin{example}[Algebraic vs Analytic]
-    Let $M := \mathcal{D}_{X} /\mathcal{D}_{X}(x\partial_{x}+1) = \mathbb{C}[x, \frac{1}{x}]$, $M':=\mathcal{D}_{X} /\mathcal{D}_{X}(x^{2}\partial_{x}+1) = \mathbb{C}[x, \frac{1}{x}] \cdot e^{\frac{1}{x}}$. 
+    Let $M := \mathcal{D}_{X} /\mathcal{D}_{X}(x\partial_{x}+1) = \mathbb{C}[x, \frac{1}{x}]$, $M':=\mathcal{D}_{X} /\mathcal{D}_{X}(x^{2}\partial_{x}+1) = \mathbb{C}[x, \frac{1}{x}] \cdot e^{\frac{1}{x}}$.
 
     Note $\frac{1}{x}$ is not algebraic function on $X=\mathbb{A}^{1}_{\mathbb{C}}$, and recall the discussion of Example~\ref{ex:first-examples-of-d-modules}, to get the exact meaning of $\frac{1}{x}$ in $\mathbb{C}[x, \frac{1}{x}] \cdot e^{\frac{1}{x}}$, only when restricted to open subset $X\setminus \{0\} $, $\frac{1}{x}$ in $\mathbb{C}[x, \frac{1}{x}] \cdot e^{\frac{1}{x}}$ can be canonically defined.
-    
+
     And note that $M$ and $M'$ are different as algebraic $D$-modules. This point is non-trivial for the editor, will be explained in \ref{ex:first-example-non-regular-d-module}.
 
-    But $M^{\mathrm{an}}|_{X^\mathrm{an}\setminus\{0\}} = \mathcal{O}_{X^\mathrm{an}\setminus\{0\}}$, $M'^{\mathrm{an}}|_{X^\mathrm{an}\setminus\{0\}}=\mathcal{O}_{X^\mathrm{an}\setminus\{0\}}\cdot e^{1/x}=\mathcal{O}_{X^\mathrm{an}\setminus\{0\}}$, 
-where $X^\mathrm{an}\setminus\{0\}$ is the punctured complex plane. 
-So $M^{\mathrm{an}}|_{X^\mathrm{an}\setminus\{0\}} \cong M'^{\mathrm{an}}|_{X^\mathrm{an}\setminus\{0\}}$ as analytic $\mathcal{D}$-modules.
+    But $M^{\mathrm{an}}|_{X^\mathrm{an}\setminus\{0\}} = \mathcal{O}_{X^\mathrm{an}\setminus\{0\}}$, $M'^{\mathrm{an}}|_{X^\mathrm{an}\setminus\{0\}}=\mathcal{O}_{X^\mathrm{an}\setminus\{0\}}\cdot e^{1/x}=\mathcal{O}_{X^\mathrm{an}\setminus\{0\}}$,
+    where $X^\mathrm{an}\setminus\{0\}$ is the punctured complex plane.
+    So $M^{\mathrm{an}}|_{X^\mathrm{an}\setminus\{0\}} \cong M'^{\mathrm{an}}|_{X^\mathrm{an}\setminus\{0\}}$ as analytic $\mathcal{D}$-modules.
 
-And $DR(M^{\mathrm{an}})|_{X^\mathrm{an}\setminus\{0\}} \cong DR(M'^{\mathrm{an}})|_{X^\mathrm{an}\setminus\{0\}} \cong \underline{\mathbb{C}}_{X^\mathrm{an}\setminus\{0\}}$ (trivial monodromy action, by Proposition~\ref{prop:classification-of-local-system}, they are isomorphic local systems). 
+    And $DR(M^{\mathrm{an}})|_{X^\mathrm{an}\setminus\{0\}} \cong DR(M'^{\mathrm{an}})|_{X^\mathrm{an}\setminus\{0\}} \cong \underline{\mathbb{C}}_{X^\mathrm{an}\setminus\{0\}}$ (trivial monodromy action, by Proposition~\ref{prop:classification-of-local-system}, they are isomorphic local systems).
 
-Moreover, $M^{\mathrm{an}} = \mathcal{O}_{\mathbb{C}}[\frac{1}{x}]$, $M'^{\mathrm{an}}=\mathcal{O}_{\mathbb{C}}[\frac{1}{x}]\cdot e^{1/x}$ 
-so $M^{\mathrm{an}}$ and $M'^{\mathrm{an}}$ are different as analytic $\mathcal{D}$-module. 
+    Moreover, $M^{\mathrm{an}} = \mathcal{O}_{\mathbb{C}}[\frac{1}{x}]$, $M'^{\mathrm{an}}=\mathcal{O}_{\mathbb{C}}[\frac{1}{x}]\cdot e^{1/x}$
+    so $M^{\mathrm{an}}$ and $M'^{\mathrm{an}}$ are different as analytic $\mathcal{D}$-module.
 \end{example}
 
 \section{Regular holonomic $\mathcal{D}$-module}
 
-Let $X = \text{Spec } R$ be a smooth affine algebraic variety over $\mathbb{C}$ and $M$ a holonomic $\mathcal{D}_X$-mod. 
+Let $X = \text{Spec } R$ be a smooth affine algebraic variety over $\mathbb{C}$ and $M$ a holonomic $\mathcal{D}_X$-mod.
 For any point $x \in X^{\mathrm{an}}$, we consider the embedding:$$
-i: \Delta \hookrightarrow X^{\mathrm{an}}, \quad 0 \mapsto x.
+    i: \Delta \hookrightarrow X^{\mathrm{an}}, \quad 0 \mapsto x.
 $$where $\Delta$ is a 1-dimensional small disk in the complex plane.
 Then we have a morphism of sheaves of rings:
 $$R \to \mathcal{O}_{\Delta}, \quad f \mapsto f|_{\Delta}.$$
-We define $i^*M^{\mathrm{an}} = M \otimes_R \mathcal{O}_{\Delta}$. 
+We define $i^*M^{\mathrm{an}} = M \otimes_R \mathcal{O}_{\Delta}$.
 
 \begin{definition}[Analytic regular holmonicity]
     \mbox{}
 
-    $M^{\mathrm{an}}$ is called $\textbf{regular holonomic}$, if $i^{\ast}M^{\mathrm{an}}$ is generated by $M_{\alpha}^{\mathrm{an}}|_{\Delta}$ and $N^{\mathrm{an}}|_{\Delta}$ in $\mathbf{K}_{0}(\mathcal{D}_{\Delta})$ for every small enough disk embedding $i:\Delta \hookrightarrow X^{\mathrm{an}}$. 
+    $M^{\mathrm{an}}$ is called $\textbf{regular holonomic}$, if $i^{\ast}M^{\mathrm{an}}$ is generated by $M_{\alpha}^{\mathrm{an}}|_{\Delta}$ and $N^{\mathrm{an}}|_{\Delta}$ in $\mathbf{K}_{0}(\mathcal{D}_{\Delta})$ for every small enough disk embedding $i:\Delta \hookrightarrow X^{\mathrm{an}}$.
 \end{definition}
 
 \begin{remark}[Explanation of this definition]
-\mbox{}
+    \mbox{}
 
-\begin{enumerate}
-    \item By \cite[Def.~3.1.12.]{Mebkhout1989}, $M^\mathrm{an}$ is regular holonomic iff $i^*M^\mathrm{an}$ (ordinary, not a derived version) is regular holonomic.
-    \item By \cite[Prop.~3.1.2.(ii)]{hotta2008d}, any holonomic $\D$-module has finite length.
-    \item And by \cite[Prop.~3.1.2.(i)]{hotta2008d}, all regular holonomic $\D$-modules can be decomposed into simple regular holonomic $\D$-modules.
-    \item For all (simple hence all) holonomic algebraic $\D$-module on $\mathbb{A}^1_{\C}$, it's characteristic variety is locally of \textbf{Normal Crossing Type}.
-    \item By \cite[Lecture 23]{schnell_dmodules_notes} we have classification of regular holonomic $\D$-module on $\mathbb{A}^n_{\C}$ of normal crossing type, on $\mathbb{A}^1_{\C}$ which is just $M_\alpha\, (\alpha\in\C\setminus\{0,1\})$, $N$ and $\mathcal{O}_X$.
-\end{enumerate}
+    \begin{enumerate}
+        \item By \cite[Def.~3.1.12.]{Mebkhout1989}, $M^\mathrm{an}$ is regular holonomic iff $i^*M^\mathrm{an}$ (ordinary, not a derived version) is regular holonomic.
+        \item By \cite[Prop.~3.1.2.(ii)]{hotta2008d}, any holonomic $\D$-module has finite length.
+        \item And by \cite[Prop.~3.1.2.(i)]{hotta2008d}, all regular holonomic $\D$-modules can be decomposed into simple regular holonomic $\D$-modules.
+        \item For all (simple hence all) holonomic algebraic $\D$-module on $\mathbb{A}^1_{\C}$, it's characteristic variety is locally of \textbf{Normal Crossing Type}.
+        \item By \cite[Lecture 23]{schnell_dmodules_notes} we have classification of regular holonomic $\D$-module on $\mathbb{A}^n_{\C}$ of normal crossing type, on $\mathbb{A}^1_{\C}$ which is just $M_\alpha\, (\alpha\in\C\setminus\{0,1\})$, $N$ and $\mathcal{O}_X$.
+    \end{enumerate}
 
 \end{remark}
 
 \begin{example}\label{ex:first-example-non-regular-d-module}
-    $M=\mathbb{C}\left[ x, \frac{1}{x} \right]\cdot e^{1/x}$ is not regular because $M$ is simple and $M\simeq \mathcal{D}_{X} /\mathcal{D}_{X}(x^{2}\partial_{x}+1)$. 
+    $M=\mathbb{C}\left[ x, \frac{1}{x} \right]\cdot e^{1/x}$ is not regular because $M$ is simple and $M\simeq \mathcal{D}_{X} /\mathcal{D}_{X}(x^{2}\partial_{x}+1)$.
 \end{example}
 
 \begin{proof}[Sketch]
@@ -437,22 +437,22 @@ We define $i^*M^{\mathrm{an}} = M \otimes_R \mathcal{O}_{\Delta}$.
     The $\D$-module we talk about are all quasi-coherent, so $\mathrm{Mod}(\mathcal{D}_{X})$ and $\mathrm{Mod}^{X}(\mathcal{D}_{Y})$ exactly mean the categories of quasi-coherent $\D_X$-modules and quasi-coherent $\D_Y$-modules supported on $X$ respectively.
 \end{remark}
 
-\begin{theorem}[Kashiwara's equivalence]
-    Let $Y$ be a smooth affine algebraic variety over $\mathbb{C}$  with coordinate $(x_{1},\dots,x_{n},y_{1},\dots,y_{\ell})$, 
-and $X$ a subvariety defined by $(y_{1}=y_{2}=\cdots=y_{\ell}=0)$, 
-so $X$ is smooth with coordinate $(x_{1},\dots,x_{n})$. 
-Let $i: X \hookrightarrow Y$ be the closed embedding, $\mathrm{Mod}(\mathcal{D}_{X})$ 
-the category of $\mathcal{D}_X$-mod and $\mathrm{Mod}^{X}(\mathcal{D}_{Y})$ 
-the category of $\mathcal{D}_Y$-mod supported on $X$, then we have categorical equivalence:
-\begin{align*}
-\mathrm{Mod}(\mathcal{D}_{X}) &\xrightarrow{\sim} \mathrm{Mod}^{X}(\mathcal{D}_{Y}) \\
-M &\longmapsto i_{+}M = M[\partial_{y_{1}},\dots,\partial_{y_{\ell}}] \\
-H^0(i^\dagger N) = H^{0}(K(N; y_{1}, \ldots, y_{l})) &\longmapsfrom N
-\end{align*}
+\begin{theorem}[Kashiwara's equivalence]\label{thm:kashiwara_equiv}
+    Let $Y$ be a smooth affine algebraic variety over $\mathbb{C}$  with coordinate $(x_{1},\dots,x_{n},y_{1},\dots,y_{\ell})$,
+    and $X$ a subvariety defined by $(y_{1}=y_{2}=\cdots=y_{\ell}=0)$,
+    so $X$ is smooth with coordinate $(x_{1},\dots,x_{n})$.
+    Let $i: X \hookrightarrow Y$ be the closed embedding, $\mathrm{Mod}(\mathcal{D}_{X})$
+    the category of $\mathcal{D}_X$-mod and $\mathrm{Mod}^{X}(\mathcal{D}_{Y})$
+    the category of $\mathcal{D}_Y$-mod supported on $X$, then we have categorical equivalence:
+    \begin{align*}
+        \mathrm{Mod}(\mathcal{D}_{X})                        & \xrightarrow{\sim} \mathrm{Mod}^{X}(\mathcal{D}_{Y})               \\
+        M                                                    & \longmapsto i_{+}M = M[\partial_{y_{1}},\dots,\partial_{y_{\ell}}] \\
+        H^0(i^\dagger N) = H^{0}(K(N; y_{1}, \ldots, y_{l})) & \longmapsfrom N
+    \end{align*}
 \end{theorem}
 
 \begin{remark}[Kashivara's equivalence of affine closed embeddings]\label{rem:kashiwara_explicit}
-\mbox{}
+    \mbox{}
 
     Assume we have following two cases:
 
@@ -470,109 +470,252 @@ H^0(i^\dagger N) = H^{0}(K(N; y_{1}, \ldots, y_{l})) &\longmapsfrom N
         \item The $(\D_X, f^{-1}\D_Y)$-bimodule $\mathcal{O}_X \otimes_{f^{-1}\mathcal{O}_Y} f^{-1}\D_Y$ is denoted by $\D_{X \to Y}$. And the $(f^{-1}\D_Y, \D_X)$-bimodule $\D_{Y \leftarrow X}$ by $\D_{Y \leftarrow X} := \Omega_X \otimes_{\mathcal{O}_X} D_{X \rightarrow Y} \otimes_{f^{-1}\mathcal{O}_Y} f^{-1}\Omega_Y^{\otimes -1}$. These two are \textbf{The Transfer Bimodules} \cite[Def~1.3.1., Def~1.3.3.]{hotta2008d}.
         \item For the special case, $\D_{X \to Y} \simeq \D_X \otimes_{\mathbb{C}} \mathbb{C}[\partial_{y_{r+1}}, \dots, \partial_{y_n}]$ as a left $\D_X$-module. In particular, $\D_{X \to Y}$ is a locally free $\D_X$-module of infinite rank (unless $r = n$) \cite[Ex.~1.3.2.]{hotta2008d}.
         \item \cite[Ex.~1.3.5.]{hotta2008d} For the special case, Set $\D' = \bigoplus_{m_1,\dots,m_r} \partial_{y_1}^{m_1} \dots \partial_{y_r}^{m_r} \mathcal{O}_Y \subset \D_Y$. It is a subring of $\D_Y$ and we have $\D_Y \simeq \mathbb{C}[\partial_{y_{r+1}}, \dots, \partial_{y_n}] \otimes_{\mathbb{C}} \D'$ as a right $\D'$-module. Hence we have
-                $$\D_{Y \leftarrow X} \simeq \mathbb{C}[\partial_{y_{r+1}}, \dots, \partial_{y_n}] \otimes_{\mathbb{C}} (i^{-1}\D' \otimes_{i^{-1}\mathcal{O}_Y} \mathcal{O}_X). $$
-            \begin{enumerate}
-                \item $i^{-1}\D' \otimes_{i^{-1}\mathcal{O}_Y} \mathcal{O}_X = \D_X$ by identifying $f = f(x,y) \in \mathcal{O}_Y$ with $f|_X := f(x,0) \in \mathcal{O}_X$ (i.e. $f^{-1}\mathcal{O}_Y\to \mathcal{O}_X$ mentioned above), so 
-                $$\D_{Y \leftarrow X} \simeq \mathbb{C}[\partial_{y_{r+1}}, \dots, \partial_{y_n}] \otimes_{\mathbb{C}} \D_X.$$
-                \item So the left $i^{-1}\D_Y$-module structure can be described by the decomposition $\D_Y \simeq \mathbb{C}[\partial_{y_{r+1}}, \dots, \partial_{y_n}] \otimes_{\mathbb{C}} \D'$.
-            \end{enumerate}
+              $$\D_{Y \leftarrow X} \simeq \mathbb{C}[\partial_{y_{r+1}}, \dots, \partial_{y_n}] \otimes_{\mathbb{C}} (i^{-1}\D' \otimes_{i^{-1}\mathcal{O}_Y} \mathcal{O}_X). $$
+              \begin{enumerate}
+                  \item $i^{-1}\D' \otimes_{i^{-1}\mathcal{O}_Y} \mathcal{O}_X = \D_X$ by identifying $f = f(x,y) \in \mathcal{O}_Y$ with $f|_X := f(x,0) \in \mathcal{O}_X$ (i.e. $f^{-1}\mathcal{O}_Y\to \mathcal{O}_X$ mentioned above), so
+                        $$\D_{Y \leftarrow X} \simeq \mathbb{C}[\partial_{y_{r+1}}, \dots, \partial_{y_n}] \otimes_{\mathbb{C}} \D_X.$$
+                  \item So the left $i^{-1}\D_Y$-module structure can be described by the decomposition $\D_Y \simeq \mathbb{C}[\partial_{y_{r+1}}, \dots, \partial_{y_n}] \otimes_{\mathbb{C}} \D'$.
+              \end{enumerate}
 
         \item We can define a \textbf{inverse image} functor
-        $$
-        Lf^* : D^b(\D_Y) \to D^b(\D_X) \quad (M^* \longmapsto \D_{X \to Y} \otimes_{f^{-1}\D_Y}^L f^{-1}M^*)
-        $$
-        by using a flat resolution of $M^*$.
+              $$
+                  Lf^* : D^b(\D_Y) \to D^b(\D_X) \quad (M^* \longmapsto \D_{X \to Y} \otimes_{f^{-1}\D_Y}^L f^{-1}M^*)
+              $$
+              by using a flat resolution of $M^*$.
         \item We will also use the \textbf{shifted inverse image} functor
-            $$
-            f^\dagger := Lf^*[\dim X - \dim Y] : D^b(\D_Y) \to D^b(\D_X).
-            $$
+              $$
+                  f^\dagger := Lf^*[\dim X - \dim Y] : D^b(\D_Y) \to D^b(\D_X).
+              $$
         \item We can define a \textbf{direct image} ($f_+$ or $\int_f$) functor
-        $$
-        \int_f M^* := Rf_*(\D_{Y \leftarrow X} \otimes_{\D_X}^L M^*) \quad (M^* \in D^b(\D_X)),\quad \int_f^k M^* := H^k \left( \int_f M^* \right).
-        $$
+              $$
+                  \int_f M^* := Rf_*(\D_{Y \leftarrow X} \otimes_{\D_X}^L M^*) \quad (M^* \in D^b(\D_X)),\quad \int_f^k M^* := H^k \left( \int_f M^* \right).
+              $$
         \item \cite[Ex.~1.5.23.]{hotta2008d} For the special case, we have:
-        $$
-        \int_i^k M = 0 \; (k \ne 0), \qquad \int_i^0 M \simeq \mathbb{C}[\partial_{y_{r+1}}, \dots, \partial_{y_n}] \otimes_{\mathbb{C}} i_* M.
-        $$
-        The action of $\partial_{y_k}$ for $k > r$ is given by the multiplication on the first factor $\mathbb{C}[\partial_{y_{r+1}}, \dots, \partial_{y_n}]$.
-        The action of $\varphi \in \mathcal{O}_Y$ and $\partial_{y_k}$ for $k \le r$ is given by:
-            \begin{align*}
-            \varphi(1 \otimes m) &= 1 \otimes (\varphi|_X)m \qquad (\varphi \in \mathcal{O}_Y), \\
-            \partial_{y_k}(1 \otimes m) &= 1 \otimes \partial_{x_k}m \qquad (1 \le k \le r).
-            \end{align*}
+              $$
+                  \int_i^k M = 0 \; (k \ne 0), \qquad \int_i^0 M \simeq \mathbb{C}[\partial_{y_{r+1}}, \dots, \partial_{y_n}] \otimes_{\mathbb{C}} i_* M.
+              $$
+              The action of $\partial_{y_k}$ for $k > r$ is given by the multiplication on the first factor $\mathbb{C}[\partial_{y_{r+1}}, \dots, \partial_{y_n}]$.
+              The action of $\varphi \in \mathcal{O}_Y$ and $\partial_{y_k}$ for $k \le r$ is given by:
+              \begin{align*}
+                  \varphi(1 \otimes m)        & = 1 \otimes (\varphi|_X)m \qquad (\varphi \in \mathcal{O}_Y), \\
+                  \partial_{y_k}(1 \otimes m) & = 1 \otimes \partial_{x_k}m \qquad (1 \le k \le r).
+              \end{align*}
 
         \item For the spectcial case, in order to calculate $i^\dagger N$:
-\begin{enumerate}
-    \item \cite[Equation~1.5.1.]{hotta2008d} The Koszul complex is a free (hence flat) $i^{-1}\mathcal{O}_Y$-module resolution of $\mathcal{O}_X$.
-        But the Koszul complex is a different definition \cite[\href{https://stacks.math.columbia.edu/tag/0623}{Tag 0623}]{stacks-project}, which can also be constructed as mapping cone \cite[\href{https://stacks.math.columbia.edu/tag/0629}{Tag 0629}]{stacks-project}:
-        \begin{align*}
-            \left[\, 0 \to K^\bullet(i^{-1}\mathcal{O}_Y; y_{r+1}, \dots, y_{n}) \to \mathcal{O}_X \to 0\, \right] := \left[\, 0 \to K_{n-r} \to \dots \to K_1 \to K_0 \to \mathcal{O}_X \to 0\, \right]
-        \end{align*}
-        where the terms are defined as:
-        $$
-        K_j = \bigwedge^j \left( \bigoplus_{k=r+1}^n i^{-1}\mathcal{O}_Y\, \mathrm{d}y_k \right).
-        $$
-        The differential $K_j \to K_{j-1}$ is given by:
-        $$
-        f dy_{k_1} \wedge \dots \wedge dy_{k_j} \longmapsto \sum_{p=1}^j (-1)^{p+1} y_{k_p} f dy_{k_1} \wedge \dots \wedge \widehat{dy_{k_p}} \wedge \dots \wedge dy_{k_j}.
-        $$
-    \item \cite[Prop.~1.5.8.]{hotta2008d} We have isomorphic complexes $\D_{X \to Y} \otimes_{f^{-1}\D_Y}^L f^{-1}M^* \cong \mathcal{O}_X \otimes_{f^{-1}\mathcal{O}_Y}^L f^{-1}M^*$, so we use resolution of $\mathcal{O}_X$ to calculate $i^\dagger N$. Which is just: 
-    $$i^\dagger N = K^\bullet(i^{-1}\mathcal{O}_Y; y_{r+1}, \dots, y_{n}) \otimes_{i^{-1}\mathcal{O}_Y} i^{-1}N [r-n].$$
-\end{enumerate}
-\end{enumerate}
+              \begin{enumerate}
+                  \item \cite[Equation~1.5.1.]{hotta2008d} The Koszul complex is a free (hence flat) $i^{-1}\mathcal{O}_Y$-module resolution of $\mathcal{O}_X$.
+                        But the Koszul complex is a different definition \cite[\href{https://stacks.math.columbia.edu/tag/0623}{Tag 0623}]{stacks-project}, which can also be constructed as mapping cone \cite[\href{https://stacks.math.columbia.edu/tag/0629}{Tag 0629}]{stacks-project}:
+                        \begin{align*}
+                            \left[\, 0 \to K^\bullet(i^{-1}\mathcal{O}_Y; y_{r+1}, \dots, y_{n}) \to \mathcal{O}_X \to 0\, \right] := \left[\, 0 \to K_{n-r} \to \dots \to K_1 \to K_0 \to \mathcal{O}_X \to 0\, \right]
+                        \end{align*}
+                        where the terms are defined as:
+                        $$
+                            K_j = \bigwedge^j \left( \bigoplus_{k=r+1}^n i^{-1}\mathcal{O}_Y\, \mathrm{d}y_k \right).
+                        $$
+                        The differential $K_j \to K_{j-1}$ is given by:
+                        $$
+                            f dy_{k_1} \wedge \dots \wedge dy_{k_j} \longmapsto \sum_{p=1}^j (-1)^{p+1} y_{k_p} f dy_{k_1} \wedge \dots \wedge \widehat{dy_{k_p}} \wedge \dots \wedge dy_{k_j}.
+                        $$
+                  \item \cite[Prop.~1.5.8.]{hotta2008d} We have isomorphic complexes $\D_{X \to Y} \otimes_{f^{-1}\D_Y}^L f^{-1}M^* \cong \mathcal{O}_X \otimes_{f^{-1}\mathcal{O}_Y}^L f^{-1}M^*$, so we use resolution of $\mathcal{O}_X$ to calculate $i^\dagger N$. Which is just:
+                        $$i^\dagger N = K^\bullet(i^{-1}\mathcal{O}_Y; y_{r+1}, \dots, y_{n}) \otimes_{i^{-1}\mathcal{O}_Y} i^{-1}N [r-n].$$
+              \end{enumerate}
+    \end{enumerate}
 
 \end{remark}
 
 \begin{proof}
-    By induction on co-dimension, it is enough to assume 
+    By induction on co-dimension, it is enough to assume
     \[
-    \begin{aligned}
-        i: X &\longrightarrow Y \\
-        (x_{1},\dots,x_{n}) &\longmapsto (x_{1},\cdots,x_{n},0)
-    \end{aligned}
+        \begin{aligned}
+            i: X                & \longrightarrow Y                  \\
+            (x_{1},\dots,x_{n}) & \longmapsto (x_{1},\cdots,x_{n},0)
+        \end{aligned}
     \]
     i.e. $X$ is defined by $\langle y = 0 \rangle$ in $Y$.
 
-	Here we have $i_{+}: M\mapsto M[\partial_{y}]$, and we want to define a quasi-inverse of $i_{+}$. To define $i_{+}^{\#}$, we shall study how $\partial_{y}$ acts on $N$. 
+    Here we have $i_{+}: M\mapsto M[\partial_{y}]$, and we want to define a quasi-inverse of $i_{+}$. To define $i_{+}^{\#}$, we shall study how $\partial_{y}$ acts on $N$.
 
-	For $N \in \mathrm{Mod}^{X}(\mathcal{D}_{Y})$, consider the eigenvectors $N^{j} = \{ s \in N \mid y\partial_{y} \cdot s = j s \}$. We want to show that $N=\bigoplus\limits_{i=1}^{\infty}N^{-i}$. 
+    For $N \in \mathrm{Mod}^{X}(\mathcal{D}_{Y})$, consider the eigenvectors $N^{j} = \{ s \in N \mid y\partial_{y} \cdot s = j s \}$. We want to show that $N=\bigoplus\limits_{i=1}^{\infty}N^{-i}$.
 
-	Since we have the relation $[\partial_{y}, y] = \partial_{y}y -  y\partial_{y} = 1$:
+    Since we have the relation $[\partial_{y}, y] = \partial_{y}y -  y\partial_{y} = 1$:
     \begin{itemize}
-        \item We can check that $y N^{j} \subseteq N^{j+1}$ and $\partial_{y} N^{j} \subseteq N^{j-1}$. 
+        \item We can check that $y N^{j} \subseteq N^{j+1}$ and $\partial_{y} N^{j} \subseteq N^{j-1}$.
         \item We have $y\partial_{y}: N^{j}\rightarrow N^{j}$ is an isomorphism for all $j \neq 0$.
         \item $\partial_{y}y = y\partial_{y} + 1: N^{j}\rightarrow N^{j}$, $s\mapsto (j+1)s$ is an isomorphism for all $j \neq -1$.
-        \item So for $j\neq -1$ and $0$, especially for $j<-1$, we have $\partial_{y}:N^{j+1}\rightarrow N^{j}$ and $y:N^{j}\rightarrow N^{j+1}$ are both isomorphisms. 
+        \item So for $j\neq -1$ and $0$, especially for $j<-1$, we have $\partial_{y}:N^{j+1}\rightarrow N^{j}$ and $y:N^{j}\rightarrow N^{j+1}$ are both isomorphisms.
     \end{itemize}
 
-	Now we show $N=\bigoplus\limits_{i=1}^{\infty}N^{-i}$. 
-	Since $N$ is supported on $X$, by Nullstellensatz, $\forall s\in N$, $y^{k}\cdot s = 0$ for some $k\gg0$, i.e., $N = \bigcup\limits_{k\geq1} \ker(N\xrightarrow{y^{k}} N)$. 
+    Now we show $N=\bigoplus\limits_{i=1}^{\infty}N^{-i}$.
+    Since $N$ is supported on $X$, by Nullstellensatz, $\forall s\in N$, $y^{k}\cdot s = 0$ for some $k\gg0$, i.e., $N = \bigcup\limits_{k\geq1} \ker(N\xrightarrow{y^{k}} N)$.
 
-	Since $N^{-i}$ are eigenspaces, $\bigoplus\limits_{i=1}^{\infty }N^{-i}\subseteq N$, it suffices to prove that $N\subseteq \bigoplus\limits_{i=1}^{\infty }N^{-i}$. To show this, it's enough to prove that for all $k\ge 1$, we have $\ker(N\xrightarrow{y^{k}} N)\subseteq\bigoplus\limits_{i=1}^{k}N^{-i}$, and we do induction on $k$. 
+    Since $N^{-i}$ are eigenspaces, $\bigoplus\limits_{i=1}^{\infty }N^{-i}\subseteq N$, it suffices to prove that $N\subseteq \bigoplus\limits_{i=1}^{\infty }N^{-i}$. To show this, it's enough to prove that for all $k\ge 1$, we have $\ker(N\xrightarrow{y^{k}} N)\subseteq\bigoplus\limits_{i=1}^{k}N^{-i}$, and we do induction on $k$.
 
     \begin{description}
-        \item[Base case ($k=1$):] Let $s\in \mathrm{ker}(N\xrightarrow{y}N)$, so we have $ys=0$. Then 
-        \[
-            \partial_{y}ys=(y\partial_{y}+1)s=0 \implies y\partial_{y}=-1\cdot s \implies s\in N^{-1}.
-        \]
+        \item[Base case ($k=1$):] Let $s\in \mathrm{ker}(N\xrightarrow{y}N)$, so we have $ys=0$. Then
+            \[
+                \partial_{y}ys=(y\partial_{y}+1)s=0 \implies y\partial_{y}=-1\cdot s \implies s\in N^{-1}.
+            \]
 
-        \item[Inductive step ($k>1$):] Now take $s\in \ker(N \xrightarrow{y^{k}}N)$, so we have $y^{k}s=y^{k-1} \cdot(ys)=0$. Then $ys \in \ker(N \xrightarrow{y^{k-1}}N)$, which suggests $ys \in \bigoplus\limits_{i=1}^{k-1} N^{-i}$ by inductive hypothesis. 
-    	Since we have $\partial_{y}: N^{j+1}\rightarrow N^{j}$, we obtain $\partial_{y}ys \in \bigoplus\limits_{i=2}^{k} N^{-i}$, and $\partial_{y}ys=y\partial_{y}s+s$. 
+        \item[Inductive step ($k>1$):] Now take $s\in \ker(N \xrightarrow{y^{k}}N)$, so we have $y^{k}s=y^{k-1} \cdot(ys)=0$. Then $ys \in \ker(N \xrightarrow{y^{k-1}}N)$, which suggests $ys \in \bigoplus\limits_{i=1}^{k-1} N^{-i}$ by inductive hypothesis.
+            Since we have $\partial_{y}: N^{j+1}\rightarrow N^{j}$, we obtain $\partial_{y}ys \in \bigoplus\limits_{i=2}^{k} N^{-i}$, and $\partial_{y}ys=y\partial_{y}s+s$.
 
-    	On the other hand, we obtain  
-        \[
-            \partial_{y}y^{k}s=y^{k}\partial_{y}s+ky^{k-1}s=y^{k-1}(y\partial_{y}s+ks)=0,
-        \]
-        so $y\partial_{y}s+ks\in \bigoplus\limits_{i=1}^{k-1} N^{-i}$ by inductive hypothesis. 
+            On the other hand, we obtain
+            \[
+                \partial_{y}y^{k}s=y^{k}\partial_{y}s+ky^{k-1}s=y^{k-1}(y\partial_{y}s+ks)=0,
+            \]
+            so $y\partial_{y}s+ks\in \bigoplus\limits_{i=1}^{k-1} N^{-i}$ by inductive hypothesis.
 
-    	Thus, $(k-1)s=(y\partial_{y}s+ks)-(y\partial_{y}s+s)\in \bigoplus_{j=1}^{k} N^{-i}$ implies that $s\in \bigoplus_{j=1}^{k} N^{-j}$. 
+            Thus, $(k-1)s=(y\partial_{y}s+ks)-(y\partial_{y}s+s)\in \bigoplus_{j=1}^{k} N^{-i}$ implies that $s\in \bigoplus_{j=1}^{k} N^{-j}$.
     \end{description}
 
-	With above, we now obtain $N=\bigoplus\limits_{i=1}^{\infty}N^{-i}$ with $N^{-1}=\mathrm{ker}(N\xrightarrow{y}N)$, so we have $N\simeq N^{-1}[\partial_{y}]$. Then we define $i^{\#}N = \ker(N \xrightarrow{y} N)$ (the standard notation is $i^{\natural}$ \cite[Thm.~1.6.1.]{hotta2008d}), $i^{\#}$ is the quasi-inverse of $i_{+}$. 
+    With above, we now obtain $N=\bigoplus\limits_{i=1}^{\infty}N^{-i}$ with $N^{-1}=\mathrm{ker}(N\xrightarrow{y}N)$, so we have $N\simeq N^{-1}[\partial_{y}]$. Then we define $i^{\#}N = \ker(N \xrightarrow{y} N)$ (the standard notation is $i^{\natural}$ \cite[Thm.~1.6.1.]{hotta2008d}), $i^{\#}$ is the quasi-inverse of $i_{+}$.
 
-	In general, $i^{\#}N = H^{0}(K(N; y_{1}, \ldots, y_{k}))$.
+    In general, $i^{\#}N = H^{0}(K(N; y_{1}, \ldots, y_{k}))$.
 \end{proof}
 
-\begin{corollary}
+\begin{corollary}\label{cor:kashiwara_equiv_conormal}
     For $N \in \text{Mod}^{X}(\mathcal{D}_{Y})$ finitely-generated, we have $\text{Ch}(N) = T_{X}^{*}Y$ if and only if $i^{\#}N \in \text{Mod}(\D_X)$ is an integrable connection.
 \end{corollary}
+\begin{proof}
+    We prove a lemma first.
+
+    \begin{lemma}[Characteristic variety of a closed embedding pushforward]\label{prop:charvar-closed-emb}
+        Let $i:X\hookrightarrow Y$ be a closed embedding of smooth $k$-varieties (char$(k)=0$).
+        Write
+        \[
+            T^*Y|_X:=X\times_Y T^*Y,
+        \]
+        and denote by $\tilde i:T^*Y|_X\to T^*Y$ the second projection (the natural inclusion of the
+        restriction, or scheme-theoretic inverse image
+        \cite[\href{https://stacks.math.columbia.edu/tag/01JV}{Tag 01JV}, \href{https://stacks.math.columbia.edu/tag/01HO}{Tag 01HO}]{stacks-project}),
+        and by $\rho_i:T^*Y|_X\to T^*X$ the map induced by $(\mathrm{d}i)^*:i^*\Omega_Y^1\to \Omega_X^1$
+        \cite[\href{https://stacks.math.columbia.edu/tag/01LQ}{Tag 01LQ}, \href{https://stacks.math.columbia.edu/tag/01M1}{Tag 01M1}]{stacks-project}.
+        Let $M$ be a coherent left $\mathcal{D_X}$-module, and set $N:=i_+M$ (the direct image for a closed embedding).
+        Then
+        \[
+            \mathrm{Ch}(N)=\tilde i\bigl(\rho_i^{-1}(\mathrm{Ch}(M))\bigr)\subset T^*Y.
+        \]
+    \end{lemma}
+
+    \begin{proof}
+        The statement is local on $Y$, so we work on an affine open subset with adapted coordinates.
+        Assume $Y=\mathrm{Spec}(A)$ with \textbf{étale coordinates} (that is what exactly algebraic coordinate meaning)
+        \[
+            (x_1,\dots,x_m,y_1,\dots,y_n),\qquad X=\{y_1=\cdots=y_n=0\},
+        \]
+        and let $I=(y_1,\dots,y_n)\subset A$, so $X=\mathrm{Spec}(B)$ with $B=A/I$.
+        Equip $\mathcal{D}_Y$ and $\mathcal{D}_X$ with the order filtration $F_\bullet$. Then
+        \[
+            \mathrm{gr}\,\mathcal{D}_Y \simeq A[\xi_{x_1},\dots,\xi_{x_m},\xi_{y_1},\dots,\xi_{y_n}],
+            \qquad
+            \mathrm{gr}\,\mathcal{D}_X \simeq B[\xi_{x_1},\dots,\xi_{x_m}].
+        \]
+        Choose a good filtration $F_\bullet M$; then $\mathrm{gr}\,M$ is a finitely generated graded module over
+        \[
+            R:=B[\xi_{x_1},\dots,\xi_{x_m}].
+        \]
+        Set
+        \[
+            S:=B[\xi_{x_1},\dots,\xi_{x_m},\xi_{y_1},\dots,\xi_{y_n}]=R[\xi_y].
+        \]
+
+        For a closed embedding, one constructs an induced filtration on $N=i_+M$ such that the associated graded
+        module satisfies the explicit formula
+        \[
+            \mathrm{gr}\,N \;\cong\; \mathrm{gr}\,M \otimes_R S,
+            \qquad\text{and } I \text{ acts trivially on }\mathrm{gr}\,N.
+        \]
+
+        To see this, We define a filtration on $N \cong M [\partial_{y_1}, \dots, \partial_{y_\ell}]$ by:
+        \[
+            F_k N = \sum_{p + |q| \le k} F_p M \otimes \partial_y^q,
+        \]
+        where $q = (q_1, \dots, q_\ell)$ is a multi-index and $\partial_y^q = \partial_{y_1}^{q_1} \dots \partial_{y_\ell}^{q_\ell}$.
+        This is a good filtration because if $u_1, \dots, u_m$ generate $\mathcal{R}^{F}_{\bullet}(M)$ over $\mathcal{R}^{\Gamma}_{\bullet}(\mathcal{D}_X)$, they also generate $\mathcal{R}^{F}_{\bullet}(N)$ over $\mathcal{R}^{\Gamma}_{\bullet}(\mathcal{D}_Y)$.
+        Then the associated graded module is:
+        \begin{align*}
+            \mathrm{gr}(N) & \cong \mathrm{gr}(M) \otimes_{\mathbb{C}} \mathbb{C}[\xi_{y_1}, \dots, \xi_{y_n}]                                                                                                                                      \\
+                           & \cong \mathrm{gr}(M) \otimes_{B[\xi_{x_1}, \dots, \xi_{x_m}]} B[\xi_{x_1}, \dots, \xi_{x_m}, \xi_{y_1}, \dots, \xi_{y_n}] &  & \text{($\gr M$ is also a $\gr \mathcal{D}_X = B[\xi_{x_1}, \dots, \xi_{x_m}]$-module)},
+        \end{align*}
+        where $\xi_{y_j} := \sigma(\partial_{y_j})$ for the principal symbol map $\sigma$.
+        To see this, we look at the degree $k$ part:
+        \[
+            \mathrm{gr}_k(N) = F_k N / F_{k-1} N \cong \bigoplus_{j=0}^k \left( F_{k-j} M / F_{k-j-1} M \right) \otimes \left( \text{Span}\{\partial_y^q : |q| = j\} \right).
+        \]
+        The first factor is $\mathrm{gr}_{k-j}(M)$, and the second factor corresponds to homogeneous polynomials in $\xi_y$ of degree $j$.
+        Summing over all $k$, we get the tensor product decomposition of $\mathrm{gr}(N)$.
+
+        The action of $\mathcal{O}_Y$ on $N$ is determined by the module structure of $i_+M$:
+        \begin{align*}
+            y_j \cdot (m \otimes \partial_y^q)
+             & = m \otimes (y_j \partial_y^q)                                       &  & \text{(Definition of $\mathcal{D}_Y$-action \ref{rem:kashiwara_explicit})} \\
+             & = m \otimes \left( \partial_y^q y_j + [y_j, \partial_y^q] \right)                                                                                    \\
+             & = m \otimes (\partial_y^q y_j) + m \otimes [y_j, \partial_y^q]                                                                                       \\
+             & = (y_j \cdot m) \otimes \partial_y^q + m \otimes [y_j, \partial_y^q]                                                                                 \\
+             & = 0 \otimes \partial_y^q + m \otimes [y_j, \partial_y^q]             &  & \text{(Since $y_j = 0$ in $\mathcal{O}_X$)}                                \\
+             & = m \otimes \left( -q_j \partial_y^{q-e_j} \right)                                                                                                   \\
+             & = -q_j (m \otimes \partial_y^{q-e_j})                                &  & \text{(Extracting scalar coefficient)}
+        \end{align*}
+        Notice that the commutator of $y_j$ lowers the order of differential operators, so in $\mathrm{gr}(N)$, the symbol $y_j$ acts as $0$. Thus the support $\mathrm{Supp}(\mathrm{gr}(N))$ is contained in the locus $y_1 = \dots = y_n = 0$.
+
+        Let
+        \[
+            J:=\mathrm{Ann}_R(\mathrm{gr}\,M)\subset R.
+        \]
+        Since $S=R[\xi_t]$ is a free (hence flat) $R$-algebra,
+        \cite[\href{https://stacks.math.columbia.edu/tag/0250}{Tag 0250}]{stacks-project},
+        and \cite[\href{https://stacks.math.columbia.edu/tag/07T8}{Tag 07T8}]{stacks-project} gives
+        \[
+            \mathrm{Ann}_S(\mathrm{gr}\,N)
+            =\mathrm{Ann}_S(\mathrm{gr}\,M\otimes_RS)
+            =\mathrm{Ann}_R(\mathrm{gr}\,M)\cdot S
+            =JS.
+        \]
+        Because $\mathrm{gr}\,N$ is a finite $S$-module, its support is the closed subset cut out by its annihilator:
+        \[
+            \mathrm{Supp}(\mathrm{gr}\,N)=V(\mathrm{Ann}_S(\mathrm{gr}\,N))=V(JS)\subset \mathrm{Spec}(S),
+        \]
+        by
+        \cite[\href{https://stacks.math.columbia.edu/tag/00L2}{Tag 00L2}]{stacks-project}.
+
+        Now note that
+        \[
+            T^*X=\mathrm{Spec}(R),\qquad T^*Y|_X=\mathrm{Spec}(S),
+        \]
+        and that the morphism $\rho_i:T^*Y|_X\to T^*X$ corresponds to the inclusion $R\hookrightarrow S$
+        (adjoining the $\xi_t$ variables), while $\tilde i:T^*Y|_X\hookrightarrow T^*Y$ corresponds to the quotient map
+        $A[\xi_x,\xi_y]\twoheadrightarrow (A/I)[\xi_x,\xi_y]=S$.
+
+        Since $I$ acts trivially on $\gr N$, $\Supp(\gr N)\subset T^*Y$ is contained in $T^*Y|_X$ (viewed as a closed subscheme of $T^*Y$ \cite[\href{https://stacks.math.columbia.edu/tag/02RA}{Tag 02RA}]{stacks-project}), so
+        \[
+            \mathrm{Ch}(N)
+            =\tilde i\bigl(\mathrm{Supp}(\mathrm{gr}\,N)\bigr)
+            \subset \tilde i(T^*Y|_X).
+        \]
+
+        For summary,
+        \[
+            \mathrm{Ch}(N)
+            =\tilde i\bigl(\mathrm{Supp}(\mathrm{gr}\,N)\bigr)
+            =\tilde i\bigl(V(JS)\bigr)
+            =\tilde i\bigl(\rho_i^{-1}(V(J))\bigr)
+            =\tilde i\bigl(\rho_i^{-1}(\mathrm{Ch}(M))\bigr).
+        \]
+
+        For one wondering why $V(JS) = \rho_i^{-1}(V(J))$, see \cite[\href{https://stacks.math.columbia.edu/tag/05CK}{Tag 05CK}]{stacks-project} and \cite[Example~1.13]{cring-ch15-flatness}.
+
+    \end{proof}
+
+    It suffices to show $\mathrm{Ch}(M)=T_X^*X$ if and only if $\mathrm{Ch}(N)=T_X^*Y$.
+
+    If $\mathrm{Ch}(N)=T_X^*Y$, the closed subset determined by $(y_1=\dots=y_n=\xi_{x_1}=\dots=\xi_{x_m}=0)$.
+
+    Then we apply Proposition~\ref{prop:charvar-closed-emb} and keep notation in it. First we calculate $\tilde i^{-1}(\mathrm{Ch}(N))$,
+    which is in $T^*_X Y = (y_1=\dots=y_n=0)$,
+    and $\Supp \gr N = (\xi_{x_1}=\dots=\xi_{x_d}=0)$.
+
+    To calculate $\rho_i(\Supp \gr N)$, we need to pull the ideal $\langle \xi_{x_1},...,\xi_{x_m} \rangle \subseteq (A/I)[\xi_x,\xi_y]$ back to $(A/I)[\xi_x]$,
+    by  \cite[\href{https://stacks.math.columbia.edu/tag/05CK}{Tag 05CK}]{stacks-project} and \cite[Example~1.13]{cring-ch15-flatness},
+    it is also $\langle \xi_{x_1},...,\xi_{x_m} \rangle \subseteq (A/I)[\xi_x]$ which is just $T^*_X X$.
+
+\end{proof}

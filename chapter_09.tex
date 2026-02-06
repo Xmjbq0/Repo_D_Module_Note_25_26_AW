@@ -1,30 +1,153 @@
 \section{Bj\"ork's approach to existence of b-functions}
 
 \begin{theorem}[Bj\"ork]\label{Theorem 8.4}
-    Let $M$ be a holonomic $\mathcal{D}_X$-module with a good filtration $\Omega_{\bullet} M$ over $V_{\bullet} \mathcal{D}_X$. There exists $b(s) \in \mathbb{C}[s]$ s.t. $$b(t\partial_t - k) \text{ kills } \frac{\Omega_k M}{\Omega_{k-1} M}, \quad \forall k \in \mathbb{Z}$$The monic minimal degree $b(s)$ is called the $\textbf{b-function}$ of $M$ along $Y$.
+    Let $M$ be a holonomic $\mathcal{D}_X$-module with a good filtration $\Omega_{\bullet} M$ over $V_{\bullet} \mathcal{D}_X$. There exists $b(s) \in \mathbb{C}[s]$ such that
+    \[
+        b(t\partial_t - k) \text{ kills } \frac{\Omega_k M}{\Omega_{k-1} M}, \quad \forall k \in \mathbb{Z}.
+    \]
+    The monic minimal degree $b(s)$ is called the $\textbf{$b$-function}$ of $M$ along $Y$.
 \end{theorem}
 \begin{lemma}\label{lemma 8.5}
-    Let $Y$ be a smooth variety over $\mathbb{C}$, $N$ a holonomic $\mathcal{D}_Y$-module, and $\theta\in End_{\mathcal{D}_Y}(N)$; then there exists $b(s)\in\mathbb{C}[s]$ s.t. $b(\theta)=0$.
+    Let $Y$ be a smooth variety over $\mathbb{C}$, $N$ a holonomic $\mathcal{D}_Y$-module, and $\theta\in \mathrm{End}_{\mathcal{D}_Y}(N)$. Then there exists $b(s)\in\mathbb{C}[s]$ such that $b(\theta)=0$.
 \end{lemma}
 \begin{proof}
+    Since $N$ is holonomic, we obtain that
+    \[
+        \mathrm{Ch}(N) = \bigcup_{i} T^*_{Y_i} Y,
+    \]
+    with $Y_{i}$ locally closed.
 
-    Since $N$ is holomonic, we obtain that$\mathrm{ch}(N) = \bigcup\limits_{i} T^*_{Y_i} Y$, with $Y_{i}$ locally closed. Take a $Y_i$ of maximal dimension and take open subset $U \subset Y$ s.t. $Y_{i}^{\circ} \hookrightarrow U$ a closed embedding s.t. $\overline{Y_i^{\circ}} = Y_{i}$ and $U \cap \{\bigcup\limits_{j\neq i}Y_j\} = \varnothing$, then $\mathrm{ch}(N|_U) = T^*_{Y_i^\circ} Y\Rightarrow N|_U = \mathcal{O}_{Y_i^\circ} \otimes L[\partial_1, \ldots, \partial_k]$ with $L$ a local system on $Y_i^\circ$. We have $\mathrm{End}(N|_U) = \mathrm{End}_{\mathbb{C}}(L)$, therefore, $\exists b_i(s) \in \mathbb{C}[s]  \text{ s.t. } b_i(\theta|_{U}) = 0.$
+    Take a $Y_i$ of maximal dimension and take an open subset $U \subset Y$ such that $Y_{i}^{\circ} \hookrightarrow U$ is a closed embedding with $\overline{Y_i^{\circ}} = Y_{i}$ and $U \cap (\bigcup_{j\neq i}Y_j) = \varnothing$. Then
+    \[
+        \mathrm{Ch}(N|_U) = T^*_{Y_i^\circ} U,
+    \]
+    which implies by Kashiwara's equivalence (Theorem \ref{thm:kashiwara_equiv} and Corollary \ref{cor:kashiwara_equiv_conormal}) that
+    \[
+        N|_U = \mathcal{O}_{Y_i^\circ} \otimes L[\partial_1, \ldots, \partial_k]
+    \]
+    with $L$ a local system on $Y_i^\circ$ (which corresponds to an integrable connection).
 
-    Now, take $N_1 = b_1(\theta)N$, then $\mathrm{ch}(N_1) = \bigcup\limits_{j \neq i} T^*_{Y_j} X$, We are done by induction.
+    We have $\mathrm{End}(N|_U) = \mathrm{End}_{\mathbb{C}}(L)$. Therefore, there exists $b_i(s) \in \mathbb{C}[s]$ such that $b_i(\theta|_{U}) = 0$.
+
+    Now, take $N_1 = b_1(\theta)N$. Then
+    \[
+        \mathrm{Ch}(N_1) = \bigcup_{j \neq i} T^*_{Y_j} X.
+    \]
+    We are done by induction.
 \end{proof}
+
+\begin{lemma}[Lemma 20.2]
+    Let $Y$ be a smooth variety over $\C$, $N$ a holonomic $D_Y$-module, and
+    $\theta \in \End_{D_Y}(N)$. Then there exists a nonzero polynomial
+    $b(s)\in \C[s]$ such that $b(\theta)=0$ in $\End_{D_Y}(N)$.
+\end{lemma}
+
+\begin{proof}
+    We argue by induction on the length $\ell(N)$ in the abelian category of holonomic
+    $D_Y$-modules. Such a length is finite by \cite[Prop.\ 6.37]{mustata2023dmodules}.
+    If $N=0$ there is nothing to prove.
+
+    \medskip
+    \noindent\textbf{Step 1: Reduction to finding a non-injectivity point.}
+    Let $u:=\theta$. If we can find $\lambda\in \C$ and a point $y\in Y$ such that the
+    stalk map $(u-\lambda\Id)_{y}:N_y\to N_y$ is not injective, then
+    $N_1:=\ker(u-\lambda\Id)\subset N$ is a nonzero holonomic submodule, stable under $u$.
+    By induction we can find nonzero $p_1,p_2\in \C[s]$ with $p_1(u|_{N_1})=0$ and
+    $p_2(u|_{N/N_1})=0$, hence $p(u)=0$ on $N$ for $p=p_1p_2$.
+
+    Thus it suffices to produce such a $\lambda$ and $y$.
+
+    \medskip
+    \noindent\textbf{Step 2: Replace $Y$ by the support and shrink to the locus where $N$ is a bundle.}
+    After replacing $Y$ by a nonempty open subset (which does not affect the existence of
+    a point where $u-\lambda\Id$ fails to be injective), we may assume $\Supp(N)$ is a
+    smooth irreducible subvariety of $Y$. By Kashiwara's equivalence, if
+    $i:\Supp(N)\hookrightarrow Y$ is the inclusion, then $i_+$ induces an equivalence between
+    $D_{\Supp(N)}$-modules and $D_Y$-modules supported on $\Supp(N)$, so we may replace
+    $Y$ by $\Supp(N)$ and assume $\Supp(N)=Y$ \cite[Thm.\ 6.20]{mustata2023dmodules}.
+
+    Since $N$ is holonomic, after shrinking $Y$ further we may assume that $N$ is
+    $\cO_Y$-coherent (hence locally free) on this open set \cite[Rem.\ 6.30]{mustata2023dmodules};
+    moreover $\cO_Y$-coherent left $D_Y$-modules are locally free \cite[Prop.\ 3.18]{mustata2023dmodules}.
+    Therefore on this open set, $N$ is a vector bundle with an integrable connection
+    (the $D_Y$-action is equivalent to a flat connection) \cite[Prop.\ 3.10]{mustata2023dmodules}.
+
+    \medskip
+    \noindent\textbf{Step 3: Finite-dimensionality of $\End_{D_Y}(N)$ via analytification and a local system.}
+    Let $E:=\End_{\cO_Y}(N)$.
+    The $D_Y$-module structure on $N$ induces an integrable connection on $E$, and
+    \[
+        \End_{D_Y}(N)\;=\;\Gamma(Y,E^\nabla),
+    \]
+    where $E^\nabla\subset E$ is the subsheaf of horizontal sections.
+    After analytification, the horizontal sections $(E^{an})^\nabla$ form a local system
+    on $Y^{an}$, by the classical Riemann--Hilbert correspondence
+    (local systems $\leftrightarrow$ flat bundles) \cite[Thm.\ 7.5]{mustata2023dmodules}.
+    Since $Y^{an}$ is connected, the natural evaluation map
+    $\Gamma(Y^{an},(E^{an})^\nabla)\to (E^{an})^\nabla_y$ is injective for every $y$,
+    hence $\Gamma(Y^{an},(E^{an})^\nabla)$ is finite-dimensional.
+    This implies $\dim_\C \End_{D_Y}(N)<\infty$ on our chosen open set.
+
+    Consequently $u$ satisfies a nonzero polynomial relation on that open set: take the
+    minimal polynomial $p(s)$ of $u$ as an element of the finite-dimensional $\C$-algebra
+    $\End_{D_Y}(N)$ on the open set, so $p(u)=0$ there.
+
+    Write $p(s)=\prod_{i=1}^r (s-\lambda_i)$ over $\C$.
+    If all $(u-\lambda_i\Id)$ were injective on every stalk, then their product $p(u)$
+    would be injective on every stalk, contradicting $p(u)=0$ and $N\neq 0$.
+    Hence there exist $i$ and a point $y$ such that $(u-\lambda_i\Id)_y$ is not injective.
+
+    By Step~1, this yields a nonzero polynomial $b(s)$ with $b(u)=0$ on $N$, i.e. $b(\theta)=0$.
+\end{proof}
+
+\begin{remark}[{How to read $\cO\otimes L[\partial]$}]
+    In purely algebraic terms, Kashiwara's equivalence gives $N|_U \simeq i_+(M)$ for a
+    $D_{Y_i^\circ}$-module $M$ on the smooth closed subvariety $i:Y_i^\circ\hookrightarrow U$.
+    In local coordinates where $Y_i^\circ$ is cut out by one equation $z=0$, one has
+    the \emph{algebraic} local model
+    \[
+        i_+(M)\;\cong\; M\otimes_\C \C[\partial_z],
+    \]
+    with explicit $D_U$-action (in particular $z$ acts nilpotently and $\partial_z$ acts
+    by shifting the $\partial_z$-power) \cite[Thm.\ 6.20, proof]{mustata2023dmodules}.
+    If moreover $M$ is $\cO$-coherent, then $M$ is a vector bundle with flat connection,
+    and after analytification $M^{an}\simeq \cO^{an}\otimes_\C L$ for a local system $L$
+    \cite[Thm.\ 7.5]{mustata2023dmodules}. This explains the heuristic notation
+    $\cO_{Y_i^\circ}\otimes L[\partial]$ used in some notes: it is the analytification of
+    the algebraic formula above.
+\end{remark}
+
+
+
+
 \begin{theorem}\label{Theorem 8.6}
-    Let $M$ be a finitely generated $\mathcal{D}_{X}$-module, and $\Omega_{\bullet}M$ a good filtration over $V_{\bullet}\mathcal{D}_{X}$, then $j(\mathrm{gr}_{\bullet}^\Omega M)\ge j(M)$.
+    Let $M$ be a finitely generated $\mathcal{D}_{X}$-module, and $\Omega_{\bullet}M$ a good filtration over $V_{\bullet}\mathcal{D}_{X}$. Then $j(\mathrm{gr}_{\bullet}^\Omega M)\ge j(M)$.
 \end{theorem}
 \begin{proof}
-    If $\mathrm{gr}^\Omega_{\bullet}M=0$, nothing to prove, so we assume $\mathrm{gr}^\Omega_{\bullet}M\neq 0$ and $\ell=j(\mathrm{gr}_{\bullet}^{\Omega}M)<j(M)$.
-    Then the $E_1$-page of the spectral sequence that converges to $\mathrm{Ext}_{\mathcal{D}_{X}}^{j}(M,\mathcal{D}_{X})$ satisfies:$$0 \rightarrow \operatorname{Ext}^{\ell}(\operatorname{gr}_{\bullet}^{\Omega} M, \operatorname{gr}^{V}_{\bullet}\mathcal{D}_X)
+    If $\mathrm{gr}^\Omega_{\bullet}M=0$, there is nothing to prove, so we assume $\mathrm{gr}^\Omega_{\bullet}M\neq 0$ and $\ell=j(\mathrm{gr}_{\bullet}^{\Omega}M)<j(M)$.
+
+    Then the $E_1$-page of the spectral sequence that converges to $\mathrm{Ext}_{\mathcal{D}_{X}}^{j}(M,\mathcal{D}_{X})$ satisfies:
+    \[
+        0 \rightarrow \operatorname{Ext}^{\ell}(\operatorname{gr}_{\bullet}^{\Omega} M, \operatorname{gr}^{V}_{\bullet}\mathcal{D}_X)
         \xrightarrow{d_1}
-        \operatorname{Ext}^{\ell+1}(\operatorname{gr}_{\bullet}^{\Omega} M, \operatorname{gr}^{V}_{\bullet}\mathcal{D}_X)$$So we obtain that $E^{\ell}_{\bullet}(2)=\mathrm{ker}d_{1}\subseteq\operatorname{Ext}^{\ell}(\operatorname{gr}_{\bullet}^{\Omega} M, \operatorname{gr}^{V}_{\bullet}\mathcal{D}_X)$ since no images map to $E^{\ell}_{\bullet}(1)$, then we have the following exact sequence with the quotient $N=E^{\ell}_{\bullet}(1) /\ker d_{1}\simeq d_{1}(E_{\bullet}^{\ell}(1))\subseteq E^{\ell+1}_{\bullet}(1)$: $$0 \rightarrow E_{\bullet}^{\ell}(2) \rightarrow \operatorname{Ext}^{\ell}(\operatorname{gr}_{\bullet}^{\Omega} M, \operatorname{gr}^{V}_{\bullet}\mathcal{D}_X)
-        \rightarrow N \rightarrow 0$$With $\mathrm{gr}_{\bullet}^V\mathcal{D}_{X}$ Auslander regular, we obtain that for $N\subseteq \mathrm{Ext}^{\ell+1}(\operatorname{gr}_{\bullet}^{\Omega} M, \operatorname{gr}^{V}_{\bullet}\mathcal{D}_X)$, $j(N)\ge \ell+1$.
-    Since $j(M)>\ell$, we have $E_{\bullet}^{\ell}(r) = \operatorname{gr}_{\bullet} \operatorname{Ext}^{\ell}(M, \mathcal{D}_X) = 0$ for some $r\gg 0$, and $E^{\ell}_{\bullet}(r)=\mathrm{ker}d_{r}.$
+        \operatorname{Ext}^{\ell+1}(\operatorname{gr}_{\bullet}^{\Omega} M, \operatorname{gr}^{V}_{\bullet}\mathcal{D}_X).
+    \]
+    So we obtain that $E^{\ell}_{\bullet}(2)=\ker d_{1}\subseteq\operatorname{Ext}^{\ell}(\operatorname{gr}_{\bullet}^{\Omega} M, \operatorname{gr}^{V}_{\bullet}\mathcal{D}_X)$ since no images map to $E^{\ell}_{\bullet}(1)$.
 
-    Also $\mathrm{gr}_{\bullet}^V\mathcal{D}_{X}$ is a noetherian ring, we then have $j(\operatorname{Ext}^{\ell}(\operatorname{gr}_{\bullet}^{\Omega} M, \operatorname{gr}^{V}_{\bullet}\mathcal{D}_X) )\ge\ell+1$, a contradiction.
+    Then we have the following exact sequence with the quotient $N=E^{\ell}_{\bullet}(1) /\ker d_{1}\simeq d_{1}(E_{\bullet}^{\ell}(1))\subseteq E^{\ell+1}_{\bullet}(1)$:
+    \[
+        0 \rightarrow E_{\bullet}^{\ell}(2) \rightarrow \operatorname{Ext}^{\ell}(\operatorname{gr}_{\bullet}^{\Omega} M, \operatorname{gr}^{V}_{\bullet}\mathcal{D}_X)
+        \rightarrow N \rightarrow 0.
+    \]
+    With $\mathrm{gr}_{\bullet}^V\mathcal{D}_{X}$ Auslander regular, we obtain that for $N\subseteq \mathrm{Ext}^{\ell+1}(\operatorname{gr}_{\bullet}^{\Omega} M, \operatorname{gr}^{V}_{\bullet}\mathcal{D}_X)$, $j(N)\ge \ell+1$.
 
+    Since $j(M)>\ell$, we have $E_{\bullet}^{\ell}(r) = \operatorname{gr}_{\bullet} \operatorname{Ext}^{\ell}(M, \mathcal{D}_X) = 0$ for some $r\gg 0$, and $E^{\ell}_{\bullet}(r)=\ker d_{r}$.
+
+    Also $\mathrm{gr}_{\bullet}^V\mathcal{D}_{X}$ is a noetherian ring, so we have
+    \[
+        j(\operatorname{Ext}^{\ell}(\operatorname{gr}_{\bullet}^{\Omega} M, \operatorname{gr}^{V}_{\bullet}\mathcal{D}_X) )\ge\ell+1,
+    \]
+    which is a contradiction.
 \end{proof}
 
 
@@ -33,7 +156,7 @@
 
     By Theorem \ref{Theorem 8.6}, $j(\mathrm{gr}_{\bullet}^\Omega M)\ge j(M)=n$. If $\mathrm{gr}_{\bullet}^\Omega M=0$, take $b(s)=0$. If not, then $\mathrm{dim\ ch}(\mathrm{gr}^\Omega_{\bullet}M)\ge n$.
 
-    Since $\mathrm{gr}_{\bullet}^V\mathcal{D}_{X}$ is a Auslander regular ring, we obtain that $j(\mathrm{gr}_{\bullet}^\Omega M)+\mathrm{dim}(\mathrm{ch}(\mathrm{gr}_{\bullet}^\Omega M))=2n=2\mathrm{dim}T_{Y}X$, then $\mathrm{gr}^\Omega_{\bullet} M$ is holonomic over $T_Y X$.
+    Since $\mathrm{gr}_{\bullet}^V\mathcal{D}_{X}$ is a Auslander regular ring, we obtain that $j(\mathrm{gr}_{\bullet}^\Omega M)+\mathrm{dim}(\mathrm{Ch}(\mathrm{gr}_{\bullet}^\Omega M))=2n=2\mathrm{dim}T_{Y}X$, then $\mathrm{gr}^\Omega_{\bullet} M$ is holonomic over $T_Y X$.
 
     Now, take $\theta=\bigoplus \limits_{i}(t\partial_{t}-i),$ then $\theta\in\mathrm{End}_{\mathcal{D}_{T_{Y}X}}(\mathrm{gr}_{\bullet}^\Omega M)$. By Lemma \ref{lemma 8.5}, there exists $b(s)\in\mathbb{C}[s]$ s.t. $b(\theta)=0$, In particular, $b(t\partial_{t}-k)$ kills $\frac{\Omega_{k}M}{\Omega_{k-1}M}$ for all $k$.
 \end{proof}
@@ -79,9 +202,9 @@
 \end{theorem}
 
 \begin{proof}[Sketch of proof]
-    First, each $V_i M$ is a $V_0 \mathcal{D}_X$-module and $V_0 \mathcal{D}_X = \mathcal{D}_X^{\log}$ w.r.t. $(t = 0)$. Since $V_i M$ has no $t$-torsion for all $i < 0$, $\mathrm{ch}(V_i M)$ has no component over $(t = 0)$, for all $i < 0$.
+    First, each $V_i M$ is a $V_0 \mathcal{D}_X$-module and $V_0 \mathcal{D}_X = \mathcal{D}_X^{\log}$ w.r.t. $(t = 0)$. Since $V_i M$ has no $t$-torsion for all $i < 0$, $\mathrm{Ch}(V_i M)$ has no component over $(t = 0)$, for all $i < 0$.
 
-    Further, we obtain that $\mathrm{ch}^{\log}\left(\frac{V_i M}{V_{i-1} M}\right) = \mathrm{ch}^{\log}\left(\frac{V_i M}{t V_i M}\right)= \mathrm{ch}^{\log}(V_i M)\big|_{(t=0)}$, thus $\frac{V_i M}{V_{i-1} M} \neq 0.$
+    Further, we obtain that $\mathrm{Ch}^{\log}\left(\frac{V_i M}{V_{i-1} M}\right) = \mathrm{Ch}^{\log}\left(\frac{V_i M}{t V_i M}\right)= \mathrm{Ch}^{\log}(V_i M)\big|_{(t=0)}$, thus $\frac{V_i M}{V_{i-1} M} \neq 0.$
 
 \end{proof}
 
@@ -93,7 +216,7 @@
 
     Define $t M = f M$ and then $t^{-1} M = f^{-1} M$.  Take $s = -t\partial_t$, then $\partial_t = -t^{-1} s$, the $\partial_{t}$-action is defined, and further, $M$ is a $\mathcal{D}_Y = \mathcal{D}_X \langle t, \partial_t \rangle$-module.
 
-    Then $N := \mathbb{C}[x_1, \cdots, x_n][\partial_t] f^s = \mathbb{C}[x_1, \cdots, x_n][\partial_t] f^s= \mathbb{C}[x_1, \cdots, x_n][t^{-1} s] f^s$, and $\partial_{x_i} f^s = \partial_{x_i}(f) \cdot \frac{1}{f} s f^s= \partial_{x_i}(f) \cdot (-\partial_t) f^s$, thus $N$ is a $\mathcal{D}_Y$-submodule of $M$. Furthermore, we can check that $\mathrm{ch}(N)$ = the conormal bundle of the graph of $X$, which indicates that $N$ is a holonomic $\mathcal{D}_{Y}$-module.
+    Then $N := \mathbb{C}[x_1, \cdots, x_n][\partial_t] f^s = \mathbb{C}[x_1, \cdots, x_n][\partial_t] f^s= \mathbb{C}[x_1, \cdots, x_n][t^{-1} s] f^s$, and $\partial_{x_i} f^s = \partial_{x_i}(f) \cdot \frac{1}{f} s f^s= \partial_{x_i}(f) \cdot (-\partial_t) f^s$, thus $N$ is a $\mathcal{D}_Y$-submodule of $M$. Furthermore, we can check that $\mathrm{Ch}(N)$ = the conormal bundle of the graph of $X$, which indicates that $N$ is a holonomic $\mathcal{D}_{Y}$-module.
 
     We consider $V_{i}\mathcal{D}_{Y}\cdot f^{s}$ forming a good filtration of $N$: $$V_0 \mathcal{D}_Y \cdot f^s = \mathcal{D}_X \langle t, s \rangle f^s = \mathcal{D}_X[s] f^s$$Similarly, $V_{-1} \mathcal{D}_Y \cdot f^s = \mathcal{D}_X[s] f^{s+1}$.
 

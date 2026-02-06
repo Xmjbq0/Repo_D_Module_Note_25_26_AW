@@ -3,10 +3,10 @@
 Let $V$ be a $k$-vector space equipped with a bilinear form
 $\sigma\colon V\times V\to k$.  We use the following terminology:
 \begin{itemize}
-  \item The form $\sigma$ is \textbf{skew-symmetric} if
-        $\sigma(a,b)=-\sigma(b,a)$ for all $a,b\in V$.
-  \item A skew-symmetric bilinear form is \textbf{nondegenerate} if for every
-        $0\ne a\in V$ there exists $v\in V$ such that $\sigma(a,v)\ne 0$.
+	\item The form $\sigma$ is \textbf{skew-symmetric} if
+	      $\sigma(a,b)=-\sigma(b,a)$ for all $a,b\in V$.
+	\item A skew-symmetric bilinear form is \textbf{nondegenerate} if for every
+	      $0\ne a\in V$ there exists $v\in V$ such that $\sigma(a,v)\ne 0$.
 \end{itemize}
 A pair $(V,\sigma)$ is called a \textbf{symplectic vector space} if $\sigma$
 is a nondegenerate skew-symmetric bilinear form.  In this case
@@ -14,41 +14,41 @@ $\dim_k V=2n$ for some $n$.
 
 Nondegeneracy identifies $V$ with its dual: the map
 \[
-  H \colon V \longrightarrow V^\ast,\qquad
-  v \longmapsto \sigma(-,v)
+	H \colon V \longrightarrow V^\ast,\qquad
+	v \longmapsto \sigma(-,v)
 \]
 is an isomorphism, called the \textbf{Hamiltonian isomorphism}.
 
 \begin{definition}
-Let $W\subseteq V$ be a linear subspace.
-\begin{enumerate}
-  \item The \textbf{symplectic orthogonal} of $W$ is
-        $W^\perp:=\{v\in V\mid \sigma(v,W)=0\}$.
-  \item The subspace $W$ is called \textbf{isotropic} if $W\subseteq W^\perp$,
-        \textbf{Lagrangian} if $W=W^\perp$, and \textbf{coisotropic} if
-        $W\supseteq W^\perp$.
-\end{enumerate}
+	Let $W\subseteq V$ be a linear subspace.
+	\begin{enumerate}
+		\item The \textbf{symplectic orthogonal} of $W$ is
+		      $W^\perp:=\{v\in V\mid \sigma(v,W)=0\}$.
+		\item The subspace $W$ is called \textbf{isotropic} if $W\subseteq W^\perp$,
+		      \textbf{Lagrangian} if $W=W^\perp$, and \textbf{coisotropic} if
+		      $W\supseteq W^\perp$.
+	\end{enumerate}
 \end{definition}
 
 \begin{lemma}
-Let $W\subseteq V$ be as above.  If $W$ is isotropic then $\dim_k W\le n$.
-If $W$ is Lagrangian then $\dim_k W=n$, and if $W$ is coisotropic then
-$\dim_k W\ge n$.
+	Let $W\subseteq V$ be as above.  If $W$ is isotropic then $\dim_k W\le n$.
+	If $W$ is Lagrangian then $\dim_k W=n$, and if $W$ is coisotropic then
+	$\dim_k W\ge n$.
 \end{lemma}
 \begin{proof}
-Use $W\oplus W^\perp = V$.
+	Use $W\oplus W^\perp = V$.
 \end{proof}
 
 \begin{example}\label{ex:symplectic-standard}
-Let $W$ be an $n$-dimensional $k$-vector space with dual $W^\ast$.  Then
-$V:=W\oplus W^\ast$ becomes a symplectic vector space when we define
-\[
-  \sigma\big((x,\xi),(x',\xi')\big)
-  :=\langle x',\xi\rangle-\langle x,\xi'\rangle,
-  \qquad (x,\xi),(x',\xi')\in V,
-\]
-where $\langle\cdot,\cdot\rangle$ denotes the evaluation pairing between
-$W$ and $W^\ast$.
+	Let $W$ be an $n$-dimensional $k$-vector space with dual $W^\ast$.  Then
+	$V:=W\oplus W^\ast$ becomes a symplectic vector space when we define
+	\[
+		\sigma\big((x,\xi),(x',\xi')\big)
+		:=\langle x',\xi\rangle-\langle x,\xi'\rangle,
+		\qquad (x,\xi),(x',\xi')\in V,
+	\]
+	where $\langle\cdot,\cdot\rangle$ denotes the evaluation pairing between
+	$W$ and $W^\ast$.
 \end{example}
 
 \section{Symplectic structure on $T^\ast X$}\label{sec:symplectic-structure-on-T*X}
@@ -57,39 +57,147 @@ Let $X=\Spec R$ be a smooth affine algebraic variety over $\C$ (more generally
 over an algebraically closed field $k$ of characteristic $0$) with algebraic
 coordinates $(x_1,\dots,x_n)$.  The cotangent bundle is
 \[
-  T^\ast X = \Spec \gr_\bullet \D_X = \Spec \Sym^\bullet \mathcal{T}_X
-           \simeq \Spec R[\xi_1,\dots,\xi_n],
+	T^\ast X = \Spec \gr_\bullet \D_X = \Spec \Sym^\bullet \mathcal{T}_X
+	\simeq \Spec R[\xi_1,\dots,\xi_n],
 \]
 where $\Sym^\bullet \mathcal{T}_X:=\bigoplus_{i\ge0}\Sym^i \mathcal{T}_X$ carries the canonical
 grading structure.
 
 \begin{definition}
-A subvariety $V\subseteq T^\ast X$ is called \textbf{conic} if its defining ideal
-$I(V)\subseteq \Sym^\bullet \mathcal{T}_X$ is homogeneous.
+	A subvariety $V\subseteq T^\ast X$ is called \textbf{conic} if its defining ideal
+	$I(V)\subseteq \Sym^\bullet \mathcal{T}_X$ is homogeneous.
 \end{definition}
 
 \begin{remark}\label{rmk:equivalent-definition-for-conic}
-Under the identification $T^\ast X\simeq X\times k^n$, each fiber is an
-$n$-dimensional $k$-vector space, so $T^\ast X$ carries a canonical $k^\times$ (which is an algebraic group over $k$)
-action.  A subvariety $V\subseteq T^\ast X$ is conic $\Leftrightarrow$ it is
-stable under this action.
-
-\begin{remark}
-  Since $T^\ast X = \Spec \gr_\bullet \D_X = \Spec R[\xi_1,\dots,\xi_n] = \Spec R\otimes_k k[\xi_1,\dots,\xi_n]$ is an affine scheme.
-  We can identify $T^\ast X$ with the fiber product $X\times_k \mathbb{A}^n_k$.
-  We have a $k^\times$-action on $\mathcal{O}_{\mathbb{A}^n_k}$, that is $f(\xi_1,\dots,\xi_n) \mapsto f(t\xi_1,\dots,t\xi_n)$ for $t\in k^\times$.
-  So we also have a $k^\times$-action on $\mathcal{O}_{T^\ast X}$, that is also $f(\xi_1,\dots,\xi_n) \mapsto f(t\xi_1,\dots,t\xi_n)$, but with $f\in R[\xi_1,\dots,\xi_n]$.
-  The editor guesses that is the $k^\times$-action on $T^\ast X$ the lecturer referring to.
-\end{remark}
+	Under the identification $T^\ast X\simeq X\times k^n$, each fiber is an
+	$n$-dimensional $k$-vector space, so $T^\ast X$ carries a canonical $k^\times$ (which is an algebraic group over $k$)
+	action.  A subvariety $V\subseteq T^\ast X$ is conic $\Leftrightarrow$ it is
+	stable under this action.
 \end{remark}
 
-The \textbf{canonical $1$-form} on the cotangent bundle is
+\begin{remark}[Conic (conical) closed subschemes of a cotangent bundle]
+	\mbox{}
+
+	This remark with some steps below is made to explain what the Remark~\ref{rmk:equivalent-definition-for-conic} means rigorously.
+
+	Fix a base field (or base scheme) $k$.  The slogan ``conic $=$ homogeneous'' is a precise
+	scheme-theoretic statement once one phrases \emph{scaling} as a \textbf{$\mathbf G_m$-action} and
+	\emph{stability} via \textbf{scheme-theoretic inverse images}.
+
+	\begin{enumerate}
+		\item \textbf{$\mathbf G_m$ and actions (distinction between $k$-valued points and the scheme itself).}
+		      The multiplicative group scheme $\mathbf G_m$ represents units:
+		      \[
+			      \mathbf G_m(T)=\Gamma(T,\mathcal O_T^\times),\qquad
+			      \mathbf G_m=\Spec(\mathbf Z[x,x^{-1}])\text{ or } \Spec(k[x,x^{-1}]) .
+		      \]
+		      Thus $k^\times=\mathbf G_m(k)$ is only the set of $k$-points.
+		      An action of a $S$-group scheme $G$ (we may take $S=\Spec k$ here) on a scheme $Y/S$ is a morphism
+		      \[
+			      a:G\times_S Y\to Y
+		      \]
+		      whose base change to every test scheme $T/S$ yields an action of $G(T)$ on $Y(T)$.
+		      \cite[\href{https://stacks.math.columbia.edu/tag/022U}{Tag 022U}, \href{https://stacks.math.columbia.edu/tag/022Z}{Tag 022Z}]{stacks-project}
+
+		      For ones seeking to familiarize themselves with group schemes \cite[\href{https://stacks.math.columbia.edu/tag/022S}{Tag 022S}]{stacks-project}, and particularly with the central notion of \textbf{representability} \cite[\href{https://stacks.math.columbia.edu/tag/022N}{Tag 022N}]{stacks-project}, see Part 1, Chapter 2 of \cite{Mihatsch2024EllipticCurvesModuli}.
+
+		\item \textbf{Vector bundles carry canonical grading.}
+		      Given a quasi-coherent $\mathcal O_S$-module $\mathcal E$, its geometric vector bundle is
+		      \[
+			      \mathbf V(\mathcal E)=\underline{\Spec}_S(\mathrm{Sym}(\mathcal E)),
+			      \qquad
+			      \pi_*\mathcal O_{\mathbf V(\mathcal E)}=\bigoplus_{n\ge 0}\mathrm{Sym}^n(\mathcal E),
+		      \]
+		      so $\pi_*\mathcal O_{\mathbf V(\mathcal E)}$ is naturally graded by symmetric power.
+		      \cite[\href{https://stacks.math.columbia.edu/tag/01M1}{Tag 01M1}]{stacks-project}
+
+		      In the affine graded model, if $A=\bigoplus_{n\in\mathbf Z}A_n$ a graded $k$-algebra and $Y=\Spec(A)$, the grading
+		      induces a canonical $\mathbf G_m$-action
+		      \[
+			      a:\mathbf G_m\times_S Y\to Y
+		      \]
+		      via the ring map (\textbf{coaction}) \cite[\href{https://stacks.math.columbia.edu/tag/0EKJ}{Tag 0EKJ}]{stacks-project}
+		      \[
+			      \mu:A\to A\otimes_k k[x,x^{-1}],\qquad A_n \ni f\longmapsto f\otimes x^n.
+		      \]
+
+
+		\item \textbf{Definition of stability is encoded by an equality of inverse images (groupoid viewpoint).}
+		      Any action $a:G\times_S Y\to Y$ defines the \textbf{action groupoid}
+		      \[
+			      R:=G\times_S Y \rightrightarrows Y,\qquad s:=p_2,\quad t:=a,
+		      \]
+		      i.e. an arrow $(g,y)$ has source $s(g,y)=y$ and target $t(g,y)=a(g,y)$.
+		      \cite[\href{https://stacks.math.columbia.edu/tag/03LK}{Tag 03LK}, \href{https://stacks.math.columbia.edu/tag/0231}{Tag 0231}]{stacks-project}
+
+		      For a general groupoid $R\rightrightarrows U$ with source/target maps $s,t:R\to U$,
+		      a closed subscheme $Z\subset U$ is \textbf{$R$-invariant} by definition if \cite[\href{https://stacks.math.columbia.edu/tag/03BC}{Tag 03BC}]{stacks-project}
+		      \[
+			      t^{-1}(Z)=s^{-1}(Z)
+			      \quad\text{as closed subschemes of $R$, identification is given by \cite[\href{https://stacks.math.columbia.edu/tag/01HO}{Tag 01HO}]{stacks-project}},
+		      \]
+		      where $(-)^{-1}$ denotes \textbf{scheme-theoretic} inverse image, that is fiber product \cite[\href{https://stacks.math.columbia.edu/tag/01JV}{Tag 01JV}]{stacks-project}.
+		      Specializing to the action groupoid gives the stability condition
+		      \[
+			      a^{-1}(V)=p_2^{-1}(V)\subset G\times_S Y.
+		      \]
+
+
+		\item \textbf{Scheme-theoretic inverse image and ideal sheaves (how to compute).}
+		      For a morphism $f:X\to Y$ and a closed subscheme $Z\subset Y$, the scheme-theoretic inverse image is
+		      \[
+			      f^{-1}(Z):=Z\times_Y X\subset X.
+		      \]
+
+		      If $i:Z\hookrightarrow Y$ corresponds to a quasi-coherent ideal sheaf $\mathcal I\subset\mathcal O_Y$,
+		      then after base change along $g:X\to Y$ the ideal sheaf of $g^{-1}(Z)\hookrightarrow X$ is \cite[\href{https://stacks.math.columbia.edu/tag/01JU}{Tag 01JU}]{stacks-project}
+		      \[
+			      \mathcal I_{g^{-1}(Z)}=\operatorname{Im}\bigl(g^*\mathcal I\to\mathcal O_X\bigr).
+		      \]
+		      On affines this is simply extension of ideals.%
+
+
+		\item \textbf{Definition of conic and the local ``homogeneous ideal'' criterion.}
+		      Let $X$ be smooth so that $T^*X$ is a vector bundle; hence it carries the fiberwise scaling
+		      $\mathbf G_m$-action from (2). A closed subscheme $V\subset T^*X$ is called \textbf{conic/conical}
+		      if it is invariant under this scaling, i.e.
+		      \[
+			      a^{-1}(V)=p_2^{-1}(V)\subset \mathbf G_m\times T^*X
+		      \]
+		      in the sense of (3)--(4).
+
+		      Locally, on an affine open $U=\Spec(R)$ with a trivialization
+		      \[
+			      T^*X|_U \cong U\times_{\Spec k}\mathbb A^n_{k} = \Spec(R[\xi_1,\dots,\xi_n]),
+			      \qquad \deg(\xi_i)=1,\ \deg(R)=0,
+		      \]
+		      the scaling action corresponds to the grading and the coaction satisfies $\mu(\xi_i)=\xi_i x$.
+		      If $V|_U=\Spec(R[\xi]/I)$, then the corresponding closed subscheme and ideal (sheaf) are
+		      \[
+			      p_2^{-1}(V|_U)\ \leftrightarrow\ I\cdot R[\xi,x,x^{-1}],
+			      \qquad
+			      a^{-1}(V|_U)\ \leftrightarrow\ \langle \mu(I)\rangle\subset R[\xi,x,x^{-1}],
+		      \]
+		      so conicness on $U$ is equivalent to
+		      \[
+			      \langle \mu(I)\rangle = I\cdot R[\xi,x,x^{-1}].
+		      \]
+		      In particular, this implies that $I$ is homogeneous: for $f=\sum_n f_n$ (finite sum of homogeneous
+		      components in the $\xi$-grading), we have $\mu(f)=\sum_n f_n x^n$, and membership
+		      $\mu(f)\in I\cdot R[\xi,x,x^{-1}]$ forces each coefficient $f_n\in I$; hence $I$ is stable under
+		      taking homogeneous components (equivalently, generated by homogeneous elements).
+	\end{enumerate}
+\end{remark}
+
+\bigskip
+
+\noindent The \textbf{canonical $1$-form} on the cotangent bundle is
 \[
-  \alpha_X := \sum_{i=1}^n \xi_i\,\text{d}x_i \in \Omega^1_{T^\ast X},
+	\alpha_X := \sum_{i=1}^n \xi_i\,\text{d}x_i \in \Omega^1_{T^\ast X},
 \]
 which does not depend on the chosen coordinates.  Its exterior derivative
 \[
-  \sigma_X := \text{d}\alpha_X = \sum_{i=1}^n \text{d}\xi_i\wedge \text{d}x_i \in \Omega^2_{T^\ast X}:= \bigwedge^2_{\Sym^\bullet \mathcal{T}_X} \Omega^1_{\Sym^\bullet \mathcal{T}_X/\mathbb{C}}
+	\sigma_X := \text{d}\alpha_X = \sum_{i=1}^n \text{d}\xi_i\wedge \text{d}x_i \in \Omega^2_{T^\ast X}:= \bigwedge^2_{\Sym^\bullet \mathcal{T}_X} \Omega^1_{\Sym^\bullet \mathcal{T}_X/\mathbb{C}}
 \]
 is the standard symplectic form on $T^\ast X$.
 
@@ -97,16 +205,16 @@ We denote $\Sym^\bullet \mathcal{T}_X$ by $S^\bullet$,
 For a closed point $p\in T^\ast X$ with maximal ideal $\mathfrak m_p$ we have
 the tangent space
 \[
-  \mathcal{T}_{T^\ast X,p}=\Hom_{S^\bullet}(\Omega^1_{T^\ast X},S^\bullet)_p
-               \simeq \Hom_{S^\bullet}(\Omega^1_{T^\ast X},S^\bullet) \otimes_{S^\bullet} (S^\bullet/\mathfrak m_p)
-               \simeq \mathcal{T}_{T^\ast X}\otimes_{S^\bullet} S^\bullet/\mathfrak m_p
-               \simeq \Hom_k(\mathfrak m_p/\mathfrak m_p^2,k).
+	\mathcal{T}_{T^\ast X,p}=\Hom_{S^\bullet}(\Omega^1_{T^\ast X},S^\bullet)_p
+	\simeq \Hom_{S^\bullet}(\Omega^1_{T^\ast X},S^\bullet) \otimes_{S^\bullet} (S^\bullet/\mathfrak m_p)
+	\simeq \mathcal{T}_{T^\ast X}\otimes_{S^\bullet} S^\bullet/\mathfrak m_p
+	\simeq \Hom_k(\mathfrak m_p/\mathfrak m_p^2,k).
 \]
 The last isomorphism follows from Problem 3. of Homework 2.
 
 \begin{remark}[\textcolor{red}{Warning}]\label{rmk:abuse-fiber-stalk}
-  By abuse of notation, from now on to the end of this section~\ref{sec:symplectic-structure-on-T*X}, we denote the fiber of $\Omega_{T^{\ast}X}$ at $p$ by $\Omega_{T^{\ast}X, p}$ instead of $\Omega_{T^{\ast}X} \otimes_{S^\bullet} S^\bullet/\mathfrak{m}_p$.
-  And the same for the notation $\mathcal{T}_{T^{\ast}X, p}$.
+	By abuse of notation, from now on to the end of this section~\ref{sec:symplectic-structure-on-T*X}, we denote the fiber of $\Omega_{T^{\ast}X}$ at $p$ by $\Omega_{T^{\ast}X, p}$ instead of $\Omega_{T^{\ast}X} \otimes_{S^\bullet} S^\bullet/\mathfrak{m}_p$.
+	And the same for the notation $\mathcal{T}_{T^{\ast}X, p}$.
 \end{remark}
 
 Evaluating $\sigma_X$ at $p$ yields a bilinear form
@@ -114,105 +222,109 @@ $\sigma_p\colon \mathcal{T}_{T^\ast X,p}\times \mathcal{T}_{T^\ast X,p}\to k$.
 (Since $2!\not=0$ in $\mathbb{C}$, we use \cite[Theorem 7.6.10]{li2019algebraic} to identify $\Omega^2_{T^\ast X}$ as skew-symmetric bilinear-forms on $\mathcal{T}_{T^\ast X}$.)
 
 \begin{lemma}
-For every closed point $p\in T^\ast X$, the pair $(\mathcal{T}_{T^\ast X,p},\sigma_p)$ is
-a symplectic vector space.
+	For every closed point $p\in T^\ast X$, the pair $(\mathcal{T}_{T^\ast X,p},\sigma_p)$ is
+	a symplectic vector space.
 \end{lemma}
 \begin{proof}
-  We can prove that $T^\ast X$ is also smooth with algebraic coordinate $(x_1,\dots,x_n,\xi_1,\dots,\xi_n)$.
-  Where $(x_1, \dots, x_n)$ are algebraic coordinates of $X$.
+	We can prove that $T^\ast X$ is also smooth with algebraic coordinate $(x_1,\dots,x_n,\xi_1,\dots,\xi_n)$, where $(x_1, \dots, x_n)$ are algebraic coordinates of $X$.
 
-  When we take stalk at $p$, we have $\mathcal{T}_{T^\ast X,p} = \langle \text{d}x_{1,p}^\vee, \dots, \text{d}x_{n,p}^\vee, \text{d}\xi_{1,p}^\vee, \dots, \text{d}\xi_{n,p}^\vee\rangle$.
+	When we take stalk at $p$, we have
+	\[
+		\mathcal{T}_{T^\ast X,p} = \langle \text{d}x_{1,p}^\vee, \dots, \text{d}x_{n,p}^\vee, \text{d}\xi_{1,p}^\vee, \dots, \text{d}\xi_{n,p}^\vee\rangle.
+	\]
+	Where
+	$\{\text{d}x_{1,p}^\vee, \dots, \text{d}x_{n,p}^\vee, \text{d}\xi_{1,p}^\vee, \dots, \text{d}\xi_{n,p}^\vee\}$
+	are a $\kappa(p)=\mathbb{C}$ basis.
 
-  Where $\{\text{d}x_{1,p}^\vee, \dots, \text{d}x_{n,p}^\vee, \text{d}\xi_{1,p}^\vee, \dots, \text{d}\xi_{n,p}^\vee\}$ are a $\kappa(p)=\mathbb{C}$ basis.
+	Let us define two subspaces of $\mathcal{T}_{T^{\ast}X, p}$:
+	\[
+		W = \operatorname{span}_{\kappa(p)}\{ \text{d}x_{1,p}^\vee, \dots, \text{d}x_{n,p}^\vee \} \quad \text{and} \quad W^{\ast} = \operatorname{span}_{\kappa(p)}\{ \text{d}\xi_{1,p}^\vee, \dots, \text{d}\xi_{n,p}^\vee \}.
+	\]
+	Thus, we can identify the full tangent space as the direct sum $V = W \oplus W^{\ast}$. Any vector $u \in \mathcal{T}_{T^{\ast}X, p}$ can be uniquely written as a pair $(x, \xi)$ with $x \in W$ and $\xi \in W^{\ast}$:
+	\[
+		u = \underbrace{\sum_{i=1}^n a_i \text{d}x_{i,p}^\vee}_{x} + \underbrace{\sum_{i=1}^n b_i \text{d}\xi_{i,p}^\vee}_{\xi}.
+	\]
 
-  Let us define two subspaces of $\mathcal{T}_{T^{\ast}X, p}$:
-\[
-W = \operatorname{span}_{\kappa(p)}\{ \text{d}x_{1,p}^\vee, \dots, \text{d}x_{n,p}^\vee \} \quad \text{and} \quad W^{\ast} = \operatorname{span}_{\kappa(p)}\{ \text{d}\xi_{1,p}^\vee, \dots, \text{d}\xi_{n,p}^\vee \}.
-\]
-Thus, we can identify the full tangent space as the direct sum $V = W \oplus W^{\ast}$. Any vector $u \in \mathcal{T}_{T^{\ast}X, p}$ can be uniquely written as a pair $(x, \xi)$ with $x \in W$ and $\xi \in W^{\ast}$:
-\[
-u = \underbrace{\sum_{i=1}^n a_i \text{d}x_{i,p}^\vee}_{x} + \underbrace{\sum_{i=1}^n b_i \text{d}\xi_{i,p}^\vee}_{\xi}.
-\]
-Recall that the standard symplectic form is locally given by $\sigma = \sum_{i=1}^n \text{d}\xi_i \wedge \text{d}x_i$.
-For any two vectors $u = (x, \xi)$ and $u' = (x', \xi')$, the value of the symplectic form $\sigma_p(u, u')$ is:
-\begin{align*}
-\sigma_p(u, u') &= \left(\sum_{k=1}^n \text{d}\xi_k \wedge \text{d}x_k\right) \left( \sum_i (a_i \text{d}x_{i,p}^\vee + b_i \text{d}\xi_{i,p}^\vee), \sum_j (a'_j \text{d}x_{j,p}^\vee + b'_j \text{d}\xi_{j,p}^\vee) \right) \\
-&= \sum_{k=1}^n \left( \text{d}\xi_k(u) \text{d}x_k(u') - \text{d}x_k(u) \text{d}\xi_k(u') \right).
-\end{align*}
-(Here we use the identification $a\wedge b \leftrightarrow a \otimes b - b \otimes a$, one can also refer to \cite[Theorem 7.6.10]{li2019algebraic}.)
+	Recall that the standard symplectic form is locally given by $\sigma = \sum_{i=1}^n \text{d}\xi_i \wedge \text{d}x_i$.
+	For any two vectors $u = (x, \xi)$ and $u' = (x', \xi')$, the value of the symplectic form $\sigma_p(u, u')$ is:
+	\begin{align*}
+		\sigma_p(u, u') & = \left(\sum_{k=1}^n \text{d}\xi_k \wedge \text{d}x_k\right) \left( \sum_i (a_i \text{d}x_{i,p}^\vee + b_i \text{d}\xi_{i,p}^\vee), \sum_j (a'_j \text{d}x_{j,p}^\vee + b'_j \text{d}\xi_{j,p}^\vee) \right) \\
+		                & = \sum_{k=1}^n \left( \text{d}\xi_k(u) \text{d}x_k(u') - \text{d}x_k(u) \text{d}\xi_k(u') \right).
+	\end{align*}
+	(Here we use the identification $a\wedge b \leftrightarrow a \otimes b - b \otimes a$, one can also refer to \cite[Theorem 7.6.10]{li2019algebraic}.)
 
-That is exactly the formula presented in Example~\ref{ex:symplectic-standard}, which shows that $\sigma_p$ is a nondegenerate skew-symmetric form.
+	That is exactly the formula presented in Example~\ref{ex:symplectic-standard}, which shows that $\sigma_p$ is a nondegenerate skew-symmetric form.
 \end{proof}
 
 
 Since we have nondegeneracy on every fiber at closed points, the global form $\sigma_X$ is also nondegenerate, yielding the Hamiltonian isomorphism
 \[
-  H\colon \Omega^1_{T^\ast X}\xrightarrow{\sim}T_{T^\ast X},\qquad
-  \beta\longmapsto H(\beta),
+	H\colon \Omega^1_{T^\ast X}\xrightarrow{\sim}T_{T^\ast X},\qquad
+	\beta\longmapsto H(\beta),
 \]
 characterized by $\sigma_X(-,H(\beta))=\beta$.  For any function
 $f\in \Sym^\bullet \mathcal{T}_X$ we define its \textbf{Hamiltonian vector field} to be
 \[
-  H_f:=H(\text{d}f)\in \Gamma(T^\ast X,T_{T^\ast X}),
+	H_f:=H(\text{d}f)\in \Gamma(T^\ast X,T_{T^\ast X}),
 \]
 which satisfies $\sigma_X(v,H_f)=\text{d}f(v)$ for all vector fields $v$.
 
 \begin{lemma}\label{lem:hamiltonian-coordinates}
-With respect to the coordinates $(x_1,\dots,x_n,\xi_1,\dots,\xi_n)$ one has
-\[
-  H_f = \sum_{i=1}^n
-        \left(\frac{\partial f}{\partial \xi_i}\frac{\partial}{\partial x_i}
-             -\frac{\partial f}{\partial x_i}\frac{\partial}{\partial \xi_i}
-        \right).
-\]
+	With respect to the coordinates $(x_1,\dots,x_n,\xi_1,\dots,\xi_n)$ one has
+	\[
+		H_f = \sum_{i=1}^n
+		\left(\frac{\partial f}{\partial \xi_i}\frac{\partial}{\partial x_i}
+		-\frac{\partial f}{\partial x_i}\frac{\partial}{\partial \xi_i}
+		\right).
+	\]
 \end{lemma}
 \begin{proof}
-Write $H_f=\sum_i \big(\alpha_i\,\partial_{x_i}+\beta_i\,\partial_{\xi_i}\big)$.
-Because $\sigma_X(\partial_{x_i},\partial_{x_j})=0$ and
-$\sigma_X(\partial_{x_i},\partial_{\xi_j})=\delta_{ij}$, we obtain
-\[
-  \text{d}f(\partial_{x_i})=\sigma_X(\partial_{x_i},H_f)=-\beta_i,\qquad
-  \text{d}f(\partial_{\xi_i})=\sigma_X(\partial_{\xi_i},H_f)=\alpha_i.
-\]
-Thus $\alpha_i=\partial f/\partial \xi_i$ and $\beta_i=-\partial f/\partial
-x_i$, yielding the displayed formula.
+	Write $H_f=\sum_i \big(\alpha_i\,\partial_{x_i}+\beta_i\,\partial_{\xi_i}\big)$.
+	Because $\sigma_X(\partial_{x_i},\partial_{x_j})=0$ and
+	$\sigma_X(\partial_{x_i},\partial_{\xi_j})=\delta_{ij}$, we obtain
+	\[
+		\text{d}f(\partial_{x_i})=\sigma_X(\partial_{x_i},H_f)=-\beta_i,\qquad
+		\text{d}f(\partial_{\xi_i})=\sigma_X(\partial_{\xi_i},H_f)=\alpha_i.
+	\]
+	Thus $\alpha_i=\partial f/\partial \xi_i$ and $\beta_i=-\partial f/\partial
+		x_i$, yielding the displayed formula.
 \end{proof}
 
 The Hamiltonian vector fields endow $\Sym^\bullet \mathcal{T}_X$ with a Poisson bracket:
 for $f,g\in \Sym^\bullet \mathcal{T}_X$ set
 \[
-  \{f,g\}_\sigma := H_f(g)=\sigma_X(H_f,H_g).
+	\{f,g\}_\sigma := H_f(g)=\sigma_X(H_f,H_g).
 \]
 
 \begin{lemma}
-$(\Sym^\bullet \mathcal{T}_X,\{-,-\}_\sigma)$ is a Poisson algebra.
+	$(\Sym^\bullet \mathcal{T}_X,\{-,-\}_\sigma)$ is a Poisson algebra.
 \end{lemma}
 \begin{proof}
-One should verify it is skew-symmetric, satisfies the Jacobi identity, and acts as a derivation
-in each variable. Because it was assigned as homework.
+	One should verify it is skew-symmetric, satisfies the Jacobi identity, and acts as a derivation
+	in each variable. Because it was assigned as homework.
 \end{proof}
 
 \begin{lemma}
-  $(\operatorname{gr}\mathcal{D}_X, \{, \})$ and $(S^\bullet, \{, \}^G)$ are the same.
+	$(\operatorname{gr}\mathcal{D}_X, \{, \})$ and $(S^\bullet, \{, \}^G)$ are the same.
 \end{lemma}
 
 \begin{proof}
-Since $\operatorname{gr}\mathcal{D}_X \simeq S^\bullet$ is a graded $R$-algebra, it is enough to assume
-\[
-f = f_{\underline{\alpha}} \cdot \xi^{\underline{\alpha}}, \quad
-g = g_{\underline{\beta}} \cdot \xi^{\underline{\beta}}, \quad \text{with } f_{\underline{\alpha}}, g_{\underline{\beta}} \in R.
-\]
-For simplicity, we assume $\alpha_i \neq 0, \beta_i \neq 0, \forall i$.
-So $\{f, g\}^G$ is given by:
-\begin{align*}
-    \{f, g\}^G &= H_f(g) = \sum_i \left( \frac{\partial f}{\partial \xi_i} \partial_{x_i} - \frac{\partial f}{\partial x_i} \partial_{\xi_i} \right) g \\
-    &= \sum_i \left( \alpha_i f_{\underline{\alpha}} \frac{\partial g_{\underline{\beta}}}{\partial x_i} \xi^{\underline{\alpha} + \underline{\beta} - e_i} - \beta_i \frac{\partial f_{\underline{\alpha}}}{\partial x_i} g_{\underline{\beta}} \cdot \xi^{\underline{\alpha} + \underline{\beta} - e_i} \right)
-\end{align*}
-On the other hand, for the commutator in $\mathcal{D}_X$:
-\begin{align*}
-    \{f, g\} &= \sigma_{|\underline{\alpha}|+|\underline{\beta}|} \left( f_{\underline{\alpha}} \partial^{\underline{\alpha}} g_{\underline{\beta}} \partial^{\underline{\beta}} - g_{\underline{\beta}} \partial^{\underline{\beta}} f_{\underline{\alpha}} \partial^{\underline{\alpha}} \right)
-\end{align*}
-After checking they are the same, we finish the proof.
+	Since $\operatorname{gr}\mathcal{D}_X \simeq S^\bullet$ is a graded $R$-algebra, it is enough to assume
+	\[
+		f = f_{\underline{\alpha}} \cdot \xi^{\underline{\alpha}}, \quad
+		g = g_{\underline{\beta}} \cdot \xi^{\underline{\beta}}, \quad \text{with } f_{\underline{\alpha}}, g_{\underline{\beta}} \in R.
+	\]
+	For simplicity, we assume $\alpha_i \neq 0, \beta_i \neq 0, \forall i$.
+	So $\{f, g\}^G$ is given by:
+	\begin{align*}
+		\{f, g\}^G & = H_f(g) = \sum_i \left( \frac{\partial f}{\partial \xi_i} \partial_{x_i} - \frac{\partial f}{\partial x_i} \partial_{\xi_i} \right) g                                                                                                                                                                       \\
+		           & = \sum_i \left( \alpha_i f_{\underline{\alpha}} \frac{\partial g_{\underline{\beta}}}{\partial x_i} \xi^{\underline{\alpha} + \underline{\beta} - e_i} - \beta_i \frac{\partial f_{\underline{\alpha}}}{\partial x_i} g_{\underline{\beta}} \cdot \xi^{\underline{\alpha} + \underline{\beta} - e_i} \right)
+	\end{align*}
+	On the other hand, for the commutator in $\mathcal{D}_X$:
+	\begin{align*}
+		\{f, g\} & = \sigma_{|\underline{\alpha}|+|\underline{\beta}|} \left( f_{\underline{\alpha}} \partial^{\underline{\alpha}} g_{\underline{\beta}} \partial^{\underline{\beta}} - g_{\underline{\beta}} \partial^{\underline{\beta}} f_{\underline{\alpha}} \partial^{\underline{\alpha}} \right)
+	\end{align*}
+	After checking they are the same, we finish the proof.
 \end{proof}
 
 
@@ -220,20 +332,20 @@ Now let $R:=\Sym^\bullet \mathcal{T}_X$, so $T^\ast X=\Spec R$.  Let
 $V\subseteq T^\ast X$ be a closed subvariety with radical ideal
 $I_V\subseteq R$.  For a smooth closed point $p\in V$ write
 $\mathfrak m_p\subset R$ and $\overline{\mathfrak m}_p\subset R/I_V$ for the
-corresponding maximal ideals.  
+corresponding maximal ideals.
 
 \begin{remark}
-See Definition~\ref{def:smooth-locus} and Remark~\ref{rmk:smooth-locus} for the definition of a smooth closed point.
+	See Definition~\ref{def:smooth-locus} and Remark~\ref{rmk:smooth-locus} for the definition of a smooth closed point.
 \end{remark}
 
 Then we have the following commutative diagram relating the cotangent spaces:
 
 \[
-\begin{tikzcd}[row sep=large, column sep=large]
-    \mathfrak m_p/\mathfrak m_p^2 \arrow[r, twoheadrightarrow] \arrow[d, "\wr" sloped] & \overline{\mathfrak m}_p/\overline{\mathfrak m}_p^2 \arrow[d, "\wr" sloped] \\
-    \Omega_{T^{\ast}X, p} \arrow[r, twoheadrightarrow] & \Omega_{V, p}
-    \arrow[from=1-2, to=2-2, phantom, "\hypertarget{triple_ast}{\textcolor{red}{(* * *)}}"{xshift=4em}]
-\end{tikzcd}
+	\begin{tikzcd}[row sep=large, column sep=large]
+		\mathfrak m_p/\mathfrak m_p^2 \arrow[r, twoheadrightarrow] \arrow[d, "\wr" sloped] & \overline{\mathfrak m}_p/\overline{\mathfrak m}_p^2 \arrow[d, "\wr" sloped] \\
+		\Omega_{T^{\ast}X, p} \arrow[r, twoheadrightarrow] & \Omega_{V, p}
+		\arrow[from=1-2, to=2-2, phantom, "\hypertarget{triple_ast}{\textcolor{red}{(* * *)}}"{xshift=4em}]
+	\end{tikzcd}
 \]
 such that $\text{d}f \mapsto 0$ for all $f \in I_V$, where $I_V$ is the radical ideal of $V$.
 
@@ -241,83 +353,88 @@ such that $\text{d}f \mapsto 0$ for all $f \in I_V$, where $I_V$ is the radical 
 
 So we have a natural embedding of the tangent spaces (taking the dual of the above diagram):
 \[
-\begin{tikzcd}
-    \mathcal{T}_{V, p} \arrow[r, hook] \arrow[d, "\simeq" sloped] & \mathcal{T}_{T^{\ast}X, p} \arrow[d, "\simeq" sloped] \\
-    (\overline{\mathfrak m}_p/\overline{\mathfrak m}_p^2)^{\ast} \arrow[r, hook] & (\mathfrak m_p/\mathfrak m_p^2)^{\ast}
-\end{tikzcd}
+	\begin{tikzcd}
+		\mathcal{T}_{V, p} \arrow[r, hook] \arrow[d, "\simeq" sloped] & \mathcal{T}_{T^{\ast}X, p} \arrow[d, "\simeq" sloped] \\
+		(\overline{\mathfrak m}_p/\overline{\mathfrak m}_p^2)^{\ast} \arrow[r, hook] & (\mathfrak m_p/\mathfrak m_p^2)^{\ast}
+	\end{tikzcd}
 \]
 Or written linearly:
 \[
-\mathcal{T}_{V,p} \simeq \left(\frac{\overline{\mathfrak m}_p}{\overline{\mathfrak m}_p^2}\right)^{\ast} \hookrightarrow \mathcal{T}_{T^{\ast}X,p} \simeq \left(\frac{\mathfrak m_p}{\mathfrak m_p^2}\right)^{\ast}
+	\mathcal{T}_{V,p} \simeq \left(\frac{\overline{\mathfrak m}_p}{\overline{\mathfrak m}_p^2}\right)^{\ast} \hookrightarrow \mathcal{T}_{T^{\ast}X,p} \simeq \left(\frac{\mathfrak m_p}{\mathfrak m_p^2}\right)^{\ast}
 \]
 
 
 
 \begin{definition}
-A closed subvariety $V \subseteq T^{\ast}X$ is called \textbf{isotropic} (resp. \textbf{Lagrangian}, \textbf{coisotropic}) if for any smooth closed point $p \in V$, the subspace
-\[
-\mathcal{T}_{V,p} \subseteq \mathcal{T}_{T^{\ast}X, p}
-\]
-is isotropic (resp. Lagrangian, coisotropic) with respect to the symplectic form $\sigma_p$.
+	A closed subvariety $V \subseteq T^{\ast}X$ is called \textbf{isotropic} (resp. \textbf{Lagrangian}, \textbf{coisotropic}) if for any smooth closed point $p \in V$, the subspace
+	\[
+		\mathcal{T}_{V,p} \subseteq \mathcal{T}_{T^{\ast}X, p}
+	\]
+	is isotropic (resp. Lagrangian, coisotropic) with respect to the symplectic form $\sigma_p$.
 \end{definition}
 
 \begin{theorem}\label{thm:coisotropic-iff-involutive}
-Let $V\subseteq T^\ast X$ be a non-empty closed subvariety with ideal $I_V$.  The
-following are equivalent:
-\begin{enumerate}
-  \item $V$ is coisotropic.
-  \item $I_V$ is involutive, i.e.\ $\{I_V,I_V\}_\sigma\subseteq I_V$.
-\end{enumerate}
+	Let $V\subseteq T^\ast X$ be a non-empty closed subvariety with ideal $I_V$.  The
+	following are equivalent:
+	\begin{enumerate}
+		\item $V$ is coisotropic.
+		\item $I_V$ is involutive, i.e.\ $\{I_V,I_V\}_\sigma\subseteq I_V$.
+	\end{enumerate}
 \end{theorem}
 \begin{proof}
-Take a smooth closed point $p \in V$.
+	Take a smooth closed point $p \in V$.
 
-By Lemma~\ref{lem:second_fundamental_exact_sequence} that will be introduced later, after taking the fiber at $p$, we can extend $\hyperlink{triple_ast}{\textcolor{red}{(* * *)}}$
-to the following exact sequence:
-\[
-  I_p/I_p^2 \xrightarrow{\delta_p} \mathfrak m_p/\mathfrak m_p^2 \rightarrow \overline{\mathfrak m}_p/\overline{\mathfrak m}_p^2 \rightarrow 0
-\]
+	By Lemma~\ref{lem:second_fundamental_exact_sequence} that will be introduced later, after taking the fiber at $p$, we can extend $\hyperlink{triple_ast}{\textcolor{red}{(* * *)}}$
+	to the following exact sequence:
+	\[
+		I_p/I_p^2 \xrightarrow{\delta_p} \mathfrak m_p/\mathfrak m_p^2 \rightarrow \overline{\mathfrak m}_p/\overline{\mathfrak m}_p^2 \rightarrow 0
+	\]
 
-Taking dual we have the following exact sequence:
-\[
-  0 \rightarrow \mathcal{T}_{V,p} \rightarrow \mathcal{T}_{T^{\ast}X, p} \xrightarrow{\delta^{\ast}_p} (I_p/I_p^2)^{\ast}
-\]
+	Taking dual we have the following exact sequence:
+	\[
+		0 \rightarrow \mathcal{T}_{V,p} \rightarrow \mathcal{T}_{T^{\ast}X, p} \xrightarrow{\delta^{\ast}_p} (I_p/I_p^2)^{\ast}
+	\]
 
-So $\forall v_p \in \mathcal{T}_{T^{\ast}X, p}$, $v_p\in \mathcal{T}_{V,p}$ if and only if it has zero image in $(I_p/I_p^2)^{\ast}$. That is $\delta^{\ast}_p(v_p)(\overline{f}) = 0, \quad \forall f \in I_V.$\\
+	So $\forall v_p \in \mathcal{T}_{T^{\ast}X, p}$, $v_p\in \mathcal{T}_{V,p}$ if and only if it has zero image in $(I_p/I_p^2)^{\ast}$. That is
+	\[
+		\delta^{\ast}_p(v_p)(\overline{f}) = 0, \quad \forall f \in I_V.
+	\]
 
-So $v_p(\delta(\overline{f}))=v_p(\text{d}f_p)=\text{d}f_p(v_p)=\sigma(v_p, H_{f,p})=0, \quad \forall f \in I_V.$\\
+	So
+	\[
+		v_p(\delta(\overline{f}))=v_p(\text{d}f_p)=\text{d}f_p(v_p)=\sigma(v_p, H_{f,p})=0, \quad \forall f \in I_V.
+	\]
 
-That means $\mathcal{T}_{V,p}=\langle H_{f,p} \mid f \in I_V\rangle^\perp$. Since $((\mathcal{T}_{V,p})^\perp)^\perp = \mathcal{T}_{V,p}$. We have $(\mathcal{T}_{V,p})^\perp=\langle H_{f,p} \mid f \in I_V \rangle.$\\
+	That means $\mathcal{T}_{V,p}=\langle H_{f,p} \mid f \in I_V\rangle^\perp$. Since $((\mathcal{T}_{V,p})^\perp)^\perp = \mathcal{T}_{V,p}$, we have
+	\[
+		(\mathcal{T}_{V,p})^\perp=\langle H_{f,p} \mid f \in I_V \rangle.
+	\]
 
-% 中间的方框注释
-\noindent If $h \in S$, then $h_p$ denotes the value of $h$ at the point $p$, i.e. $h_p = \overline{h} \in \frac{R}{\mathfrak{m}_p} \simeq k$.
+	% 中间的方框注释
+	If $h \in S$, then $h_p$ denotes the value of $h$ at the point $p$, i.e. $h_p = \overline{h} \in \frac{R}{\mathfrak{m}_p} \simeq k$.
 
+	If $V$ is coisotropic, then $H_{f,p} \in \mathcal{T}_{V,p}$, which implies
+	\[
+		\{f, g\}_p = H_f(g)_p = \text{d}g(H_f)_p = 0,\quad \forall f, g\in I_V,
+	\]
+	for all $p$ that is a regular point of $V$.
 
-\vspace{1em}
+	Note that $\mathbb{C}$ is algebraically closed, by \cite[Chap.~4, Lem.~2.21. and Prop.~2.24.]{liu2002algebraic}, there exists a dense nonempty open set $U \subseteq V$ such that all $p \in U$ are regular points of $V$.
 
-\noindent $V$ coisotropic $\implies H_{f,p} \in \mathcal{T}_{V,p} \implies \{f, g\}_p = H_f(g)_p = \text{d}g(H_f)_p = 0,\, \forall f, g\in I_V,\, \forall p: \text{ a regular point of } V$.
+	Since $\{f, g\}|_U = 0$, by Homework 3, Prob 3, we have $\{f, g\}|_V = 0$.
 
-\vspace{1em}
+	We get $\forall p\in V, \{f, g\}_p = 0 \in \kappa(p) = \mathbb{C}$. Which means the germ of $\{f, g\}$ at $p$ belongs to $\mathfrak{m}_p \subseteq R$. Since $R$ is also reduced and finite type over $\mathbb{C}$, by Hilbert's Nullstellensatz, we have $\{f, g\} \in I_V$. So (1) $\Rightarrow$ (2).
 
-\noindent Note that $\mathbb{C}$ is algebraically closed, by \cite[Chap.~4, Lem.~2.21. and Prop.~2.24.]{liu2002algebraic} $ \exists \text{ dense nonempty open } U \subseteq V \quad \text{s.t.} \quad \forall p \in U \text{ is a regular point of } V.$
-
-\vspace{1em}
-
-\noindent $\{f, g\}|_U = 0 \xrightarrow{\text{HW~3, Prob.~3}} \{f, g\}|_V = 0$. \\
-
-We get $\forall p\in V, \{f, g\}_p = 0 \in \kappa(p) \text{ of } R = \mathbb{C} $. Which means the germ of $\{f, g\}$ at $p$ belongs to $\mathfrak{m}_p \subseteq R$. Since $R$ is also reduced and finite type over $\mathbb{C}$, by Hilbert's Nullstellensatz, we have $\{f, g\} \in I_V$. So (1) $\Rightarrow$ (2).
-
-\vspace{1em}
-\noindent (2) $\Rightarrow$ (1) is similar.
+	(2) $\Rightarrow$ (1) is similar.
 \end{proof}
 
 As an immediate corollary we obtain the standard statement for characteristic
 varieties.
 
 \begin{theorem}\label{thm:Bernstein-inequality}
-Let $\mathcal M$ be a non-zero finitely generated $\D_X$-module.  Then its
-characteristic variety $\Ch(\mathcal M)\subseteq T^\ast X$ is conic and
-coisotropic.  In particular $\dim \Ch(\mathcal M)\ge n$.
+	Let $\mathcal M$ be a non-zero finitely generated $\D_X$-module.  Then its
+	characteristic variety $\Ch(\mathcal M)\subseteq T^\ast X$ is conic and
+	coisotropic.  In particular $\dim \Ch(\mathcal M)\ge n$.
 \end{theorem}
 
 \section{Conic Lagrangian subvarieties of $T^\ast X$}
@@ -327,160 +444,160 @@ $V\subseteq Y$ be a closed subscheme with radical ideal $I=I_V\subseteq S$.
 Set $\overline S:=S/I$, so $V=\Spec \overline S$.
 
 \begin{lemma}\label{lem:second_fundamental_exact_sequence}
-There is an exact sequence of $\overline S$-modules
-\[
-  I/I^2 \xrightarrow{\;\delta\;} \Omega_S\otimes_S \overline S
-    \longrightarrow \Omega_{\overline S}\longrightarrow 0,\qquad
-  \delta(\overline b)=db\otimes 1.
-\]
+	There is an exact sequence of $\overline S$-modules
+	\[
+		I/I^2 \xrightarrow{\;\delta\;} \Omega_S\otimes_S \overline S
+		\longrightarrow \Omega_{\overline S}\longrightarrow 0,\qquad
+		\delta(\overline b)=db\otimes 1.
+	\]
 \end{lemma}
 \begin{proof}
-The Leibniz rule shows that $\delta$ is well-defined: $d(bb')=b\,db'+b'\,db$.
-By the universal property of Kähler differentials the cokernel of $\delta$ is
-$\Omega_{\overline S}$, yielding the claimed exact sequence.
+	The Leibniz rule shows that $\delta$ is well-defined: $d(bb')=b\,db'+b'\,db$.
+	By the universal property of Kähler differentials the cokernel of $\delta$ is
+	$\Omega_{\overline S}$, yielding the claimed exact sequence.
 \end{proof}
 
 \begin{remark}
-For universal properties of Kähler differentials, see \cite[\href{https://stacks.math.columbia.edu/tag/00RO}{Tag 00RO}]{stacks-project}.
-So that is to verify $\Hom_{\overline{S}}(\text{coker }\delta, M) = \Der_{\mathbb{C}}(\overline{S}, M),\, \forall M \text{ a } \overline{S}\text{-module}$.
+	For universal properties of Kähler differentials, see \cite[\href{https://stacks.math.columbia.edu/tag/00RO}{Tag 00RO}]{stacks-project}.
+	So that is to verify $\Hom_{\overline{S}}(\text{coker }\delta, M) = \Der_{\mathbb{C}}(\overline{S}, M),\, \forall M \text{ a } \overline{S}\text{-module}$.
 \end{remark}
 
 Hence $\Omega_{\overline S}$ is finitely generated over $\overline S$.
 
 \begin{definition}\label{def:smooth-locus}
-Let $V=\Spec \overline S$ be as above.
-\begin{enumerate}
-  \item The \textbf{smooth locus} of $V$ is
-        \[
-          V^{\mathrm{sm}}
-          :=\{p\in \Spec \overline S\mid
-                (\Omega_{\overline S})_p
-                \text{ is free over }\overline S_p\}.
-        \]
-        For an affine algebraic variety the smooth locus is a non-empty open
-        subset (homework).
-        \begin{proof}
-            when $V$ is an irreducible variety, see \cite[Corollary 8.16.]{hartshorne1977algebraic}, or an arbitrary variety \cite[Chap.~4, Lem.~2.21. and Prop.~2.24.]{liu2002algebraic}
-        \end{proof}
-  \item A closed subscheme $V\subseteq Y$ is a \textbf{smooth subscheme} if
-        $V=V^{\mathrm{sm}}$.
-\end{enumerate}
+	Let $V=\Spec \overline S$ be as above.
+	\begin{enumerate}
+		\item The \textbf{smooth locus} of $V$ is
+		      \[
+			      V^{\mathrm{sm}}
+			      :=\{p\in \Spec \overline S\mid
+			      (\Omega_{\overline S})_p
+			      \text{ is free over }\overline S_p\}.
+		      \]
+		      For an affine algebraic variety the smooth locus is a non-empty open
+		      subset (homework).
+		      \begin{proof}
+			      when $V$ is an irreducible variety, see \cite[Corollary 8.16.]{hartshorne1977algebraic}, or an arbitrary variety \cite[Chap.~4, Lem.~2.21. and Prop.~2.24.]{liu2002algebraic}
+		      \end{proof}
+		\item A closed subscheme $V\subseteq Y$ is a \textbf{smooth subscheme} if
+		      $V=V^{\mathrm{sm}}$.
+	\end{enumerate}
 \end{definition}
 
 \begin{remark}[\textcolor{red}{Warning}]\label{rmk:smooth-locus}
-The standard name of Definition~\ref{def:smooth-locus} is the \textbf{regular locus} \cite[Section~4.2.2, Definition~2.8.]{liu2002algebraic}, rather than smooth locus (\cite[\href{https://stacks.math.columbia.edu/tag/01V5}{Tag 01V5}]{stacks-project} or \cite[Section~4.3.3, Definition~3.28, Exercise~3.20.]{liu2002algebraic}).
+	The standard name of Definition~\ref{def:smooth-locus} is the \textbf{regular locus} \cite[Section~4.2.2, Definition~2.8.]{liu2002algebraic}, rather than smooth locus (\cite[\href{https://stacks.math.columbia.edu/tag/01V5}{Tag 01V5}]{stacks-project} or \cite[Section~4.3.3, Definition~3.28, Exercise~3.20.]{liu2002algebraic}).
 
-One should refer to the warning in the begging of \cite[\href{https://stacks.math.columbia.edu/tag/00TQ}{Tag 00TQ}]{stacks-project}, and since $\mathbb{C}$ is of \textbf{characteristic $0$}, and it is \textbf{perfect}, so by \cite[\href{https://stacks.math.columbia.edu/tag/00TX}{Tag 00TX}]{stacks-project}, the definition in this lecture note satisfies the standard definition of smooth points.
+	One should refer to the warning in the begging of \cite[\href{https://stacks.math.columbia.edu/tag/00TQ}{Tag 00TQ}]{stacks-project}, and since $\mathbb{C}$ is of \textbf{characteristic $0$}, and it is \textbf{perfect}, so by \cite[\href{https://stacks.math.columbia.edu/tag/00TX}{Tag 00TX}]{stacks-project}, the definition in this lecture note satisfies the standard definition of smooth points.
 
 \end{remark}
 
 \begin{proposition}
-Let $V\subseteq Y$ be an irreducible subvariety.  $V\subseteq Y$ is a smooth subvariety if and only if
-\begin{enumerate}
-  \item $\Omega_{\overline S}$ is locally free.
-  \item the sequence of Lemma~\ref{lem:second_fundamental_exact_sequence}
-restricts to a short exact sequence
-\[
-  0\longrightarrow I/I^2
-    \longrightarrow \Omega_Y\otimes_S \overline S
-    \longrightarrow \Omega_{\overline S}
-    \longrightarrow 0,
-\]
-\end{enumerate}
-In this case $I/I^2$ is locally free of rank $\operatorname{codim}_Y V$.
+	Let $V\subseteq Y$ be an irreducible subvariety.  $V\subseteq Y$ is a smooth subvariety if and only if
+	\begin{enumerate}
+		\item $\Omega_{\overline S}$ is locally free.
+		\item the sequence of Lemma~\ref{lem:second_fundamental_exact_sequence}
+		      restricts to a short exact sequence
+		      \[
+			      0\longrightarrow I/I^2
+			      \longrightarrow \Omega_Y\otimes_S \overline S
+			      \longrightarrow \Omega_{\overline S}
+			      \longrightarrow 0,
+		      \]
+	\end{enumerate}
+	In this case $I/I^2$ is locally free of rank $\operatorname{codim}_Y V$.
 \end{proposition}
 
 \begin{proof}
-(For a Stacks-Project like proof, see \cite[Thm.~4.18.]{Mihatsch2024EllipticCurvesModuli}.)
+	(For a Stacks-Project like proof, see \cite[Thm.~4.18.]{Mihatsch2024EllipticCurvesModuli}.)
 
-Only need to prove the exactness of the sequence on the left. One can see \cite[Chap.~2, Thm.~8.17.]{hartshorne1977algebraic} for a proof or see below.\\
+	Only need to prove the exactness of the sequence on the left. One can see \cite[Chap.~2, Thm.~8.17.]{hartshorne1977algebraic} for a proof or see below.\\
 
-    Since the problem is local, we work with the local rings (stalks) at a fixed point $p \in V$.
-Let $A = \mathcal{O}_{Y,p}$ and $B = \mathcal{O}_{V,p} = A/I$, where $I = I_p$ is the ideal defining $V$ at $p$.\\
+	Since the problem is local, we work with the local rings (stalks) at a fixed point $p \in V$.
+	Let $A = \mathcal{O}_{Y,p}$ and $B = \mathcal{O}_{V,p} = A/I$, where $I = I_p$ is the ideal defining $V$ at $p$.\\
 
-    Since $V$ is smooth, $N := \Omega_{V/k, p}$ is a free $B$-module, we denote $d:= \dim V$.\\
+	Since $V$ is smooth, $N := \Omega_{V/k, p}$ is a free $B$-module, we denote $d:= \dim V$.\\
 
-By \cite[\href{https://stacks.math.columbia.edu/tag/0FWG}{Tag 0FWG}]{stacks-project}, rank function is locally constant. Take the generic point of $V$, we have 
-\[
-\dim_{K(V)} \Omega_{K(V)/k} = \text{tr.d.}\, K(V)/k = \dim V 
-\]
-by \cite[Chap.~2.~Thm.~8.6A. and Chap.~1.~1.8A.]{hartshorne1977algebraic}, since $\mathbb{C}$ is of characteristic 0.\\
-    
-    By \cite[Chap.~2.~Thm.~8.8.]{hartshorne1977algebraic}, $B$ is a regular local ring. We also have $M := \Omega_{Y/k, p}$ is a free $A$-module of rank $n = \dim Y$ with $A$ a regular local ring.\\
+	By \cite[\href{https://stacks.math.columbia.edu/tag/0FWG}{Tag 0FWG}]{stacks-project}, rank function is locally constant. Take the generic point of $V$, we have
+	\[
+		\dim_{K(V)} \Omega_{K(V)/k} = \text{tr.d.}\, K(V)/k = \dim V
+	\]
+	by \cite[Chap.~2.~Thm.~8.6A. and Chap.~1.~1.8A.]{hartshorne1977algebraic}, since $\mathbb{C}$ is of characteristic 0.\\
 
-    \textbf{Step 1: Rank Calculation in the Residue/Fraction Field.}
-    Use Lemma~\ref{lem:second_fundamental_exact_sequence}, taking stalks, we get an exact sequence of $B$-modules (Conormal Sequence for $A \to B$):
-    \[
-        I/I^2 \xrightarrow{\sigma} M \otimes_A B \xrightarrow{\varphi} N \longrightarrow 0.
-    \]
-    Since $N$ is free, the sequence splits (non-canonically), so the kernel $K = \ker \varphi$ is a direct summand of the free module $M \otimes_A B$. Thus, $K$ is a projective $B$-module. Over a local ring, projective modules are free.
-    The rank of $K$ is:
-    \[
-        r := \operatorname{rk}(K) = \operatorname{rk}(M \otimes B) - \operatorname{rk}(N) = n - d = \operatorname{codim}_Y V.
-    \]
+	By \cite[Chap.~2.~Thm.~8.8.]{hartshorne1977algebraic}, $B$ is a regular local ring. We also have $M := \Omega_{Y/k, p}$ is a free $A$-module of rank $n = \dim Y$ with $A$ a regular local ring.\\
 
-    \textbf{Step 2: Lifting Generators.}
-    Since $K$ is a free $B$-module of rank $r$, let $\eta_1, \dots, \eta_r$ be a basis of $K$.
-    The map $\sigma: I/I^2 \to K$ is surjective. We choose elements $\overline{x}_1, \dots, \overline{x}_r \in I/I^2$ such that $\sigma(\overline{x}_i) = \text{d}x_i = \eta_i$.
-    Lift these elements to $x_1, \dots, x_r \in I \subset A$.
+	\textbf{Step 1: Rank Calculation in the Residue/Fraction Field.}
+	Use Lemma~\ref{lem:second_fundamental_exact_sequence}, taking stalks, we get an exact sequence of $B$-modules (Conormal Sequence for $A \to B$):
+	\[
+		I/I^2 \xrightarrow{\sigma} M \otimes_A B \xrightarrow{\varphi} N \longrightarrow 0.
+	\]
+	Since $N$ is free, the sequence splits (non-canonically), so the kernel $K = \ker \varphi$ is a direct summand of the free module $M \otimes_A B$. Thus, $K$ is a projective $B$-module. Over a local ring, projective modules are free.
+	The rank of $K$ is:
+	\[
+		r := \operatorname{rk}(K) = \operatorname{rk}(M \otimes B) - \operatorname{rk}(N) = n - d = \operatorname{codim}_Y V.
+	\]
 
-    \textbf{Step 3: Constructing the Intermediate Local Ring.}
-    Let $J = (x_1, \dots, x_r) \subseteq A$ be the ideal generated by these lifts inside $A$. Note that $J \subseteq I$.
-    Let $B' = A/J$. This corresponds to the local ring of a subscheme $V'$ at $p$ such that locally at $p$ we have $V \subseteq V' \subseteq Y$ (By \cite[\href{https://stacks.math.columbia.edu/tag/05LI}{Tag 05LI (4)}]{stacks-project}, choose a principal open containing $p$ s.t. both $\Omega_{Y/k}$ and $\Omega_{V/k}$ are free, so $B'$ will be a localization of a finitely generated $k$-algebra).
-    
-    Consider the conormal sequence for $A \to B'$:
-    \[
-        J/J^2 \xrightarrow{\sigma'} M \otimes_A B' \xrightarrow{\varphi'} \Omega_{B'/k} \longrightarrow 0.
-    \]
+	\textbf{Step 2: Lifting Generators.}
+	Since $K$ is a free $B$-module of rank $r$, let $\eta_1, \dots, \eta_r$ be a basis of $K$.
+	The map $\sigma: I/I^2 \to K$ is surjective. We choose elements $\overline{x}_1, \dots, \overline{x}_r \in I/I^2$ such that $\sigma(\overline{x}_i) = \text{d}x_i = \eta_i$.
+	Lift these elements to $x_1, \dots, x_r \in I \subset A$.
 
-    After restricting this exact sequence to $V$ (i.e., tensoring with $B$), get a new exact sequence:
-    \[
-        J/J^2 \otimes_{B'} B \xrightarrow{\sigma' \otimes \text{id}} M \otimes_A B \xrightarrow{\varphi' \otimes \text{id}} \Omega_{B/k} \longrightarrow 0.
-    \]
-Note that $M \otimes_A B \xrightarrow{\varphi' \otimes \text{id}} \Omega_{B/k} \longrightarrow 0$ is a composite $M \otimes_A B \longrightarrow \Omega_{B'/k} \otimes B \longrightarrow \Omega_{B/k}\longrightarrow 0$.
+	\textbf{Step 3: Constructing the Intermediate Local Ring.}
+	Let $J = (x_1, \dots, x_r) \subseteq A$ be the ideal generated by these lifts inside $A$. Note that $J \subseteq I$.
+	Let $B' = A/J$. This corresponds to the local ring of a subscheme $V'$ at $p$ such that locally at $p$ we have $V \subseteq V' \subseteq Y$ (By \cite[\href{https://stacks.math.columbia.edu/tag/05LI}{Tag 05LI (4)}]{stacks-project}, choose a principal open containing $p$ s.t. both $\Omega_{Y/k}$ and $\Omega_{V/k}$ are free, so $B'$ will be a localization of a finitely generated $k$-algebra).
 
-One should also note that $\sigma' \otimes \text{id}$ have the same image as $\sigma$ since both map $x_i$ to $\eta_i$. Let $K' = \ker \varphi'$. So we have $K' \otimes_{B'} B \cong K$. So $\text{rk}_{B'}\, K' = \text{rk}_{B}\, K = n-d$.
+	Consider the conormal sequence for $A \to B'$:
+	\[
+		J/J^2 \xrightarrow{\sigma'} M \otimes_A B' \xrightarrow{\varphi'} \Omega_{B'/k} \longrightarrow 0.
+	\]
 
-    \textbf{Step 4: Isomorphism via Basis Argument. With linear algebra on a local ring.}
-    We examine the map $\sigma': J/J^2 \twoheadrightarrow K'$.
-    \begin{itemize}
-        \item The module $J/J^2$ is generated by the classes of $x_1, \dots, x_r$.
-        \item The map $\sigma'$ sends the classes of $x_1, \dots, x_r$ to a basis of $K'$ (since they map to a basis of $K$ after tensoring with $B$).
-    \end{itemize}
-    They imply that $\sigma'$ is an isomorphism.\\
+	After restricting this exact sequence to $V$ (i.e., tensoring with $B$), get a new exact sequence:
+	\[
+		J/J^2 \otimes_{B'} B \xrightarrow{\sigma' \otimes \text{id}} M \otimes_A B \xrightarrow{\varphi' \otimes \text{id}} \Omega_{B/k} \longrightarrow 0.
+	\]
+	Note that $M \otimes_A B \xrightarrow{\varphi' \otimes \text{id}} \Omega_{B/k} \longrightarrow 0$ is a composite $M \otimes_A B \longrightarrow \Omega_{B'/k} \otimes B \longrightarrow \Omega_{B/k}\longrightarrow 0$.
 
-    We now prove that $\Omega_{B'/k}$ is a free $B'$-module. 
-    
-    Since $\text{d}x_1, \dots, \text{d}x_r$ form a basis of $K'$, after tensoring with residue field, they are still linearly independent.
-    So on $M \otimes_A B' \otimes_{B'} \kappa(p)$, $\{\text{d}x_1, \dots, \text{d}x_r\}$ can be extended to a basis.
+	One should also note that $\sigma' \otimes \text{id}$ have the same image as $\sigma$ since both map $x_i$ to $\eta_i$. Let $K' = \ker \varphi'$. So we have $K' \otimes_{B'} B \cong K$. So $\text{rk}_{B'}\, K' = \text{rk}_{B}\, K = n-d$.
 
-    Thus by Nakayama's lemma, this basis can be lifted to a generating set of $M \otimes_A B'$.
-    Which is a basis by the same argument in the beginning of Step 4.
+	\textbf{Step 4: Isomorphism via Basis Argument. With linear algebra on a local ring.}
+	We examine the map $\sigma': J/J^2 \twoheadrightarrow K'$.
+	\begin{itemize}
+		\item The module $J/J^2$ is generated by the classes of $x_1, \dots, x_r$.
+		\item The map $\sigma'$ sends the classes of $x_1, \dots, x_r$ to a basis of $K'$ (since they map to a basis of $K$ after tensoring with $B$).
+	\end{itemize}
+	They imply that $\sigma'$ is an isomorphism.\\
 
-    This implies $K'$ is a direct summand of the free module $M \otimes_A B'$. So $\Omega_{B'/k}$ is projective, hence free \cite[\href{https://stacks.math.columbia.edu/tag/00NX}{Tag 00NX}]{stacks-project}, and it has rank $n - r = d$.\\
+	We now prove that $\Omega_{B'/k}$ is a free $B'$-module.
 
-    This, by \cite[Chap.~2.~Thm.~8.8.]{hartshorne1977algebraic}, implies that $B'$ is a regular local ring of dimension $d$.
+	Since $\text{d}x_1, \dots, \text{d}x_r$ form a basis of $K'$, after tensoring with residue field, they are still linearly independent.
+	So on $M \otimes_A B' \otimes_{B'} \kappa(p)$, $\{\text{d}x_1, \dots, \text{d}x_r\}$ can be extended to a basis.
 
-    \textbf{Step 5: Coincidence of $V$ and $V'$.}
-    We have a surjective local homomorphism $\pi: B' \twoheadrightarrow B$ (since $J \subseteq I$).
-    \begin{itemize}
-        \item $B'$ is a regular local ring (hence an integral domain by \cite[\href{https://stacks.math.columbia.edu/tag/00NP}{Tag 00NP}]{stacks-project}) of dimension $d$.
-        \item $B$ is a regular local ring of dimension $d$ (since $V$ is $d$-dimensional).
-    \end{itemize}
-    A surjective homomorphism between two regular local ring of the same dimension must be an isomorphism, because the kernel is also a prime ideal.
-    Therefore, $\pi$ is an isomorphism, which implies $J = I$.
+	Thus by Nakayama's lemma, this basis can be lifted to a generating set of $M \otimes_A B'$.
+	Which is a basis by the same argument in the beginning of Step 4.
+
+	This implies $K'$ is a direct summand of the free module $M \otimes_A B'$. So $\Omega_{B'/k}$ is projective, hence free \cite[\href{https://stacks.math.columbia.edu/tag/00NX}{Tag 00NX}]{stacks-project}, and it has rank $n - r = d$.\\
+
+	This, by \cite[Chap.~2.~Thm.~8.8.]{hartshorne1977algebraic}, implies that $B'$ is a regular local ring of dimension $d$.
+
+	\textbf{Step 5: Coincidence of $V$ and $V'$.}
+	We have a surjective local homomorphism $\pi: B' \twoheadrightarrow B$ (since $J \subseteq I$).
+	\begin{itemize}
+		\item $B'$ is a regular local ring (hence an integral domain by \cite[\href{https://stacks.math.columbia.edu/tag/00NP}{Tag 00NP}]{stacks-project}) of dimension $d$.
+		\item $B$ is a regular local ring of dimension $d$ (since $V$ is $d$-dimensional).
+	\end{itemize}
+	A surjective homomorphism between two regular local ring of the same dimension must be an isomorphism, because the kernel is also a prime ideal.
+	Therefore, $\pi$ is an isomorphism, which implies $J = I$.
 \end{proof}
 
 Now, we assume $Z \subset X\,\text{is a smooth irreducible subvar.}$, $I \subseteq R, \text{ the ideal of } Z$, then $I/I^2$ is a locally free $\overline{R} = R/I$-mod. And we have a s.e.s. (short exact sequence) of $\overline{R}$ modules:
 \[
-    0 \to \Tv_Z \to \underset{:= \Tv_X \otimes_R \overline{R}}{\Tv_X|_Z} \to (I/I^2)^{\ast} \to 0
+	0 \to \Tv_Z \to \underset{:= \Tv_X \otimes_R \overline{R}}{\Tv_X|_Z} \to (I/I^2)^{\ast} \to 0
 \]
 
 \noindent For $v \in \Tv_{X,z}$, we say $v$ is tangent to $Z$ at $z \in Z$, $\text{if } v \in \Tv_{Z,z}$ ($\iff v|_{(I/I^2)_z} = 0$, by the proof of Theorem~\ref{thm:coisotropic-iff-involutive}).
 
 We define
 \[
-T^{\ast}_Z X = \Spec \Sym^\bullet (I/I^2)^{\ast} \hookrightarrow \underset{\substack{\mid \mid \\ \Spec \overline{R}[\xi_1, \dots, \xi_n]}}{\Spec \Sym^\bullet \Tv_X|_U} \hookrightarrow \underset{\substack{\mid \mid \\ T^{\ast}X}}{\Spec \Sym^\bullet \Tv_X}
+	T^{\ast}_Z X = \Spec \Sym^\bullet (I/I^2)^{\ast} \hookrightarrow \underset{\substack{\mid \mid \\ \Spec \overline{R}[\xi_1, \dots, \xi_n]}}{\Spec \Sym^\bullet \Tv_X|_U} \hookrightarrow \underset{\substack{\mid \mid \\ T^{\ast}X}}{\Spec \Sym^\bullet \Tv_X}
 \]
 called the \textbf{conormal bundle} of $Z \subset X$.
 
@@ -492,135 +609,153 @@ $(\xi_1,\dots,\xi_r,x_{r+1},\dots,x_n)$.
 
 If $Z\subseteq X$ is irreducible, we define its conormal variety by
 \[
-  \Lambda_Z := \overline{T^\ast_{Z^{\mathrm{sm}}} U'} \subseteq T^\ast X,
+	\Lambda_Z := \overline{T^\ast_{Z^{\mathrm{sm}}} U'} \subseteq T^\ast X,
 \]
 Where $U'\subseteq X$ is an open with $Z\cap U'=Z^{\mathrm{sm}}$.
 
+\begin{remark}
+	Note from here $U'$ won't necessarily be affine anymore \cite[\href{https://stacks.math.columbia.edu/tag/01LL}{Tag 01LL}]{stacks-project}.
+\end{remark}
+
 \begin{theorem}\label{thm:conic-lagrangian}
-Let $\Lambda\subseteq T^\ast X$ be an irreducible conic Lagrangian subvariety.
-Then $\Lambda=T^\ast_Z X$ for some irreducible subvariety $Z\subseteq X$.
+	Let $\Lambda\subseteq T^\ast X$ be an irreducible conic Lagrangian subvariety.
+	Then $\Lambda=T^\ast_Z X$ for some irreducible subvariety $Z\subseteq X$.
 \end{theorem}
 
 To analyze conic subvarieties we use the \textbf{Euler vector field}.  Recall that the
 canonical one-form is $\alpha_X=\sum_i \xi_i\,\text{d}x_i$.  Its Hamiltonian
 \[
-  H(\alpha_X)=\sum_i \alpha_i\partial_{x_i}+\beta_i\partial_{\xi_i}
+	H(\alpha_X)=\sum_i \alpha_i\partial_{x_i}+\beta_i\partial_{\xi_i}
 \]
-is determined by $\sigma_X(\partial_{x_i},H(\alpha_X))=\alpha_X(\partial_{x_i})
-=\xi_i$ and $\sigma_X(\partial_{\xi_i},H(\alpha_X))=\alpha_X(\partial_{\xi_i})
-=0$.  Hence $H(\alpha_X)=-\sum_i \xi_i\,\partial_{\xi_i}$, the negative of the
+is determined by
+\[
+	\sigma_X(\partial_{x_i},H(\alpha_X))=\alpha_X(\partial_{x_i})
+	=\xi_i
+\]
+and
+\[
+	\sigma_X(\partial_{\xi_i},H(\alpha_X))=\alpha_X(\partial_{\xi_i})
+	=0.
+\]
+Hence $H(\alpha_X)=-\sum_i \xi_i\,\partial_{\xi_i}$, the negative of the
 Euler vector field.
 
 % \begin{lemma}[Lemma~9.4]\label{lem:tangent_vector}
 \begin{lemma}\label{lem:tangent_vector}
-If $V\subseteq T^\ast X$ is conic with ideal $I_V$, then $H(\alpha_X)$ is
-tangent to $V$, i.e.\ $H(\alpha_X)(I_V)\subseteq I_V$. Where $I_V$ is the defining ideal of $V$.
+	If $V\subseteq T^\ast X$ is conic with ideal $I_V$, then $H(\alpha_X)$ is
+	tangent to $V$, i.e.\ $H(\alpha_X)(I_V)\subseteq I_V$. Where $I_V$ is the defining ideal of $V$.
 \end{lemma}
 \begin{proof}
-Because $I_V$ is homogeneous we may assume its homogeneous generators are of the form
-$f_\alpha\,\xi^\alpha$ with $f_\alpha\in R$.  The Euler vector field acts by
-$H(\alpha_X)(f_\alpha\,\xi^\alpha)=-|\alpha|\,f_\alpha\,\xi^\alpha$, which lies
-again in $I_V$.
+	Because $I_V$ is homogeneous we may assume its homogeneous generators are of the form
+	$f_\alpha\,\xi^\alpha$ with $f_\alpha\in R$.  The Euler vector field acts by
+	$H(\alpha_X)(f_\alpha\,\xi^\alpha)=-|\alpha|\,f_\alpha\,\xi^\alpha$, which lies
+	again in $I_V$.
 \end{proof}
 
 \begin{remark}(\textcolor{red}{Warning})
-  From here to the end of this chapter, we again abuse notations, see Remark~\ref{rmk:abuse-fiber-stalk}.
+	From here to the end of this chapter, we again abuse notations, see Remark~\ref{rmk:abuse-fiber-stalk}.
 \end{remark}
 
 \begin{lemma}\label{lem:9.5}
-Let $V\subseteq T^\ast X$ be a smooth conic subvariety.  Then $V$ is isotropic
-if and only if $\alpha_X|_V\equiv 0$.
+	Let $V\subseteq T^\ast X$ be a smooth conic subvariety.  Then $V$ is isotropic
+	if and only if $\alpha_X|_V\equiv 0$.
 \end{lemma}
 \begin{proof}
-$\alpha_X|_V\equiv 0$ which means for all smooth closed point $p\in V$, image of $\alpha_{X,p}$ is zero linear function on fiber of subspace $\mathcal{T}_{V,p}\subseteq \mathcal{T}_{T^{\ast}X,p}$.
+	$\alpha_X|_V\equiv 0$ which means for all smooth closed point $p\in V$, image of $\alpha_{X,p}$ is zero linear function on fiber of subspace $\mathcal{T}_{V,p}\subseteq \mathcal{T}_{T^{\ast}X,p}$.
 
-\noindent ``$\Leftarrow$'': 
-\[
-    \alpha_X|_V \equiv 0 \implies \sigma_X|_V = \text{d}\alpha_X|_V \equiv 0 \implies V \text{ is isotropic.}
-\]
+	\noindent ``$\Leftarrow$'':
+	\[
+		\alpha_X|_V \equiv 0 \implies \sigma_X|_V = \text{d}\alpha_X|_V \equiv 0 \implies V \text{ is isotropic.}
+	\]
 
-One should use the coordinate free definition of exterior derivative here:
-\[  
-    \text{d}\alpha_X (v,w) = v(\alpha_X(w)) - w(\alpha_X(v)) - \alpha_X([v,w]), \quad \forall v,w \in \Tv_{T^{\ast}X,p}.
-\]
+	One should use the coordinate free definition of exterior derivative here:
+	\[
+		\text{d}\alpha_X (v,w) = v(\alpha_X(w)) - w(\alpha_X(v)) - \alpha_X([v,w]), \quad \forall v,w \in \Tv_{T^{\ast}X,p}.
+	\]
 
-\noindent ``$\Rightarrow$'': 
+	\noindent ``$\Rightarrow$'':
 
-Take $v \in \Tv_V$. By Lemma~\ref{lem:tangent_vector}, $H(\alpha_X)|_V$ is tangent to $V$. By Homework~3, Prob.~4, we have $H(\alpha_X)_p \in \Tv_{V,p}$.\\
+	Take $v \in \Tv_V$. By Lemma~\ref{lem:tangent_vector}, $H(\alpha_X)|_V$ is tangent to $V$. By Homework~3, Prob.~4, we have $H(\alpha_X)_p \in \Tv_{V,p}$.\\
 
-$V \text{ isotropic} \implies \Tv_{V,p} \subseteq \Tv_{V,p}^\perp$. So $\langle \alpha_X, v \rangle = \sigma_X ( v, H(\alpha_X) ) = 0$, So $\alpha_X|_V \equiv 0$.
+	$V \text{ isotropic} \implies \Tv_{V,p} \subseteq \Tv_{V,p}^\perp$. So $\langle \alpha_X, v \rangle = \sigma_X ( v, H(\alpha_X) ) = 0$, So $\alpha_X|_V \equiv 0$.
 \end{proof}
 
 \begin{corollary}
-Let $Z\subseteq X$ be irreducible.  Then $T^\ast_Z X\subseteq T^\ast X$ is a
-conic Lagrangian subvariety.
+	Let $Z\subseteq X$ be irreducible.  Then $T^\ast_Z X\subseteq T^\ast X$ is a
+	conic Lagrangian subvariety.
 \end{corollary}
 \begin{proof}
-Taking local coordinates $(x_1, \dots, x_n, \xi_1, \dots, \xi_n)$
-s.t.\ $T^{\ast}_{Z^{\sm}} X$ has coordinates $(\xi_1, \dots, \xi_r, x_{r+1}, \dots, x_n)$.\\
+	Taking local coordinates $(x_1, \dots, x_n, \xi_1, \dots, \xi_n)$
+	s.t.\ $T^{\ast}_{Z^{\sm}} X$ has coordinates $(\xi_1, \dots, \xi_r, x_{r+1}, \dots, x_n)$.\\
 
-We decompose the restriction of the canonical 1-form $\alpha_X = \sum_{k=1}^n \xi_k \text{d}x_k$ into two parts, corresponding to the normal and tangential directions respectively:
-\[
-    \alpha_X|_{T^{\ast}_{Z^{\mathrm{sm}}}X} = \sum_{i=1}^r \xi_i \text{d}x_i + \sum_{j=r+1}^n \xi_j \text{d}x_j.
-\]
-Since $\Tv_{T^{\ast}_{Z^{\sm}} X} = \langle \text{d}\xi_1, \dots, \text{d}\xi_r, \text{d}x_{r+1}, \dots, \text{d}x_n \rangle$ we don't have $\text{d}x_i$ in the tangent space for $1 \le i \le r$. Thus,
-\[
-    \sum_{i=1}^r \xi_i \underbrace{\text{d}x_i}_{0}|_{\Tv_{T^{\ast}_{Z^{\sm}} X}} = 0.
-\]
-And since $\forall p \in T^{\ast}_{Z^{\sm}} X$ we have $\xi_{j,p} = 0 \quad \forall j = r+1, \dots, n$ by the definition of conormal bundle, we have
-\[
-    \sum_{j=r+1}^n \underbrace{\xi_j}_{0} \text{d}x_j = 0.
-\]
-Adding these together, we conclude that $\alpha_X|_{T^{\ast}_{Z^{\mathrm{sm}}}X} \equiv 0$.
-By Lemma~\ref{lem:9.5}, $T^{\ast}_{Z^{\sm}} X \text{ is isotropic}$. And since $\dim T^{\ast}_{Z^{\sm}} X = n$, we have $T^{\ast}_{Z^{\sm}} X \text{ Lagrangian}$.\\
+	We decompose the restriction of the canonical 1-form $\alpha_X = \sum_{k=1}^n \xi_k \text{d}x_k$ into two parts, corresponding to the normal and tangential directions respectively:
+	\[
+		\alpha_X|_{T^{\ast}_{Z^{\mathrm{sm}}}X} = \sum_{i=1}^r \xi_i \text{d}x_i + \sum_{j=r+1}^n \xi_j \text{d}x_j.
+	\]
+	Since $\Tv_{T^{\ast}_{Z^{\sm}} X} = \langle \text{d}\xi_1, \dots, \text{d}\xi_r, \text{d}x_{r+1}, \dots, \text{d}x_n \rangle$ we don't have $\text{d}x_i$ in the tangent space for $1 \le i \le r$. Thus,
+	\[
+		\sum_{i=1}^r \xi_i \underbrace{\text{d}x_i}_{0}|_{\Tv_{T^{\ast}_{Z^{\sm}} X}} = 0.
+	\]
+	And since $\forall p \in T^{\ast}_{Z^{\sm}} X$ we have $\xi_{j,p} = 0 \quad \forall j = r+1, \dots, n$ by the definition of conormal bundle, we have
+	\[
+		\sum_{j=r+1}^n \underbrace{\xi_j}_{0} \text{d}x_j = 0.
+	\]
+	Adding these together, we conclude that $\alpha_X|_{T^{\ast}_{Z^{\mathrm{sm}}}X} \equiv 0$.
+	By Lemma~\ref{lem:9.5}, $T^{\ast}_{Z^{\sm}} X \text{ is isotropic}$. And since $\dim T^{\ast}_{Z^{\sm}} X = n$, we have $T^{\ast}_{Z^{\sm}} X \text{ Lagrangian}$.\\
 
-$T^{\ast}_{Z^{\sm}} X$ conic in $T^{\ast}U'$ ($U'$ open in $X$ s.t. $Z^{\sm} = Z \cap U'$) $\implies \overline{T^{\ast}_{Z^{\sm}} X}$ conic in $T^{\ast}X$.
+	$T^{\ast}_{Z^{\sm}} X$ conic in $T^{\ast}U'$ ($U'$ open in $X$ s.t. $Z^{\sm} = Z \cap U'$) $\implies \overline{T^{\ast}_{Z^{\sm}} X}$ conic in $T^{\ast}X$.
 \end{proof}
 
 \begin{remark}
-  We assumed $U'$ is affine in the proof above. But in general $U'$ may not be affine, so the proof above is not complete.
-  It is ok for proving the Lagrangian property since we have taken local coordinates.
+	We assumed $U'$ is affine in the proof above. But in general $U'$ may not be affine, so the proof above is not complete.
+	It is ok for proving the Lagrangian property since we have taken local coordinates.
 
-  But for conic property, where the essential problem arise, we should use the definition of conic subvariety on general varieties, see \cite[Chapter 2.2]{hotta2008d}, which is essentially the as mentioned in Remark~\ref{rmk:equivalent-definition-for-conic}.
+	But for conic property, where the essential problem arise, we should use the definition of conic subvariety on general varieties, see \cite[Chapter 2.2]{hotta2008d}, which is essentially the as mentioned in Remark~\ref{rmk:equivalent-definition-for-conic}.
 \end{remark}
 
 \begin{proof}[Proof of Theorem~\ref{thm:conic-lagrangian}]
-We assume $X = \Spec R$ is an affine smooth variety. Let $\pi\colon T^\ast X\to X$ denote the projection corresponding to $R \to \Sym^0 \Tv_X \subseteq \Sym^\bullet \Tv_X$. and set $Z:=\pi(\Lambda)$.
-Because $\Lambda$ is closed and irreducible, its image is closed and irreducible;\\
+	We assume $X = \Spec R$ is an affine smooth variety. Let $\pi\colon T^\ast X\to X$ denote the projection corresponding to $R \to \Sym^0 \Tv_X \subseteq \Sym^\bullet \Tv_X$. and set $Z:=\pi(\Lambda)$.
+	Because $\Lambda$ is closed and irreducible, its image is closed and irreducible;
 
-write
-$\dim Z=n-r$.  The smooth locus $Z^{\mathrm{sm}}$ lifts to the open subset
-$\Lambda_0:=\pi^{-1}(Z^{\mathrm{sm}})\cap \Lambda\subseteq \Lambda$.  Choosing local
-coordinates $(x_1,\dots,x_n,\xi_1,\dots,\xi_n)$ around a closed point $z\in Z^{\mathrm{sm}}$ such that
-$Z^{\mathrm{sm}}=(x_1=\cdots=x_r=0)$ and
-$T^\ast_{Z^{\mathrm{sm}}} X=(x_1=\cdots=x_r=\xi_{r+1}=\cdots=\xi_n=0)$.
+	write
+	$\dim Z=n-r$.  The smooth locus $Z^{\mathrm{sm}}$ lifts to the open subset
+	$\Lambda_0:=\pi^{-1}(Z^{\mathrm{sm}})\cap \Lambda\subseteq \Lambda$.  Choosing local
+	coordinates $(x_1,\dots,x_n,\xi_1,\dots,\xi_n)$ around a closed point $z\in Z^{\mathrm{sm}}$ such that
+	\[
+		Z^{\mathrm{sm}}=(x_1=\cdots=x_r=0)
+	\]
+	and
+	\[
+		T^\ast_{Z^{\mathrm{sm}}} X=(x_1=\cdots=x_r=\xi_{r+1}=\cdots=\xi_n=0).
+	\]
 
-Since $Z^{\mathrm{sm}}=(x_1=\cdots=x_r=0)$ we have
-\[
-    \alpha_X|_{\pi^{-1}(Z^{\mathrm{sm}})} = \xi_{r+1} \text{d}x_{r+1} + \dots + \xi_n \text{d}x_n
-\]
+	Since $Z^{\mathrm{sm}}=(x_1=\cdots=x_r=0)$ we have
+	\[
+		\alpha_X|_{\pi^{-1}(Z^{\mathrm{sm}})} = \xi_{r+1} \text{d}x_{r+1} + \dots + \xi_n \text{d}x_n
+	\]
 
-Lemma~\ref{lem:9.5} in fact can be applied on conic varieties that is not necessarily smooth. Since $\Lambda$ is conic irreducible in $T^{\ast}X$, $\Lambda_0$ is also conic irreducible in $\pi^{-1}(Z^{\mathrm{sm}})$.\\
+	Lemma~\ref{lem:9.5} in fact can be applied on conic varieties that is not necessarily smooth. Since $\Lambda$ is conic irreducible in $T^{\ast}X$, $\Lambda_0$ is also conic irreducible in $\pi^{-1}(Z^{\mathrm{sm}})$.
 
-So for every smooth closed point of $\Lambda_0$, we have $\alpha_X|_{\Lambda_0} \equiv 0$. Which compel that $\forall p \in \Lambda_0^{\mathrm{sm}}$, $\xi_{i,p} = 0 \quad \forall i = r+1, \dots, n$.
-\[
-  \forall p \in \Lambda_0^{\mathrm{sm}}, x_{1,p} = \dots = x_{r,p} = \xi_{r+1,p} = \dots = \xi_n = 0 \implies \Lambda_0^{\mathrm{sm}} \subseteq T^{\ast}_{Z^{\sm}} X
-\]
-In fact $T^{\ast}_Z X$ is  also irreducible.
-Since $\Lambda_0^{\mathrm{sm}}$ is dense in $\Lambda_0$ and $\dim \Lambda_0 = n$, we get $\Lambda = \overline{\Lambda_0^{\mathrm{sm}}} = \overline{T^{\ast}_{Z^{\sm}} X} = T^{\ast}_Z X$. 
+	So for every smooth closed point of $\Lambda_0$, we have $\alpha_X|_{\Lambda_0} \equiv 0$. Which compel that $\forall p \in \Lambda_0^{\mathrm{sm}}$, $\xi_{i,p} = 0 \quad \forall i = r+1, \dots, n$.
+	\[
+		\forall p \in \Lambda_0^{\mathrm{sm}}, x_{1,p} = \dots = x_{r,p} = \xi_{r+1,p} = \dots = \xi_n = 0 \implies \Lambda_0^{\mathrm{sm}} \subseteq T^{\ast}_{Z^{\sm}} X
+	\]
+
+	In fact $T^{\ast}_Z X$ is  also irreducible.
+	Since $\Lambda_0^{\mathrm{sm}}$ is dense in $\Lambda_0$ and $\dim \Lambda_0 = n$, we get $\Lambda = \overline{\Lambda_0^{\mathrm{sm}}} = \overline{T^{\ast}_{Z^{\sm}} X} = T^{\ast}_Z X$.
 \end{proof}
 
 \begin{definition}
-Let $\mathcal M$ be a finitely generated $\D_X$-module.  We say that
-$\mathcal M$ is \textbf{holonomic} if $\dim \Ch(\mathcal M)=n$.
+	Let $\mathcal M$ be a finitely generated $\D_X$-module.  We say that
+	$\mathcal M$ is \textbf{holonomic} if $\dim \Ch(\mathcal M)=n$.
 \end{definition}
 
 \begin{corollary}
-If $\mathcal M$ is holonomic, then its characteristic cycle decomposes as
-\[
-  \operatorname{CC}(\mathcal M)
-    = \sum_i \ell_i\, T^\ast_{Z_i} X,
-\]
-where each $Z_i\subseteq X$ is an irreducible subvariety.
+	If $\mathcal M$ is holonomic, then its characteristic cycle decomposes as
+	\[
+		\operatorname{CC}(\mathcal M)
+		= \sum_i \ell_i\, T^\ast_{Z_i} X,
+	\]
+	where each $Z_i\subseteq X$ is an irreducible subvariety.
 \end{corollary}
 

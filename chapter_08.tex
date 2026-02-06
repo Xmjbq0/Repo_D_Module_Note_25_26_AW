@@ -288,9 +288,14 @@ Furthermore, we have the following definition:
                 \Diff^{k+1}_{B/A}(B,B) \otimes_A A' \arrow[r, "\sim"] & \Diff^{k+1}_{B'/A'}(B',B')
             \end{tikzcd},
         \end{equation*}
-        we finally pass the isomorphism to the direct limit (filtered union)
-        $$\mathcal{D}_{B/A} \otimes_A A' = \left(\lim\limits_{\substack{\longrightarrow \\ k}} \Diff^k_{B/A}(B,B)\right)\otimes_A A' = \lim\limits_{\substack{\longrightarrow \\ k}}\left(\Diff^k_{B/A}(B,B)\otimes_A A'\right) \xrightarrow{\sim} \lim\limits_{\substack{\longrightarrow \\ k}}\mathcal{D}_{B'/A'}(B',B') = \mathcal{D}_{B'/A'}.$$
-
+        we finally pass the $B'$-module isomorphism to the direct limit (filtered union), so one should verify what below is also a ring homomorphism.
+        \begin{align*}
+            \mathcal{D}_{B/A} \otimes_A A' \;
+             & =\; \left(\lim\limits_{\substack{\longrightarrow          \\ k}} \Diff^k_{B/A}(B,B)\right)\otimes_A A' \\
+             & =\; \lim\limits_{\substack{\longrightarrow                \\ k}}\left(\Diff^k_{B/A}(B,B)\otimes_A A'\right) \\
+             & \xrightarrow{\sim} \lim\limits_{\substack{\longrightarrow \\ k}}\Diff^k_{B'/A'}(B',B') \quad \text{(by the thing we just proved)}\\
+             & =\; \mathcal{D}_{B'/A'}.
+        \end{align*}
     \end{proof}
 
     To get $\mathcal{D}_{B/A} \cong \mathcal{D}_{T_Y X}$.
