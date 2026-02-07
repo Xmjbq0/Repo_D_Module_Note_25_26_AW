@@ -17,105 +17,91 @@
     \]
     with $Y_{i}$ locally closed.
 
-    Take a $Y_i$ of maximal dimension and take an open subset $U \subset Y$ such that $Y_{i}^{\circ} \hookrightarrow U$ is a closed embedding with $\overline{Y_i^{\circ}} = Y_{i}$ and $U \cap (\bigcup_{j\neq i}Y_j) = \varnothing$. Then
+    Take a $Y_i$ of maximal dimension and take an open subset $U \subset Y$
+    such that $Y_{i}^{\circ} \hookrightarrow U$ is a closed embedding
+    with $Y_{i}^{\circ}$ smooth, $\overline{Y_i^{\circ}} = Y_{i}$, $U \cap Y_i = Y_i^\circ$
+    and $U \cap (\bigcup_{j\neq i}Y_j) = \varnothing$. Then
     \[
-        \mathrm{Ch}(N|_U) = T^*_{Y_i^\circ} U,
+        \mathrm{Ch}(N|_U) = T^*_{Y_i^\circ} U.
     \]
-    which implies by Kashiwara's equivalence (Theorem \ref{thm:kashiwara_equiv} and Corollary \ref{cor:kashiwara_equiv_conormal}) that
-    \[
-        N|_U = \mathcal{O}_{Y_i^\circ} \otimes L[\partial_1, \ldots, \partial_k]
-    \]
-    with $L$ a local system on $Y_i^\circ$ (which corresponds to an integrable connection).
 
-    We have $\mathrm{End}(N|_U) = \mathrm{End}_{\mathbb{C}}(L)$. Therefore, there exists $b_i(s) \in \mathbb{C}[s]$ such that $b_i(\theta|_{U}) = 0$.
-
-    Now, take $N_1 = b_1(\theta)N$. Then
+    Since $Y^\circ$ is smooth, locally we can split algebraic coordinates to use Kashiwara's equivalence \ref{thm:kashiwara_equiv}, by shrinking $U$:
     \[
-        \mathrm{Ch}(N_1) = \bigcup_{j \neq i} T^*_{Y_j} X.
+        N|_U = i_{+}M = M[\partial_1, \ldots, \partial_k].
     \]
-    We are done by induction.
+
+    Consider $U^{\mathrm{an}} \to U$, the analytification functor, since $Y^\circ \hookrightarrow U$ is a closed embedding,
+    by \cite[Proposition~4.7.2.(ii)]{hotta2008d} we have $i_{+}(M)^{\mathrm{an}} \to i^{\mathrm{an}}_{+}(M^{\mathrm{an}})$ is an isomorphism.
+
+    We use Riemann-Hilbert correspondence on $(N|_U)^{\mathrm{an}}$:
+    \begin{align*}
+        (N|_U)^{\mathrm{an}} & \cong (i_{+}M)^{\mathrm{an}}                                                                                                       &  & \text{(By \ref{thm:kashiwara_equiv})}                                                                                   \\
+                             & \cong i^{\mathrm{an}}_{+}(M^{\mathrm{an}})                                                                                                                                                                                                                      \\
+                             & \cong M^{\mathrm{an}}[\partial_1, \ldots, \partial_k]                                                                              &  & \text{\begin{tabular}[t]{@{}l@{}}($i_+$ of a closed embedding behaves\\ the same on variety and manifold)\end{tabular}} \\
+                             & \cong \mathcal{O}^{\mathrm{an}}_{Y_i^\circ} \otimes_{\mathbb{C}} L \otimes_{\mathbb{C}} \mathbb{C}[\partial_1, \ldots, \partial_k] &  & \text{(By \ref{cor:kashiwara_equiv_conormal}, $M$ is an integrable connection, use \ref{thm:basic-RH-corr})}
+    \end{align*}
+    Then we get
+    \[
+        (N|_U)^{\mathrm{an}} = \mathcal{O}^{\mathrm{an}}_{Y_i^\circ} \otimes L[\partial_1, \ldots, \partial_k]
+    \]
+    with $L$ a local system on $Y_i^\circ$.
+
+    For the name \emph{Riemann-Hilbert correspondence}, one may think it is a \textbf{categorical equivalence}, that means there is not only a correspondence of objects but also a correspondence of \textbf{morphisms}.
+
+    That is \cite[Theorem~4.2.4.]{hotta2008d}'s $H^{-\mathrm{d}_X}(\mathrm{DR}(-))$ ($X$ a complex manifold),
+    which means for a morphism between two holomorphic $\mathcal{D}_X$-modules $f: M_1 \to M_2$ locally free over $\mathcal{O}_X$ (holomorphic),
+    with respective flat sections
+    \[
+        L_1 := \Ker(\nabla_{M_1}) \quad \text{and}\quad L_2 := \Ker(\nabla_{M_2}) \quad \text{(see \ref{rmk:basic-RH-corr})},
+    \]
+    we have a morphism between their corresponding local systems
+    \[
+        H^{-\mathrm{d}_X}(\mathrm{DR}(f)): L_1 \to L_2
+    \]
+    which is just a restriction of $f$.
+
+    Recall \ref{prop:classification-of-local-system}, says if $X$ is connected, we have an another categorical equivalence
+    to identify local system and finite diemsional representation of $\pi_1(X,x)$ (take an arbitrary base point $x$), morphisms of representations
+    is called \textbf{intertwining operator} with respect to the action of $\pi_1(X,x)$.
+
+    They compose a third categorical equivalence, since categorical equivalence is fully faithful, we have
+    \begin{align*}
+        \mathrm{End}_{\mathcal{D}_U}(N|_U) & = \mathrm{End}_{\mathcal{D}_{Y^\circ}}(M)                                     &  & \text{(Kashiwara equivalence is also a categorical equivalence)}          \\
+                                           & \subseteq \mathrm{End}_{\mathcal{D}^{\mathrm{an}}_{Y^\circ}}(M^{\mathrm{an}})                                                                                \\
+                                           & = \mathrm{End}_{\mathrm{LocSys}_{X}}(L)                                       &  & \text{(By \cite[Theorem~4.2.4.]{hotta2008d})}                             \\
+                                           & = \mathrm{End}_{\pi_1(X,x)}(L_x)                                              &  & \text{(By \ref{prop:classification-of-local-system}, and $L_x$ is fiber)} \\
+                                           & \subseteq \mathrm{End}_{\C}(L_x)                                              &  & \text{(Definition of intertwining operator)}
+    \end{align*}
+    Therefore, by Cayley-Hamilton theorem, there exists $b_i(s) \in \mathbb{C}[s]$ such that $b_i(\theta|_{U}) = 0$.
+
+    Before we do induction, recall a fact that for a smooth variety $Y$, a irreducible closed subset $X$, we have
+    \[
+        T^*_X Y = \overline{T^*_{X\cap U} U} \subseteq T^*Y \quad \text{(for affine open $U \subset Y$ such that $X\cap U \subseteq X^{\mathrm{sm}}$ dense in $X$)}
+    \]
+    is also irreducible, since one can verify that
+    \[
+        T^*_{X \cap U} U \subseteq T^*U.
+    \]
+    is closed irreducible in $T^*U$.
+
+    Now, take $N_1 = \mathrm{Im}(b_1(\theta): N \to N)$.
+    Since $b_1(\theta|_U) = 0$, we have $N_1|_U = 0$.
+    This implies $\mathrm{Supp}(N_1) \cap U = \varnothing$.
+    Recall that $\Ch(N_1) \subseteq \Ch(N) = \bigcup_k T^*_{Y_k} Y$.
+    Since the characteristic variety is a \textbf{closed algebraic set}, and $T^*_{Y_i} Y$ is an \textbf{irreducible component},
+    if $\Ch(N_1)$ contains $T^*_{Y_i} Y$, it must contain a dense open subset of it.
+
+    However, we have shown $N_1|_U = 0$, which implies $\Ch(N_1) \cap T^*U = \varnothing$.
+    Since $Y_i \cap U \neq \varnothing$ is open dense in $Y_i$,
+    the intersection $T^*_{Y_i} Y \cap T^*U$ is a non-empty open dense subset of the irreducible variety $T^*_{Y_i} Y$.
+
+    Thus, $\Ch(N_1)$ misses a dense open set of $T^*_{Y_i} Y$, so it cannot contain the component $T^*_{Y_i} Y$.
+    Therefore, $T^*_{Y_i} Y \nsubseteq \Ch(N_1)$, and we obtain:
+    \[
+        \mathrm{Ch}(N_1) \subseteq \bigcup_{j \neq i} T^*_{Y_j} Y.
+    \]
+    This strictly reduces the number of components in the characteristic variety (or the length of the holonomic module), so we are done by induction.
 \end{proof}
-
-\begin{lemma}[Lemma 20.2]
-    Let $Y$ be a smooth variety over $\C$, $N$ a holonomic $D_Y$-module, and
-    $\theta \in \End_{D_Y}(N)$. Then there exists a nonzero polynomial
-    $b(s)\in \C[s]$ such that $b(\theta)=0$ in $\End_{D_Y}(N)$.
-\end{lemma}
-
-\begin{proof}
-    We argue by induction on the length $\ell(N)$ in the abelian category of holonomic
-    $D_Y$-modules. Such a length is finite by \cite[Prop.\ 6.37]{mustata2023dmodules}.
-    If $N=0$ there is nothing to prove.
-
-    \medskip
-    \noindent\textbf{Step 1: Reduction to finding a non-injectivity point.}
-    Let $u:=\theta$. If we can find $\lambda\in \C$ and a point $y\in Y$ such that the
-    stalk map $(u-\lambda\Id)_{y}:N_y\to N_y$ is not injective, then
-    $N_1:=\ker(u-\lambda\Id)\subset N$ is a nonzero holonomic submodule, stable under $u$.
-    By induction we can find nonzero $p_1,p_2\in \C[s]$ with $p_1(u|_{N_1})=0$ and
-    $p_2(u|_{N/N_1})=0$, hence $p(u)=0$ on $N$ for $p=p_1p_2$.
-
-    Thus it suffices to produce such a $\lambda$ and $y$.
-
-    \medskip
-    \noindent\textbf{Step 2: Replace $Y$ by the support and shrink to the locus where $N$ is a bundle.}
-    After replacing $Y$ by a nonempty open subset (which does not affect the existence of
-    a point where $u-\lambda\Id$ fails to be injective), we may assume $\Supp(N)$ is a
-    smooth irreducible subvariety of $Y$. By Kashiwara's equivalence, if
-    $i:\Supp(N)\hookrightarrow Y$ is the inclusion, then $i_+$ induces an equivalence between
-    $D_{\Supp(N)}$-modules and $D_Y$-modules supported on $\Supp(N)$, so we may replace
-    $Y$ by $\Supp(N)$ and assume $\Supp(N)=Y$ \cite[Thm.\ 6.20]{mustata2023dmodules}.
-
-    Since $N$ is holonomic, after shrinking $Y$ further we may assume that $N$ is
-    $\cO_Y$-coherent (hence locally free) on this open set \cite[Rem.\ 6.30]{mustata2023dmodules};
-    moreover $\cO_Y$-coherent left $D_Y$-modules are locally free \cite[Prop.\ 3.18]{mustata2023dmodules}.
-    Therefore on this open set, $N$ is a vector bundle with an integrable connection
-    (the $D_Y$-action is equivalent to a flat connection) \cite[Prop.\ 3.10]{mustata2023dmodules}.
-
-    \medskip
-    \noindent\textbf{Step 3: Finite-dimensionality of $\End_{D_Y}(N)$ via analytification and a local system.}
-    Let $E:=\End_{\cO_Y}(N)$.
-    The $D_Y$-module structure on $N$ induces an integrable connection on $E$, and
-    \[
-        \End_{D_Y}(N)\;=\;\Gamma(Y,E^\nabla),
-    \]
-    where $E^\nabla\subset E$ is the subsheaf of horizontal sections.
-    After analytification, the horizontal sections $(E^{an})^\nabla$ form a local system
-    on $Y^{an}$, by the classical Riemann--Hilbert correspondence
-    (local systems $\leftrightarrow$ flat bundles) \cite[Thm.\ 7.5]{mustata2023dmodules}.
-    Since $Y^{an}$ is connected, the natural evaluation map
-    $\Gamma(Y^{an},(E^{an})^\nabla)\to (E^{an})^\nabla_y$ is injective for every $y$,
-    hence $\Gamma(Y^{an},(E^{an})^\nabla)$ is finite-dimensional.
-    This implies $\dim_\C \End_{D_Y}(N)<\infty$ on our chosen open set.
-
-    Consequently $u$ satisfies a nonzero polynomial relation on that open set: take the
-    minimal polynomial $p(s)$ of $u$ as an element of the finite-dimensional $\C$-algebra
-    $\End_{D_Y}(N)$ on the open set, so $p(u)=0$ there.
-
-    Write $p(s)=\prod_{i=1}^r (s-\lambda_i)$ over $\C$.
-    If all $(u-\lambda_i\Id)$ were injective on every stalk, then their product $p(u)$
-    would be injective on every stalk, contradicting $p(u)=0$ and $N\neq 0$.
-    Hence there exist $i$ and a point $y$ such that $(u-\lambda_i\Id)_y$ is not injective.
-
-    By Step~1, this yields a nonzero polynomial $b(s)$ with $b(u)=0$ on $N$, i.e. $b(\theta)=0$.
-\end{proof}
-
-\begin{remark}[{How to read $\cO\otimes L[\partial]$}]
-    In purely algebraic terms, Kashiwara's equivalence gives $N|_U \simeq i_+(M)$ for a
-    $D_{Y_i^\circ}$-module $M$ on the smooth closed subvariety $i:Y_i^\circ\hookrightarrow U$.
-    In local coordinates where $Y_i^\circ$ is cut out by one equation $z=0$, one has
-    the \emph{algebraic} local model
-    \[
-        i_+(M)\;\cong\; M\otimes_\C \C[\partial_z],
-    \]
-    with explicit $D_U$-action (in particular $z$ acts nilpotently and $\partial_z$ acts
-    by shifting the $\partial_z$-power) \cite[Thm.\ 6.20, proof]{mustata2023dmodules}.
-    If moreover $M$ is $\cO$-coherent, then $M$ is a vector bundle with flat connection,
-    and after analytification $M^{an}\simeq \cO^{an}\otimes_\C L$ for a local system $L$
-    \cite[Thm.\ 7.5]{mustata2023dmodules}. This explains the heuristic notation
-    $\cO_{Y_i^\circ}\otimes L[\partial]$ used in some notes: it is the analytification of
-    the algebraic formula above.
-\end{remark}
 
 
 
