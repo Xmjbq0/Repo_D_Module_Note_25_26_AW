@@ -17,7 +17,7 @@
     \]
     with $Y_{i}$ locally closed.
 
-    Take a $Y_i$ of maximal dimension and take an open subset $U \subset Y$
+    Take a $Y_i$ of maximal dimension and take an (affine) open subset $U \subset Y$
     such that $Y_{i}^{\circ} \hookrightarrow U$ is a closed embedding
     with $Y_{i}^{\circ}$ smooth, $\overline{Y_i^{\circ}} = Y_{i}$, $U \cap Y_i = Y_i^\circ$
     and $U \cap (\bigcup_{j\neq i}Y_j) = \varnothing$. Then
@@ -60,7 +60,7 @@
     \]
     which is just a restriction of $f$.
 
-    Recall \ref{prop:classification-of-local-system}, says if $X$ is connected, we have an another categorical equivalence
+    Recall \ref{prop:classification-of-local-system} says if $X$ is connected, we have an another categorical equivalence
     to identify local system and finite diemsional representation of $\pi_1(X,x)$ (take an arbitrary base point $x$), morphisms of representations
     is called \textbf{intertwining operator} with respect to the action of $\pi_1(X,x)$.
 
@@ -78,29 +78,28 @@
     \[
         T^*_X Y = \overline{T^*_{X\cap U} U} \subseteq T^*Y \quad \text{(for affine open $U \subset Y$ such that $X\cap U \subseteq X^{\mathrm{sm}}$ dense in $X$)}
     \]
-    is also irreducible, since one can verify that
+    is also irreducible, by the fact that
     \[
         T^*_{X \cap U} U \subseteq T^*U.
     \]
     is closed irreducible in $T^*U$.
 
-    Now, take $N_1 = \mathrm{Im}(b_1(\theta): N \to N)$.
-    Since $b_1(\theta|_U) = 0$, we have $N_1|_U = 0$.
-    This implies $\mathrm{Supp}(N_1) \cap U = \varnothing$.
-    Recall that $\Ch(N_1) \subseteq \Ch(N) = \bigcup_k T^*_{Y_k} Y$.
-    Since the characteristic variety is a \textbf{closed algebraic set}, and $T^*_{Y_i} Y$ is an \textbf{irreducible component},
-    if $\Ch(N_1)$ contains $T^*_{Y_i} Y$, it must contain a dense open subset of it.
+    Now, take  $N_1 = b_1(\theta)N$.
+    Since $b_1(\theta|_U) = 0$, we have $N_1|_U = 0$, which implies $\mathrm{Ch}(N_1) \cap T^*U = \varnothing$.
 
-    However, we have shown $N_1|_U = 0$, which implies $\Ch(N_1) \cap T^*U = \varnothing$.
-    Since $Y_i \cap U \neq \varnothing$ is open dense in $Y_i$,
-    the intersection $T^*_{Y_i} Y \cap T^*U$ is a non-empty open dense subset of the irreducible variety $T^*_{Y_i} Y$.
+    By Bernstein's inequality \ref{thm:Bernstein-inequality},
+    $N_1$, as a submodule of a holomonic $\D_Y$-module is also a holomonic $\D_Y$-module.
+    So irreducible component of $\mathrm{Ch}(N_1)$ has dimension $n = \dim Y$,
+    and is contained in some irreducible component of $\mathrm{Ch}(N) = \bigcup_k T^*_{Y_k} Y$.
 
-    Thus, $\Ch(N_1)$ misses a dense open set of $T^*_{Y_i} Y$, so it cannot contain the component $T^*_{Y_i} Y$.
-    Therefore, $T^*_{Y_i} Y \nsubseteq \Ch(N_1)$, and we obtain:
-    \[
-        \mathrm{Ch}(N_1) \subseteq \bigcup_{j \neq i} T^*_{Y_j} Y.
-    \]
-    This strictly reduces the number of components in the characteristic variety (or the length of the holonomic module), so we are done by induction.
+    Since all irreducible component of a holomonic $\D_Y$-module has dimension $n = \dim Y$ (see Cor.~\ref{cor:holonomic-char-cycle}),
+    and we have a fact that a proper closed subset of an irreducible variety has strictly smaller dimension,
+    it follows that each irreducible component of $\mathrm{Ch}(N_1)$ must be equal to some $T^*_{Y_k} Y$.
+
+    But it can't be $T^*_{Y_i} Y$, because $\mathrm{Ch}(N_1) \cap T^*U = \varnothing$.
+    So we strictly reduce the number of components in the characteristic variety,
+    so we are done by induction.
+
 \end{proof}
 
 
