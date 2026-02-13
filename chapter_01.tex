@@ -180,6 +180,12 @@ and the action is \cite[Lemma~1.2.6.]{hotta2008d}
 Let $A$ be a ring and let $A^{\mathrm{op}}$ denote the opposite ring. i.e. $A^{\op} = \{ a^{\op} \mid a \in A \}$, $a^{\op} \cdot b^{\op} = (ba)^{\op}$. Then right $A$-modules are the
 same as left $A^{\mathrm{op}}$-modules.
 
+\begin{remark}
+    For an alternative treatment of the same thing below, one can see \cite[Section~3.6.]{mustata2023dmodules}, which is of \cite{hotta2008d}'s style and keeps its notation.
+
+    The editor of this note belives that constructions in algebra only make sense when it is defined globally, i.e., with a coordinate-free style or using a universal property.
+\end{remark}
+
 \begin{lemma}\label{lem:DXop}
     There is a natural isomorphism of rings
     \[
@@ -333,7 +339,7 @@ In particular, we will henceforth only consider left $\D_X$-modules, written sim
         \qquad a\in\mathcal O_X,\ P,Q\in f^{-1}\mathcal D_Y.
     \]
     And the \emph{left} $\mathcal D_X$--action is defined via the map $\mathcal{T}_X \to f^*\mathcal{T}_Y = \mathcal{O}_X \otimes_{f^{-1}\mathcal{O}_Y} f^{-1}\mathcal{T}_Y$ ($\theta \mapsto \tilde{\theta}$)
-    which is dual to $\Omega_{Y} \otimes_{f^{-1}\mathcal O_Y} f^{-1}\mathcal O_X \to \Omega_X$.
+    which is dual to $\Omega_{Y} \otimes_{f^{-1}\mathcal O_Y} f^{-1}\mathcal O_X \to \Omega_X$, see Lem.~\ref{lem:second_fundamental_exact_sequence} for a local version.
     \[
         \theta \cdot (a \otimes P) := \theta(a) \otimes P + a \tilde{\theta} P
     \]
@@ -532,7 +538,7 @@ In particular, we will henceforth only consider left $\D_X$-modules, written sim
                         we talked it in the begging of this Example~\ref{example:side-changing-transfer-bimodules}.
                   \item Step 4: $f^{-1} (\D_Y \otimes_{\mathcal O_Y} \omega_Y^{-1}) \otimes_{f^{-1}\mathcal O_Y} \otimes \mathcal O_X \otimes_{\mathcal O_X} \omega_X$ has right $\D_X$-module structure.
               \end{enumerate}
-              The Step 4 gives transpose once, but the Step 2 gives transpose once as well, so they cancel out. \cite{hotta2008d} also gives:
+              The Step 4 gives a transpose (in local coordinates) once, but the Step 2 gives a transpose once as well, so they cancel out. \cite{hotta2008d} also gives:
               \[
                   \D_{Y\leftarrow X} \simeq \mathbb{C}[\partial_{y_{r+1}}, \dots, \partial_{y_n}] \otimes_{\mathbb{C}} \D_X.
               \]

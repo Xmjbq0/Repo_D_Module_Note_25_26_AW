@@ -19,7 +19,7 @@ We now assume that $A$ is finite type over $k$ and of finite global dimension. T
 Let $S$ be a commutative $k$-algebra of finite type, we say $S$ is $\textbf{regular}$ if $\Omega_{S/k}$ is locally free, see definition \cite[\href{https://stacks.math.columbia.edu/tag/00OD}{Tag 00OD}]{stacks-project}.
 
 \begin{theorem}[Auslander]\label{theorem 7.2}
-    Let $S$ be regular, $M \in \mathrm{Mod}_{f}(S)$, then
+    Let $S$ be regular of dimension $m$, $M \in \mathrm{Mod}_{f}(S)$, then
     \begin{enumerate}
         \item $S$ is of finite global dimension;
         \item $j(M) + \dim(\mathrm{supp}(M)) = m$;
@@ -27,13 +27,15 @@ Let $S$ be a commutative $k$-algebra of finite type, we say $S$ is $\textbf{regu
         \item $\dim(\mathrm{supp}(\mathrm{Ext}^{j(M)}(M,S))) = \dim(\mathrm{supp}(M))$.
     \end{enumerate}
 \end{theorem}
-\begin{proof}[Partial Proof]
+\begin{proof}
     \mbox{}
 
     For (1), see \cite[Thm.~19.12.]{eisenbud1995commutative} or \cite[\href{https://stacks.math.columbia.edu/tag/00OC}{Tag 00OC}]{stacks-project} for local ring case.
     Then use \cite[\href{https://stacks.math.columbia.edu/tag/00O9}{Tag 00O9}]{stacks-project} to get global case, which is \cite[\href{https://stacks.math.columbia.edu/tag/00OE}{Tag 00OE}]{stacks-project}.
 
     For (2), (3) and (4), in the case of $m$ is even, see \cite[Prop.~6.4.]{schnell_dmodules_notes}.
+
+    For general $m$, one can see \cite[Thm.~D.4.4.]{hotta2008d}, but this book refers other books for the proof of (2), (3) and (4).
 \end{proof}
 \begin{corollary}
     Regular commutative $k$-algebra of finite type are Auslander regular.
@@ -168,7 +170,7 @@ We define the limit terms:
 
 \quad
 
-\begin{definition}
+\begin{definition}\label{def:convergent_spectral_sequence}
     We say the spectral sequence $\{E_{\bullet}^{\bullet}(k)\}_k$ $\textbf{converges to}$ $H^i(F^{\bullet})$ if for all $i,j$, there exists $k = k(i,j)$ s.t. $\forall k' \ge k$, $$E_j^i(k') \cong \mathrm{gr}_j^F H^i(F^{\bullet}).$$
 \end{definition}
 
@@ -234,7 +236,7 @@ We define the limit terms:
     By Lemma \ref{lemma 7.4} + Lemma \ref{lemma 7.8}.
 \end{proof}
 
-\section{More on filtered rings }
+\section{More on filtered rings }\label{sect:more_on_filtered_rings}
 
 Recall that we have defined a $\mathbb{Z}$-filtration of a ring in Definition \ref{def:z_filtration}.
 
@@ -307,7 +309,7 @@ $$ \check{F}^i_k := \mathrm{Im}(\Phi_k). $$
     Applying Theorem \ref{tehorem 7.9} to the filtered complex $\check{F}^{\bullet}$.
     \begin{itemize}
         \item By Lemma \ref{lem:checkF-regular}, $\check{F}^{\bullet}$ is $\omega$-regular.
-        \item Since the filtration on $M$ is a good filtration, it is bounded from below. This implies the filtration on $\check{F}^\bullet$ is also bounded from below, so the spectral sequence converges (see Remark~\ref{rmk:classical_convergence_theorem}).
+        \item Since the filtration on $M$ is a good filtration, it is bounded from below (see \cite[Lemma~D.2.3]{hotta2008d}). This implies the filtration on $\check{F}^\bullet$ is also bounded from below, so the spectral sequence converges (see Remark~\ref{rmk:classical_convergence_theorem}).
     \end{itemize}
     Thus $\mathrm{gr}_{\bullet}H^j(\check{F}^{\bullet})$ is a subquotient of $H^j(\mathrm{gr}_{\bullet}\check{F}^{\bullet})$.
 
@@ -327,7 +329,7 @@ $$ \check{F}^i_k := \mathrm{Im}(\Phi_k). $$
               \[
                   \mathrm{gr}_{\bullet}F^k \ni (x \bmod F_{j-1}F^k) \longmapsto (f(x) \bmod F_{j+p-1}A) \in \mathrm{gr}_{\bullet}A.
               \]
-              Since $F^k$ is a filtered free module (direct sum of shifted $A$), and for $A(s)$, the map $\Psi$ corresponds to the identity on $(\mathrm{gr}_{\bullet}A)(-s)$. Thus $\Psi$ is an isomorphism.
+              Since $F^k$ is a filtered free module (direct sum of shifted $A$), and for $A(s)$, the map $\Psi$ corresponds to the identity on $(\mathrm{gr}_{\bullet}A)(-s)$. Thus $\Psi$ is an isomorphism (or see \cite[Lemma~D.2.3]{hotta2008d}).
         \item Therefore, $H^j(\mathrm{gr}_{\bullet}\check{F}^{\bullet}) \cong \mathrm{Ext}_{\mathrm{gr}_{\bullet}A}^j(\mathrm{gr}_{\bullet}M, \mathrm{gr}_{\bullet}A).$
     \end{enumerate}
     The result follows.

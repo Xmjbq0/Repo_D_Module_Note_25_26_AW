@@ -1,8 +1,14 @@
 \section{$V$-filtration and normal deformation}
 Let $X = \text{Spec } R$ be a smooth affine variety over $\mathbb{C}$ with algebraic coordinates $(t, x_2, \ldots, x_n)$.
 
-\begin{remark}
+\begin{remark}\label{rmk:increasing_V_filtration}
     Editor thinks $R$ should be a domain in this chapter, which will be used to prove the normal bundle $T_Y X$ is smooth over $\mathbb{C}$, and V-filtration is Hausdorff.
+
+    And the $V$-filtration given here is \textbf{increasing},
+    which is same as \cite[2.10.21~The Kashiwara-Malgrange filtration. and 2.10.24~The existence]{Bjork1993AnalyticDModules},
+    but is different from the one in the lecturer (of this course)'s early notes \cite[Definition~2.1]{Wu2017NearbyVanishingCycles}, which is \textbf{decreasing}.
+
+    The editor decides to be compatible with \cite{Bjork1993AnalyticDModules} as long as conflicts arise. And this distinction will influence the formulation of the propositions in the subsequent chapters, \textbf{different from the handwritten notes} provided by the lecturer.
 \end{remark}
 
 Take $I^j :=\begin{cases}\left< t \right>^{j},& j > 0\\R,&j\leq0\end{cases}$,
@@ -157,13 +163,13 @@ Furthermore, we have the following definition:
 
     \noindent\textbf{For (1)}, Let $B:=\mathcal{R}_{\bullet}(\mathcal{O}_X)$, we claim that there is a isomorphism of $\mathbb{C}[u]$-algebras
     \begin{align*}
-        \Phi: \mathcal{R}^V \mathcal{D}_X \; & \xrightarrow{\ \sim\ }\; \mathcal{D}_{B/\mathbb{C}[u]} \subseteq \End_{\mathbb{C}[u]}(B) \subseteq \End_{\mathbb{C}}(B) \subseteq \End_{\mathbb{C}}(R[u,u^{-1}]) \\
+        \Phi: \mathcal{R}^V \mathcal{D}_X \; & \xrightarrow{\ \sim\ }\; \mathcal{D}_{B/\mathbb{C}[u]} \subseteq \End_{\mathbb{C}[u]}(B)  \hookrightarrow \End_{\mathbb{C}[u, u^{-1}]}(R[u, u^{-1}]) \subseteq \End_{\mathbb{C}}(R[u,u^{-1}]) \\
         Pu^k \;                              & \mathrel{\mapstochar\xrightarrow{\phantom{\ \sim\ }}} [fu^j \mapsto P(f)u^{j+k}], \qquad (P\in V_k\mathcal{D}_X,\ f\in I^{-j}).
     \end{align*}
     After verifying that
     \begin{enumerate}
-        \item $\Phi$ is a ring homomorphism, and codomain can be restricted to $\End_{\mathbb{C}}(B) \subseteq \End_{\mathbb{C}}(R[u,u^{-1}])$.
-        \item image $[fu^j \mapsto P(f)u^{j+k}] \in \End_{\mathbb{C}}(B)$ is trully $\C[u]$-linear, i.e. $[fu^j \mapsto P(f)u^{j+k}] \in \End_{\mathbb{C}[u]}(B) \subseteq \End_{\mathbb{C}}(B)$.
+        \item $\Phi$ is a ring homomorphism.
+        \item image $[fu^j \mapsto P(f)u^{j+k}]$ maps $B$ to $B$ and is $\C[u]$-linear.
         \item image $[fu^j \mapsto P(f)u^{j+k}] \in \mathcal{D}_{B/\mathbb{C}[u]} \subseteq \End_{\mathbb{C}[u]}(B)$.
     \end{enumerate}
     We can finally verify injectivity and surjectivity of $\Phi$.

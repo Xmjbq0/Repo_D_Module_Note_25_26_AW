@@ -106,32 +106,19 @@ This definition of $\mathrm{DR}(M)$ is independent of algebraic coordinates.
         \item Given $\alpha \in \mathbb{C}$, and $X = \mathbb{A}^1_{\mathbb{C}}$, we define $M_{\alpha} := \mathcal{D}_X / \mathcal{D}_X \cdot (x\partial_x - \alpha)$.
               we denote $\overline{1}$, the class of $1$ in $M_{\alpha}$, by $x^{\alpha}$, the formal symbol.
 
-              We explain the notation $M_{\alpha} = \mathbb{C}[x, \frac{1}{x}] \cdot x^{\alpha}$, this notation only works for $\alpha \not\in \mathbb{Z}$:
+              We explain the notation $M_{\alpha} = \mathbb{C}[x, \frac{1}{x}] \cdot x^{\alpha}$ for $\alpha \not\in \mathbb{Z}$,
+              if $\alpha\in\mathbb{Z}$, $M_\alpha$ is just $\mathcal{O}_X[x^{-1}]=\C[x,x^{-1}]$.
 
-              Firstly, one should note that we are looking the global section, so $\frac{1}{x}$ is not a regular function on $X$, we should deal with it carefully.
+              One can see the $\D_X$ module structure on $M_\alpha$ gives an $\mathcal{O}_X$ module structure by $\Ox \subseteq \D_X$.
 
-              Secondly, $M_\alpha = \mathcal{D}_X \cdot \overline{1} = \mathbb{C}\langle x, \partial_x \rangle \cdot \overline{1}$, it is a rank $1$ $\mathcal{D}_X$-module.
+              Then one can see $x \in \Ox$ acts bijectively on $M_\alpha$, i.e. the left multiplication $\mu_x$ has \textbf{both} a left and a right inverse in $\End_{\C}(M_\alpha)$.
 
-              So $M_\alpha = \mathbb{C}[x] \cdot x^{\alpha} + \sum_{k \ge 0} \mathbb{C}[x]\partial_x^k \cdot x^{\alpha}$, we have $\{\bar{1}, x\cdot \bar{1}, \cdots, \partial_x\cdot \bar{1}, \cdots\}$ as $\mathbb{C}[x]$-module generators.
+              Since the universal property of localization $\Ox\to\Ox[x^{-1}]$ don't require the target $R'=\End_\C(M_\alpha)$ to be commutative (see \cite[Theorem~(11.3)]{AltmanKleimanTCA2021}),
+              so $M_\alpha = M_\alpha[x^{-1}]$ (viewed as $\Ox$ or $\Ox[x^{-1}]$ module, not a $\D$ module), and $x^\alpha$ generate $M_\alpha$ as $\Ox[x^{-1}]$-module.
 
-              We do a formal ``calculation'', we assume $\alpha \not\in \mathbb{Z}$:
-              $$
-                  \partial_{x} \cdot \raisebox{1.2ex}{$\ulcorner$} \frac{1}{x^{k}} x^{\alpha} \raisebox{1.2ex}{$\urcorner$}
-                  = (\alpha - k) \cdot \raisebox{1.2ex}{$\ulcorner$} \frac{1}{x^{k+1}} x^{\alpha} \raisebox{1.2ex}{$\urcorner$}
-                  \quad \text{for } k \ge 0
-              $$
-              In this case, any attempt trying to define what $\raisebox{0.6ex}{$\ulcorner$} \frac{1}{x^{k}} x^{\alpha} \raisebox{0.6ex}{$\urcorner$} := \frac{1}{\alpha(\alpha - 1)\cdots(\alpha - k + 1)} \partial_x^k \cdot \overline{1}\in\mathbb{C} \partial_x^k \cdot \overline{1}$ is will turn out to be non-canonical, but is well defined upto a constant in $\mathbb{C}$.
+              Note that $\mu_{x^{-1}}\in \mu(\D_X) \subset \End_{\C}(M_\alpha)$ so $x^\alpha$ also generate $M_\alpha$ over $\D_X$.
 
-              So the notation $M_{\alpha} = \mathbb{C}[x, \frac{1}{x}] \cdot x^{\alpha}$means, as a $\C[x]$-module, it have generators $\{\raisebox{0.6ex}{$\ulcorner$} \frac{1}{x^{k}} x^{\alpha} \raisebox{0.6ex}{$\urcorner$} \mid k \in \mathbb{Z}_{\ge 0}\}$.
-
-              From now on we use $\frac{1}{x^k}x^\alpha$ to denote $\raisebox{0.6ex}{$\ulcorner$} \frac{1}{x^{k}} x^{\alpha} \raisebox{0.6ex}{$\urcorner$}$ for simplicity.
-
-              When $\alpha \not\in \mathbb{Z}$, we obtain $\frac{1}{x^{k}}x^{\alpha}$ as a generator of $M_{\alpha}$ as $\mathcal{D}_{X}$-module,
-              we have $M_{\alpha} \simeq \mathcal{D}_{X} /\mathrm{Ann}_{\mathcal{D}_{X}}( \frac{1}{x^{k}}\cdot x^{\alpha})\simeq\mathcal{D}_X / \mathcal{D}_X \cdot (x\partial_x - (\alpha - k))$.
-
-              One should recall for a module with one generator, the structure is compeletely determined by the annihilator of the generator.
-
-              Or we can use $\mathcal{D}_X /\mathcal{D}_X \cdot (x\partial_x - \alpha)\to\mathcal{D}_X /\mathcal{D}_X \cdot (x\partial_x - (\alpha - k)): \overline{P} \mapsto \overline{P\cdot x^k}$, multiplication on the right gives a left $\mathcal{D}_X$-module homomorphism, which is an isomorphism.
+              And we can see this identification is not canonical, since we have $\mathcal{D}_X /\mathcal{D}_X \cdot (x\partial_x - \alpha)\to\mathcal{D}_X /\mathcal{D}_X \cdot (x\partial_x - (\alpha - k)): \overline{P} \mapsto \overline{P\cdot x^k}$, multiplication on the right gives a left $\mathcal{D}_X$-module homomorphism, which is an isomorphism.
 
               With $\mathrm{Ch}(M)=V(\sigma(P))\subseteq T^{\ast}X$ in which $\sigma$ is the principal symbol, and $\sigma(P)=x\xi$. Consider $T^{\ast}X\xrightarrow{\pi} X,\, \C[x]\hookrightarrow\C[x,\xi]$, we obtain $V(x)=\pi ^{-1}(\langle x-0 \rangle)=T^{\ast}_{\{0\}}X$ and $V(\xi)=T^{\ast}_{X}X$ zero section.  $\mathrm{Ch}(M)=V(\sigma(x\partial_{x}))=T^{\ast}_{\{0\}}X\cup T_{X}^{\ast}X$ and  $$\mathrm{CC}(M_{\alpha}) = T_{\{0\}}^*X + T_X^*X.$$Since $\mathrm{dim}\Ch(M)=1$ for $\mathrm{dim}T^{\ast}_{X}X=\mathrm{dim}X=1$, and $T^{\ast}_{\{0\}}X$ is the fiber of $T^{\ast}M$ at $0$, thus the cotangent space of $X$ at $0$, $\mathrm{dim}T^{\ast}_{\{0\}}X=\mathrm{dim}X=1$ as well. So  $M_{\alpha}$ is holonomic for all $\alpha \in \mathbb{C}$.
 
@@ -151,7 +138,10 @@ We need several facts to give the true de Rham complex on $X \backslash \{0\}$ t
 \begin{lemma}[Quasi-coherent sheaf and localization of $\D$-modules]
     Assume the base field is algebraically closed field of characteristic $0$.
     \begin{enumerate}
-        \item For an arbitrary smooth (not necessarily affine) variety $X$, $\D_X$ is a quasi-coherent sheaf of $\mathcal{O}_X$-module \cite[Cor.~4.9.]{chen2024dmodules} or \cite[Beginning of Sec.~1.4.]{hotta2008d}.
+        \item For an arbitrary smooth (not necessarily affine) variety $X$, $\D_X$ is a quasi-coherent sheaf of $\mathcal{O}_X$-module \cite[Cor.~4.9. or more exactly Construction~4.4.]{chen2024dmodules} or \cite[Beginning of Sec.~1.4.]{hotta2008d}.
+        \item For a remark of the first point, $\D_X$ is a $(\Ox,\Ox)$-bimodule, so the \textbf{commutativity constraint}
+              \[\D_X\text{(right)}\otimes_{\Ox} M\stackrel{?}{\simeq} M\otimes_{\Ox}\text{(left)}\D_X\]
+              may not tautologically true, such map may even not exist.
         \item The definition of a \textbf{quasi-coherent $\D_X$-module} means it is quasi-coherent as an $\mathcal{O}_X$-module \cite[Def.~6.3.]{chen2024dmodules} or \cite[Notation~1.4.1.]{hotta2008d}.
         \item So the localization of a quasi-coherent $\D_X$-module $M$ at an open subset $U \subseteq X$ is the localization as an $\mathcal{O}_X$-module, that is, given by $\mathcal{O}_U \otimes_{\mathcal{O}_X} M$.
         \item The $\Gamma(U,\D_X)$-action on $M_U$ is completely determined by $\Gamma(V,\D_X)$-action on $M_V$ for open sets $U\subseteq V$ \cite[\href{https://stacks.math.columbia.edu/tag/0G36}{Tag 0G36}]{stacks-project} or \cite[Lem.~4.1., Lem.~4.2.]{chen2024dmodules}.
@@ -163,12 +153,7 @@ We need several facts to give the true de Rham complex on $X \backslash \{0\}$ t
 So we have $$M_{\alpha,U} := \mathcal{O}_{U} \otimes_{\mathcal{O}_X} M_{\alpha} = \mathcal{O}_{U} \otimes_{\mathcal{O}_X} \frac{\D_X}{\D_X \cdot (x\partial_x - \alpha)} = \frac{\D_U}{\D_U \cdot (x\partial_x - \alpha)}$$
 
 And
-
 $$\DR(M_{\alpha})|_U =\frac{\D_U}{\D_U \cdot (x\partial_x - \alpha)}\xrightarrow{\partial_x|_U} \frac{\D_U}{\D_U \cdot (x\partial_x - \alpha)}$$
-
-This time since $\frac{1}{x}$ is a regular function on $U=X \backslash \{0\}$, the element
-$x^{-k}x^\alpha$ becomes \emph{canonically defined} as $x^{-k}\otimes \overline{1}$.
-In particular, there is no longer any ``up to a constant'' ambiguity. With $\partial_x \cdot \overline{1} = \frac{\alpha}{x} \cdot \overline{1}$ on $U$, $M_{\alpha,U}$ is a $\C[x, \frac{1}{x}]$-module with one generator.
 
 \begin{remark}
     So we get, for inclusion $j: U:=X\setminus \{0\} \to X$, $\D_X/\D_X(x\partial_x-\alpha) = j_*(O_U\cdot x^\alpha)$ as sheaves of $\D_X$-modules. Since we are working on an affine open $X$ with quasi-cohrent $\Ox$-modules, the correctly defined $\D$-module direct image functor \cite[$Rf_*$ in Sec.~1.5.]{hotta2008d} is just $j_*$.

@@ -1,12 +1,18 @@
 \section{Bj\"ork's approach to existence of b-functions}
 
 \begin{theorem}[Bj\"ork]\label{Theorem 8.4}
-    Let $M$ be a holonomic $\mathcal{D}_X$-module with a good filtration $\Omega_{\bullet} M$ over $V_{\bullet} \mathcal{D}_X$. There exists $b(s) \in \mathbb{C}[s]$ such that
+    Let $M$ be a holonomic $\mathcal{D}_X$-module with a good filtration $\Omega_{\bullet} M$ over $V_{\bullet} \mathcal{D}_X$. There exists a non zero $b(s) \in \mathbb{C}[s]$ such that
     \[
-        b(t\partial_t - k) \text{ kills } \frac{\Omega_k M}{\Omega_{k-1} M}, \quad \forall k \in \mathbb{Z}.
+        b(t\partial_t + k) \text{ kills } \frac{\Omega_k M}{\Omega_{k-1} M}, \quad \forall k \in \mathbb{Z}.
     \]
     The monic minimal degree $b(s)$ is called the $\textbf{$b$-function}$ of $M$ along $Y$.
 \end{theorem}
+\begin{remark}
+    In the handwritten notes provided by the lecturer, says $b(t\partial_t \textcolor{red}{ - } k) \text{ kills } \frac{\Omega_k M}{\Omega_{k-1} M}$,
+    but this is not compatible with the increasing filtration setting in Rmk.~\ref{rmk:increasing_V_filtration}.
+\end{remark}
+
+
 \begin{lemma}\label{lemma 8.5}
     Let $Y$ be a smooth variety over $\mathbb{C}$, $N$ a holonomic $\mathcal{D}_Y$-module, and $\theta\in \mathrm{End}_{\mathcal{D}_Y}(N)$. Then there exists $b(s)\in\mathbb{C}[s]$ such that $b(\theta)=0$.
 \end{lemma}
@@ -100,6 +106,7 @@
     So we strictly reduce the number of components in the characteristic variety,
     so we are done by induction.
 
+
 \end{proof}
 
 
@@ -108,78 +115,172 @@
 \begin{theorem}\label{Theorem 8.6}
     Let $M$ be a finitely generated $\mathcal{D}_{X}$-module, and $\Omega_{\bullet}M$ a good filtration over $V_{\bullet}\mathcal{D}_{X}$. Then $j(\mathrm{gr}_{\bullet}^\Omega M)\ge j(M)$.
 \end{theorem}
+\begin{remark}
+    In Thm.~\ref{theorem 7.12} we also proved $j(\gr_\bullet M)\ge j(M)$, but this time we have a different filtration, the $V$-filtration.
+
+    We need the fact that $\gr_\bullet^{V}\D_X$ is Auslander regular, see Cor.~\ref{cor:Rees-ring-of-V-filtration-D-module}. So it can't replace the first proof in Thm.~\ref{theorem 7.12}.
+\end{remark}
 \begin{proof}
     If $\mathrm{gr}^\Omega_{\bullet}M=0$, there is nothing to prove, so we assume $\mathrm{gr}^\Omega_{\bullet}M\neq 0$ and $\ell=j(\mathrm{gr}_{\bullet}^{\Omega}M)<j(M)$.
 
-    Then the $E_1$-page of the spectral sequence that converges to $\mathrm{Ext}_{\mathcal{D}_{X}}^{j}(M,\mathcal{D}_{X})$ satisfies:
+    Then the $E_1$-page of the spectral sequence of $\check{F}^\bullet$
+    introduced in Section~\ref{sect:more_on_filtered_rings},
+    that converges to $\mathrm{Ext}_{\mathcal{D}_{X}}^{j}(M,\mathcal{D}_{X})$,
+    satisfies:
     \[
         0 \rightarrow \operatorname{Ext}^{\ell}(\operatorname{gr}_{\bullet}^{\Omega} M, \operatorname{gr}^{V}_{\bullet}\mathcal{D}_X)
-        \xrightarrow{d_1}
+        \xrightarrow{\mathrm{d}_1}
         \operatorname{Ext}^{\ell+1}(\operatorname{gr}_{\bullet}^{\Omega} M, \operatorname{gr}^{V}_{\bullet}\mathcal{D}_X).
     \]
-    So we obtain that $E^{\ell}_{\bullet}(2)=\ker d_{1}\subseteq\operatorname{Ext}^{\ell}(\operatorname{gr}_{\bullet}^{\Omega} M, \operatorname{gr}^{V}_{\bullet}\mathcal{D}_X)$ since no images map to $E^{\ell}_{\bullet}(1)$.
+    Where we identify $\gr_\bullet \Hom_{\D_X}(F^\bullet, \D_X)$ with $\Hom_{\gr_\bullet^{V} \D_X}(\gr_\bullet F^\bullet, \gr_\bullet^{V} \D_X)$
+    as in the proof of Cor.~\ref{corollary 7.11}.
 
-    Then we have the following exact sequence with the quotient $N=E^{\ell}_{\bullet}(1) /\ker d_{1}\simeq d_{1}(E_{\bullet}^{\ell}(1))\subseteq E^{\ell+1}_{\bullet}(1)$:
+    Since $\ell = j(\gr_\bullet^\Omega M)$, so we obtain that $E^{\ell}_{\bullet}(2)=\ker \mathrm{d}_1\subseteq\operatorname{Ext}^{\ell}(\operatorname{gr}_{\bullet}^{\Omega} M, \operatorname{gr}^{V}_{\bullet}\mathcal{D}_X)$ since no images map to $E^{\ell}_{\bullet}(1)$.
+
+    Then we have the following exact sequence with the quotient $N=E^{\ell}_{\bullet}(1) /\ker \mathrm{d}_{1}\simeq \mathrm{d}_{1}(E_{\bullet}^{\ell}(1))\subseteq E^{\ell+1}_{\bullet}(1)$:
     \[
         0 \rightarrow E_{\bullet}^{\ell}(2) \rightarrow \operatorname{Ext}^{\ell}(\operatorname{gr}_{\bullet}^{\Omega} M, \operatorname{gr}^{V}_{\bullet}\mathcal{D}_X)
         \rightarrow N \rightarrow 0.
     \]
-    With $\mathrm{gr}_{\bullet}^V\mathcal{D}_{X}$ Auslander regular, we obtain that for $N\subseteq \mathrm{Ext}^{\ell+1}(\operatorname{gr}_{\bullet}^{\Omega} M, \operatorname{gr}^{V}_{\bullet}\mathcal{D}_X)$, $j(N)\ge \ell+1$.
-
-    Since $j(M)>\ell$, we have $E_{\bullet}^{\ell}(r) = \operatorname{gr}_{\bullet} \operatorname{Ext}^{\ell}(M, \mathcal{D}_X) = 0$ for some $r\gg 0$, and $E^{\ell}_{\bullet}(r)=\ker d_{r}$.
-
-    Also $\mathrm{gr}_{\bullet}^V\mathcal{D}_{X}$ is a noetherian ring, so we have
+    In general, by induction, $\forall k\ge 1$, we also have such exact sequence:
     \[
-        j(\operatorname{Ext}^{\ell}(\operatorname{gr}_{\bullet}^{\Omega} M, \operatorname{gr}^{V}_{\bullet}\mathcal{D}_X) )\ge\ell+1,
+        0 \rightarrow E_{\bullet}^{\ell}(k+1) \rightarrow E_{\bullet}^{\ell}(k) \rightarrow N_k \rightarrow 0.
     \]
-    which is a contradiction.
-\end{proof}
 
+    Since $j(M)>\ell$, and $\check{F}^\bullet$ is convergent (see Definition~\ref{def:convergent_spectral_sequence}),
+    we have $E_{\bullet}^{\ell}(r) = \operatorname{gr}_{\bullet} \operatorname{Ext}^{\ell}(M, \mathcal{D}_X) = 0$ for some $r\gg 0$,
+    and $E^{\ell}_{\bullet}(r)=\Ker \mathrm{d}_{r}$.
+
+    By triangle inequality of grade number (one can get this inequality by a long exact sequence corresponds to the short exact sequence), we have
+    \[
+        j(E_{\bullet}^{\ell}(k)) \ge \min(j(E_{\bullet}^{\ell}(k+1)), j(N_k)).
+    \]
+    Note that $N_k$ is a subquotient of $E_{\bullet}^{\ell+1}(1) = \operatorname{Ext}^{\ell+1}(\operatorname{gr}_{\bullet}^{\Omega} M, \operatorname{gr}^{V}_{\bullet}\mathcal{D}_X)$.
+    Since $\gr_\bullet^{V}\D_X$ is Auslander regular, we have $j(N_k) \ge \ell+1$.
+
+    Since $E_{\bullet}^{\ell}(r) = 0$ for $r \gg 0$, we have $j(E_{\bullet}^{\ell}(r)) = \infty$.
+    By induction (downwards on $k$), we obtain
+    \[
+        j(E_{\bullet}^{\ell}(1)) \ge \ell+1.
+    \]
+    However, $E_{\bullet}^{\ell}(1) = \operatorname{Ext}^{\ell}(\operatorname{gr}_{\bullet}^{\Omega} M, \operatorname{gr}^{V}_{\bullet}\mathcal{D}_X)$.
+    Since $\ell = j(\operatorname{gr}_{\bullet}^{\Omega} M)$, we have $j(E_{\bullet}^{\ell}(1)) = \ell$ by Theorem~\ref{theorem 7.2}'s (2) and (4).
+    This contradicts $j(E_{\bullet}^{\ell}(1)) \ge \ell+1$.
+\end{proof}
 
 \begin{proof}[proof of (\ref{Theorem 8.4})]
     \quad
 
-    By Theorem \ref{Theorem 8.6}, $j(\mathrm{gr}_{\bullet}^\Omega M)\ge j(M)=n$. If $\mathrm{gr}_{\bullet}^\Omega M=0$, take $b(s)=0$. If not, then $\mathrm{dim\ ch}(\mathrm{gr}^\Omega_{\bullet}M)\ge n$.
+    By Theorem~\ref{Theorem 8.6},
+    $j(\mathrm{gr}_{\bullet}^\Omega M)\ge j(M)=n$.
+    If $\mathrm{gr}_{\bullet}^\Omega M=0$, take $b(s)=1$.
 
-    Since $\mathrm{gr}_{\bullet}^V\mathcal{D}_{X}$ is a Auslander regular ring, we obtain that $j(\mathrm{gr}_{\bullet}^\Omega M)+\mathrm{dim}(\mathrm{Ch}(\mathrm{gr}_{\bullet}^\Omega M))=2n=2\mathrm{dim}T_{Y}X$, then $\mathrm{gr}^\Omega_{\bullet} M$ is holonomic over $T_Y X$.
+    Since by Cor.~\ref{cor:Rees-ring-of-V-filtration-D-module} and filtration is good, we view $\mathrm{gr}_{\bullet}^\Omega M$ as a finitely generated$\gr_\bullet^{V}\D_X = \D_{T_Y X}$-module.
+    And in the proof of Cor.~\ref{cor:Rees-ring-of-V-filtration-D-module}, we verified that $T_{Y}X$ is a smooth variety of dimension $n$ over $\mathbb{C}$.
+    So if $\gr_\bullet^{\Omega}M \neq 0$, then $\mathrm{dim}(\mathrm{Ch}(\mathrm{gr}^\Omega_{\bullet}M))\ge n$ by Thm.~\ref{thm:Bernstein-inequality}.
 
-    Now, take $\theta=\bigoplus \limits_{i}(t\partial_{t}-i),$ then $\theta\in\mathrm{End}_{\mathcal{D}_{T_{Y}X}}(\mathrm{gr}_{\bullet}^\Omega M)$. By Lemma \ref{lemma 8.5}, there exists $b(s)\in\mathbb{C}[s]$ s.t. $b(\theta)=0$, In particular, $b(t\partial_{t}-k)$ kills $\frac{\Omega_{k}M}{\Omega_{k-1}M}$ for all $k$.
+    Since $\mathrm{gr}_{\bullet}^V\mathcal{D}_{X}$ is a Auslander regular ring,
+    by Thm.~\ref{theorem 7.12},
+    we obtain that $j(\mathrm{gr}_{\bullet}^\Omega M)+\mathrm{dim}(\mathrm{Ch}(\mathrm{gr}_{\bullet}^\Omega M))=2n=2\,\mathrm{dim}T_{Y}X$, then $\mathrm{gr}^\Omega_{\bullet} M$ is holonomic over $T_Y X$.
+
+    Now, take
+    \[\theta=\bigoplus \limits_{i}(t\partial_{t}+i) : \gr_\bullet^\Omega M \to \gr_\bullet^\Omega M\quad \text{ for } t\partial_t + i: \gr_i^\Omega M \to \gr_i^\Omega M\]
+    since one can verify that for $P\in\D_X$
+    \[P \in V_{i}\D_X \Leftrightarrow P = p(x,\partial_x) t^{\alpha}\partial_t^\beta\quad \text{ for } p(-,-) \text{ a polynomial, and }\beta - \alpha \le i\]
+    which implies
+    \[[t\partial_t, P] = -i P \text{ for } P\in\gr_i^{V}\mathcal{D}_X,\]
+    so we have $\theta\in\mathrm{End}_{\mathcal{D}_{T_{Y}X}}(\mathrm{gr}_{\bullet}^\Omega M)$.
+    Indeed, for $u \in \gr_j^\Omega M$ and $P \in \gr_k^{V} \D_X$, we calculate
+    \[
+        \theta(Pu) = (t\partial_t + j + k) Pu = (P t\partial_t - k P + j + k) u = P(t\partial_t + j) u = P \theta(u).
+    \]
+
+    By Lemma \ref{lemma 8.5}, there exists $b(s)\in\mathbb{C}[s]$ s.t. $b(\theta)=0$,
+    In particular, $b(t\partial_{t}+k)$ kills $\frac{\Omega_{k}M}{\Omega_{k-1}M}$ for all $k$.
 \end{proof}
 
-\begin{remark}
-    It is poosible that $\mathrm{gr}_{\bullet}^\Omega M=0$. In fact, take $M=\mathbb{C}[t, \frac{1}{t}]e^{\frac{1}{t}}=\mathcal{D}_{X}\cdot e^{\frac{1}{t}}$, take $\Omega_{k}M=V_{k}\mathcal{D}_{X}\cdot e^{\frac{1}{t}}$, which is a good filtration. Since $t\partial_{t}e^{\frac{1}{t}}= -\frac{1}{t} e^{\frac{1}{t}}$, we have $\Omega_{k}M=M$ and $b(s)=1$.
+\begin{remark}\label{rmk:b_function_of_C[x,1/x]e^1/x}
+    It is possible that $\mathrm{gr}_{\bullet}^\Omega M=0$. In fact, take
+    $M := \mathcal{D}_{\Spec{\C[t]}} \big/ \mathcal{D}_{\Spec{\C[t]}}\langle t^2\partial_t + 1 \rangle = \mathcal{D}_{X}\cdot e^{\frac{1}{t}}$,
+    for $e^{\frac{1}{t}}$ represents the canonical section $[1]\in\mathcal{D}_{\Spec{\C[t]}} \big/ \langle t^2\partial_t + 1 \rangle$.
+
+    We note that $t$ also acts bijectively on $M$ (just as Example~\ref{ex:first-examples-of-d-modules}),
+    so $M=M[t^{-1}]  = \mathbb{C}[t, \frac{1}{t}]e^{\frac{1}{t}}$,
+    take $\Omega_{k}M=V_{k}\mathcal{D}_{X}\cdot e^{\frac{1}{t}}$,
+    which is a good filtration.
+    Since $t\partial_{t}e^{\frac{1}{t}}= -\frac{1}{t} e^{\frac{1}{t}}$, we have $\Omega_{k}M=M$ and $b(s)=1$.
 \end{remark}
 
 \begin{theorem}[Kashiwara-Malgrange]\label{Theorem 8.7}
     Let $M$ be a holonomic $\mathcal{D}_{X}$-module, there exists unique good filtration $V_{\bullet}M$ and $b(s)\in\mathbb{C}[s]$ s.t.
     \begin{enumerate}
-        \item $\mathrm{Re}(\text{roots of }b(s))\subseteq(-1,0]$;
-        \item $b(t\partial_{t}-k)$ kills $\frac{V_{k}M}{V_{k-1}M}$.
+        \item $\mathrm{Re}(\text{roots of }b(s))\subseteq[0,1)$;
+        \item $b(t\partial_{t}+k)$ kills $\frac{V_{k}M}{V_{k-1}M}$.
     \end{enumerate}
     And the filtration is called $V$-filtration.
 \end{theorem}
 \begin{proof}
     This is Kashiwara's trick:
-    Set $\Gamma_{n}=\Omega_{n+k}$, we then have $b(t\partial_{t}-n-k)$ kill $\Gamma_{n} /\Gamma_{n-1}$ for all $n$, thus taking $k\gg 0$, we can assume $\mathrm{Re}(\text{roots of }b(s))>0$.
+    First, set $\Gamma_{n}=\Omega_{n+k}$. Note that $b(t\partial_{t}+n+k)$ kills $\Gamma_{n} /\Gamma_{n-1}$ for all $n$,
+    which means the roots of the $b$-function are shifted by $k$.
+    Thus by taking $k\gg 0$, after replacing $b(s)$ by $s\mapsto b(s+k)$, we can assume $\mathrm{Re}(\lambda)\le 0$ for all roots $\lambda$ of $b(s)$.
 
-    Let $b(s)=(s-\alpha)^\ell b_{1}(s)$ s.t. $(s-\alpha)\nmid b_{1}(s)$; set $\Gamma_{n}'=\Gamma_{n-1}+(t\partial_{t}-\alpha-n)\Gamma_{n}$, then $(t\partial_{t}-(\alpha-1)-n)^\ell b_{1}(t\partial_{t}-n)$ kills $\frac{\Gamma_{n}'}{\Gamma_{n-1}'}$ for all $n$.
+    Next, suppose that $b(s)$ has a root $\alpha$ whose real part is $< 0$.
+    Set $\Gamma_{n}'=\Gamma_{n-1}+(t\partial_{t}+n-\alpha)\Gamma_{n}$.
+    If $\beta(s) = b(s)/(s-\alpha)$, then we verify that $\beta(s+n)(s+n-\alpha-1)$ annihilates $\Gamma'_{n} / \Gamma'_{n-1}$ for all $n$.
 
-    If $\mathrm{Re}(\alpha-1)\notin(-1,0]$, repeat this until all roots moved in $(-1,0]$.
+    Denote $s = t\partial_t$. Let $u' \in \Gamma'_{n}$. We can write $u' = v + (s+n-\alpha)w$ with $v \in \Gamma_{n-1}$ and $w \in \Gamma_{n}$.
+    We calculate the action of $Q(s) = \beta(s+n)(s+n-\alpha-1)$:
+    \[
+        Q(s)u' = \beta(s+n)(s+n-\alpha-1)v + \beta(s+n)(s+n-\alpha-1)(s+n-\alpha)w.
+    \]
+    For the first term involving $v \in \Gamma_{n-1}$: note that $(s+n-\alpha-1)v \in (s+(n-1)-\alpha)\Gamma_{n-1} \subseteq \Gamma'_{n-1}$.
+    For the second term involving $w \in \Gamma_{n}$: we use the fact that polynomials in $s$ commute, so
+    \[
+        \beta(s+n)(s+n-\alpha-1)(s+n-\alpha)w = (s+n-\alpha-1) \beta(s+n)(s+n-\alpha) w = (s+n-\alpha-1) b(s+n) w.
+    \]
+    By the hypothesis on $\Gamma_\bullet$, we have $b(s+n)w \in \Gamma_{n-1}$. Let $z = b(s+n)w$.
+    Then $(s+n-\alpha-1)z \in (s+(n-1)-\alpha)\Gamma_{n-1} \subseteq \Gamma'_{n-1}$.
+    Thus, $Q(s)u' \in \Gamma'_{n-1}$.
+
+    Continue doing this if $\alpha$ has multiplicity, we will finally move a root $\alpha$ of $b(s)$ to $\alpha+1$.
 \end{proof}
 
 \begin{definition}
-    \quad
+    $M$ is a holomonic module, then:
 
     \begin{enumerate}
-        \item  $M$ is called $Q\textbf{-specializable}$ along $Y$ if the $b$-function has all its roots in $Q$, where $Q \subset \mathbb{C}$ is a subfield.
-        \item If $M$ is $Q$-specializable, then for all $\beta \in Q$, take $k = \lceil \beta \rceil$, then define $$V_{\beta} M = \pi^{-1} \left( \bigoplus_{\alpha \leq \beta} \left( \frac{V_k M}{V_{k-1} M} \right)^{\alpha} \right),$$and $$V_{<\beta} M = \pi^{-1} \left( \bigoplus_{\alpha < \beta} \left( \frac{V_k M}{V_{k-1} M} \right)^{\alpha} \right),$$where $\left( \frac{V_k M}{V_{k-1} M} \right)^{\alpha}$ is the $\alpha$-eigenspace of $\frac{V_k M}{V_{k-1} M}$ w.r.t. the $t\partial_t$-action, and $\pi: V_k M \rightarrow \frac{V_k M}{V_{k-1} M}$; then we get a $\mathbb{Q}$-indexed $V$-filtration s.t.  $$\mathrm{gr}_{\alpha}^{V} M = \frac{V^{\alpha} M}{V^{<\alpha} M} = \left( \frac{V_k M}{V_{k-1} M} \right)^{\alpha}$$ with $t\partial_t - \alpha$ acts on $\mathrm{gr}_{\alpha}^{V} M$ nilpotently.
+        \item  $M$ is called $Q\textbf{-specializable}$ along $Y$ if the $b$-function has all its roots in $Q$, where $Q \subseteq \mathbb{C}$ is a subfield.
+
+              Since any subfield of $\C$ must contain its \textbf{prime subfield} $\mathbb{Q}$, and $b(t\partial_t + k)$ kills $V_kM/V_{k-1}M$,
+              the eigenvalues $\lambda$ of $t\partial_t$ on $V_kM/V_{k-1}M$ kills its eigenvectors by multiplying $b(\lambda + k)$.
+
+              So $\lambda$ differs from the roots of $b(s)$ by integers.
+              Thus, if all roots of $b(s)$ are in $Q$, then all eigenvalues of $t\partial_t$ are in $Q$ (as $\mathbb{Z} \subseteq \mathbb{Q} \subseteq Q$).
+
+        \item If $M$ is $\mathbb{Q}$-specializable,
+              then for all $\beta \in \mathbb{Q}$,
+              take $k = \lceil \beta \rceil$,
+              then define
+              $$V_{\beta} M = \pi^{-1} \left( \bigoplus_{\alpha \leq \beta} \left( \frac{V_k M}{V_{k-1} M} \right)^{\alpha} \right),$$
+              and
+              $$V_{<\beta} M = \pi^{-1} \left( \bigoplus_{\alpha < \beta} \left( \frac{V_k M}{V_{k-1} M} \right)^{\alpha} \right),$$
+              where $\left( \frac{V_k M}{V_{k-1} M} \right)^{\alpha}$ denotes the $\alpha$-generalized eigenspace of $\frac{V_k M}{V_{k-1} M}$
+              with respect to the $t\partial_t$-action, and $\pi: V_k M \rightarrow \frac{V_k M}{V_{k-1} M}$;
+              Then we get a $\mathbb{Q}$-indexed $V$-filtration s.t.
+              $$\mathrm{gr}_{\beta}^{V} M = \frac{V^{\beta} M}{V^{<\beta} M} = \left( \frac{V_k M}{V_{k-1} M} \right)^{\beta}$$
+              with $t\partial_t - \beta$ acts on $\mathrm{gr}_{\beta}^{V} M$ nilpotently.
     \end{enumerate}
 \end{definition}
 \begin{example}
     Let $X=\mathbb{A}^{1}_{\mathbb{C}}$ and $M = \mathbb{C}\left[ t, \frac{1}{t} \right]e^{\frac{1}{t}}$ an irregular holonomic $\mathcal{D}$-mod.
 
-    Consider $V$-filtration along $t = 0$. The $V$-filtration on $M$ exists by Theorem \ref{Theorem 8.7}$$\partial_t e^{\frac{1}{t}} = -\frac{1}{t^2} e^{\frac{1}{t}}\text{ which implies that }t\partial_t e^{\frac{1}{t}} = -\frac{1}{t} e^{\frac{1}{t}}(\ast)$$Take $\Omega_i M = V_i \mathcal{D}_{X} \cdot e^{\frac{1}{t}}$ for $i \in \mathbb{Z}$, then $\Omega_0 M = M$ for $(\ast)$ holds, further, we obtain that $\Omega_1 M = t \Omega_0 M = t M = M$ and $\Omega_i M = M$ for all $i\in \mathbb{Z}$. Finally, we find out that $\Omega_{i}M$ is the $V$-filtration we want with the $b$-function of $M$ is $1$.
+    Consider $V$-filtration (of $\D_X$) along $t = 0$. The $V$-filtration on $M$ exists by Theorem \ref{Theorem 8.7}.
 
+    Recall Rmk.~\ref{rmk:b_function_of_C[x,1/x]e^1/x}. The filtration $\Omega_\bullet M$ is defined by $\Omega_i M := V_i \mathcal{D}_{X} \cdot e^{\frac{1}{t}}$ for $i \in \mathbb{Z}$.
+    We have $\Omega_i M = M$ for all $i\in \mathbb{Z}$.
+
+    This filtration gives a $b$-function $b(s) = 1$. Which has all its roots in $[0,1)$, so $\Omega_\bullet M$ is exactly the $V$-filtration on $M$.
 \end{example}
 
 \begin{theorem}
@@ -193,6 +294,10 @@
 
 \end{proof}
 
+\begin{definition}[$\D$-module theoretic direct image of a graph embedding]
+    Firstly we introduce the definition of graph embedding: 1
+
+\end{definition}
 
 \begin{example}\label{Example 8.11}
 
