@@ -219,31 +219,54 @@
     \end{enumerate}
     And the filtration is called $V$-filtration.
 \end{theorem}
+\begin{remark}
+    We use the definition of $V$-filtration in \cite[2.10.21~The Kashiwara-Malgrange filtration. and 2.10.24~The existence]{Bjork1993AnalyticDModules} here.
+\end{remark}
 \begin{proof}
     This is Kashiwara's trick:
-    First, set $\Gamma_{n}=\Omega_{n+k}$. Note that $b(t\partial_{t}+n+k)$ kills $\Gamma_{n} /\Gamma_{n-1}$ for all $n$,
+
+    First, set $\Gamma_{n}=\Omega_{n+k}$. Note that
+    \[
+        b(t\partial_{t}+n+k)\text{ kills }\Gamma_{n} /\Gamma_{n-1}\text{ for all }n,
+    \]
     which means the roots of the $b$-function are shifted by $k$.
     Thus by taking $k\gg 0$, after replacing $b(s)$ by $s\mapsto b(s+k)$, we can assume $\mathrm{Re}(\lambda)\le 0$ for all roots $\lambda$ of $b(s)$.
 
     Next, suppose that $b(s)$ has a root $\alpha$ whose real part is $< 0$.
-    Set $\Gamma_{n}'=\Gamma_{n-1}+(t\partial_{t}+n-\alpha)\Gamma_{n}$.
-    If $\beta(s) = b(s)/(s-\alpha)$, then we verify that $\beta(s+n)(s+n-\alpha-1)$ annihilates $\Gamma'_{n} / \Gamma'_{n-1}$ for all $n$.
+    Set
+    \[
+        \Gamma_{n}'=\Gamma_{n-1}+(t\partial_{t}+n-\alpha)\Gamma_{n}.
+    \]
+    If $\beta(s) = b(s)/(s-\alpha)$, then we verify that
+    \[
+        \beta(s+n)(s+n-\alpha-1)\text{ annihilates }\Gamma'_{n} / \Gamma'_{n-1}\text{ for all }n.
+    \]
 
     Denote $s = t\partial_t$. Let $u' \in \Gamma'_{n}$. We can write $u' = v + (s+n-\alpha)w$ with $v \in \Gamma_{n-1}$ and $w \in \Gamma_{n}$.
     We calculate the action of $Q(s) = \beta(s+n)(s+n-\alpha-1)$:
     \[
         Q(s)u' = \beta(s+n)(s+n-\alpha-1)v + \beta(s+n)(s+n-\alpha-1)(s+n-\alpha)w.
     \]
-    For the first term involving $v \in \Gamma_{n-1}$: note that $(s+n-\alpha-1)v \in (s+(n-1)-\alpha)\Gamma_{n-1} \subseteq \Gamma'_{n-1}$.
-    For the second term involving $w \in \Gamma_{n}$: we use the fact that polynomials in $s$ commute, so
+    For the first term involving $v \in \Gamma_{n-1}$: note that
     \[
-        \beta(s+n)(s+n-\alpha-1)(s+n-\alpha)w = (s+n-\alpha-1) \beta(s+n)(s+n-\alpha) w = (s+n-\alpha-1) b(s+n) w.
+        (s+n-\alpha-1)v \in (s+(n-1)-\alpha)\Gamma_{n-1} \subseteq \Gamma'_{n-1}.
     \]
+    For the second term involving $w \in \Gamma_{n}$: we use the fact that polynomials in $s$ commute, so
+    \begin{align*}
+        \beta(s+n)(s+n-\alpha-1)(s+n-\alpha)w & = (s+n-\alpha-1) \beta(s+n)(s+n-\alpha) w \\
+                                              & = (s+n-\alpha-1) b(s+n) w.
+    \end{align*}
     By the hypothesis on $\Gamma_\bullet$, we have $b(s+n)w \in \Gamma_{n-1}$. Let $z = b(s+n)w$.
-    Then $(s+n-\alpha-1)z \in (s+(n-1)-\alpha)\Gamma_{n-1} \subseteq \Gamma'_{n-1}$.
+    Then
+    \[
+        (s+n-\alpha-1)z \in (s+(n-1)-\alpha)\Gamma_{n-1} \subseteq \Gamma'_{n-1}.
+    \]
     Thus, $Q(s)u' \in \Gamma'_{n-1}$.
 
-    Continue doing this if $\alpha$ has multiplicity, we will finally move a root $\alpha$ of $b(s)$ to $\alpha+1$.
+    Continue doing this if $\alpha$ has multiplicity, we will finally move a root $\alpha$ of $b(s)$ to $\alpha+1$, increasing its real part.
+
+    For uniqueness, see \cite[2.10.24 The existence of the Kashiwara-Malgrange filtration]{Bjork1993AnalyticDModules}.
+
 \end{proof}
 
 \begin{definition}
@@ -294,14 +317,349 @@
 
 \end{proof}
 
-\begin{definition}[$\D$-module theoretic direct image of a graph embedding]
-    Firstly we introduce the definition of graph embedding: 1
+The next subsequent definitions will establish what a $\D$-module theoretic direct image of a \textbf{graph embedding} is.
+And work out its definition when $X$ is a smooth affine $\C$ variety, and the result should be consistent with \cite[discussion above Prop.~1.4]{Budur04}.
 
+\begin{proposition}[Functor of points]\label{prop:functor_of_points}
+    We have following \textbf{natural isomorphism}, for $\mathbb{A}^1_\C = \mathbf{G}_{a,\Spec\C}$, and any $\Spec\C$-scheme $T$, we have
+    \[
+        \Hom_{\mathrm{Sch}_{\Spec\C}}(T , \mathbb{A}^1_\C) \cong \Gamma(T, \mathcal{O}_T).
+    \]
+\end{proposition}
+\begin{proof}
+    See \cite[\href{https://stacks.math.columbia.edu/tag/022V}{Tag 022V}]{stacks-project}.
+\end{proof}
+
+\begin{definition}[Graph embedding]
+    We define \textbf{graph embedding}, which is induced by the universal property of a fiber product $X\times_{\Spec\C} \mathbb{A}^1_{\C}$:
+    $$
+        \begin{tikzcd}
+            X \arrow[drr, "f", bend left=20] \arrow[ddr, "\operatorname{id}_X"', bend right=20] \arrow[dr, "\exists! \Gamma_f" description, dashed] & & \\
+            & X \times_{\Spec\C} \mathbb{A}^1_{\C} \arrow[r, "p_2"] \arrow[d, "p_1"] \arrow[dr, phantom, "\lrcorner", very near start] & \mathbb{A}^1_{\C} \arrow[d] \\
+            & X \arrow[r] & \Spec\C
+        \end{tikzcd}
+    $$
+    where $f\in\Hom_{\mathrm{Sch}_{\Spec\C}}(X, \mathbb{A}^1_{\C})$ and the arrow $\Gamma_f:X\to X\times_{\Spec\C}\mathbb{A}^1_{\C}$ is the graph embedding.
 \end{definition}
+
+\begin{example}
+    Now we begin to calculate the $\D$-module theoretic \textbf{direct image} (see Rmk.~\ref{rem:kashiwara_explicit}) of $\Gamma_f$ when $X$ is a smooth affine $\C$ variety.
+
+    \begin{enumerate}
+        \item Identify $X$ as a closed subscheme of $X\times_{\Spec\C}\mathbb{A}^1_{\C}$.
+
+              Base change $p_1:X\times_{\Spec\C}\mathbb{A}^1_{\C} \to X$ of $\mathbb{A}^1_\C \to \Spec\C$ is also separated, since $\mathbb{A}^1_\C \to \Spec\C$ is separated.
+              As a section of the separated morphism $p_1$ ($p_1\circ\Gamma_f = \mathrm{id}_X$), $\Gamma_f$ is a closed immersion \cite[\href{https://stacks.math.columbia.edu/tag/024T}{Tag 024T}]{stacks-project}.
+              So we can use \cite[\href{https://stacks.math.columbia.edu/tag/01HO}{Tag 01HO}]{stacks-project} to identify $X$ as a closed subscheme of $X\times_{\Spec\C}\mathbb{A}^1_{\C}$.
+
+              We identify $f\in \Gamma(X,\Ox) =: R$ by Prop.~\ref{prop:functor_of_points}.
+              Since $X$ is affine, we have $\Gamma_f$ is also an affine morphism, on the level of ring map between global sections, we have:
+              \begin{align*}
+                  R[t] = R \otimes_\C \C[t] & \to R               \\
+                  a \otimes b(t)            & \mapsto a\cdot b(f)
+              \end{align*}
+              So the kernel of this ring map is $\langle t - f \rangle$. $X\cong V(\langle t - f \rangle) \subseteq X\times_{\Spec\C}\mathbb{A}^1_{\C}$.
+
+        \item Introduce two coordinate systems on $Y:=X\times_{\Spec\C}\mathbb{A}^1_{\C}$.
+
+              Let $u:=t-f$. Then $Y$ has two coordinate systems $(x_i,t)$ and $(x_i,u)$.
+              There is a fact that both $\{\mathrm{d} x_i,\mathrm{d} t\}$ and $\{\mathrm{d} x_i,\mathrm{d} u\}$ are basis of $\Omega_Y = \Omega_{R[t]/\C[t]}$.
+              (that is why there is graph embedding, $f$ may not smooth, but $t-f$ must be a smooth coordinate.)
+
+              They have corresponding dual basis, say $\{\partial^{(t)}_{x_i},\partial_t\}$ and $\{\partial^{(u)}_{x_i},\partial_u\}$, of $\mathcal{T}_Y\subseteq \D_Y$.
+
+              One should realize that for a vector space without additional structure,
+              $V$ and $V^\vee$ DO NOT have a \textbf{canonical} isomorphism between them.
+              So $\partial^{(t)}_{x_i}$ and $\partial^{(u)}_{x_i}$ are \underline{truly different}.
+
+              (Due to the same fact, the identification of $\mathcal{T}_Y\hookrightarrow\End_{\C}(\Oy)$, as a subspace of $\D_Y$, should be \textbf{coordinate-free}.)
+
+              We calculate the transformation matrix between the two basis:
+
+              \begin{enumerate}
+                  \item \textbf{Differentials (Cotangent bundle):}
+                        Since $u = t - f(x)$, we have the relation of differentials:
+                        \[
+                            \mathrm{d} t = \mathrm{d} u + \sum_{i} (\partial_{x_i} f) \mathrm{d} x_i.
+                        \]
+
+                  \item \textbf{For $\partial_u$:}
+                        By duality definition, $\langle \mathrm{d} x_i, \partial_u \rangle = 0$ and $\langle \mathrm{d} u, \partial_u \rangle = 1$.
+                        Using the differential relation:
+                        \[
+                            \langle \mathrm{d} t, \partial_u \rangle = \langle \mathrm{d} u + \sum (\partial_{x_k} f) \mathrm{d} x_k, \partial_u \rangle = 1 + 0 = 1.
+                        \]
+                        And $\langle \mathrm{d} x_k, \partial_u \rangle = 0$.
+                        This characterizes $\partial_t$, so we have $\partial_u = \partial_t$.
+
+                  \item \textbf{For $\partial_{x_i}^{(u)}$:}
+                        Write $\partial_{x_i}^{(u)} = \sum_j a_j\partial_{x_j}^{(t)} + b \partial_t$.
+
+                        Apply $\mathrm{d} x_k$:
+                        \[
+                            \delta_{ik} = \langle \mathrm{d} x_k, \partial_{x_i}^{(u)} \rangle
+                            = \sum_j a_j \langle \mathrm{d} x_k, \partial_{x_j}^{(t)} \rangle + b \langle \mathrm{d} x_k, \partial_t \rangle
+                            = a_k.
+                        \]
+                        So $\partial_{x_i}^{(u)} = \partial_{x_i}^{(t)} + b \partial_t$.
+
+                        Apply $\mathrm{d} t = \mathrm{d} u + \sum_k (\partial_{x_k} f) \mathrm{d} x_k$:
+                        \[
+                            b = \langle \mathrm{d} t, \partial_{x_i}^{(u)} \rangle
+                            = \langle \mathrm{d} u + \sum_k (\partial_{x_k} f) \mathrm{d} x_k, \partial_{x_i}^{(u)} \rangle
+                            = \partial_{x_i} f.
+                        \]
+                        So the coordinate change is given by:
+                        \[
+                            \partial_{x_i}^{(u)} = \partial_{x_i}^{(t)} + (\partial_{x_i} f) \partial_t.
+                        \]
+              \end{enumerate}
+
+              In summary, we have
+              \begin{align*}
+                  \partial_u           & = \partial_t,                                           \\
+                  \partial_{x_i}^{(u)} & = \partial_{x_i}^{(t)} + (\partial_{x_i} f) \partial_t.
+              \end{align*}
+
+
+        \item Identify the transfer bimodules.
+
+              Let $Y := X\times_{\Spec\C}\mathbb{A}^1_{\C}$,
+              $X$ has coordinate system $(x_i)$,
+              and $\mathbb{A}^1_\C$ has coordinate system $(t)$,
+              then:
+
+              We have $\D_{X\to Y} := \Ox \otimes_{\Gamma_f^{-1}\Oy} \Gamma_f^{-1}\D_Y = \Ox[\partial_{x_i}, \partial_t]$ as free $\Ox$-module.
+
+              We calculate its left $\D_X$-module structure, using the following formula in Example~\ref{example:side-changing-transfer-bimodules}:
+              \begin{align*}
+                  a \cdot (b \otimes P)      & := (ab) \otimes P,                                                                  \\
+                  \theta \cdot (a \otimes P) & := \theta(a) \otimes P + a \sum_j \theta(\Gamma_f^* y_j) \otimes (\partial_{y_j} P)
+              \end{align*}
+              Which translates to:
+              \begin{align*}
+                  x_i \cdot (b \otimes P)            & := (x_i b) \otimes P,                                                                                  \\
+                  \partial_{x_i} \cdot (a \otimes P) & := \partial_{x_i}(a) \otimes P + a (1\otimes (\partial_{x_i} P) + \partial_{x_i}f\otimes \partial_t P)
+              \end{align*}
+              And we have the right $\Gamma_f^{-1}\D_Y$-module structure:
+              \begin{align*}
+                  (b \otimes P) \cdot x_i            & := (x_i b) \otimes P,            \\
+                  (b \otimes P) \cdot t              & := (f b) \otimes P,              \\
+                  (a \otimes P) \cdot \partial_{x_i} & := a \otimes (P \partial_{x_i}), \\
+                  (a \otimes P) \cdot \partial_t     & := a \otimes (P \partial_t).
+              \end{align*}
+
+              The transfer bimodule $\mathcal{D}_{Y \leftarrow X}$ is a side change of $\D_{X\rightarrow Y}$,
+              we need the identification in \cite[Example~1.3.5]{hotta2008d} to help us to calculate, that is:
+              \[
+                  \D_{Y\leftarrow X} = (\Gamma_f^{-1}\D_Y \otimes_{\Gamma_f^{-1}\Oy} \Ox) \otimes_{\Ox} (\Gamma_f^{-1}\omega_Y^{\otimes -1}\otimes_{\Gamma_f^{-1}\Oy} \omega_X)
+              \]
+              Since $\Gamma_f^{-1}\omega_Y^{\otimes -1}\otimes_{\Gamma_f^{-1}\Oy} \omega_X$ is locally free, and $X$ is \textbf{affine}, so it is free, so we get:
+              \[
+                  \D_{Y\leftarrow X} = \Gamma_f^{-1}\D_Y \otimes_{\Gamma_f^{-1}\Oy} \Ox.
+              \]
+              Since $\Gamma_f^{-1}\D_Y = \C[\partial_{x_i}, \partial_t]\otimes_\C \Gamma_f^{-1}\Oy$ is free \textbf{right} $\Gamma_f^{-1}\Oy$-module (see the second point of Lem.~\ref{lem:quasi-coherent-sheaf-and-localization-of-D-modules}),
+              so $\D_{Y\leftarrow X}= \C[\partial_{x_i}, \partial_t]\otimes_\C \Ox$ is a free \textbf{right} $\Ox$-module.
+
+              The right $\mathcal{D}_X$-module structure is given by unwinding the 4 Steps at the end of Exercise~\ref{example:side-changing-transfer-bimodules}:
+              \begin{align*}
+                  (P \otimes b) \cdot x_i            & := P \otimes (b x_i),                                                                                      \\
+                  (P \otimes b) \cdot \partial_{x_i} & := ((P \partial_{x_i}) \otimes 1 + (P\partial_t)\otimes \partial_{x_i}f)b + P \otimes (\partial_{x_i}(b)),
+              \end{align*}
+
+              And the left $\Gamma_f^{-1}\D_Y$-module structure is given by:
+              \begin{align*}
+                  x_i \cdot (P \otimes b)            & := (x_i P) \otimes b             = [x_i, P]\otimes b + P\otimes (x_i b), \\
+                  \partial_{x_i} \cdot (P \otimes b) & := (\partial_{x_i} P) \otimes b,                                         \\
+                  t \cdot (P \otimes b)              & := (t P) \otimes b               = [t, P]\otimes b + P\otimes (f b),     \\
+                  \partial_t \cdot (P \otimes b)     & := (\partial_t P) \otimes b.
+              \end{align*}
+
+        \item Identify the direct image.
+
+              For a left $\D_X$-module $M$, we recall the definition of the direct image of $M$ under the graph embedding $\Gamma_f$,
+              see Rmk.~\ref{rem:kashiwara_explicit}:
+              \[
+                  \int_{\Gamma_f} M := R\Gamma_{f*}\left(\mathcal{D}_{Y \leftarrow X} \otimes^L_{\mathcal{D}_X} M\right)
+              \]
+
+              Firstly, since $\Gamma_f$ is an affine closed embedding, if we take a new coordinate system $(x_i,t-f)$ on $Y$,
+              one can prove $\D_{Y\leftarrow X}$ is a free \textbf{right} $\D_X$-module, so it does not need a resolution.
+
+              Secondly, pushforward by a closed immersion (in this case $\Gamma_f$) is an exact functor between quasi-coherent sheaves,
+              see \cite[\href{https://stacks.math.columbia.edu/tag/01AX}{Tag 01AX}]{stacks-project}.
+
+              Combining the above two points, we get
+              \[
+                  R\Gamma_{f*}\left(\mathcal{D}_{Y \leftarrow X} \otimes^L_{\mathcal{D}_X} M\right) = \Gamma_{f*}\left(\mathcal{D}_{Y \leftarrow X} \otimes_{\mathcal{D}_X} M\right)
+              \]
+              Through a categorical equivalence, says a quasi-coherent sheaf on an affine scheme is equivalent to its \textbf{global sections}, that is, a module.
+              To identify
+              \[
+                  \Gamma_{f*}\left(\mathcal{D}_{Y \leftarrow X} \otimes_{\mathcal{D}_X} M\right),
+              \]
+              if $M$ is a quasi-coherent sheaf (see Lem.~\ref{lem:quasi-coherent-sheaf-and-localization-of-D-modules}), we just denote
+              \[
+                  \mathcal{D}_{Y \leftarrow X} \otimes_{\mathcal{D}_X} M
+              \]
+              as its global sections.
+
+        \item Identification as a left $\D_Y$-module, the result should be compatible with \cite[discussion above Prop.~1.4]{Budur04}.
+
+              Recall, \cite[Example~1.3.5.]{hotta2008d}, for given coordinate $(x_i, u)$ (not $(x_i, t)$) on $Y$, we have
+              \[
+                  \D_{Y \leftarrow X} = \bigoplus_{n \ge 0} \partial_u^n \D_X.
+              \]
+              So we have
+              \[
+                  \D_{Y \leftarrow X} \otimes_{\D_X} M = \bigoplus_{n \ge 0} \partial_u^n \D_X \otimes_{\D_X} M = \bigoplus_{n \ge 0} \partial_u^n M.
+              \]
+
+              So we present elements in $\D_{Y \leftarrow X} \otimes_{\D_X} M$ in the form of
+              \[
+                  P\otimes_\C Q \otimes_{\D_X} m\quad (P\in\C[\partial_t]=\C[\partial_u],\, Q\in\D_X = \C[\partial^{(u)}_{x_i}]\otimes_\C\Ox,\, m\in M),
+              \]
+              Considering the isomorphism
+              \[
+                  \bigoplus_{n \ge 0} \partial_u^n \D_X \otimes_{\D_X} M = \bigoplus_{n \ge 0} \partial_u^n M,
+              \]
+              we can take $Q=1$ in the following calculation.
+
+              The following calculations heavily depend on the identified right $\D_X$-module structure and left $\Gamma_f^{-1}\D_Y$-module structure on $\D_{Y\leftarrow X}$ in Step 3.
+              All following Lie bracket are taken in $\D_Y\to \D_Y\otimes_{\Oy}\Ox = \D_{Y\leftarrow X} \to \D_{Y\leftarrow X}\otimes_{\D_X} M$.
+
+              For $g\in \Ox\subseteq\Oy\subseteq\D_Y$, we have
+              \[
+                  g\cdot(\partial_t^\nu \otimes n) = \partial_t^\nu\otimes (gn)
+              \]
+              The derivation is as follows:
+              \begin{align*}
+                  g\cdot(\partial_t^\nu\otimes 1 \otimes n) & := (g\cdot (\partial_t^\nu\otimes 1))\otimes n                                                                                        \\
+                                                            & = ([g,\partial_t^\nu]\otimes 1 + \partial_t^\nu\otimes g)\otimes n                                                                    \\
+                                                            & = ([g,\partial_t^\nu]\otimes 1)\otimes n + (\partial_t^\nu\otimes 1)\otimes (gn)                                                      \\
+                                                            & = (\partial_t^\nu\otimes 1)\otimes (gn)                                          &  & \text{($[g,\partial_t^\nu]=0$, for $g\in\Ox$)}.
+              \end{align*}
+
+              For $t\in (\Oy\setminus\Ox) \subseteq \D_Y$, we have
+              \[
+                  t\cdot(\partial_t^\nu\otimes n) = \partial_t^\nu\otimes (fn) - \nu\cdot(\partial_t^{\nu-1}\otimes n)
+              \]
+              The derivation is as follows:
+              \begin{align*}
+                  t\cdot(\partial_t^\nu\otimes 1 \otimes n) & := (t\cdot (\partial_t^\nu\otimes 1))\otimes n                                        \\
+                                                            & = ([t,\partial_t^\nu]\otimes 1 + \partial_t^\nu\otimes f)\otimes n                    \\
+                                                            & = (-\nu\partial_t^{\nu-1}\otimes 1 + \partial_t^\nu\otimes f)\otimes n                \\
+                                                            & = (-\nu\partial_t^{\nu-1}\otimes 1)\otimes n + (\partial_t^\nu\otimes 1)\otimes (fn).
+              \end{align*}
+
+
+              For $\partial^{(t)}_{x_i}$, we have
+              \[
+                  \partial^{(t)}_{x_i}\cdot(\partial_t^\nu\otimes n) = \partial_t^\nu\otimes(\partial_{x_i}n) - \partial_t^{\nu+1}\otimes\bigl((\partial_{x_i}f)n\bigr)
+              \]
+              The derivation is as follows, we first consider what $\partial_t^\nu\otimes 1 \otimes (\partial_{x_i}n)$ is:
+              \begin{align*}
+                  \partial_t^\nu\otimes 1 \otimes (\partial_{x_i}n) & = ((\partial_t^\nu\otimes 1)\cdot\partial_{x_i})\otimes n                                                                                                  \\
+                                                                    & = (\partial_t^\nu \otimes \partial^{(t)}_{x_i} + (\partial_t^{\nu+1})\otimes \partial_{x_i}f)1 + \partial_t^\nu \otimes (\partial^{(t)}_{x_i}(1))\otimes n \\
+                                                                    & = (\partial_t^\nu \otimes \partial^{(t)}_{x_i} + (\partial_t^{\nu+1})\otimes \partial_{x_i}f)\otimes n                                                     \\
+                                                                    & =  (\partial_t^\nu \otimes \partial^{(t)}_{x_i})\otimes n + (\partial_t^{\nu+1}\otimes \partial_{x_i}f)\otimes n.
+              \end{align*}
+              So we have
+              \begin{align*}
+                  \partial^{(t)}_{x_i}\cdot(\partial_t^\nu\otimes 1\otimes n) & := (\partial^{(t)}_{x_i}\cdot(\partial_t^\nu\otimes 1))\otimes n                                                        \\
+                                                                              & =(\partial_t^\nu \otimes \partial^{(t)}_{x_i})\otimes n                                                                 \\
+                                                                              & = \partial_t^\nu\otimes 1 \otimes (\partial_{x_i}n) - (\partial_t^{\nu+1}\otimes \partial_{x_i}f)\otimes n              \\
+                                                                              & =\partial_t^\nu\otimes 1 \otimes (\partial_{x_i}n) - \partial_t^{\nu+1}\otimes 1\otimes \bigl((\partial_{x_i}f)n\bigr).
+              \end{align*}
+
+
+              In summary, we have
+              \begin{align*}
+                  \text{Block A: } & \quad g\cdot(\partial_t^\nu\otimes n) =\partial_t^\nu\otimes(gn),                                                                                         \\
+                  \text{Block B: } & \quad \partial_{t}\cdot(\partial_t^\nu\otimes n) =\partial_t^{\nu+1}\otimes n,                                                                            \\
+                  \text{Block C: } & \quad \partial_{x_i}^{(t)}\cdot(\partial_t^\nu\otimes n) =\partial_t^\nu\otimes(\partial_{x_i}n)-\partial_t^{\nu+1}\otimes\bigl((\partial_{x_i}f)n\bigr), \\
+                  \text{Block D: } & \quad t\cdot(\partial_t^\nu\otimes n) =\partial_t^\nu\otimes fn-\nu_j\,\partial_t^{\nu-1}\otimes n,
+              \end{align*}
+              Which is consistent with \cite[discussion above Prop.~1.4]{Budur04}.
+
+        \item Take $M= R_f$, further identification, the result should be consistent with \cite[the $\D_X$-action on $B_{f,+}$]{Lee2025MultiplicativeThomSebastianiBSato_JAlgebra}.
+
+              Take $\delta_f := 1\otimes 1\in \C[\partial_t]\otimes_{\C}R_f$.
+
+              Define
+              \[
+                  s:=-\partial_t t.
+              \]
+              Then one can prove
+              \[
+                  \C[\partial_t]\otimes_{\C}R_f = R_f[s] \delta_f.
+              \]
+
+              To be consistent with \cite[the $\D_X$-action on $B_{f,+}$]{Lee2025MultiplicativeThomSebastianiBSato_JAlgebra},
+              we need to verify
+              \[
+                  \theta\cdot(us^j f^s)
+                  =\theta(u)s^j f^s+\frac{\theta(f)}{f}u\,s^{j+1}f^s.
+              \]
+              Where $\theta\in\mathcal{T}_X\subseteq\D_X$, $u\in R_f$, here $f^s$ just denotes $\delta_f$.
+
+
+              Recall:
+              \[
+                  B_{f,+} := \Gamma_{f,+}(R_f)\cong\mathbb{C}[\partial_t]\otimes_{\mathbb{C}}R_f,\qquad
+                  \delta_f=1\otimes 1,\qquad u\delta_f=1\otimes u,
+              \]
+              apply Step~5 Block~C at $\nu=0$:
+              \[
+                  \partial_{x_i}^{(t)}\cdot(1\otimes u)
+                  =1\otimes(\partial_{x_i}u)-\partial_t\otimes\bigl((\partial_{x_i}f)u\bigr),
+              \]
+              i.e.
+              \[
+                  \partial_{x_i}^{(t)}\cdot(u\delta_f)
+                  =(\partial_{x_i}u)\delta_f-(\partial_{x_i}f)u\,\partial_t\delta_f.
+              \]
+              For $\theta=\sum_i a_i\partial_{x_i}$ (Step~5 Block~A+C):
+              \[
+                  \theta\cdot(u\delta_f)
+                  =\sum_i a_i(\partial_{x_i}u)\delta_f-\sum_i a_i(\partial_{x_i}f)u\,\partial_t\delta_f
+                  =\theta(u)\delta_f-(\theta f)u\,\partial_t\delta_f.
+              \]
+              Since by Step~5 Block~B+D:
+              \[
+                  s\delta_f := s\cdot\delta_f=-\partial_t\cdot(t\cdot\delta_f)=-\partial_t\cdot(f\delta_f)=-f\,\partial_t\delta_f,
+              \]
+              we get
+              \[
+                  -\partial_t\delta_f=\frac{1}{f}s\delta_f,
+              \]
+              hence
+              \[
+                  \theta\cdot(u\delta_f)=\theta(u)\delta_f+\frac{\theta(f)}{f}u\,s\delta_f.
+              \]
+              Also in $\D_Y$:
+              \[
+                  [\theta,s]=0
+              \]
+              so
+              \[
+                  \theta\cdot(us^j\delta_f)
+                  =\theta(u)s^j\delta_f+\frac{\theta(f)}{f}u\,s^{j+1}\delta_f.
+              \]
+              Replacing $\delta_f$ by $f^s$:
+              \[
+                  \theta\cdot(us^j f^s)
+                  =\theta(u)s^j f^s+\frac{\theta(f)}{f}u\,s^{j+1}f^s.
+              \]
+
+              By restricting the action to a $\C$-subalgebra $\D_X[s]\subseteq\D_Y$, $R_f[s]f^s$ becomes a $\D_X[s]$-module.
+    \end{enumerate}
+
+\end{example}
 
 \begin{example}\label{Example 8.11}
 
-    Let $X = \mathbb{A}_{\mathbb{C}}^n$ and $Y = \mathbb{A}_{\mathbb{C}}^n \times \mathbb{A}_{\mathbb{C}}^1$, here $\mathbb{A}^{1}_{\mathbb{C}}$ is with coordinate $t$.
+    Let $X = \mathbb{A}_{\mathbb{C}}^n$ and $Y = \mathbb{A}_{\mathbb{C}}^n \times_{\Spec{\C}} \mathbb{A}_{\mathbb{C}}^1$, here $\mathbb{A}^{1}_{\mathbb{C}}$ is with coordinate $t$.
     For $f \in \mathbb{C}[x_1, \cdots, x_n]$, Consider $M = \mathbb{C}[x_1, \cdots, x_n]_f[s] f^s$.
 
     Define $t M = f M$ and then $t^{-1} M = f^{-1} M$.  Take $s = -t\partial_t$, then $\partial_t = -t^{-1} s$, the $\partial_{t}$-action is defined, and further, $M$ is a $\mathcal{D}_Y = \mathcal{D}_X \langle t, \partial_t \rangle$-module.

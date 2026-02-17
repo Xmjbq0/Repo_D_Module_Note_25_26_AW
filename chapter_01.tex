@@ -453,6 +453,7 @@ In particular, we will henceforth only consider left $\D_X$-modules, written sim
                   \qquad
                   \D_Y = \mathcal{O}_Y [\partial_{y_1}, \dots, \partial_{y_n}].
               \]
+              Since $X$ and $Y$ are affine.
 
               Firstly, we forget that $i$ is a closed embedding, then $f^{-1}\D_Y = f^{-1}\mathcal{O}_Y [\partial_{y_{1}}, \dots, \partial_{y_n}]$ is a locally free $f^{-1}\mathcal{O}_Y$ module \cite[\href{https://stacks.math.columbia.edu/tag/01AJ}{Tag 01AJ}]{stacks-project}.
               After tensoring with $\mathcal{O}_X$, we get $\mathcal{D}_{X\to Y} = \mathcal{O}_X [\partial_{y_{1}}, \dots, \partial_{y_n}]$ locally free over $\mathcal{O}_X$.
@@ -518,11 +519,11 @@ In particular, we will henceforth only consider left $\D_X$-modules, written sim
 
               \cite{hotta2008d} calculate this side change using a different identification \cite[Lemma~1.3.4]{hotta2008d}
               \[
-                  \D_{Y\leftarrow X} \cong f^{-1} (\D_Y \otimes_{\mathcal O_Y} \omega_Y^{-1}) \otimes_{f^{-1}\mathcal O_Y} \otimes \mathcal O_X \otimes_{\mathcal O_X} \omega_X,
+                  \D_{Y\leftarrow X} \cong f^{-1} (\D_Y \otimes_{\mathcal O_Y} \omega_Y^{-1}) \otimes_{f^{-1}\mathcal O_Y} \mathcal O_X \otimes_{\mathcal O_X} \omega_X,
               \]
               which is not just plainly apply the side change functor.
 
-              In this identification, the right $\D_X$-module structure is given by 4 steps:
+              In this identification, the left $f^{-1}\D_Y$-module structure is given by left multiplication of $\D_Y$ on $\D_Y$, the right $\D_X$-module structure is given by 4 steps:
               \begin{enumerate}
                   \item Step 1: $\D_Y$ itself is a $(\D_Y, \D_Y)$-bimodule, its left multiplication and right multiplication commute as actions.
                         \begin{enumerate}
@@ -544,7 +545,7 @@ In particular, we will henceforth only consider left $\D_X$-modules, written sim
               \]
               Since there is no transpose in this identification, the right $\D_X$-module structure is just plainly by right multiplication.
               \[
-                  (1\otimes P)\cdot \theta = \cdot (1\otimes (P\theta)).
+                  (P\otimes 1)\cdot \theta =  (P\theta)\otimes 1.
               \]
     \end{enumerate}
 
