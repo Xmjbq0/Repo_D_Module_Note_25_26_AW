@@ -16,6 +16,8 @@ on:
 jobs:
   build_latex:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -32,3 +34,14 @@ jobs:
         with:
           name: D-module
           path: D-module.pdf
+
+      - name: Create or Update Latest Release
+        uses: softprops/action-gh-release@v2
+        if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+        with:
+          tag_name: latest
+          name: Latest PDF Build
+          body: "Automatically generated PDF from the latest commit."
+          files: D-module.pdf
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
