@@ -306,7 +306,7 @@
     This filtration gives a $b$-function $b(s) = 1$. Which has all its roots in $[0,1)$, so $\Omega_\bullet M$ is exactly the $V$-filtration on $M$.
 \end{example}
 
-\begin{theorem}
+\begin{theorem}\label{thm:V-filtration_of_RH_D-module_is_not_trivial}
     If M is a regular holonomic $\mathcal{D}_X$-mod, then its V-filtration is not trivial. In particular, its b-function is not $1$.
 \end{theorem}
 
@@ -342,11 +342,11 @@ And work out its definition when $X$ is a smooth affine $\C$ variety, and the re
     where $f\in\Hom_{\mathrm{Sch}_{\Spec\C}}(X, \mathbb{A}^1_{\C})$ and the arrow $\Gamma_f:X\to X\times_{\Spec\C}\mathbb{A}^1_{\C}$ is the graph embedding.
 \end{definition}
 
-\begin{example}
+\begin{example}\label{example:direct_image_of_graph_embedding}
     Now we begin to calculate the $\D$-module theoretic \textbf{direct image} (see Rmk.~\ref{rem:kashiwara_explicit}) of $\Gamma_f$ when $X$ is a smooth affine $\C$ variety.
 
     \begin{enumerate}
-        \item Identify $X$ as a closed subscheme of $X\times_{\Spec\C}\mathbb{A}^1_{\C}$.
+        \item \textbf{Step 1:} Identify $X$ as a closed subscheme of $X\times_{\Spec\C}\mathbb{A}^1_{\C}$.
 
               Base change $p_1:X\times_{\Spec\C}\mathbb{A}^1_{\C} \to X$ of $\mathbb{A}^1_\C \to \Spec\C$ is also separated, since $\mathbb{A}^1_\C \to \Spec\C$ is separated.
               As a section of the separated morphism $p_1$ ($p_1\circ\Gamma_f = \mathrm{id}_X$), $\Gamma_f$ is a closed immersion \cite[\href{https://stacks.math.columbia.edu/tag/024T}{Tag 024T}]{stacks-project}.
@@ -360,7 +360,7 @@ And work out its definition when $X$ is a smooth affine $\C$ variety, and the re
               \end{align*}
               So the kernel of this ring map is $\langle t - f \rangle$. $X\cong V(\langle t - f \rangle) \subseteq X\times_{\Spec\C}\mathbb{A}^1_{\C}$.
 
-        \item Introduce two coordinate systems on $Y:=X\times_{\Spec\C}\mathbb{A}^1_{\C}$.
+        \item \textbf{Step 2:} Introduce two coordinate systems on $Y:=X\times_{\Spec\C}\mathbb{A}^1_{\C}$.
 
               Let $u:=t-f$. Then $Y$ has two coordinate systems $(x_i,t)$ and $(x_i,u)$.
               There is a fact that both $\{\mathrm{d} x_i,\mathrm{d} t\}$ and $\{\mathrm{d} x_i,\mathrm{d} u\}$ are basis of $\Omega_Y = \Omega_{R[t]/\C[t]}$.
@@ -422,7 +422,7 @@ And work out its definition when $X$ is a smooth affine $\C$ variety, and the re
               \end{align*}
 
 
-        \item Identify the transfer bimodules.
+        \item \textbf{Step 3:} Identify the transfer bimodules.
 
               Let $Y := X\times_{\Spec\C}\mathbb{A}^1_{\C}$,
               $X$ has coordinate system $(x_i)$,
@@ -475,7 +475,7 @@ And work out its definition when $X$ is a smooth affine $\C$ variety, and the re
                   \partial_t \cdot (P \otimes b)     & := (\partial_t P) \otimes b.
               \end{align*}
 
-        \item Identify the direct image.
+        \item \textbf{Step 4:} Identify the direct image.
 
               For a left $\D_X$-module $M$, we recall the definition of the direct image of $M$ under the graph embedding $\Gamma_f$,
               see Rmk.~\ref{rem:kashiwara_explicit}:
@@ -504,7 +504,7 @@ And work out its definition when $X$ is a smooth affine $\C$ variety, and the re
               \]
               as its global sections.
 
-        \item Identification as a left $\D_Y$-module, the result should be compatible with \cite[discussion above Prop.~1.4]{Budur04}.
+        \item \textbf{Step 5:} Identification as a left $\D_Y$-module, the result should be compatible with \cite[discussion above Prop.~1.4]{Budur04}.
 
               Recall, \cite[Example~1.3.5.]{hotta2008d}, for given coordinate $(x_i, u)$ (not $(x_i, t)$) on $Y$, we have
               \[
@@ -582,7 +582,7 @@ And work out its definition when $X$ is a smooth affine $\C$ variety, and the re
               \end{align*}
               Which is consistent with \cite[discussion above Prop.~1.4]{Budur04}.
 
-        \item Take $M= R_f$, further identification, the result should be consistent with \cite[the $\D_X$-action on $B_{f,+}$]{Lee2025MultiplicativeThomSebastianiBSato_JAlgebra}.
+        \item \textbf{Step 6:} Take $M= R_f$, further identification, the result should be consistent with \cite[the $\D_X$-action on $B_{f,+}$]{Lee2025MultiplicativeThomSebastianiBSato_JAlgebra}.
 
               Take $\delta_f := 1\otimes 1\in \C[\partial_t]\otimes_{\C}R_f$.
 
@@ -658,22 +658,81 @@ And work out its definition when $X$ is a smooth affine $\C$ variety, and the re
 \end{example}
 
 \begin{example}\label{Example 8.11}
+    The text below is the original treatment of this example in the handwritten lecture note,
+    in the latter Remark~\ref{remark:second_treatment_of_example_8.11} we give another treatment the editor thinks more rigorous.
+
+    \medskip
 
     Let $X = \mathbb{A}_{\mathbb{C}}^n$ and $Y = \mathbb{A}_{\mathbb{C}}^n \times_{\Spec{\C}} \mathbb{A}_{\mathbb{C}}^1$, here $\mathbb{A}^{1}_{\mathbb{C}}$ is with coordinate $t$.
-    For $f \in \mathbb{C}[x_1, \cdots, x_n]$, Consider $M = \mathbb{C}[x_1, \cdots, x_n]_f[s] f^s$.
+    For $f \in \mathbb{C}[x_1, \cdots, x_n]$, Consider
+    \[
+        M = \mathbb{C}[x_1, \cdots, x_n]_f[s] f^s.
+    \]
 
-    Define $t M = f M$ and then $t^{-1} M = f^{-1} M$.  Take $s = -t\partial_t$, then $\partial_t = -t^{-1} s$, the $\partial_{t}$-action is defined, and further, $M$ is a $\mathcal{D}_Y = \mathcal{D}_X \langle t, \partial_t \rangle$-module.
+    Define $t M = f M$ and then $t^{-1} M = f^{-1} M$.
 
-    Then $N := \mathbb{C}[x_1, \cdots, x_n][\partial_t] f^s = \mathbb{C}[x_1, \cdots, x_n][\partial_t] f^s= \mathbb{C}[x_1, \cdots, x_n][t^{-1} s] f^s$, and $\partial_{x_i} f^s = \partial_{x_i}(f) \cdot \frac{1}{f} s f^s= \partial_{x_i}(f) \cdot (-\partial_t) f^s$, thus $N$ is a $\mathcal{D}_Y$-submodule of $M$. Furthermore, we can check that $\mathrm{Ch}(N)$ = the conormal bundle of the graph of $X$, which indicates that $N$ is a holonomic $\mathcal{D}_{Y}$-module.
+    Take $s = -t\partial_t$, then $\partial_t = -t^{-1} s$, the $\partial_{t}$-action is defined,
+    and further, $M$ is a $\mathcal{D}_Y = \mathcal{D}_X \langle t, \partial_t \rangle$-module.
 
-    We consider $V_{i}\mathcal{D}_{Y}\cdot f^{s}$ forming a good filtration of $N$: $$V_0 \mathcal{D}_Y \cdot f^s = \mathcal{D}_X \langle t, s \rangle f^s = \mathcal{D}_X[s] f^s$$Similarly, $V_{-1} \mathcal{D}_Y \cdot f^s = \mathcal{D}_X[s] f^{s+1}$.
+    Then
+    \[
+        N := \mathbb{C}[x_1, \cdots, x_n][\partial_t] f^s= \mathbb{C}[x_1, \cdots, x_n][t^{-1} s] f^s,
+    \]
+    and
+    \[
+        \partial_{x_i} f^s = \partial_{x_i}(f) \cdot \frac{1}{f} s f^s= \partial_{x_i}(f) \cdot (-\partial_t) f^s,
+    \]
+    thus $N$ is a $\mathcal{D}_Y$-submodule of $M$.
+    Furthermore, we can check that $\mathrm{Ch}(N)$ = the conormal bundle of the graph of $X$,
+    which indicates that $N$ is a holonomic $\mathcal{D}_{Y}$-module.
 
-    By Theorem \ref{Theorem 8.4}, there exists $b(s) \in \mathbb{C}[s]$ s.t.$$
-        b(s) \cdot \frac{V_0 \mathcal{D}_Y \cdot f^s}{V_{-1} \mathcal{D}_Y \cdot f^s} = b(s) \cdot \frac{\mathcal{D}_X[s] f^s}{\mathcal{D}_X[s] f^{s+1}} = 0.$$which is to say there exists $P(s)\in \mathcal{D}_{X}[s]$ such that $b(s) f^s = P(s) \cdot f^{s+1}$
+    We consider $V_{i}\mathcal{D}_{Y}\cdot f^{s}$ forming a good filtration of $N$:
+    \[
+        V_0 \mathcal{D}_Y \cdot f^s = \mathcal{D}_X \langle t, s \rangle f^s = \mathcal{D}_X[s] f^s,
+    \]
+    Similarly, $V_{-1} \mathcal{D}_Y \cdot f^s = \mathcal{D}_X[s] f^{s+1}$.
 
-    In fact, $N = \iota_{f,+} (\mathbb{C}[x_1, \ldots, x_n])$, the $\mathcal{D}$-module pushforward, where $$\iota_f: X \to Y = X \times \mathbb{A}^{1}_{\mathbb{C}}\atop x \mapsto (x, f(x))$$the graph embedding. So $N$ is regular holonomic, and $b(s) \neq 1$.
+    By Theorem \ref{Theorem 8.4}, there exists $b(s) \in \mathbb{C}[s]$ s.t.
+    \[
+        b(s) \cdot \frac{V_0 \mathcal{D}_Y \cdot f^s}{V_{-1} \mathcal{D}_Y \cdot f^s} = b(s) \cdot \frac{\mathcal{D}_X[s] f^s}{\mathcal{D}_X[s] f^{s+1}} = 0.
+    \]
+    which is to say there exists $P(s)\in \mathcal{D}_{X}[s]$ such that $b(s) f^s = P(s) \cdot f^{s+1}$
+
+    In fact, $N = \iota_{f,+} (\mathbb{C}[x_1, \ldots, x_n])$, the $\mathcal{D}$-module pushforward, where
+    \[
+        \iota_f: X \to Y = X \times \mathbb{A}^{1}_{\mathbb{C}}\atop x \mapsto (x, f(x))
+    \]
+    the graph embedding. So $N$ is regular holonomic, by Thm.~\ref{thm:V-filtration_of_RH_D-module_is_not_trivial}, we get $b(s) \neq 1$.
+
+    If one get interested in why a set theoretic like definition $x \mapsto (x, f(x))$ can be used to define a \textbf{scheme theoretic} morphism,
+    see \cite[\href{https://stacks.math.columbia.edu/tag/001O}{Tag 001O}]{stacks-project} for the notion of \textbf{functor of points} and a \textbf{representable functor}.
 \end{example}
 
 \begin{remark}
     One can replace $\mathbb{C}[x_1, \ldots, x_n]$ by any regular holonomic $\mathcal{D}_X$-module, to get similar results in general.
+\end{remark}
+
+\begin{remark}\label{remark:second_treatment_of_example_8.11}
+    We give a second treatment of Example~\ref{Example 8.11} here.
+
+    Given $X$ a smooth affine algebraic variety, $f \in \mathcal{O}_X(X)$, $Y = X \times_{\Spec{\C}} \mathbb{A}^1_{\C}$ with coordinate $t$.
+
+    Define $M:=\Gamma_{f,+}\left(\mathcal{O}_X\left[\frac{1}{f}\right]\right)$, and $N:=\Gamma_{f,+}(\mathcal{O}_X)$.
+
+    By Lemma~\ref{lem:quasi-coherent-sheaf-and-localization-of-D-modules}, or more precisely \cite[\href{https://stacks.math.columbia.edu/tag/0G36}{Tag 0G36}]{stacks-project} or \cite[Lem.~4.1., Lem.~4.2.]{chen2024dmodules}.
+    We know as $\D_X$-modules, $\Ox$ is a $\D_X$-submodule of $\Ox\left[\frac{1}{f}\right]$.
+
+    Since the $\D$-module theoretic direct image is a \textbf{functor}, we have $N$ is a $\D_Y$-submodule of $M$.
+
+    By Exercise~\ref{example:direct_image_of_graph_embedding}, we get
+    \[
+        M = \mathcal{O}_X\left[\frac{1}{f}\right][s]f^s, \quad N = \mathcal{O}_X[s]f^s,
+    \]
+    but this time we define $s = -t\partial_t$.
+
+    Since $\Ox$ is an integrable connection, then it is a regular holomonic (in algebraic sense) $\D_X$-module.
+
+
+
+    We calculate the characteristic variety of $N$.
 \end{remark}
