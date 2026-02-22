@@ -195,7 +195,7 @@
         \theta(Pu) = (t\partial_t + j + k) Pu = (P t\partial_t - k P + j + k) u = P(t\partial_t + j) u = P \theta(u).
     \]
 
-    By Lemma \ref{lemma 8.5}, there exists $b(s)\in\mathbb{C}[s]$ s.t. $b(\theta)=0$,
+    By Lemma \ref{lemma 8.5}, there exists $b(s)\in\mathbb{C}[s]$ such that $b(\theta)=0$,
     In particular, $b(t\partial_{t}+k)$ kills $\frac{\Omega_{k}M}{\Omega_{k-1}M}$ for all $k$.
 \end{proof}
 
@@ -311,6 +311,9 @@
 \end{theorem}
 
 \begin{proof}[Sketch of proof]
+
+    See \cite{Wu2021CharacteristicCyclesHolonomicDmodules} for details of each step.
+
     First, each $V_i M$ is a $V_0 \mathcal{D}_X$-module and $V_0 \mathcal{D}_X = \mathcal{D}_X^{\log}$ w.r.t. $(t = 0)$. Since $V_i M$ has no $t$-torsion for all $i < 0$, $\mathrm{Ch}(V_i M)$ has no component over $(t = 0)$, for all $i < 0$.
 
     Further, we obtain that $\mathrm{Ch}^{\log}\left(\frac{V_i M}{V_{i-1} M}\right) = \mathrm{Ch}^{\log}\left(\frac{V_i M}{t V_i M}\right)= \mathrm{Ch}^{\log}(V_i M)\big|_{(t=0)}$, thus $\frac{V_i M}{V_{i-1} M} \neq 0.$
@@ -730,9 +733,79 @@ And work out its definition when $X$ is a smooth affine $\C$ variety, and the re
     \]
     but this time we define $s = -t\partial_t$.
 
-    Since $\Ox$ is an integrable connection, then it is a regular holomonic (in algebraic sense) $\D_X$-module.
+    \bigskip
 
+    Since $\Ox$ is an integrable connection, push it forward to a divisor completion $j:X\to Y$ such that $Y\setminus X =: D$.
+    We get $(j_*(\Ox))^{\mathrm{an}} = \Oy^{\mathrm{an}}(\ast D)$, which is a regular holonomic $\D^{\mathrm{an}}_Y$-module (WLOG $D$ is normal crossing, and use curve test Def.~\ref{def:analytic_regular_holmonicity}).
+    By \cite[Thm.~6.11]{hotta2008d}, $\Ox$ is a regular holonomic $\D_X$-module.
 
+    \bigskip
 
-    We calculate the characteristic variety of $N$.
+    We calculate the characteristic variety of $N = \Gamma_{f,+}(\mathcal{O}_X)$, by using Lem.~\ref{prop:charvar-closed-emb}.
+
+    Since $\Gamma_f: X \to Y$ is a closed embedding given by the graph (defined by $t = f(x)$),
+    so we can split the algebraic/étale coordinate system $(x_1, \dots , x_n, u:= t - f)$ on $Y$, such that $X = \{ u = 0 \}$.
+
+    In $T^\ast X$, $\Ch(\mathcal{O}_X) = T^\ast_X X$ is the zero section, given by $\xi = 0$ ($\xi_i$ corresponds to $\partial_{x_i}$).
+
+    So in $T^\ast Y\mid_X$, $\rho^{-1}_{\Gamma_f}(\Ch(\mathcal{O}_X))$ is also defined by $\xi = 0$
+    (this is the intermediate result ``flat algebra'' in the proof in Lem.~\ref{prop:charvar-closed-emb}).
+
+    Finally in $T^\ast Y$, $\Ch(\Gamma_{f,+}(\mathcal{O}_X)) = \tilde{\Gamma_f}(\rho^{-1}_{\Gamma_f}(\Ch(\mathcal{O}_X)))$ is defined by pulling back the ideal
+    \[
+        \langle \xi_1, \dots, \xi_n \rangle \subseteq \mathcal{O}_{T^\ast Y\mid_X} = \Sym^\bullet_{\Ox}(\Omega^1_Y \otimes_{\Oy} \Ox).
+    \]
+    By the ring map
+    \[
+        \Sym^\bullet_{\Oy}(\Omega^1_Y)\to \Sym^\bullet_{\Ox}(\Omega^1_Y \otimes_{\Oy} \Ox) \text{ i.e. } \Oy[\xi_1, \dots, \xi_n, \tau] \to \Ox[\xi_1, \dots, \xi_n, \tau]
+    \]
+    Where $\tau$ cooresponds to $\partial_u$.
+
+    Since $\Ox = \Oy\big/\langle u \rangle$, we get $\Ch(\Gamma_{f,+}(\mathcal{O}_X))$ is defined by $\xi_1 = \xi_2 = \dots =\xi_x = u = 0$,
+    by the \hyperref[prop:conormal_bundle_in_local_coordinate]{identification}, we see this is exactly $T^*_X Y \subseteq T^\ast Y$ if we view $X\subseteq Y$ is the graph defined by $u=0$.
+
+    \bigskip
+
+    $\Ox$ is a \textbf{coherent} (finitely generated) $\D_X$-module,
+    $\D$-module direct image preserve coherency, so $\Gamma_{f,+}(\mathcal{O}_X)$ is a coherent $\D_Y$-module.
+    By the above calculation of characteristic variety, we get $\Gamma_{f,+}(\mathcal{O}_X)$ is a holonomic $\D_Y$-module.
+
+    By holonomicity, when we take a good filtration $V_i \mathcal{D}_Y \cdot f^s$
+    (recall $f^s$ represent canonical section $1\otimes 1 \in \C[\partial_t]\otimes_\C \Ox\left[\frac{1}{f}\right]$), by Thm.~\ref{Theorem 8.4}
+    there is a polynomial $b(-)$ of $s := -t\partial_t$ such that $b(-t\partial_t)$ annihilates the graded piece
+    \[
+        \frac{V_0 \mathcal{D}_Y \cdot f^s}{V_{-1} \mathcal{D}_Y \cdot f^s}.
+    \]
+    To see this, notice that by \hyperref[def:definition_of_V_filtration]{definition},
+    \[
+        V_0\D_Y = \Oy\langle \partial_x, -t\partial_t \rangle
+    \]
+    When acting on $\Ox[s]f^s$, by Step 5 Block D in Exercise~\ref{example:direct_image_of_graph_embedding}, we have
+    \[
+        t \cdot f^s = f f^s = f^{s+1}.
+    \]
+    So the action of $\Oy\langle \partial_x, -t\partial_t \rangle$ factor through
+    \[
+        \Oy\big/\langle t-f \rangle \otimes_{\Oy} \langle \partial_x, -t\partial_t \rangle = \Ox\langle \partial_x, -t\partial_t \rangle = \D_X[-t\partial_t].
+    \]
+    (Notation $\D_X[-t\partial_t]$ using square bracket suggests that $-t\partial_t$ commute with $\D_X$ in $\D_Y$,
+    so one can apply the \textbf{universal property} of polynomial ring, justifying the polynomial ring notation $\D_X[-t\partial_t]$.).
+
+    \noindent So we have
+    \[
+        V_0\D_Y \cdot f^s = \D_X[-t\partial_t]f^s.
+    \]
+    And
+    \[
+        V_{-1}\D_Y \cdot f^s = V_0\D_Y \cdot t \cdot f^s = \D_X[-t\partial_t]t f^s = \D_X[-t\partial_t]f^{s+1}.
+    \]
+    So we have
+    \[
+        \frac{V_0 \mathcal{D}_Y \cdot f^s}{V_{-1} \mathcal{D}_Y \cdot f^s} = \frac{\mathcal{D}_X[s] f^s}{\mathcal{D}_X[s] f^{s+1}}.
+    \]
+    Justifying the definition (and existence) of Bernstein-Sato polynomial
+    \[
+        b(-t\partial_t) f^s = P(-t\partial_t) ff^{s}, \text{ for some polynomial $P(-)$ with coefficient in $\D_X$}.
+    \]
+
 \end{remark}

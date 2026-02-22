@@ -171,7 +171,7 @@ We define the limit terms:
 \quad
 
 \begin{definition}\label{def:convergent_spectral_sequence}
-    We say the spectral sequence $\{E_{\bullet}^{\bullet}(k)\}_k$ $\textbf{converges to}$ $H^i(F^{\bullet})$ if for all $i,j$, there exists $k = k(i,j)$ s.t. $\forall k' \ge k$, $$E_j^i(k') \cong \mathrm{gr}_j^F H^i(F^{\bullet}).$$
+    We say the spectral sequence $\{E_{\bullet}^{\bullet}(k)\}_k$ $\textbf{converges to}$ $H^i(F^{\bullet})$ if for all $i,j$, there exists $k = k(i,j)$ such that $\forall k' \ge k$, $$E_j^i(k') \cong \mathrm{gr}_j^F H^i(F^{\bullet}).$$
 \end{definition}
 
 \begin{definition}$\textbf{The regularity condition}:$
@@ -244,10 +244,10 @@ Let $A$ be a ring and $\Gamma_{\bullet} = \Gamma_{\bullet}A$ a $\mathbb{Z}$-filt
 
 From now on, we assume that $A$ is a $\C$-algebra and has a noetherian $\mathbb{Z}$-filtration $\Gamma_{\bullet}$, so it's rees algebra $R_{\bullet}^{\Gamma}A$ is a $\C[u]$ algebra.
 
-Let $M$ be a finitely-generated $A$-module, and $\Omega_{\bullet}M$ a good filtration on $M$ s.t. $\mathrm{gr}^{\Omega} M \neq 0$.
+Let $M$ be a finitely-generated $A$-module, and $\Omega_{\bullet}M$ a good filtration on $M$ such that $\mathrm{gr}^{\Omega} M \neq 0$.
 Since $\mathrm{gr}^{\Gamma} A$ is noetherian, $R^{\Omega} M$ has a graded free resolution:
 $$ \dots\rightarrow P_{\bullet}^{-1}\rightarrow P^{0}_{\bullet}\rightarrow R^{\Omega} _{\bullet}M\rightarrow0$$
-s.t. each $P^{i}_{\bullet}$ is a free graded $R_{\bullet}^{\Gamma}A$-module of finite rank.
+such that each $P^{i}_{\bullet}$ is a free graded $R_{\bullet}^{\Gamma}A$-module of finite rank.
 So in derived category, $\mathrm{RHom}_{R_{\bullet}A}(R_{\bullet}M, R_{\bullet}A)$ is the complex \cite[\href{https://stacks.math.columbia.edu/tag/0A8H}{Tag 0A8H}, \href{https://stacks.math.columbia.edu/tag/0A66}{Tag 0A66}]{stacks-project} (well-defined up to quasi-isomorphism in $\mathbf{D}(R_{\bullet}A)$):
 $$\mathrm{Hom}_{R_{\bullet}A}(P^{\bullet}_{\bullet}, R_{\bullet}A).$$
 Tensoring with $\mathbb{C}[u]/(u-1)$ over $\mathbb{C}[u]$, we get a free resolution:
@@ -299,7 +299,7 @@ $$ \check{F}^i_k := \mathrm{Im}(\Phi_k). $$
 \end{lemma}
 \begin{proof}
     Take $N = \mathrm{d}(\check{F}^{k}) \subseteq \check{F}^{k+1}$, then $N_j = \mathrm{d}(\check{F}_{j}^{k})$ gives a good filtration on $N$.
-    On the other hand, $N \cap \check{F}_{j}^{k+1}$ gives another good filtration. By Corollary \ref{cor:compare-good-filtrations}, there exists a uniform $\omega$ s.t. $$ \check{F}_{j}^{k+1} \cap \mathrm{d}(\check{F}^{k}) = N \cap \check{F}_{j}^{k+1} \subseteq N_{j+\omega} = \mathrm{d}(\check{F}_{j+\omega}^{k}), \quad \forall j. $$
+    On the other hand, $N \cap \check{F}_{j}^{k+1}$ gives another good filtration. By Corollary \ref{cor:compare-good-filtrations}, there exists a uniform $\omega$ such that $$ \check{F}_{j}^{k+1} \cap \mathrm{d}(\check{F}^{k}) = N \cap \check{F}_{j}^{k+1} \subseteq N_{j+\omega} = \mathrm{d}(\check{F}_{j+\omega}^{k}), \quad \forall j. $$
 \end{proof}
 
 \begin{corollary}\label{corollary 7.11}

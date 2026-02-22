@@ -11,16 +11,19 @@ Let $X = \text{Spec } R$ be a smooth affine variety over $\mathbb{C}$ with algeb
     The editor decides to be compatible with \cite{Bjork1993AnalyticDModules} as long as conflicts arise. And this distinction will influence the formulation of the propositions in the subsequent chapters, \textbf{different from the handwritten notes} provided by the lecturer.
 \end{remark}
 
+\phantomsection\label{def:definition_of_V_filtration}
 Take $I^j :=\begin{cases}\left< t \right>^{j},& j > 0\\R,&j\leq0\end{cases}$,
 we define a filtration of $\mathcal{D}_{X}$:
-$$V_{k} \mathcal{D}_X := \{P \in \mathcal{D}_X \mid P I^{j} \subseteq I^{j-k}\text{ for all }j\in \mathbb{Z}\}.$$
+$$
+    V_{k} \mathcal{D}_X := \{P \in \mathcal{D}_X \mid P I^{j} \subseteq I^{j-k}\text{ for all }j\in \mathbb{Z}\}.
+$$
 
 Then we obtain that $V_0 \mathcal{D}_X = R \langle t\partial_t, \partial_{x_2}, \ldots, \partial_{x_n} \rangle$ and for all $i>0$:
 \begin{align*}
     V_{-i} \mathcal{D}_{X} & = t^{i} V_{0 }\mathcal{D}_{X } = V_{0} \mathcal{D}_{X} t^{i} \\
     V_i \mathcal{D}_X      & = \partial_t V_{i-1} \mathcal{D}_X + V_{i-1} \mathcal{D}_X.
 \end{align*}
-Next, we will prove $V_{\bullet} \mathcal{D}_X$ is a noetherian $\mathbb{Z}$-filtration s.t. $\mathrm{gr}^V \mathcal{D}_X$ is Auslander regular.
+Next, we will prove $V_{\bullet} \mathcal{D}_X$ is a noetherian $\mathbb{Z}$-filtration such that $\mathrm{gr}^V \mathcal{D}_X$ is Auslander regular.
 
 We obtain that $V_{j} \mathcal{O}_X = I^{-j} \in \mathcal{O}_X = R$ for $j \in \mathbb{Z}$ defines an increasing $\mathbb{Z}$-filtration on $\mathcal{O}_X$.
 We have
