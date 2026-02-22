@@ -1,22 +1,126 @@
 \section{Two definitions of nearby cycles}
-On $\mathbb{A}_{\mathbb{C}}^1$ with coordinate $t$, given any $\alpha \in \mathbb{C}$, we define: $$K_m^{\alpha} = \bigoplus_{\ell=0}^{m-1} \mathbb{C}[t, t^{-1}] e_\ell^{\alpha}$$ with $\partial_t e_\ell^{\alpha} = \frac{1}{t}(\alpha e_\ell^{\alpha} + e_{\ell-1}^{\alpha})$ for all $\ell$, where $e_{-1}^{\alpha} = 0$.
 
-Then the matrix of $t\partial_t$-action on $K_m^{\alpha}$ is $J_{\alpha,m}$, the $m\times m$ Jordan block with eigenvalue $\alpha$:$$J_{\alpha,m} = \begin{bmatrix}
+On $\mathbb{A}_{\mathbb{C}}^1$ with coordinate $t$, given any $\alpha \in \mathbb{C}$, we have a left indecomposable $\D_{{A}^1_\C}$ module
+\[
+    K^\alpha_m :=  \frac{\D_{\mathbb{A}^1_\C}}{\D_{\mathbb{A}^1_\C}\cdot(t\partial_t - \alpha)^m}
+\]
+First note that $t\in K^\alpha_m$ has \textbf{both} a left and a right inverse, i.e., action by multiplying $t$ induce a bijection.
+So $K^\alpha_m$ not only a (left, see 2. in Lem.~\ref{lem:quasi-coherent-sheaf-and-localization-of-D-modules}) $\C[t]\subseteq \D_{\mathbb{A}^1_\C}$ module, but also a (left) $\C[t,t^{-1}]$-module that extending the $\C[t]$-module structure.
+
+We take sections $e^\alpha_i := \overline{(t\partial_t - \alpha)^{m-1-i}}$ (equivalence class) then we have a presentation:
+\[
+    K^\alpha_m = \bigoplus_{i=0}^{m-1} \mathbb{C}[t, t^{-1}] e^\alpha_i
+\]
+with $\partial_t e^\alpha_i = \frac{1}{t}(\alpha e^\alpha_i + e^\alpha_{i-1})$ for all $i$ (note we have claimed that $t$ is invertible), where $e^\alpha_{-1} = 0$,
+and the direct sum notation should be treated as \textbf{internal} direct sum.
+
+Then when restricted to $\mathbb{A}_{\mathbb{C}}^1 \setminus \{0\}$, $K^\alpha_m\mid_{\mathbb{A}_{\mathbb{C}}^1 \setminus \{0\}}$
+becomes a \textbf{finitely generated}, (locally) free $\mathcal{O}_{\mathbb{A}_{\mathbb{C}}^1 \setminus \{0\}}$-module, i.e., an \textbf{integrable connection} (see \hyperref[def:integrable-connection]{definition}).
+
+Then the matrix (note $K^\alpha_m$ is not a vector space since $\C[t,t^{-1}]$ is not a field) of $t\partial_t$-action on $K_m^{\alpha}$ is $J_{\alpha,m}$, the $m\times m$ Jordan block with eigenvalue $\alpha$:
+\[
+    J_{\alpha,m} = \begin{bmatrix}
         \alpha & 1      &        &        \\
                & \alpha & \ddots &        \\
                &        & \ddots & 1      \\
                &        &        & \alpha
-    \end{bmatrix}_{m \times m}$$
+    \end{bmatrix}_{m \times m}
+\]
 
 \begin{remark}
-    Here $e_\ell^{\alpha}$ can be understood as the formal symbol of the multivalued function "$t^{\alpha} \cdot \frac{(\log t)^\ell}{\ell!}$". And $K^\alpha_{m}$ indicates about the section not flat.
+    Here $e_\ell^{\alpha}$ can be understood as the formal symbol
+    of the multivalued function
+    \[
+        t^{\alpha} \cdot \frac{(\log t)^\ell}{\ell!}.
+    \]
+    And $K^\alpha_{m}$ indicates about the section not flat,
+    a \textbf{flat section} means the section is in the kernel of connection
+    \[
+        \nabla:=t\partial_t \in\End_\C(K^\alpha_m).
+    \]
+
+    Indeed in \cite[Ch.~5]{hotta2008d},
+    they develop arguments or definitions such as ``moderate growth'' by multivalued functions,
+    so it is not only as a heuristic symbol to introduce multivalued function.
 \end{remark}
 
-Then locally around a simply connected neighborhood of $\mathbb{A}_{\mathbb{C}}^1 \setminus \{0\}$, with simply connectedness, we obtain that $\mathrm{\log}t$ is well-defined. Consider $$v_{\ell} := e^{-J_{\alpha,m} \log t} \cdot e_{\ell}^{\alpha}, \quad \ell = 0, \cdots, m-1,$$we then have  $t\partial_t \left(e^{-J_{\alpha,m} \log t} \cdot e_{\ell}^{\alpha}\right) = -J_{\alpha,m} \left(e^{-J_{\alpha,m} \log t} \cdot e_{\ell}^{\alpha}\right) + J_{\alpha,m} \left(e^{-J_{\alpha,m} \log t} \cdot e_{\ell}^{\alpha}\right) = 0$, i.e. $v_{\ell}$ are $t\partial_t$-flat.
+Then locally around a simply connected neighborhood (Euclidean topology) of $(\mathbb{A}_{\mathbb{C}}^1 \setminus \{0\})^{\mathrm{an}}$,
+with simply connectedness, we obtain that $\mathrm{\log}\, t$ is a well-defined analytic function (so we should consider the analytification of the module $K^\alpha_m$).
+Consider
+$$
+    v_{\ell} := e^{-J_{\alpha,m} \log t} \cdot e_{\ell}^{\alpha} \in (K^\alpha_m)^{\mathrm{an}}
+    = \frac{\D^{\mathrm{an}}_{(\mathbb{A}^1_\C)^\mathrm{an}}}{\D^{\mathrm{an}}_{(\mathbb{A}^1_\C)^\mathrm{an}}\cdot(t\partial_t - \alpha)^m}
+    = \bigoplus_{i=0}^{m-1} \mathcal{O}^{\mathrm{an}}_{(\mathbb{A}^1_\C)^\mathrm{an}}\left[\frac{1}{t}\right] e^\alpha_i,
+$$
+for $\ell = 0, \cdots, m-1$,
+we then have, by the Leibniz rule,
+\begin{align*}
+    t\partial_t \circ \left(e^{-J_{\alpha,m} \log t} \cdot e_{\ell}^{\alpha}\right)
+     & := t\partial_t \cdot e^{-J_{\alpha,m} \log t} \cdot e_{\ell}^{\alpha}                                                                                                                                                                                             \\
+     & = \left[t\partial_t, e^{-J_{\alpha,m} \log t}\right] \cdot e_{\ell}^{\alpha} + e^{-J_{\alpha,m} \log t} \cdot t\partial_t \cdot e_{\ell}^{\alpha}                                                                                                                 \\
+     & = t\partial_t\left(e^{-J_{\alpha,m} \log t}\right) \cdot e_{\ell}^{\alpha} + e^{-J_{\alpha,m} \log t} \cdot t\partial_t \cdot e_{\ell}^{\alpha}                              &  & \text{(see \cite[Prop~2.25(iii)]{mustata2023dmodules})}                         \\
+     & = t \left( -J_{\alpha,m} \frac{1}{t} e^{-J_{\alpha,m} \log t} \right) \cdot e_{\ell}^{\alpha} + e^{-J_{\alpha,m} \log t} \cdot \left( J_{\alpha,m} e_{\ell}^{\alpha} \right)                                                                                      \\
+     & = -J_{\alpha,m} \left( e^{-J_{\alpha,m} \log t} \cdot e_{\ell}^{\alpha} \right) + J_{\alpha,m} \left( e^{-J_{\alpha,m} \log t} \cdot e_{\ell}^{\alpha} \right)               &  & \text{($\C$ is in the \textbf{center} of $\D^{\an}_{(\mathbb{A}^1_\C)^{\an}}$)} \\
+     & = 0
+\end{align*}
+we use $\cdot$ to denote the multiplication in $\D^{\an}_{(\mathbb{A}^1_\C)^{\an}}$, and we get $v_{\ell}$ are $t\partial_t$-flat.
 
-Since $\log t$ are multivalued, we thus have a local system: $$L_m^{\lambda}=(\bigoplus \limits_{i=0}^{m-1}\mathbb{C}\cdot v_{i}, e^{-2\pi iJ_{\alpha,m}})$$$e^{-2\pi i J_{\alpha,m}}$ is the monodromy action $T$ of the loop around $0 \in \mathbb{A}_{\mathbb{C}}^1$, and $\lambda = e^{-2\pi i \alpha}$, then
-$$ \text{DR}(K_m^{\alpha}) \stackrel{\text{quasi-isomorphic}}{\simeq} L_m^{\lambda}. $$
-Since the direct system $$ K_{m-1}^{\alpha} \rightarrow K_m^{\alpha} \rightarrow K_{m+1}^{\alpha} \rightarrow \cdots $$induces a direct system of local systems: $$ L_{m-1}^{\lambda} \rightarrow L_m^{\lambda} \rightarrow L_{m+1}^{\lambda} \rightarrow \cdots $$which is $T$-action compatible, and then we take limit.
+\bigskip
+
+We have a local system, recall the equivalence given in Prop.~\ref{prop:classification-of-local-system}:
+$$
+    L_m^{\lambda}=\left(\bigoplus \limits_{i=0}^{m-1}\mathbb{C}\cdot v_{i}, e^{-2\pi iJ_{\alpha,m}}\right)
+$$
+There are several things to be point out:
+\begin{enumerate}
+    \item Taking fiber (not stalk) at any given point $p\in(\mathbb{A}_{\mathbb{C}}^1 \setminus \{0\})^{\mathrm{an}}$, $\Ker(\nabla)$ becomes a finite ($m$) dimensional $\C$ vector space.
+    \item On a simply connected Euclidean open set $p \in U \subset (\mathbb{A}_{\mathbb{C}}^1 \setminus \{0\})^{\mathrm{an}}$, we can give $\log\, t(p)$ a concreate $\C$-value.
+    \item View $e^\alpha_i(p)$ as the canonical basis vector (the $i+1$-th entry is $1$, others are $0$)
+          \[
+              \begin{pmatrix}
+                  0 \\ \vdots \\ 1 \\ \vdots \\ 0
+              \end{pmatrix}\in\C^m,
+          \]
+          where the $1$ is at the $(i+1)$-th row. Then we identify
+          \[
+              v^\alpha_i(p) = e^{-J_{\alpha,m} \log t}(p) \cdot e^\alpha_i(p)
+          \]
+          with
+          \[
+              e^{-J_{\alpha,m} \log t}(p) \cdot \begin{pmatrix}
+                  0 \\ \vdots \\ 1 \\ \vdots \\ 0
+              \end{pmatrix} \in \C^m.
+          \]
+    \item So the monodromy action (of a generator of $\pi_1((\mathbb{A}_{\mathbb{C}}^1 \setminus \{0\})^{\mathrm{an}}, p)$) acts on $\C^m$ by left multiplication with $e^{-2\pi i J_{\alpha,m}}$.
+\end{enumerate}
+We denote $\lambda = e^{-2\pi i \alpha}\in \C$.
+
+\bigskip
+
+Since $K^\alpha_m\mid_{\mathbb{A}_{\mathbb{C}}^1 \setminus \{0\}}$ is an integrable connection on $\mathbb{A}_{\mathbb{C}}^1 \setminus \{0\}$ (note that $\C[t, t^{-1}]$ is also smooth finite type over $\C$), recall by Riemann-Hilbert correspondence Thm.~\ref{thm:basic-RH-corr}, we have \cite[Thm.~7.2.1]{hotta2008d} that in $\D^b(\underline{\C}_{X^\mathrm{an}})$,
+$$
+    \text{DR}\left((K_m^{\alpha}\mid_{\mathbb{A}_{\mathbb{C}}^1 \setminus \{0\}})^{\mathrm{an}}\right) \xrightarrow{\substack{\text{quasi-isomorphic}\\ \sim}}  L_m^{\lambda}.
+$$
+Since the direct system (in category of coherent (finitely generated) $\D_{\mathbb{A}_{\mathbb{C}}^1}$-modules)
+\begin{equation*}
+    \begin{array}{ccccccc}
+        K_{m-1}^{\alpha} & \lhook\joinrel\xrightarrow{\quad} & K_m^{\alpha}                              & \lhook\joinrel\xrightarrow{\quad} & K_{m+1}^{\alpha}                            & \lhook\joinrel\xrightarrow{\quad} & \cdots \\[1.5ex]
+        \overline P      & \xmapsto{\quad}                   & \overline{P \cdot (t\partial_t - \alpha)} & \xmapsto{\quad}                   & \overline{P \cdot (t\partial_t - \alpha)^2} & \xmapsto{\quad}                   & \cdots
+    \end{array}
+\end{equation*}
+induces a direct system of local systems
+(categorical equivalence is given by functors, so it also transports morphisms),
+arrows should be viewed as $\pi_1((\mathbb{A}_{\mathbb{C}}^1 \setminus \{0\})^\mathrm{an}, p)$-\textbf{equivariant} $\C$-linear maps by Prop.~\ref{prop:classification-of-local-system}:
+\begin{equation*}
+    \begin{array}{ccccccc}
+        L_{m-1}^{\lambda}=\bigoplus \limits_{i=0}^{m-2}\C\cdot v_i & \lhook\joinrel\xrightarrow{\quad} & L_m^{\lambda}=\bigoplus \limits_{i=0}^{m-1}\C\cdot v_i & \lhook\joinrel\xrightarrow{\quad} & L_{m+1}^{\lambda}=\bigoplus \limits_{i=0}^{m}\C\cdot v_i & \lhook\joinrel\xrightarrow{\quad} & \cdots \\[1.5ex]
+        v_i                                                        & \xmapsto{\quad}                   & v_i                                                    & \xmapsto{\quad}                   & v_i                                                      & \xmapsto{\quad}                   & \cdots
+    \end{array}
+\end{equation*}
+To see why the morphism are $\pi_1((\mathbb{A}_{\mathbb{C}}^1 \setminus \{0\})^\mathrm{an}, p)$-equivariant,
+since $J_{\alpha, m}$ is an upper-triangular matrix, then $e^{-2\pi iJ_{\alpha,m}}$ is also upper-triangular, so each $L^\lambda_{i}\subseteq L^\lambda_{i+1}$ is a sub $\pi_1((\mathbb{A}_{\mathbb{C}}^1 \setminus \{0\})^\mathrm{an}, p)$-representation.
+
+\bigskip
 
 Let $X = \text{Spec } R$ be a smooth affine algebraic variety over $\mathbb{C}$, and $f \in R$, a regular function, we have the following diagram:
 \begin{center}
