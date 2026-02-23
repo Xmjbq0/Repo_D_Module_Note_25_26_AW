@@ -333,7 +333,7 @@ And work out its definition when $X$ is a smooth affine $\C$ variety, and the re
     See \cite[\href{https://stacks.math.columbia.edu/tag/022V}{Tag 022V}]{stacks-project}.
 \end{proof}
 
-\begin{definition}[Graph embedding]
+\begin{definition}[Graph embedding]\label{def:graph_embedding}
     We define \textbf{graph embedding}, which is induced by the universal property of a fiber product $X\times_{\Spec\C} \mathbb{A}^1_{\C}$:
     $$
         \begin{tikzcd}
@@ -774,7 +774,7 @@ And work out its definition when $X$ is a smooth affine $\C$ variety, and the re
     By the above calculation of characteristic variety, we get $\Gamma_{f,+}(\mathcal{O}_X)$ is a holonomic $\D_Y$-module.
 
     By holonomicity, when we take a good filtration $V_i \mathcal{D}_Y \cdot f^s$
-    (recall $f^s$ represent canonical section $1\otimes 1 \in \C[\partial_t]\otimes_\C \Ox\left[\frac{1}{f}\right]$), by Thm.~\ref{Theorem 8.4}
+    (recall $f^s$ represent canonical section $1\otimes 1 \in N = \C[\partial_t]\otimes_\C \Ox$), by Thm.~\ref{Theorem 8.4}
     there is a polynomial $b(-)$ of $s := -t\partial_t$ such that $b(-t\partial_t)$ annihilates the graded piece
     \[
         \frac{V_0 \mathcal{D}_Y \cdot f^s}{V_{-1} \mathcal{D}_Y \cdot f^s}.

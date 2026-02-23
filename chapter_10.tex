@@ -122,7 +122,8 @@ since $J_{\alpha, m}$ is an upper-triangular matrix, then $e^{-2\pi iJ_{\alpha,m
 
 \bigskip
 
-Let $X = \text{Spec } R$ be a smooth affine algebraic variety over $\mathbb{C}$, and $f \in R$, a regular function, we have the following diagram:
+Let $X = \text{Spec } R$ be a smooth affine algebraic variety over $\mathbb{C}$, and $f \in R$,
+a regular function, we have the following commutative diagram:
 \begin{center}
     \begin{tikzcd}
         {(f=0)\atop \text{divisor}} & X && {\mathbb{A}^1_{\mathbb{C}}} \\
@@ -135,26 +136,152 @@ Let $X = \text{Spec } R$ be a smooth affine algebraic variety over $\mathbb{C}$,
         \arrow[hook', from=3-4, to=1-4]
     \end{tikzcd}
 \end{center}
+where the morphism $f$ is given by the ring map:
+\begin{align*}
+    \C[t] & \xrightarrow{\quad} R                       \\
+    \C    & \xrightarrow{\mathrm{id}_\C} \C \subseteq R \\
+    t     & \xmapsto{\quad} f
+\end{align*}
+And also note that the locus of $f$ (as an \textbf{analytic set} in complex manifold $X^\mathrm{an}$) can be \textbf{non-smooth}.
+
+We define
+$$
+    \Psi_{f,\lambda} = \lim_{\substack{\longrightarrow \\ m \to \infty}} i^{-1} Rj_\ast L_m^{\lambda}
+$$
+which is called the $\lambda\textbf{-nearby cycles}$ of $f$.
+And $T$-action ($\pi_1((\mathbb{A}_{\mathbb{C}}^1 \setminus \{0\})^\mathrm{an})$-action) on $L_m^{\lambda}$ induces $T$-action on $\Psi_{f,\lambda}$.
 
 
-We define $$ \Psi_{f,\lambda} = \lim_{\substack{\longrightarrow \\ m \to \infty}} i^{-1} R_{j_*} L_m^{\lambda} $$which is called the $\lambda\textbf{-nearby cycles}$ of $f$. And $T$-action on $L_m^{\lambda}$ induces $T$-action on $\Psi_{f,\lambda}$.
 
 \begin{remark}
-    Here $j_{\ast}$ is the direct image functor, and it's a left exact functor, we write $R_{j_{\ast}}$ the right derived functor of $j_{\ast}$, which can be viewed as the complex of sheaves obtained by taking the injective resolution of $L_{m}^{\lambda}$ and applying $j_{\ast}$. Since $j$ maybe have nontrivial derived cohomology, we choose to use drived functor.
+    Firstly, note that since $\{f=0\}$ may not smooth, so $i^{-1}$ is the sheaf-theoretic pull-back between topological (ringed) spaces.
+    Which is somewhat different from scheme case.
 
-    The above definition is a topological definition, which is a bit differed from Deligne's. And total cycles is defined by combining all information from nearby cycles.
+    Secondly, $j_{\ast}$ is the direct image functor,
+    and it's a left exact functor,
+    we write $Rj_\ast$ the right derived functor of $j_{\ast}$,
+    which can be viewed as the complex of sheaves obtained by taking the \textbf{injective resolution} of $L_{m}^{\lambda}$ and applying $j_{\ast}$.
+    Since $j_\ast$ maybe have nontrivial cohomology even in a non-$\D$-module-theoretic context, we choose to use a derived functor.
 \end{remark}
 
-On the other hand, we have $$ \mathcal{D}_{X}[s]f^{s} \longrightarrow R[\frac{1}{f}][s] \cdot f^{s} $$For closed point $\alpha \in \mathbb{A}_{\mathbb{C}}^{1} \simeq \operatorname{Spec} \mathbb{C}[s]$, we use $\mathfrak{m}_{\alpha}$ to denote its maximal ideal. We have proved in Example \ref{Example 8.11}:
+The above definition is a topological definition, which is a bit differed from Deligne's. And total cycles is defined by combining all information from nearby cycles.
+
+
+On the other hand, recall Example~\ref{Example 8.11}, we have
+$$
+    \mathcal{D}_{X}[s]f^{s} \subseteq R\left[\frac{1}{f}\right][s] \cdot f^{s}.
+$$
+
+For closed point $\alpha \in \mathbb{A}_{\mathbb{C}}^{1} \simeq \operatorname{Spec} \mathbb{C}[s]$, we use $\mathfrak{m}_{\alpha}$ to denote its maximal ideal. We have proved in Example \ref{Example 8.11}:
+
+\begin{remark}
+    We now justify the symbol $R_f[s]f^s$,
+    since in Rmk.~\ref{remark:second_treatment_of_example_8.11} we only get the module $R_f[\partial_t]$,
+    and $f^s$ represent the canonical section $1\otimes 1$.
+
+    One should note that the notation $R_f[\partial_t]$ (or more precisely $\C[\partial_t]\otimes_\C R_f$) itself doesn't imply any module structure.
+    If we want to make it an $R_f$ (left or right) module, we should induce the action from its left $\D_Y$-module structure.
+
+    The Step 5 Block A of Rmk.~\ref{remark:second_treatment_of_example_8.11} gives us an answer.
+    We have a projection
+    \[
+        p: Y = X\times_{\Spec \C}\mathbb{A}^1_{\C} \to X
+    \]
+    which makes $\Ox$ a subring of $\Oy$.
+    So we get a left $R$ module structure by
+    \[
+        R=\Ox\xhookrightarrow{p^\sharp} \Oy \subseteq \D_Y.
+    \]
+
+    Since before we pushforward left $\D_X$-module $R_f$ along $\Gamma_f$,
+    $f\in\D_X$ already acts bijectively (left and right) on $R_f$,
+    which makes $t\in\D_Y$ act bijectively on $\Gamma_{f,+}(R_f) = \C[\partial_t] \otimes_{\C} R_f$ \cite[Lemma~2.1.5]{PopaDMBG2021}.
+    Then by Step 5 Block A+D of Rmk.~\ref{remark:second_treatment_of_example_8.11},
+    we discover $f\in R$ also act bijectively on $\Gamma_{f,+}(R_f)$.
+    So we finally give a left $R_f$ module structure on $\C[\partial_t] \otimes_{\C} R_f$.
+
+    Then we discover $s = -t\partial_t$ and $R$ commute in $\D_Y$, this is because we have
+    \[
+        [\partial_t, g] = \partial_t(g) = 0 \quad (\text{see  \cite[Prop~2.25(iii)]{mustata2023dmodules}})
+    \]
+    By universal property of polynomial ring, we have $R_f[s]$ embedded in $\D_Y$ (as a $\C$-subalgebra),
+    if we map formal symbol $s$ to $-t\partial_t \in \D_Y$.
+
+    \medskip
+
+    Then we can act $R_f[s]$ onto $1\otimes 1 \in \Gamma_{f,+}(R_f)$, then we claim:
+    \begin{enumerate}
+        \item this action is faithful, so we get a free rank 1 $R_f[s]$ submodule in $\Gamma_{f,+}(R_f)$.
+        \item This submodule is the whole of $\Gamma_{f,+}(R_f)$.
+    \end{enumerate}
+    We denote it as $R_f[s]f^s$.
+    Then we can give the abstractly constructed $R_f[s]$ a left $\D_Y$ module structure by pulling back the one on $\Gamma_{f,+}(R_f)$.
+\end{remark}
+
+\bigskip
+
+\begin{remark}\label{rmk:base_change_of_R_f[s]_f^s}
+    We then try to define $R_f(s)f^s$ and $R_f[s]_{\frak{m}_\alpha}f^s$, the construction should satisfy:
+    \begin{enumerate}
+        \item From (the proof in) the corollary~\ref{cor:bernstein_beilinson} below, which suggests that this construction should be functorial.
+        \item Be consistent with \cite[The $\D_{U_s}$ module $\mathcal{M}$ defined in Proof of Theorem 2.2.1.]{PopaDMBG2021}.
+    \end{enumerate}
+
+    This is equivalent to say that we have a ring ($\C$-algebra) map
+    \[
+        \D_Y \to \End_\C(R_f[s])
+    \]
+    And we have a composition
+    \[
+        \D_X\otimes_\C \C[s] \to \D_Y \to \End_\C(R_f[s])
+    \]
+    by assigning $s$ to $-t\partial_t\in\D_Y$
+
+    \medskip
+
+    We define $R_f(s) := R_f[s]\otimes_{\C[s]}\C(s)$ and $R_f[s]_{\frak{m}_\alpha} := R_f[s]\otimes_{\C[s]}\C[s]_{\frak{m}_\alpha}$.
+    Before giving it a left $\D$ module structure, we discover that this construction is functorial (in the category of $\C[s]$-modules).
+
+    \medskip
+
+    Then we give it a left $\D$ module structure, this structure should also be functorial.
+    \begin{enumerate}
+        \item $R_f(s)$ should have a left $\D_{R(s)/\C(s)} = \D_{R/\C}\otimes_\C \C[s]\otimes_{\C[s]}\C(s)$ module structure, see Lem.~\ref{lem:base_change_of_D_modules}.
+        \item $R_f[s]_{\frak{m}_\alpha}$ should have a left $\D_{R[s]_{\frak{m}_\alpha}/\C[s]_{\frak{m}_\alpha}} = \D_{R/\C}[s]\otimes_{\C[s]} \C[s]_{\frak{m}_\alpha}$ module structure, but one should note $\C[s]_{\frak{m}_\alpha}$ is not a field.
+    \end{enumerate}
+    Thanks to the construction in the proof in Lem.~\ref{lem:base_change_of_D_modules}, the base change of the \textbf{ring of \underline{relative} differential operator} is functorial.
+
+    \medskip
+
+    To give a (left) module structure is equivalent to give the ring map
+    \begin{align*}
+        \D_{R/\C}[s]\otimes_{\C[s]}\C(s) & \to \End_\C(R_f[s]\otimes_{\C[s]}\C(s))                    \\
+        P \otimes a                      & \mapsto \left( u \otimes b \mapsto P(u) \otimes ab \right)
+    \end{align*}
+    and
+    \begin{align*}
+        \D_{R/\C}[s]\otimes_{\C[s]}\C[s]_{\frak{m}_\alpha} & \to \End_\C(R_f[s]\otimes_{\C[s]}\C[s]_{\frak{m}_\alpha})  \\
+        P \otimes a                                        & \mapsto \left( u \otimes b \mapsto P(u) \otimes ab \right)
+    \end{align*}
+    From the two formulas above, one see this definition of ring action (on module) is functorial. Where $u\mapsto P(u)$ is just
+    \[
+        \D_{R/\C} \otimes_\C \C[s] = \D_X\otimes_\C \C[s] \to \D_Y \to \End_\C(R_f[s])
+    \]
+    mentioned above.
+\end{remark}
 
 \begin{theorem}
-    There exists $b(s) \in \mathbb{C}[s]$ s.t.$$b(s) \quad \text{kills} \quad \frac{\mathcal{D}_{X}[s]f^{s}}{\mathcal{D}_{X}[s]f^{s+1}}$$
+    There exists $b(s) \in \mathbb{C}[s]$ s.t.
+    \[
+        b(s) \quad \mathrm{ kills } \quad \frac{\mathcal{D}_{X}[s]f^{s}}{\mathcal{D}_{X}[s]f^{s+1}}
+    \]
+    see Thm.~\ref{Theorem 8.4} or Ex.~\ref{Example 8.11} or Rmk.~\ref{remark:second_treatment_of_example_8.11}.
 \end{theorem}
 
 
 
-\begin{corollary}[Bernstein-Sato]
-    Let $\mathbb{C}(s)$ be the fractional field of $\mathbb{C}[s]$, and $\mathcal{D}_{X}(s) = \mathcal{D}_{X} \otimes_{\mathbb{C}[s]} \mathbb{C}(s)$; for all $\alpha \in \mathbb{A}_{\mathbb{C}}^{1}$ closed point, we obtain that:
+\begin{corollary}[Bernstein-Beilinson]\label{cor:bernstein_beilinson}
+    Let $\mathbb{C}(s)$ be the fractional field of $\mathbb{C}[s]$, and $\mathcal{D}_{X}(s) = \mathcal{D}_{X} \otimes_{\mathbb{C}} \mathbb{C}(s)$; for all $\alpha \in \mathbb{A}_{\mathbb{C}}^{1}$ closed point, we obtain that:
     \begin{enumerate}
         \item $\mathcal{D}_{X}(s) f^{s+k} \simeq \mathcal{D}_{X}(s) f^{s}, $ for all $  k \in \mathbb{Z}$.
         \item There exists $k_{0} \geqslant 0$ s.t.
@@ -165,26 +292,72 @@ On the other hand, we have $$ \mathcal{D}_{X}[s]f^{s} \longrightarrow R[\frac{1}
     \end{enumerate}
 
 \end{corollary}
-\begin{remark}
-    Noted that here  $\mathcal{D}_{X}[s] f^{s} = R[\frac{1}{f}][s] f^{s},\ \mathcal{D}_{X}[s]_{\mathfrak{m}_{\alpha}} f^{s} = R[\frac{1}{f}][s]_{m_{\alpha}} f^{s}$.
-\end{remark}
-\begin{proof}
-    $1)$ Since $\mathbb{C}(s)$ can be view as the localization at $(0)$ of $\mathbb{C}[s]$, we have $\mathbb{C}(s)$ is flat over $\mathbb{C}[s]$, thus $\frac{\mathcal{D}_{X}[s]f^{s}}{\mathcal{D}_{X}[s]f^{s+1}}\otimes \mathbb{C}(s)=\frac{\mathcal{D}_{X}(s)f^{s}}{\mathcal{D}_{X}(s)f^{s+1}}$.  And $b(s+k)$ is invertible in $\mathbb{C}(s)$, thus that $b(s+k)$ killing $\frac{\mathcal{D}_{X}(s)f^{s}}{\mathcal{D}_{X}(s)f^{s+1}}$ implies that $\frac{\mathcal{D}_X(s) f^{s+k}}{\mathcal{D}_X(s) f^{s+k-1}} = 0$.
 
-    $2)$  Know that there exists $k_0 \ge 0$ such that $b(s \pm k) \notin \mathfrak{m}_\alpha$ for all $k > k_0$, so $b(s \pm k)$ is invertible in $\mathbb{C}[s]_{\mathfrak{m}_\alpha}$ for all $k > k_0$, similarly, we get $\frac{\mathcal{D}_X[s]_{\mathfrak{m}_\alpha} f^{s \pm k}}{\mathcal{D}_X[s]_{\mathfrak{m}_\alpha} f^{s \pm k + 1}} = 0$.
+\begin{remark}\label{rmk:D_X(s)f^s=R_f(s)f^s_and_D_X[s]_m_alpha_f^s=R_f[s]_m_alpha_f^s}
+    Noted that here  $\mathcal{D}_{X}(s) f^{s} = R[\frac{1}{f}](s) f^{s},\ \mathcal{D}_{X}[s]_{\mathfrak{m}_{\alpha}} f^{s} = R[\frac{1}{f}][s]_{m_{\alpha}} f^{s}$.
+\end{remark}
+
+\begin{proof}
+    \mbox{}
+
+    $1)$ Since $\mathbb{C}(s)$ can be view as the localization at $(0)$ of $\mathbb{C}[s]$,
+    we have $\mathbb{C}(s)$ is flat over $\mathbb{C}[s]$,
+    thus
+    \[
+        \frac{\mathcal{D}_{X}[s]f^{s}}{\mathcal{D}_{X}[s]f^{s+1}}\otimes \mathbb{C}(s)=\frac{\mathcal{D}_{X}(s)f^{s}}{\mathcal{D}_{X}(s)f^{s+1}}
+    \]
+    Note that
+    \begin{enumerate}
+        \item To commute tensor product with quotient, the ring map $\mathbb{C}[s]\to \mathbb{C}(s)$ is not needed to be flat, all tensor product is right exact.
+        \item To make the incuced $\D_X(s)$-structure the same on LHS and RHS, the $\D_X(s)$-structure should be functorial, which is required in Rmk.~\ref{rmk:base_change_of_R_f[s]_f^s}.
+    \end{enumerate}
+
+    From the $\D_X(s)$-structure mentioned in Rmk.~\ref{rmk:base_change_of_R_f[s]_f^s}, we have
+    \[
+        b(s+k) \quad\mathrm{kills} \quad\frac{\mathcal{D}_{X}(s)f^{s}}{\mathcal{D}_{X}(s)f^{s+1}} \implies \D_{R/\C}[s]\otimes_{\C[s]} \C(s) \ni b(s+k)\otimes 1  \quad\mathrm{kills } \quad\frac{\mathcal{D}_{X}[s]f^{s}}{\mathcal{D}_{X}[s]f^{s+1}} \otimes_{\C[s]} \C(s)
+    \]
+    And $b(s+k) \neq 0$ is invertible in $\mathbb{C}(s)$, so
+    \[
+        b(s+k) \quad\mathrm{kills} \quad\frac{\mathcal{D}_{X}(s)f^{s}}{\mathcal{D}_{X}(s)f^{s+1}} \implies \frac{\mathcal{D}_X(s) f^{s+k}}{\mathcal{D}_X(s) f^{s+k-1}} = 0.
+    \]
+
+    $2)$  Note that Bernstein-Sato polynomial $b(s)\in\D_X[s]$ has coefficients in $\C$, see Thm.~\ref{Theorem 8.4}.
+
+    Since the number of roots of $b(s)$ is finite,
+    there exists $k_0 \ge 0$, $b(\alpha \pm k) \neq 0 \in\mathbb{C}$ for all $k > k_0$,
+    then $b(s \pm k) \notin \mathfrak{m}_\alpha$ for all $k > k_0$.
+
+    So $b(s \pm k)$ is invertible in $\mathbb{C}[s]_{\mathfrak{m}_\alpha}$ for all $k > k_0$,
+    similarly, we get
+    \[
+        \frac{\mathcal{D}_X[s]_{\mathfrak{m}_\alpha} f^{s \pm k}}{\mathcal{D}_X[s]_{\mathfrak{m}_\alpha} f^{s \pm k + 1}} = 0.
+    \]
 \end{proof}
 
 \begin{definition}
     For all $\alpha \in \mathbb{C}$:
     \begin{enumerate}
-        \item $\mathcal{D}_X[s]_{m_\alpha} f^{s+k},  k \gg 0$ is stabled, called the $\textbf{minimal extension}$ of $R[\frac{1}{f}][s]_{m_\alpha} f^s$.
-        \item $\Psi_{f,\alpha} := \frac{D_X[s]_{m_\alpha} f^{s-k}}{D_X[s]_{m_\alpha} f^{s+k}}$ is called the $\alpha\textbf{-nearby cycles}$ of $R$ along $f$.
+        \item $\mathcal{D}_X[s]_{\mathfrak{m}_\alpha} f^{s+k},  k \gg 0$ is stabled, called the $\textbf{minimal extension}$ of $R[\frac{1}{f}][s]_{\mathfrak{m}_\alpha} f^s$.
+        \item $\Psi_{f,\alpha} := \frac{\mathcal{D}_X[s]_{\mathfrak{m}_\alpha} f^{s-k}}{\mathcal{D}_X[s]_{\mathfrak{m}_\alpha} f^{s+k}}$ is called the $\alpha\textbf{-nearby cycles}$ of $R$ along $f$.
+
+              \cite[Definition~3.3.2.]{PopaDMBG2021} defines that $\alpha$-nearby cycles is a $\mathcal{D}_X$-module, NOT a $\mathcal{D}_X[s]$-module.
         \item $\Lambda := \mathbb{Z} + \{\text{roots of } b_{f}(s)\}$.
     \end{enumerate}
 \end{definition}
 
 \begin{remark}
-    In $\mathcal{D}$-module theory, an extension is usually about given a module over an open subset $U$, and extending it to the whole space $X$ to get a $\mathcal{D}_{X}$-module, and we shall pay attention on how it extend around $f=0$. Take $U=\mathrm{Spec}R_{f}$, if the module over $U=X\backslash(f=0)$ can be viewed as $R$-module, then it's an extension, and we call $R_{f}[s]_{\mathfrak{m}_{\alpha}}f^{s}$  $\textbf{maximal extension}$.
+    For one wonder why here we \emph{define} the minimal extension,
+    see \cite[Theorem~2.10]{Wu2020ComparisonNearbyCyclesBfunctions}, which use
+    \cite[Def~3.4.1]{hotta2008d} to define the minimal extension and claim the equivalence of the two.
+
+    In $\mathcal{D}$-module theory,
+    an extension is usually about given a module over an open subset $U$,
+    and extending it to the whole space $X$ to get a $\mathcal{D}_{X}$-module,
+    and we shall pay attention on how it extends around $f=0$.
+    Take $U=\mathrm{Spec}\, R_{f}$,
+    if the module over $U=X\backslash(f=0)$ can be viewed as $R$-module,
+    then it's an extension,
+    and we call $R_{f}[s]_{\mathfrak{m}_{\alpha}}f^{s}$  $\textbf{maximal extension}$.
 \end{remark}
 
 \begin{proposition}
@@ -192,31 +365,128 @@ On the other hand, we have $$ \mathcal{D}_{X}[s]f^{s} \longrightarrow R[\frac{1}
 
     \begin{enumerate}
         \item $s - \alpha$ acts on $\Psi_{f,\alpha}$ nilpotently
-        \item $\Psi_{f,\alpha} \cong \Psi_{f,\alpha+1}$
+        \item $\Psi_{f,\alpha} \cong \Psi_{f,\alpha+1}$ (Note: a $\D_X$-module homomorphism, not a $\D_X[s]$-module homomorphism)
         \item $\Psi_{f,\alpha} \neq 0$ if and only if $\alpha \in \Lambda$
         \item $\Psi_{f,\alpha}$ is a regular holonomic $D_X$-module.
     \end{enumerate}
 \end{proposition}
 \begin{proof}
-    $1)$  Since we have a chain $\mathcal{D}_{X}[s]_{\mathfrak{m}_{\alpha}}f^{s+k_{0}}\subseteq\mathcal{D}_{X}[s]_{\mathfrak{m}_{\alpha}}f^{s+k_{0}-1}\subseteq\dots\subseteq \mathcal{D}_{X}[s]_{\mathfrak{m}_{\alpha}}f^{s-k_{0}}$, we can write $\frac{\mathcal{D}_{X}[s]_{\mathfrak{m}_{\alpha}}f^{s-k_{0}}}{\mathcal{D}_{X}[s]_{\mathfrak{m}_{\alpha}}f^{s+k_{0}}}=\frac{\mathcal{D}_{X}[s]_{\mathfrak{m}_{\alpha}}f^{s-k_{0}}}{\mathcal{D}_{X}[s]_{\mathfrak{m}_{\alpha}}f^{s-k_{0}+1}}\cdots\frac{\mathcal{D}_{X}[s]_{\mathfrak{m}_{\alpha}}f^{s}}{\mathcal{D}_{X}[s]_{\mathfrak{m}_{\alpha}}f^{s+1}}\cdots\frac{\mathcal{D}_{X}[s]_{\mathfrak{m}_{\alpha}}f^{s+k_{0}-1}}{\mathcal{D}_{X}[s]_{\mathfrak{m}_{\alpha}}f^{s+k_{0}}}$ to show that $\frac{\mathcal{D}_{X}[s]_{\mathfrak{m}_{\alpha}}f^{s-k_{0}}}{\mathcal{D}_{X}[s]_{\mathfrak{m}_{\alpha}}f^{s+k_{0}}}$ is determined by those intermediate quotient modules. And for $\frac{\mathcal{D}_{X}[s]_{\mathfrak{m}_{\alpha}}f^{s+i}}{\mathcal{D}_{X}[s]_{\mathfrak{m}_{\alpha}}f^{s+i+1}}$, know that $b_{i}(s)$ exists, and since only $s-\alpha$ in not invertible, $b_{i}(s)$ must take the form of $m_{i}(s-\alpha)^{n_{i}}$. We take the product of all $b_{i}(s)$, or just take $n\gg \sum n_{i}$, we will have $(s-\alpha)^{n_{i}}$ annihilate $\frac{\mathcal{D}_{X}[s]_{\mathfrak{m}_{\alpha}}f^{s-k_{0}}}{\mathcal{D}_{X}[s]_{\mathfrak{m}_{\alpha}}f^{s+k_{0}}}$.
+    \mbox{}
 
-    $2)$ Substitute $s$ by $s+1$, all shifts, nothing changes.
+    \begin{enumerate}
+        \item The descending chain of submodules
+              \[
+                  \mathcal{D}_{X}[s]_{\mathfrak{m}_{\alpha}}f^{s+k_{0}}\subseteq\mathcal{D}_{X}[s]_{\mathfrak{m}_{\alpha}}f^{s+k_{0}-1}\subseteq\dots\subseteq \mathcal{D}_{X}[s]_{\mathfrak{m}_{\alpha}}f^{s-k_{0}}
+              \]
+              induces a finite filtration on the quotient module
+              \[
+                  \frac{\mathcal{D}_{X}[s]_{\mathfrak{m}_{\alpha}}f^{s-k_{0}}}{\mathcal{D}_{X}[s]_{\mathfrak{m}_{\alpha}}f^{s+k_{0}}},
+              \]
+              whose successive quotients are of the form
+              \[
+                  \frac{\mathcal{D}_{X}[s]_{\mathfrak{m}_{\alpha}}f^{s+i}}{\mathcal{D}_{X}[s]_{\mathfrak{m}_{\alpha}}f^{s+i+1}}.
+              \]
+              For each such quotient, there exists a polynomial $b_{i}(s)$ that annihilates it (before taking localization). Because $s-\alpha$ is the only non-invertible irreducible polynomial in the local ring $\mathbb{C}[s]_{\mathfrak{m}_{\alpha}}$, each $b_{i}(s)$ takes the form $u_{i}(s-\alpha)^{n_{i}}$ for some unit $u_{i} \in \mathbb{C}[s]_{\mathfrak{m}_{\alpha}}$.
+              By taking $n = \sum n_{i}$, the element $(s-\alpha)^{n}$ annihilates the entire module $\frac{\mathcal{D}_{X}[s]_{\mathfrak{m}_{\alpha}}f^{s-k_{0}}}{\mathcal{D}_{X}[s]_{\mathfrak{m}_{\alpha}}f^{s+k_{0}}}$. Hence, $s-\alpha$ acts nilpotently on it.
 
-    $3)$ Since $\alpha \not\in\Lambda$, $\alpha$ is not a root of $b(s+k)$, then $b(s+k)$ is a unit, thus $\Psi_{f,\alpha}=0$.
-    If $\Psi_{f,\alpha}\neq 0$, there exists $i$ such that $\frac{\mathcal{D}_{X}[s]_{\mathfrak{m}_{\alpha}}f^{s+i}}{\mathcal{D}_{X}[s]_{\mathfrak{m}_{\alpha}}f^{s+i+1}}\neq 0$, and then $\alpha$ is the root of $b(s+i)$ such that $b(s+i)$ is not invertible. Thus $\alpha\in\Lambda$.
+        \item Recall that $t$ acts on $R_f[s]f^s$ bijectively. Consider the $\mathcal{D}_{X}$-linear automorphism of $\mathcal{D}_{X}(s)f^{s}$ defined by the shift
+              \[
+                  T_{-1}\big(P(s)f^{s}\big) = P(s-1)f^{s-1}.
+              \]
+              For any element $m$, we have
+              \[
+                  T_{-1}(s \cdot m) = (s-1) \cdot T_{-1}(m), \quad\text{and generally}\quad T_{-1}(P(s) \cdot m) = P(s-1) \cdot T_{-1}(m).
+              \]
+              This means $T_{-1}$ is not $\D_X[s]$-linear.
 
-    $4)$ $M_{\alpha} = \mathbb{C}[t, \frac{1}{t}] \cdot t^{\alpha}$ is regular, holonomic $\mathcal{D}_{\mathbb{A}^{1}_{\mathbb{C}}}$-module, consider $$f:X\rightarrow \mathbb{A}^{1}_{\mathbb{C}}\atop \alpha\mapsto t=f(\alpha)$$which is induced by $\mathbb{C}[t]\rightarrow R$ with $t\rightarrow f$.
-    We admit the fact that pull-back functor preserves regular holonomicity, then $f^{*} M_{\alpha}:=M_{\alpha}\otimes_{\mathbb{C}[t]} R\cong R_{f}\cdot f^\alpha= R[\frac{1}{f}] f^{\alpha}$ makes $R_{f}\cdot f^\alpha$ a regular holonomic $\mathcal{D}_{X}$-module.
+              When localizing at $\mathfrak{m}_{\alpha}$,
+              a polynomial $g(s)$ becomes invertible if $g(\alpha) \neq 0$.
+              Under the shift, the action of $g(s)$ becomes the action of $g(s-1)$, evaluated at $s = \alpha+1$ is also non-zero, making it invertible in $\mathbb{C}[s]_{\mathfrak{m}_{\alpha+1}}$.
+              So we can safely define the map below:
+              \begin{align*}
+                  T_{-1}: \mathcal{D}_{X}[s]_{\mathfrak{m}_{\alpha}}f^{s-k} & \stackrel{\sim}{\longrightarrow} \mathcal{D}_{X}[s]_{\mathfrak{m}_{\alpha+1}}f^{s-k-1} \\
+                  \frac{m}{g(s)}                                            & \longmapsto \frac{T_{-1}(m)}{g(s-1)}
+              \end{align*}
+              for any integer $k$. And one should verify that it is indeed an isomorphism.
 
-    With $2)$, we can assume $\alpha\neq 0$, otherwise, we just shifts $\alpha$ to $\alpha+1$.
-    We have a SES:$$0 \to \frac{R_f[s]_{m_{\alpha}} f^{s}}{(s-\alpha)^1 R_f[s]_{m_{\alpha}} f^{s}}  \to \frac{R_f[s]_{m_{\alpha}} f^{s}}{(s-\alpha)^2 R_f[s]_{m_{\alpha}} f^{s}} \xrightarrow{s-\alpha} \frac{R_f[s]_{m_{\alpha}} f^{s}}{(s-\alpha)^1 R_f[s]_{m_{\alpha}} f^{s}}  \to 0$$With $\frac{R_f[s]_{m_{\alpha}} f^{s}}{(s-\alpha)^1 R_f[s]_{m_{\alpha}} f^{s}}=R_{f} \cdot f^{\alpha}$ regular holonomic.
+              For $k \gg 0$, the sequence of modules stabilizes. Passing to the respective quotients, this induces the desired $\mathcal{D}_X$-module isomorphism $\Psi_{f,\alpha} \xrightarrow{\sim} \Psi_{f,\alpha+1}$.
 
-    Since regular holonomic $\mathcal{D}_{X}$-module forms an abelian category,  we have $\frac{R_{f}[s]_{\mathfrak{m}_{\alpha}}f^{s}}{(s-\alpha)^{2}R_{f}[s]_{\mathfrak{m}_{\alpha}}f^{s}}$ is regular holonomic.
+        \item Since $\alpha \not\in\Lambda$, $\alpha$ is not a root of $b(s+k)$, then $b(s+k)$ is a unit for all $k$, thus $\Psi_{f,\alpha}=0$.
 
-    And further, we obtain that: $$0 \to \frac{R_f[s]_{m_{\alpha}} f^{s}}{(s-\alpha)^1 R_f[s]_{m_{\alpha}} f^{s}}  \to \frac{R_f[s]_{m_{\alpha}} f^{s}}{(s-\alpha)^{N+1} R_f[s]_{m_{\alpha}} f^{s}} \to \frac{R_f[s]_{m_{\alpha}} f^{s}}{(s-\alpha)^N R_f[s]_{m_{\alpha}} f^{s}}  \to 0$$By induction, $\frac{R_f[s]_{m_{\alpha}} f^{s}}{(s-\alpha)^{N} R_f[s]_{m_{\alpha}} f^{s}}$ is regular holonomic for all $N$.
+              If $\Psi_{f,\alpha}\neq 0$,
+              there exists $i$ such that $\frac{\mathcal{D}_{X}[s]_{\mathfrak{m}_{\alpha}}f^{s+i}}{\mathcal{D}_{X}[s]_{\mathfrak{m}_{\alpha}}f^{s+i+1}}\neq 0$,
+              and then $\alpha$ is a root of $b(s+i)$ such that $b(s+i)$ is not invertible in $\mathbb{C}[s]_{\mathfrak{m}_{\alpha}}$. Thus $\alpha\in\Lambda$.
 
-    By $1)$, $\Psi_{f,\alpha}$ is a quotient of $\frac{R_f[s]_{m_{\alpha}} f^{s}}{(s-\alpha)^N R_f[s]_{m_{\alpha}} f^{s}}$, so $\Psi_{f,\alpha}$ is also regular holonomic over $\mathcal{D}_{X}$.
+        \item $M_{\alpha} = \mathbb{C}[t, \frac{1}{t}] \cdot t^{\alpha}$ (see Ex.~\ref{ex:first-examples-of-d-modules}) is regular
+              (at least analytically at the stalk of $0$, see Rmk.~\ref{rmk:indecomposable_objects_in_RH_D} and Prop.~\ref{prop:classification-unipotent-indecomposable-regular-holonomic},
+              to be verified algebraically it should be embedded into $\mathbb{P}^1_\C$, see Rmk.~\ref{rmk:algebraic_KK_regularity_holomonic})
+              holonomic $\mathcal{D}_{\mathbb{A}^{1}_{\mathbb{C}}}$-module.
+
+              Consider
+              \begin{align*}
+                  f: X   & \longrightarrow \mathbb{A}^{1}_{\mathbb{C}} \\
+                  \alpha & \longmapsto t=f(\alpha)
+              \end{align*}
+              which is induced by
+              \begin{align*}
+                  \mathbb{C}[t] & \longrightarrow R \\
+                  t             & \longmapsto f
+              \end{align*}
+              We admit the fact that the $\D$-module theoretical (derived) \textbf{inverse image} functor \cite[Sect.~1.5, It is the derived one that comptible with Thm.~6.1.5]{hotta2008d} preserves (algebraic we use here) regular holonomicity \cite[Thm.~6.1.5]{hotta2008d}, then
+              \[
+                  f^{*} M_{\alpha}:=M_{\alpha}\otimes_{\mathbb{C}[t]} R\cong R_{f}\cdot f^\alpha= R[\frac{1}{f}] f^{\alpha}
+              \]
+              makes $R_{f}\cdot f^\alpha$ a regular holonomic $\mathcal{D}_{X}$-module.
+
+              With $(2)$, we can assume $\alpha\neq 0$, otherwise, we just shifts $\alpha$ to $\alpha+1$.
+              We have a short exact sequence:
+              \[
+                  0 \longrightarrow \frac{R_f[s]_{\mathfrak{m}_{\alpha}} f^{s}}{(s-\alpha) R_f[s]_{\mathfrak{m}_{\alpha}} f^{s}} \xrightarrow{\;(s-\alpha)\cdot\;} \frac{R_f[s]_{\mathfrak{m}_{\alpha}} f^{s}}{(s-\alpha)^2 R_f[s]_{\mathfrak{m}_{\alpha}} f^{s}} \xrightarrow{\;\text{proj}\;} \frac{R_f[s]_{\mathfrak{m}_{\alpha}} f^{s}}{(s-\alpha) R_f[s]_{\mathfrak{m}_{\alpha}} f^{s}} \longrightarrow 0
+              \]
+              where the injective mapping is given by \textbf{left} multiplication by $(s-\alpha)$ (i.e., sending the residue class $\overline{m}$ to $\overline{(s-\alpha)m}$), and the surjective mapping is the natural canonical projection.
+
+              Here, the isomorphism
+              \[
+                  \frac{R_f[s]_{\mathfrak{m}_{\alpha}} f^{s}}{(s-\alpha) R_f[s]_{\mathfrak{m}_{\alpha}} f^{s}} \cong R_{f} \cdot f^{\alpha}
+              \]
+              arises because quotienting out the $(s-\alpha)$-multiples algebraically corresponds to taking the evaluation map $s \mapsto \alpha$.
+              \begin{enumerate}
+                  \item The ring $\mathbb{C}[s]_{\mathfrak{m}_{\alpha}}$ is a local ring with (its unique) maximal ideal $(s-\alpha)$ reduces canonically to $\mathbb{C}$, collapsing the coefficients from $R_f[s]_{\mathfrak{m}_{\alpha}}$ down to $R_{f}$.
+                  \item And the formal symbol $f^{s}$ becomes $f^{\alpha}$, this step didn't actually do evaulation, since they are \textbf{both} the canonical section $1\otimes 1$ in their respective presentations. So the real thing goes $1\otimes 1 \mapsto 1\otimes 1$.
+              \end{enumerate}
+              Thus, this quotient module is precisely the regular holonomic $\mathcal{D}_X$-module $R_{f} \cdot f^{\alpha}$.
+
+              Since regular holonomic $\mathcal{D}_{X}$-modules form an abelian category \cite[Combine Prop.~3.1.2 and Def.~6.1.1]{hotta2008d}, we have $\frac{R_{f}[s]_{\mathfrak{m}_{\alpha}}f^{s}}{(s-\alpha)^{2}R_{f}[s]_{\mathfrak{m}_{\alpha}}f^{s}}$ is regular holonomic.
+
+              And further, we obtain the generalized short exact sequence:
+              \[
+                  0 \longrightarrow \frac{R_f[s]_{\mathfrak{m}_{\alpha}} f^{s}}{(s-\alpha) R_f[s]_{\mathfrak{m}_{\alpha}} f^{s}} \xrightarrow{\;(s-\alpha)^N\cdot\;} \frac{R_f[s]_{\mathfrak{m}_{\alpha}} f^{s}}{(s-\alpha)^{N+1} R_f[s]_{\mathfrak{m}_{\alpha}} f^{s}} \xrightarrow{\;\text{proj}\;} \frac{R_f[s]_{\mathfrak{m}_{\alpha}} f^{s}}{(s-\alpha)^N R_f[s]_{\mathfrak{m}_{\alpha}} f^{s}} \longrightarrow 0
+              \]
+              By induction, $\frac{R_f[s]_{\mathfrak{m}_{\alpha}} f^{s}}{(s-\alpha)^{N} R_f[s]_{\mathfrak{m}_{\alpha}} f^{s}}$ is regular holonomic for all $N$.
+
+              By $(1)$, the action of $(s-\alpha)$ on $\Psi_{f,\alpha} = \frac{\mathcal{D}_{X}[s]_{\mathfrak{m}_{\alpha}}f^{s-k}}{\mathcal{D}_{X}[s]_{\mathfrak{m}_{\alpha}}f^{s+k}}$ is nilpotent, meaning there exists some large enough integer $N \gg 0$ such that $(s-\alpha)^N$ entirely annihilates $\Psi_{f,\alpha}$.
+              Because of this annihilation, the natural surjective $\mathcal{D}_X[s]_{\mathfrak{m}_{\alpha}}$-module morphism
+              \[
+                  \mathcal{D}_{X}[s]_{\mathfrak{m}_{\alpha}}f^{s-k} \xrightarrow{\;\text{proj}\;} \frac{\mathcal{D}_{X}[s]_{\mathfrak{m}_{\alpha}}f^{s-k}}{\mathcal{D}_{X}[s]_{\mathfrak{m}_{\alpha}}f^{s+k}} = \Psi_{f,\alpha}
+              \]
+              factors through the quotient by the submodule generated by $(s-\alpha)^N$. This explicitly means that the map descends to a well-defined surjective homomorphism:
+              \[
+                  \frac{\mathcal{D}_X[s]_{\mathfrak{m}_{\alpha}} f^{s-k}}{(s-\alpha)^N \mathcal{D}_X[s]_{\mathfrak{m}_{\alpha}} f^{s-k}} \twoheadrightarrow \Psi_{f,\alpha}.
+              \]
+              Since one can verify
+              \begin{enumerate}
+                  \item $\mathcal{D}_{X}[s]_{\mathfrak{m}_{\alpha}}f^{s-k} \cong \mathcal{D}_{X}[s]_{\mathfrak{m}_{\alpha}}f^{s}$,
+                  \item Rmk.~\ref{rmk:D_X(s)f^s=R_f(s)f^s_and_D_X[s]_m_alpha_f^s=R_f[s]_m_alpha_f^s},
+                        i.e.,
+                        $\mathcal{D}_X[s]_{\mathfrak{m}_{\alpha}} f^{s}$ as a submodule $R_f[s]_{\mathfrak{m}_{\alpha}} f^{s}$ actually equals it.
+              \end{enumerate}
+              Thus, we can view $\Psi_{f,\alpha}$ as a quotient of the $\mathcal{D}_{X}$-module $\frac{R_f[s]_{\mathfrak{m}_{\alpha}} f^{s}}{(s-\alpha)^N R_f[s]_{\mathfrak{m}_{\alpha}} f^{s}}$.
+              So $\Psi_{f,\alpha}$ itself must also be a regular holonomic $\mathcal{D}_{X}$-module.
+    \end{enumerate}
+
 \end{proof}
+
+
 \section{Comparison theorem}
 Our next goal is to prove the following theorem:
 \begin{theorem}[Comparison] \label{Theorem 9.5}
