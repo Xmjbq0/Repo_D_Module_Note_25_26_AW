@@ -80,8 +80,7 @@ called the module of $\C$-derivations on $X$ (the vector fields on $X$).
 
 \end{definition}
 
-If $X$ is smooth, a tuple $(x_1,\dots,x_n)$ with $x_i\in R$ is called an \emph{algebraic
-    coordinate system} if
+If $X$ is smooth, a tuple $(x_1,\dots,x_n)$ with $x_i\in R$ is called an \textbf{algebraic/étale coordinate system} if
 \[
     \Omega_{R/\C} \cong \bigoplus_{i=1}^n R\,\mathrm d x_i.
 \]
@@ -338,10 +337,10 @@ In particular, we will henceforth only consider left $\D_X$-modules, written sim
         (a\otimes P)\cdot Q := a\otimes (P Q),
         \qquad a\in\mathcal O_X,\ P,Q\in f^{-1}\mathcal D_Y.
     \]
-    And the \emph{left} $\mathcal D_X$--action is defined via the map $\mathcal{T}_X \to f^*\mathcal{T}_Y = \mathcal{O}_X \otimes_{f^{-1}\mathcal{O}_Y} f^{-1}\mathcal{T}_Y$ ($\theta \mapsto \tilde{\theta}$)
+    And the \emph{left} $\mathcal D_X$--action is defined via the map $\mathcal{T}_X \to f^*\mathcal{T}_Y = \mathcal{O}_X \otimes_{f^{-1}\mathcal{O}_Y} f^{-1}\mathcal{T}_Y$ ($\theta \mapsto \widetilde{\theta}$)
     which is dual to $\Omega_{Y} \otimes_{f^{-1}\mathcal O_Y} f^{-1}\mathcal O_X \to \Omega_X$, see Lem.~\ref{lem:second_fundamental_exact_sequence} for a local version.
     \[
-        \theta \cdot (a \otimes P) := \theta(a) \otimes P + a \tilde{\theta} P
+        \theta \cdot (a \otimes P) := \theta(a) \otimes P + a \widetilde{\theta} P
     \]
     Coordinate-wise, the map is given by $\theta \mapsto \sum_j \theta(f^* y_j) \otimes \partial_{y_j}$, with $f^*y_j$ denoting the image of $y_j$ under $f^{-1}\mathcal{O}_Y \to \mathcal{O}_X$. Explicitly:
     \begin{align*}
@@ -533,7 +532,7 @@ In particular, we will henceforth only consider left $\D_X$-modules, written sim
                   \item Step 2: $\D_Y \otimes_{\mathcal O_Y} \omega_Y^{-1}$ is a left $f^{-1}\D_Y$-module, we use right multiplication in step 1.
                   \item Step 3: $f^{-1} (\D_Y \otimes_{\mathcal O_Y} \omega_Y^{-1}) \otimes_{f^{-1}\mathcal O_Y} \otimes \mathcal O_X$ is a left $\D_X$-module, which is
                         \[
-                            \theta \cdot (P \otimes a) :=  P \otimes \theta(a) +  (\tilde{\theta} \cdot P) \otimes a
+                            \theta \cdot (P \otimes a) :=  P \otimes \theta(a) +  (\widetilde{\theta} \cdot P) \otimes a
                         \]
                         Induced by $\mathcal{T}_X \to f^*\mathcal{T}_Y = \mathcal{O}_X \otimes_{f^{-1}\mathcal{O}_Y} f^{-1}\mathcal{T}_Y$,
                         we talked it in the begging of this Example~\ref{example:side-changing-transfer-bimodules}.

@@ -1,4 +1,4 @@
-\section{Two definitions of nearby cycles}
+\section{Two definitions of nearby cycles}\label{sect:two_definitions_of_nearby_cycles}
 
 On $\mathbb{A}_{\mathbb{C}}^1$ with coordinate $t$, given any $\alpha \in \mathbb{C}$, we have a left indecomposable $\D_{{A}^1_\C}$ module
 \[
@@ -124,7 +124,7 @@ since $J_{\alpha, m}$ is an upper-triangular matrix, then $e^{-2\pi iJ_{\alpha,m
 
 Let $X = \text{Spec } R$ be a smooth affine algebraic variety over $\mathbb{C}$, and $f \in R$,
 a regular function, we have the following commutative diagram:
-\begin{center}
+\begin{center}\phantomsection\label{commutative_diagram_of_hyper_surface}
     \begin{tikzcd}
         {(f=0)\atop \text{divisor}} & X && {\mathbb{A}^1_{\mathbb{C}}} \\
         \\
@@ -270,7 +270,7 @@ For closed point $\alpha \in \mathbb{A}_{\mathbb{C}}^{1} \simeq \operatorname{Sp
     mentioned above.
 \end{remark}
 
-\begin{theorem}
+\begin{theorem}\label{thm:existence_of_b_function}
     There exists $b(s) \in \mathbb{C}[s]$ s.t.
     \[
         b(s) \quad \mathrm{ kills } \quad \frac{\mathcal{D}_{X}[s]f^{s}}{\mathcal{D}_{X}[s]f^{s+1}}
@@ -360,7 +360,7 @@ For closed point $\alpha \in \mathbb{A}_{\mathbb{C}}^{1} \simeq \operatorname{Sp
     and we call $R_{f}[s]_{\mathfrak{m}_{\alpha}}f^{s}$  $\textbf{maximal extension}$.
 \end{remark}
 
-\begin{proposition}
+\begin{proposition}\label{prop:properties_of_alpha_nearby_cycles}
     \quad
 
     \begin{enumerate}
@@ -434,7 +434,7 @@ For closed point $\alpha \in \mathbb{A}_{\mathbb{C}}^{1} \simeq \operatorname{Sp
               \end{align*}
               We admit the fact that the $\D$-module theoretical (derived) \textbf{inverse image} functor \cite[Sect.~1.5, It is the derived one that comptible with Thm.~6.1.5]{hotta2008d} preserves (algebraic we use here) regular holonomicity \cite[Thm.~6.1.5]{hotta2008d}, then
               \[
-                  f^{*} M_{\alpha}:=M_{\alpha}\otimes_{\mathbb{C}[t]} R\cong R_{f}\cdot f^\alpha= R[\frac{1}{f}] f^{\alpha}
+                  f^{*} M_{\alpha}:=M_{\alpha}\otimes_{\mathbb{C}[t]} R\cong R_{f}\cdot f^\alpha= R\left[\frac{1}{f}\right] f^{\alpha}
               \]
               makes $R_{f}\cdot f^\alpha$ a regular holonomic $\mathcal{D}_{X}$-module.
 
@@ -475,7 +475,7 @@ For closed point $\alpha \in \mathbb{A}_{\mathbb{C}}^{1} \simeq \operatorname{Sp
               \]
               Since one can verify
               \begin{enumerate}
-                  \item $\mathcal{D}_{X}[s]_{\mathfrak{m}_{\alpha}}f^{s-k} \cong \mathcal{D}_{X}[s]_{\mathfrak{m}_{\alpha}}f^{s}$,
+                  \item $\mathcal{D}_{X}[s]_{\mathfrak{m}_{\alpha}}f^{s-k} \cong \mathcal{D}_{X}[s]_{\mathfrak{m}_{\alpha}}f^{s}$, even in the case one is a proper subset of the other, since then the isomorphism will not be the inclusion.
                   \item Rmk.~\ref{rmk:D_X(s)f^s=R_f(s)f^s_and_D_X[s]_m_alpha_f^s=R_f[s]_m_alpha_f^s},
                         i.e.,
                         $\mathcal{D}_X[s]_{\mathfrak{m}_{\alpha}} f^{s}$ as a submodule $R_f[s]_{\mathfrak{m}_{\alpha}} f^{s}$ actually equals it.
@@ -493,36 +493,595 @@ Our next goal is to prove the following theorem:
     For all $\alpha \in \mathbb{C}$, $\lambda = e^{2\pi i\alpha}$, $$\mathrm{DR}(\Psi_{f,-\alpha}) \simeq i_* \Psi_{f,\lambda}[-1]$$such that $e^{2\pi is} = \lambda^{-1}\cdot e^{2\pi i(s+\alpha)}$ is the corresponding $T$-action.
 \end{theorem}
 \begin{remark}
-    with $(s-\alpha)$ acts on $\Psi_{f,\alpha}$ nilpotent, $e^{2\pi i(s+\alpha)}$ will be a well-defined operator for $\Psi_{f,-\alpha}$.
+    With $(s-\alpha)$ acts on $\Psi_{f,\alpha}$ nilpotently, (the action of) $e^{2\pi i(s+\alpha)}$ is essentially a finite sum, hence it is a well-defined operator for $\Psi_{f,\alpha}$.
 \end{remark}
 
+\begin{definition}\label{def:N_m_alpha_k}
+    Recall we have a graph embedding~\ref{def:graph_embedding} $\Gamma_f: X \hookrightarrow Y = X\times_{\Spec \C} \mathbb{A}^1_\C$,
+    we define $\D_Y$-module $\mathcal{N}_m^{\alpha,k}$ by several steps:
+    \begin{enumerate}
+        \item We denote $j: U = X \setminus (f=0) \hookrightarrow X$ be the affine open inclusion, $\mathcal{O}_U = R_f$,
+              Open embedding makes $j_+$ reduce to $Rj_*$;
+              Affine-ness of $j$ makes $Rj_*$ reduce to $j_*$ \cite[Sect.~3.4]{hotta2008d};
+              Using Ex.~\ref{example:direct_image_of_graph_embedding}, we get $\Gamma_{f,+}(j_*(\mathcal{O}_U)) = R_f[s]f^s$ a $\D_Y$-module.
 
-Define $N_m^{\alpha,k} = \bigoplus_{\ell=1}^m \mathcal{D}_X[s] f^{s-k} \cdot e_\ell^{\alpha}$, know that $s=-t\partial_{t}$,  $s \cdot (\eta \cdot e_\ell^{\alpha}) = (s\eta) \cdot e_\ell^{\alpha}+\eta(-\alpha e^{\alpha}_{\ell}-e^{\alpha}_{\ell-1})=(s-\alpha)\eta \cdot e^{\alpha}_{\ell}-\eta \cdot e^{\alpha}_{\ell-1}$, so $N_m^{\alpha,k}$ is also an $\mathcal{D}_X[s]$-mod.
+        \item Define projection $p_2: Y \to \mathbb{A}^1_\C$ be the projection to the second factor.
+              Recall in we have defined $\D_{\mathbb{A}^1_\C}$-module $K^\alpha_m$ in the begging of Sect.~\ref{sect:two_definitions_of_nearby_cycles},
+              through the pullback $p_2^*$ (automatically non-derived \cite[Prop.~1.5.13]{hotta2008d}),
+              we get $p_2^* K_m^{\alpha}$ a $\D_Y$-module.
+              By the isomorphism under \cite[Def.~1.3.1]{hotta2008d},
+              says $\D$-module theoretic inverse image is the same with the sheaf theoretic one,
+              we get
+              \[
+                  p_2^* K_m^{\alpha} = R[t] \otimes_{\C[t]} K_m^{\alpha} = \bigoplus_{i=0}^{m-1} R[t, t^{-1}] e^\alpha_i.
+              \]
+              And the left $\D_Y$-module structure of $p_2^* K_m^{\alpha}$ is explicitly given by
+              \[
+                  \theta(\psi \otimes s) = \theta(\psi) \otimes s + \psi \cdot \theta(t) \otimes \partial_t s
+              \]
+              Where $\theta \in \mathcal{T}_Y\subset\D_Y$,
+              section $\psi \in \mathcal{O}_Y = R[t]$, and $s \in K_m^{-\alpha}$, using the fact that $t$ is the coordinate of $\mathbb{A}^1_\C$ and $p_2^*(t) = t$.
 
-We define $b_f(s)$ to be the monic polynomial of least degree among $b(s)$ such that $$b(s) \cdot \frac{\mathcal{D}_X[s] f^s}{\mathcal{D}_X[s] f^{s+1}} = 0$$called the $\textbf{b-function} \text{ or } \textbf{Bernstein-Sato polynomial of }f$.
+        \item Then we apply \cite[Proposition~1.2.9.(i)]{hotta2008d},
+              get a (left) $\D_Y$-module
+              \[
+                  \Gamma_{f,+}(j_*(\mathcal{O}_U)) \otimes_{\Oy} p_2^* K_m^{\alpha} = R_f[s]f^s \otimes_{R[t]} \bigoplus_{i=0}^{m-1} R[t, t^{-1}] e^\alpha_i
+              \]
+              Recall the left $\Oy$-mudule structure of $R_f[s]f^s$ is given be the inclusion $\Oy \hookrightarrow \D_Y$,
+              here we use it as right $\Oy$-module structure.
 
-\begin{lemma}\label{lemma 9.6}
-    \quad
+        \item Recall $\D_X[s]\subset \D_Y$ is a $\C$-subalgebra, then we define the $\D_X[s]$-submodule, see \cite[Sect.~3]{Wu2020ComparisonNearbyCyclesBfunctions}
+              \[
+                  \mathcal{N}_m^{\alpha,k}\subset \Gamma_{f,+}(j_*(\mathcal{O}_U)) \otimes_{\Oy} p_2^* K_m^{\alpha}
+              \]
+              generated be sections $f^{s-k} \otimes e_\ell^{\alpha}$ for $\ell=0,\dots,m-1$:
+              \begin{align*}
+                  \mathcal{N}_m^{\alpha,k} := \sum_{\ell=0}^{m-1} \D_X[s] (f^{s-k} \otimes e_\ell^{\alpha}) = \bigoplus_{\ell=0}^{m-1} \D_X[s] (f^{s-k} \otimes e_\ell^{\alpha})
+              \end{align*}
+              The freeness is also been claimed in this article.
+    \end{enumerate}
+\end{definition}
+
+Now we can identify $s$-action on $\mathcal{N}_m^{\alpha,k}$ now, note $s = -t\partial_t \in \D_Y$, and $\partial_t\in\mathcal{T}_Y$ is a derivation:
+\begin{align*}
+    s \cdot (\eta \otimes e_\ell^{\alpha}) & = (s \cdot \eta) \otimes e_\ell^{\alpha} + \eta \cdot (s \cdot e_\ell^{\alpha})       &  & \text{(\cite[Proposition~1.2.9.(i)]{hotta2008d})}  \\
+                                           & = (s\eta) \otimes e_\ell^{\alpha}+\eta(-\alpha e^{\alpha}_{\ell}-e^{\alpha}_{\ell-1}) &  & \text{(There is a minus sign in $s=-t\partial_t$)} \\
+                                           & =(s-\alpha)\eta \otimes e^{\alpha}_{\ell}-\eta \otimes e^{\alpha}_{\ell-1}
+\end{align*}
+
+Since in Sect.~\ref{sect:two_definitions_of_nearby_cycles}, we have
+\begin{equation*}
+    \begin{array}{ccccccc}
+        K_{m-1}^{\alpha} & \lhook\joinrel\xrightarrow{\quad} & K_m^{\alpha}                              & \lhook\joinrel\xrightarrow{\quad} & K_{m+1}^{\alpha}                            & \lhook\joinrel\xrightarrow{\quad} & \cdots \\[1.5ex]
+        \overline P      & \xmapsto{\quad}                   & \overline{P \cdot (t\partial_t - \alpha)} & \xmapsto{\quad}                   & \overline{P \cdot (t\partial_t - \alpha)^2} & \xmapsto{\quad}                   & \cdots
+    \end{array}
+\end{equation*}
+Tensor with $R_f[s]f^s$, inducing:
+\begin{equation*}\phantomsection\label{construction_of_direct_system_of_N_m_alpha_k}
+    \begin{array}{ccccccc}
+        R_f[s]f^s \otimes_{\Oy} p_2^* K_{m-1}^{\alpha} & \lhook\joinrel\xrightarrow{\quad} & R_f[s]f^s \otimes_{\Oy} p_2^* K_m^{\alpha} & \lhook\joinrel\xrightarrow{\quad} & R_f[s]f^s \otimes_{\Oy} p_2^* K_{m+1}^{\alpha} & \lhook\joinrel\xrightarrow{\quad} & \cdots \\[1.5ex]
+        \eta \otimes e^{\alpha}_i                      & \xmapsto{\quad}                   & \eta \otimes e^{\alpha}_i                  & \xmapsto{\quad}                   & \eta \otimes e^{\alpha}_i                      & \xmapsto{\quad}                   & \cdots
+    \end{array}
+\end{equation*}
+So we can restrict to a direct system of $\mathcal{D}_X[s]$-modules:
+\[
+    \cdots \lhook\joinrel\longrightarrow \mathcal{N}_{m-1}^{\alpha,k} \lhook\joinrel\longrightarrow \mathcal{N}_m^{\alpha,k} \lhook\joinrel\longrightarrow \mathcal{N}_{m+1}^{\alpha,k} \lhook\joinrel\longrightarrow \cdots .
+\]
+
+Since by Thm.~\ref{thm:existence_of_b_function}, when we view $\D_X[s]$ module as $\C[s]$ module
+through $\C[s]\hookrightarrow \D_X[s]$, then
+\[
+    \mathrm{Ann}_{\mathbb{C}[s]}\left(\frac{\mathcal{D}_X[s] f^s}{\mathcal{D}_X[s] f^{s+1}}\right)\neq 0
+\]
+we define $b_f(s)$ to be the monic polynomial of least degree among $b(s)$ such that
+\[
+    b(s) \cdot \frac{\mathcal{D}_X[s] f^s}{\mathcal{D}_X[s] f^{s+1}} = 0
+\]
+called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
+
+\begin{lemma}\label{lemma 10.6}
+    Recall the \hyperref[commutative_diagram_of_hyper_surface]{diagram}. In the (derived) category of (quasi-coherent) $\underline{\C}_{X^{\mathrm{an}}}$-modules (so the chain maps here only guarantees isomorphism of cohomology), we have:
 
     \begin{enumerate}
-        \item $\mathrm{DR}\left(R_f[s] f^s \otimes^L_{\mathbb{C}(s)} \mathbb{C}_\alpha\right) \simeq \mathrm{DR}\left(R_f[s] f^{s+\alpha} \otimes^L_{\mathbb{C}(s)} \mathbb{C}_\alpha\right)\simeq R j_* (f^{-1} L_1^\lambda)$
-        \item $\mathrm{DR}\left(\mathcal{D}_X[s] f^{s+k} \otimes^{L}_{\mathbb{C}(s)} \mathbb{C}_\alpha\right) \simeq \mathrm{DR}\left(\mathcal{D}_X[s] f^{s+k+\alpha} \otimes^{L}_{\mathbb{C}(s)} \mathbb{C}_\alpha\right)\simeq j_! (f^{-1} L_1^\lambda), \quad k \gg |\alpha|$
+        \item $\mathrm{DR}\left(\left(R_f[s] f^s \otimes^L_{\mathbb{C}[s]} \mathbb{C}_\alpha\right)^{\mathrm{an}}\right) \simeq \mathrm{DR}\left(\left(R_f[s] f^{s+\alpha} \otimes^L_{\mathbb{C}[s]} \mathbb{C}_\alpha\right)^{\mathrm{an}}\right)\simeq R j_* (f^{-1} L_1^\lambda)$
+        \item $\mathrm{DR}\left(\left(\mathcal{D}_X[s] f^{s+k} \otimes^{L}_{\mathbb{C}[s]} \mathbb{C}_\alpha\right)^{\mathrm{an}}\right) \simeq \mathrm{DR}\left(\left(\mathcal{D}_X[s] f^{s+k+\alpha} \otimes^{L}_{\mathbb{C}[s]} \mathbb{C}_\alpha\right)^{\mathrm{an}}\right)\simeq j_! (f^{-1} L_1^\lambda), \quad k \gg |\alpha|$
     \end{enumerate}
-    where $\mathbb{C}_\alpha$ is the residue field of $\alpha \in \mathbb{A}_{\mathbb{C}}^1$, and $\lambda = e^{2\pi i \alpha}$.
+    where $\simeq$ stand for quasi isomorphism, $\mathbb{C}_\alpha := \mathbb{C}[s]_{\mathfrak{m}_\alpha}\big/\mathfrak{m}_\alpha\mathbb{C}[s]_{\mathfrak{m}_\alpha}$ is the residue field of $\alpha \in \mathbb{A}_{\mathbb{C}}^1$, and $\lambda = e^{2\pi i \alpha}$.
 \end{lemma}
-\begin{proof}
-    Take $0\rightarrow \mathbb{C}[s]\xrightarrow{s-\alpha} \mathbb{C}[\alpha]\rightarrow \frac{\mathbb{C}[s]}{s-\alpha}=\mathbb{C}_{\alpha}$ free resolution, then we obtain that $R_f[s]f^s \otimes^L_{\mathbb{C}(s)} \mathbb{C}_\alpha$ $$\stackrel{\text{q.i}}{\simeq}[ R_f[s]f^s \xrightarrow{s-\alpha} R_f[s]f^s ]\stackrel{\text{q.i}}{\simeq}[R_{f}[s]f^{s+\alpha}\xrightarrow{s} R_f[s]f^{s+\alpha}]\simeq R_f f^\alpha.$$with $U\xrightarrow{f}\mathbb{A}^{1}_{\mathbb{C}}\backslash\{0\}$, $\mathrm{DR}(R_f \cdot f^\alpha)|_U \simeq f^{-1} L_1^\lambda$, using log resolution of $(X,f=0)$, one can prove $\mathrm{DR}(R_f \cdot f^\alpha) \simeq R j_*(f^{-1} L_1^\lambda)$.
+\begin{remark}
+    This proof needs resolution of singularities and duality functor \cite[Sect.~2.6]{hotta2008d}.
+    One can see \cite[Theorem~1.2]{Wu2021CharacteristicCyclesHolonomicDmodules} and \cite[Theorem~2.10]{Wu2020ComparisonNearbyCyclesBfunctions} for more detail of the proof.
+\end{remark}
+\begin{proof}[Sketch of Proof]
+
+    Take a $\C[s]$-free resolution of $\C_\alpha$:
+    \begin{equation*}
+        0\longrightarrow \mathbb{C}[s]\xrightarrow{s-\alpha} \mathbb{C}[s]\longrightarrow \frac{\mathbb{C}[s]}{(s-\alpha)}\stackrel{\sim}{\longrightarrow}\frac{\mathbb{C}[s]_{\mathfrak{m}_\alpha}}{\mathfrak{m}_\alpha\mathbb{C}[s]_{\mathfrak{m}_\alpha}}=\mathbb{C}_{\alpha}
+    \end{equation*}
+    then we obtain that
+    \begin{align*}
+        R_f[s]f^s \otimes^L_{\mathbb{C}[s]} \mathbb{C}_\alpha & \xleftarrow{\substack{\text{quasi-isomorphic}}}\left[ R_f[s]f^s \xrightarrow{s-\alpha} R_f[s]f^s \right] &  & \text{(Tensor with the resolution above)}                                           \\
+                                                              & \xrightarrow{\substack{\text{quasi-isomorphic}}} R_f f^\alpha.                                           &  & \text{(see the proof of (4) of Prop.~\ref{prop:properties_of_alpha_nearby_cycles})}
+    \end{align*}
+
+    Recall the diagram we have a map $U\xrightarrow{f}\mathbb{A}^{1}_{\mathbb{C}}\backslash\{0\}$.
+    In the proof of (4) of Prop.~\ref{prop:properties_of_alpha_nearby_cycles}, we have shown that
+    \[
+        R_f \cdot f^\alpha = f^* K_1^\alpha
+    \]
+    Then we recall Sect.~\ref{sect:two_definitions_of_nearby_cycles}, $K_1^\alpha$, restricted to $\mathbb{A}^1_{\mathbb{C}}\backslash\{0\}$, becomes an integrable connection (a locally free $\mathcal{O}$-module of finite rank).
+
+    \medskip
+
+    The next step is to verify a condition called \textbf{Non-characteristic} \cite[Definition~2.4.2]{hotta2008d}.
+
+    Recall an integrable connection has its characteristic variety is exactly the zero section:
+    \[
+        \Ch\left(K_1^\alpha\mid_{\mathbb{A}^1_{\mathbb{C}}\backslash\{0\}}\right) = T^\ast_{\mathbb{A}^1_{\mathbb{C}}\backslash\{0\}} (\mathbb{A}^1_{\mathbb{C}}\backslash\{0\}) \subset T^\ast (\mathbb{A}^1_{\mathbb{C}}\backslash\{0\})
+    \]
+    We have the canonical maps $\varpi$ and $\rho$ (see Lem.~\ref{prop:charvar-closed-emb} for their general construction, which is valid for arbitrary morphisms, not just closed embeddings):
+    \begin{align*}
+        \varpi: S := U \times_{\mathbb{A}^1_{\mathbb{C}}\backslash\{0\}} T^\ast (\mathbb{A}^1_{\mathbb{C}}\backslash\{0\}) & \longrightarrow T^\ast (\mathbb{A}^1_{\mathbb{C}}\backslash\{0\}) \\
+        \rho: S                                                                                                            & \longrightarrow T^\ast U
+    \end{align*}
+    Recall $X = \Spec R$ with $U = \Spec R_f$,
+    $\mathbb{A}^1_{\mathbb{C}}\backslash\{0\} = \Spec \mathbb{C}[t, t^{-1}]$.
+    The structure morphism is given by
+    \begin{align*}
+        \phi: \mathbb{C}[t, t^{-1}] & \longrightarrow R_f \\
+        t                           & \longmapsto f
+    \end{align*}
+    Then $T^\ast(\mathbb{A}^1_{\mathbb{C}}\backslash\{0\}) = \Spec \mathbb{C}[t, t^{-1}, \tau]$.
+    The zero section $T^\ast_{\mathbb{A}^1_{\mathbb{C}}\backslash\{0\}}(\mathbb{A}^1_{\mathbb{C}}\backslash\{0\})$
+    is defined by the ideal
+    \[
+        (\tau) \subset \mathbb{C}[t, t^{-1}, \tau].
+    \]
+    Similarly, $T^\ast U = \Spec \Sym^\bullet_{R_f}(\mathcal{T}_{R_f})$
+    The zero section $T^\ast_U U$ is defined by the ideal of positive degree elements
+    \[
+        I_U := \Sym_{R_f}^{\ge 1}(\mathcal{T}_{R_f}) \subset \Sym^\bullet_{R_f}(\mathcal{T}_{R_f}).
+    \]
+    The fiber product $S$ has coordinate ring
+    \[
+        \mathcal{O}_S = R_f \otimes_{\mathbb{C}[t,t^{-1}]} \mathbb{C}[t,t^{-1},\tau] \cong R_f[\tau]
+    \]
+    The map $\varpi$ corresponds to
+    \begin{align*}
+        \varpi^\#: \mathbb{C}[t,t^{-1},\tau] & \longrightarrow R_f[\tau] \\
+        t                                    & \longmapsto f             \\
+        \tau                                 & \longmapsto \tau
+    \end{align*}
+    The map $\rho$ corresponds to
+    \begin{align*}
+        \rho^\#: \Sym^\bullet_{R_f}(\mathcal{T}_{R_f}) & \longrightarrow R_f[\tau]        \\
+        \theta                                         & \longmapsto \tau \cdot \theta(f)
+    \end{align*}
+    for $\theta \in \Der_\mathbb{C}(R_f)$.
+
+    We then need to calculate the intersection $\varpi^{-1}\left(\Ch(K_1^\alpha\mid_{\mathbb{A}^1_{\mathbb{C}}\backslash\{0\}})\right) \bigcap \rho^{-1}\left(T^\ast_U U\right)$,
+    The core formula is to utilize:
+    \[
+        V(I)\cap V(J) = V(I \cup J) = V((I \cup J)) = V(I+J)  \quad  \text{ (see \cite[\href{https://stacks.math.columbia.edu/tag/00E0}{Tag 00E0}]{stacks-project})}
+    \]
+    So we:
+    \begin{align*}
+        I_{\varpi^{-1}\left(\Ch(K_1^\alpha\mid_{\mathbb{A}^1_{\mathbb{C}}\backslash\{0\}})\right)\bigcap \rho^{-1}\left(T^\ast_U U\right)}
+         & = \varpi^\#((\tau))\mathcal{O}_S + \rho^\#(I_U)\mathcal{O}_S         \\
+         & = (\tau) + (\tau \cdot \theta(f) \mid \theta \in \Der_\mathbb{C}(A)) \\
+         & = (\tau) \subset A[\tau].
+    \end{align*}
+    Thus, the intersection is exactly the zero space $V((\tau)) \subset \Spec A[\tau]$,
+    which is $U \times_{\mathbb{A}^1_{\mathbb{C}}\backslash\{0\}} T^\ast_{\mathbb{A}^1_{\mathbb{C}}\backslash\{0\}} (\mathbb{A}^1_{\mathbb{C}}\backslash\{0\})$.
+    We verified that $f$ is non-characteristic with respect to $K_1^\alpha\mid_{\mathbb{A}^1_\C\setminus\{0\}}$.
+
+    \medskip
+
+    By \cite[Proposition~4.7.6]{hotta2008d} (Non-characteristic base change for De Rham complex), we have
+    \begin{align*}
+        \mathrm{DR}^{\mathrm{Hotta}}_{U}(f^* K_1^\alpha) \simeq f^{-1} \mathrm{DR}^{\mathrm{Hotta}}_{\mathbb{A}^1_{\mathbb{C}}\backslash\{0\}}(K_1^\alpha)[d_U - d_{\mathbb{A}^1_{\mathbb{C}}\backslash\{0\}}].
+    \end{align*}
+    One must be very careful with the convention of the De Rham functor here. In \cite[Sect.~4.7]{hotta2008d},
+    the De Rham functor $\mathrm{DR}^{\mathrm{Hotta}}_X(M) := \Omega_X \otimes_{\mathcal{D}_X}^L M$ is concentrated in degrees $[-d_X, 0]$
+    (The dualizing sheaf $\Omega_X$ is already at the highest degree).
+
+    However, in our notes,
+    $\mathrm{DR}_{X^{\mathrm{an}}}(M^\mathrm{an})$ is defined as the standard De Rham complex $0 \to M \to M \otimes \Omega^1 \to \dots $ sitting in degrees $[0, d_X]$.
+    Therefore,
+    \[
+        \mathrm{DR}^{\mathrm{Hotta}}_X(\cdot) = \mathrm{DR}_{X^\mathrm{an}}((\cdot)^\mathrm{an})[d_X]
+    \]
+    Substituting this into the above formula perfectly cancels the dimension shifts:
+    \begin{align*}
+        \mathrm{DR}_{U^\mathrm{an}}((f^* K_1^\alpha)^\mathrm{an})[d_U] & \simeq f^{-1} \mathrm{DR}_{(\mathbb{A}^1_{\mathbb{C}}\backslash\{0\})^\mathrm{an}}((K_1^\alpha)^\mathrm{an})[d_{\mathbb{A}^1_{\mathbb{C}}\backslash\{0\}}] [d_U - d_{\mathbb{A}^1_{\mathbb{C}}\backslash\{0\}}] \\
+                                                                       & \simeq f^{-1} \mathrm{DR}_{(\mathbb{A}^1_{\mathbb{C}}\backslash\{0\})^\mathrm{an}}((K_1^\alpha)^\mathrm{an})[d_U]
+    \end{align*}
+    Yielding
+    \[
+        \mathrm{DR}_{U^\mathrm{an}}((f^* K_1^\alpha)^\mathrm{an}) \simeq f^{-1} \mathrm{DR}_{(\mathbb{A}^1_{\mathbb{C}}\backslash\{0\})^\mathrm{an}}((K_1^\alpha)^\mathrm{an})
+    \]
+    exactly, without any residual dimension shift!
+
+    Combining with the fact that its analytic De Rham complex is exactly the local system
+    \[
+        \mathrm{DR}\left((K_1^\alpha\mid_{\mathbb{A}^1_{\mathbb{C}}\backslash\{0\}})^{\mathrm{an}}\right) = L_1^\lambda,
+    \]
+    we deduce:
+    \begin{align*}
+        \mathrm{DR}((R_f \cdot f^\alpha)^{\mathrm{an}})|_{U^{\mathrm{an}}} & \simeq \mathrm{DR}( (f^* K_1^\alpha)^{\mathrm{an}} )  \\
+                                                                           & \simeq f^{-1} \mathrm{DR}((K_1^\alpha)^{\mathrm{an}}) \\
+                                                                           & \simeq f^{-1} L_1^\lambda.
+    \end{align*}
+
+
+    \medskip
+
+    Using log resolution of $(X,f=0)$, one can prove $\mathrm{DR}((R_f \cdot f^\alpha)^{\mathrm{an}}) \simeq R j_*(f^{-1} L_1^\lambda)$.
+
+    \medskip
+
     Using resolution of singularities and duality, one can prove 2.
 
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %  Black-box package for extensions along D=(f=0)
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \subsection{A black-box package for $Rj_*$ and $j_!$ along $D=(f=0)$}
+
+    \subsubsection{Divisor twists: from $\mathcal O_X(*D)$ to $\mathcal O_X(kD)$}
+
+    Let $X$ be smooth, and let $D\subset X$ be an \emph{effective Cartier divisor}
+    (with ideal sheaf $\mathcal I_D\subset\mathcal O_X$).
+    Following the Stacks Project, define the invertible sheaf
+    \[
+        \mathcal O_X(D)
+        :=\mathcal H\!om_{\mathcal O_X}(\mathcal I_D,\mathcal O_X)
+        =\mathcal I_D^{\otimes(-1)}.
+    \]
+    For an integer $k\ge 0$, set
+    \[
+        \mathcal O_X(kD):=\mathcal O_X(D)^{\otimes k},
+        \qquad
+        \mathcal O_X(-kD):=\mathcal O_X(-D)^{\otimes k}=\mathcal I_D^{\,k}.
+    \]
+    Moreover, for effective Cartier divisors $D_1,D_2$ one has the canonical tensor rule
+    $\mathcal O_X(D_1)\otimes \mathcal O_X(D_2)\simeq \mathcal O_X(D_1+D_2)$
+    (Stacks Project).
+    In particular, when $D=(f=0)$ is principal, $\mathcal O_X(kD)$ may be viewed locally
+    as the subsheaf $f^{-k}\mathcal O_X\subset\mathcal K_X$ of meromorphic functions with
+    pole order $\le k$ along $D$.
+
+    Write
+    \[
+        \mathcal O_X(*D):=\varinjlim_{k\to\infty}\mathcal O_X(kD),
+    \]
+    so $\mathcal O_X(*D)$ encodes \emph{arbitrary} pole order along $D$.
+    (This direct limit convention is used explicitly in \cite[\S 3.3]{Wu2011.14527}.)
+
+    Given any $\mathcal O_X$-module $\mathcal F$, define the twist
+    \[
+        \mathcal F(kD):=\mathcal F\otimes_{\mathcal O_X}\mathcal O_X(kD).
+    \]
+
+    \subsubsection{Reduction to a smooth log pair (SNC boundary)}
+
+    Let $f\in\Gamma(X,\mathcal O_X)$ and $D=(f=0)$, $U:=X\setminus D$, $j:U\hookrightarrow X$.
+    If $D$ is not a normal crossing divisor, choose a log resolution
+    $\pi:X'\to X$ such that $X'$ is smooth, $\pi$ restricts to an isomorphism over $U$,
+    and the reduced total transform $D'$ is a simple normal crossings divisor.
+    Hence, for statements local on $X$ (and for the log de Rham comparison results below),
+    we may \emph{assume} that $(X,D)$ is an \emph{(analytic) smooth log pair} in the sense of
+    \cite{Wu2011.14527}.
+    (For the existence of such resolutions in characteristic $0$, see \cite{BierstoneMilman1997}.)
+
+    \subsubsection{Logarithmic $\mathcal D$-modules and $DR_{X,D}$}
+
+    Assume from now on that $(X,D)$ is an analytic smooth log pair and keep $j:U\hookrightarrow X$.
+    Let $\mathcal D_{X,D}\subset\mathcal D_X$ be the sheaf of logarithmic differential operators
+    (i.e.\ those preserving the defining ideal of $D$), and for a left $\mathcal D_{X,D}$-module $N$
+    set
+    \[
+        DR_{X,D}(N):=\omega_X(D)\otimes^{L}_{\mathcal D_{X,D}}N,
+    \]
+    as in \cite[\S 3.1]{Wu2011.14527}.
+
+    If $M$ is a coherent $\mathcal D_X$-module, define its meromorphic localization along $D$ by
+    \[
+        M(*D):=M\otimes_{\mathcal O_X}\mathcal O_X(*D).
+    \]
+    A coherent $\mathcal D_{X,D}$-submodule $\bar M\subset M(*D)$ is called a
+    \emph{$\mathcal D_{X,D}$-lattice} of $M$ if $\bar M|_U\simeq M|_U$
+    \cite[\S 3.3]{Wu2011.14527}.
+    For such a lattice, we may twist it by $kD$ via $\bar M(kD):=\bar M\otimes\mathcal O_X(kD)$.
+
+    \subsubsection{Step 1: the base case $M=\mathcal O_X$ (Grothendieck comparison)}
+
+    Take the coherent $\mathcal D_X$-module $M=\mathcal O_X$. Then
+    $M(*D)=\mathcal O_X(*D)$, and we have a canonical lattice $\bar M=\mathcal O_X\subset \mathcal O_X(*D)$.
+    Applying \cite[Theorem~1.2]{Wu2011.14527} to this lattice, we obtain that for all integers $k\gg 0$
+    there are natural quasi-isomorphisms
+    \[
+        DR_{X,D}\big(\mathcal O_X(kD)\big)\ \simeq\ Rj_*\,\mathbb C_U[\dim X],
+        \qquad
+        DR_{X,D}\big(\mathcal O_X(-kD)\big)\ \simeq\ j_!\,\mathbb C_U[\dim X].
+    \]
+    Indeed, \cite[Theorem~1.2]{Wu2011.14527} explicitly remarks that the choice $\bar M=\mathcal O_X$
+    recovers Grothendieck's comparison isomorphism.
+
+    \subsubsection{Step 2: the rank-one Kummer twist $f^\alpha$}
+
+    Fix $\alpha\in\mathbb C$ and set $\lambda:=e^{2\pi i\alpha}$.
+    On $U$, the multi-valued function $f^\alpha$ defines a rank-one local system
+    $f^{-1}L_1^\lambda$ (equivalently, a rank-one integrable connection); see the dictionary in
+    Deligne \cite[\S I.2]{DeligneLNM163}.
+    We denote by $\mathcal O_U\cdot f^\alpha$ the corresponding holonomic $\mathcal D_U$-module.
+
+    On $X$ we consider the meromorphic $\mathcal D_X$-module
+    \[
+        M^\alpha := \mathcal O_X(*D)\cdot f^\alpha,
+    \]
+    i.e.\ the meromorphic extension of $\mathcal O_U\cdot f^\alpha$ allowing arbitrary poles along $D$.
+    Choose a $\mathcal D_{X,D}$-lattice $\overline{M}^\alpha\subset M^\alpha$;
+    for instance one may take a Deligne lattice when $M^\alpha$ is regular singular along $D$
+    (typical examples of lattices are discussed in \cite[\S 3.3]{Wu2011.14527}).
+
+    Now apply \cite[Theorem~1.2]{Wu2011.14527} to the lattice $\overline{M}^\alpha$:
+    for all integers $k\gg 0$ we obtain canonical quasi-isomorphisms
+    \[
+        DR_{X,D}\big(\overline{M}^\alpha(kD)\big)\ \simeq\ Rj_*\,DR(\mathcal O_U\cdot f^\alpha)
+        \ \simeq\ Rj_*\big(f^{-1}L_1^\lambda\big),
+    \]
+    \[
+        DR_{X,D}\big(\overline{M}^\alpha(-kD)\big)\ \simeq\ j_!\,DR(\mathcal O_U\cdot f^\alpha)
+        \ \simeq\ j_!\big(f^{-1}L_1^\lambda\big).
+    \]
+    This is the clean black-box form of the two ``$Rj_*$ vs.\ $j_!$'' statements in our setting.
+
+    \subsubsection{Step 3: an explicit $\mathcal D_X[s]$-model for $j_!(\mathcal O_U\cdot f^\alpha)$}
+
+    We now specialize to the case needed in Lemma~\dots\ (your lemma).
+    Let $M_U:=\mathcal O_U$ and choose $M_0:=\mathcal O_X$ (as in \cite[\S 2.1]{Wu2001.06521}).
+    Let $\mathfrak m_\alpha\subset\mathbb C[s]$ be the maximal ideal generated by $(s-\alpha)$ and
+    $\mathbb C_\alpha:=\mathbb C[s]/\mathfrak m_\alpha$.
+
+    Wu defines the duality functor on coherent $\mathcal D_X[s]$-modules as
+    \[
+        D(N):=R\mathcal H\!om_{\mathcal D_X[s]}(N,\mathcal D_X[s])\otimes_{\mathcal O_X}\omega_X^{-1}[\dim X],
+    \]
+    see \cite[Definition~2.5]{Wu2001.06521}.
+    In particular, one has the standard formalism for $j_!,j_*$ in this relative setting.
+
+    The key input is \cite[Theorem~2.10(3)]{Wu2001.06521} (Beilinson--Bernstein):
+    for every $\alpha\in\mathbb C$ there exists $k_0\in\mathbb Z_{>0}$ such that for all $k>k_0$,
+    \[
+        j_!\big(M_U\cdot f^\alpha\big)
+        \ \simeq\
+        \mathcal D_X[s]\mathfrak m_\alpha M_0\cdot f^{s+k}\ \otimes^{L}_{\mathbb C[s]}\ \mathbb C_\alpha.
+    \]
+    With $M_U=\mathcal O_U$ and $M_0=\mathcal O_X$, this yields the concrete model
+    \[
+        j_!\big(\mathcal O_U\cdot f^\alpha\big)
+        \ \simeq\
+        \mathcal D_X[s]\mathfrak m_\alpha\mathcal O_X\cdot f^{s+k}\ \otimes^{L}_{\mathbb C[s]}\ \mathbb C_\alpha,
+        \qquad (k\gg 0).
+    \]
+    Up to the harmless localization at $\mathfrak m_\alpha$ (which is implicit when tensoring with
+    $\mathbb C_\alpha$), this is precisely the object
+    $\mathcal D_X[s] f^{s+k}\otimes_{\mathbb C[s]}\mathbb C_\alpha$
+    appearing in Lemma~\dots.
+
+    Combining this explicit $\mathcal D_X[s]$-model with Step~2 identifies its de Rham complex
+    with $j_!\big(f^{-1}L_1^\lambda\big)$, as claimed.
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %  Add-on: specialization at s=alpha and the DR(j_!) identification
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \subsubsection{Specialization at $s=\alpha$: why localization at $\mathfrak m_\alpha$ is harmless}
+
+    Set $R:=\C[s]$ and $\mathfrak m_\alpha:=(s-\alpha)\subset R$, and write $\C_\alpha:=R/\mathfrak m_\alpha$.
+    Let $S:=R\setminus \mathfrak m_\alpha$ so that $R_{\mathfrak m_\alpha}=S^{-1}R$.
+
+    \begin{lemma}[Harmless localization before specializing]\label{lem:harmless-localization}
+        For any complex $K^\bullet$ of $R$-modules, the canonical map $K^\bullet\to K^\bullet_{\mathfrak m_\alpha}$
+        induces a quasi-isomorphism
+        \[
+            K^\bullet\otimes^L_R \C_\alpha\ \xrightarrow{\ \sim\ }\ K^\bullet_{\mathfrak m_\alpha}\otimes^L_R \C_\alpha.
+        \]
+        In particular, for any $R$-module $K$ one has a canonical isomorphism
+        \[
+            K\otimes_R \C_\alpha\ \cong\ K_{\mathfrak m_\alpha}\otimes_R \C_\alpha.
+        \]
+    \end{lemma}
+
+    \begin{proof}
+        Since $R_{\mathfrak m_\alpha}=S^{-1}R$ is a localization, the functor $(-)_{\mathfrak m_\alpha}=S^{-1}(-)$ is exact
+        and satisfies the tensor-compatibility
+        \[
+            (S^{-1}M)\otimes_{S^{-1}R}(S^{-1}N)\ \cong\ S^{-1}(M\otimes_R N)
+        \]
+        for $R$-modules $M,N$ (Stacks Project, Lemma~10.12.16). This extends termwise to complexes and hence is compatible
+        with derived tensor products.
+
+        Now observe that every $s_0\in S$ maps to a nonzero scalar in $R/\mathfrak m_\alpha\simeq \C$, hence becomes invertible
+        on $\C_\alpha$; equivalently, $\C_\alpha$ is naturally an $R_{\mathfrak m_\alpha}$-module and
+        \[
+            R_{\mathfrak m_\alpha}\otimes_R \C_\alpha\ \cong\ \C_\alpha.
+        \]
+        Therefore, in $D(R)$,
+        \[
+            K^\bullet_{\mathfrak m_\alpha}\otimes^L_R \C_\alpha
+            \ \simeq\ (K^\bullet\otimes_R R_{\mathfrak m_\alpha})\otimes^L_R \C_\alpha
+            \ \simeq\ K^\bullet\otimes^L_R (R_{\mathfrak m_\alpha}\otimes_R \C_\alpha)
+            \ \simeq\ K^\bullet\otimes^L_R \C_\alpha,
+        \]
+        which gives the claimed quasi-isomorphism.
+    \end{proof}
+
+    \begin{remark}[A concrete model for $\otimes^L_R\C_\alpha$]\label{rem:cone-model}
+        The residue field is $\C_\alpha\simeq R/(s-\alpha)$, hence one may compute $K^\bullet\otimes^L_R\C_\alpha$ using
+        the two-term free resolution $[R\xrightarrow{s-\alpha}R]\to \C_\alpha$.
+        Equivalently,
+        \[
+            K^\bullet\otimes^L_R\C_\alpha\ \simeq\ \mathrm{Cone}\bigl(K^\bullet\xrightarrow{s-\alpha}K^\bullet\bigr)[-1].
+        \]
+        In particular, $H^{-1}(K^\bullet\otimes^L_R\C_\alpha)\cong \mathrm{Tor}^R_1(H^0(K^\bullet),\C_\alpha)$ measures the
+        $(s-\alpha)$-torsion. If $H^0(K^\bullet)$ is $(s-\alpha)$-torsion-free (or flat over $R$ near $\mathfrak m_\alpha$),
+        then $\otimes^L$ may be replaced by the ordinary tensor $\otimes$.
+    \end{remark}
+
+    \subsubsection{From Wu's explicit $j_!$-model to the sheaf-theoretic $j_!$ via $DR$}
+
+    Let $f\in\Gamma(X,\mathcal O_X)$ and $D=(f=0)$, $U=X\setminus D$, $j:U\hookrightarrow X$.
+    Fix $\alpha\in\C$ and set $\lambda:=e^{2\pi i\alpha}$.
+
+    \paragraph{Step 3.1: Wu's explicit description of $j_!(\mathcal O_U\cdot f^\alpha)$.}
+    In \cite[\S 2.1]{Wu2001.06521}, Wu denotes by $M_U\cdot f^\alpha$ the holonomic $\mathcal D_U$-module obtained by
+    twisting $M_U$ by the rank-one local system defined by the multivalued function $f^\alpha$
+    (cf.\ \cite[lines 338--343]{Wu2001.06521}).
+    Specializing to $M_U=\mathcal O_U$ and choosing $M_0=\mathcal O_X$ (as in \cite[\S 2.1]{Wu2001.06521}),
+    Wu defines $j!$ by duality
+    \[
+        j!\bigl(M_U[s]_{\mathfrak m_\alpha}\cdot f^s\bigr):=D\circ j_*\circ D\bigl(M_U[s]_{\mathfrak m_\alpha}\cdot f^s\bigr),
+    \]
+    and proves Beilinson--Bernstein's theorem:
+
+    \begin{quote}
+        For every $\alpha\in\C$ there exists $k_0\in\Z_{>0}$ such that for all $k>k_0$ one has
+        \[
+            j!\bigl(M_U\cdot f^\alpha\bigr)\ \overset{q.i.}{\simeq}\
+            \mathcal D_X[s]_{\mathfrak m_\alpha}M_0\cdot f^{s+k}\ \otimes^L_{\C[s]}\ \C_\alpha
+        \]
+        (\cite[Theorem 2.10(3)]{Wu2001.06521}).
+    \end{quote}
+
+    With $M_U=\mathcal O_U$ and $M_0=\mathcal O_X$, this yields
+    \[
+        j!\bigl(\mathcal O_U\cdot f^\alpha\bigr)\ \overset{q.i.}{\simeq}\
+        \mathcal D_X[s]_{\mathfrak m_\alpha}\mathcal O_X\cdot f^{s+k}\ \otimes^L_{\C[s]}\ \C_\alpha,
+        \qquad(k\gg 0).
+    \]
+    By Lemma~\ref{lem:harmless-localization}, the localization at $\mathfrak m_\alpha$ may be omitted after specializing:
+    \[
+        \mathcal D_X[s]_{\mathfrak m_\alpha}\mathcal O_X\cdot f^{s+k}\otimes^L_{\C[s]}\C_\alpha
+        \ \simeq\
+        \mathcal D_X[s]\mathcal O_X\cdot f^{s+k}\otimes^L_{\C[s]}\C_\alpha.
+    \]
+    Hence, up to this canonical identification, Wu's theorem provides the concrete model
+    \[
+        j!\bigl(\mathcal O_U\cdot f^\alpha\bigr)\ \overset{q.i.}{\simeq}\
+        \mathcal D_X[s]f^{s+k}\otimes^L_{\C[s]}\C_\alpha,
+        \qquad(k\gg 0).
+    \]
+
+    \paragraph{Step 3.2: Applying $DR$ and identifying the result with $j_!(f^{-1}L_1^\lambda)$.}
+    On $U$, the integrable connection $\mathcal O_U\cdot f^\alpha$ corresponds to the rank-one local system
+    $f^{-1}L_1^\lambda$; this is the standard dictionary between local systems and flat connections
+    (Deligne, LNM~163, I.2).
+
+    Now apply the analytic de Rham functor $DR_X$ to the previous quasi-isomorphism.
+    Since the Riemann--Hilbert correspondence is compatible with the six operations, in particular with
+    exceptional direct image, we have
+    \[
+        DR_X\bigl(j!(\mathcal O_U\cdot f^\alpha)\bigr)\ \simeq\ j_!\,DR_U(\mathcal O_U\cdot f^\alpha).
+    \]
+    A convenient reference is Murayama's notes \cite[Theorem 11.5]{MurayamaMHM},
+    which explicitly states that $DR$ commutes with duals and exceptional direct images.
+    Finally, $DR_U(\mathcal O_U\cdot f^\alpha)\simeq f^{-1}L_1^\lambda$ by Deligne's dictionary, hence
+    \[
+        DR_X\Bigl(\bigl(\mathcal D_X[s]f^{s+k}\otimes^L_{\C[s]}\C_\alpha\bigr)^{an}\Bigr)
+        \ \simeq\
+        DR_X\bigl(j!(\mathcal O_U\cdot f^\alpha)\bigr)
+        \ \simeq\
+        j_!\bigl(f^{-1}L_1^\lambda\bigr),
+        \qquad(k\gg 0),
+    \]
+    which is exactly the desired sheaf-theoretic statement.
 \end{proof}
-\begin{lemma} \label{lemma 9.7}
-    $$(b_f(s-k-\alpha))^m \text{ kills } N_m^{\alpha,k}/N_m^{\alpha,k-1}$$
+
+\begin{lemma} \label{lemma 10.7}
+    $$
+        (b_f(s-k+\alpha))^m \,\mathrm{kills}\, \mathcal{N}_m^{\alpha,k}\big/\mathcal{N}_m^{\alpha,k-1}
+    $$
 \end{lemma}
 \begin{proof}
-    By construction, we have a SES: $$0\longrightarrow N_{m-1}^{\alpha,k} \longrightarrow N_m^{\alpha,k} \longrightarrow Q \longrightarrow 0$$with $Q=\mathcal{D}_{X}[s]f^{s-k}\bar{e}_{m-1}^{\alpha}$, with $s\cdot \bar{e}^\alpha_{m-1}=(s-\alpha)\overline{e}^\alpha_{m-1}$, we choose $s-\alpha$ to replace $s$, then  $Q\simeq \mathcal{D}_{X}[s]f^{s-k-\alpha}$.
+    By \hyperref[construction_of_direct_system_of_N_m_alpha_k]{construction}, $\mathcal{N}_m^{\alpha,k}$ is generated by $f^{s-k} \otimes e_0^\alpha, \dots, f^{s-k} \otimes e_{m-1}^\alpha$.
+    We can identify $\mathcal{N}_{m-1}^{\alpha,k}$ with the submodule generated by the first $m-1$ elements.
+    This yields a short exact sequence of $\mathcal{D}_X[s]$-modules:
+    $$
+        0\longrightarrow \mathcal{N}_{m-1}^{\alpha,k} \longrightarrow \mathcal{N}_m^{\alpha,k} \longrightarrow Q \longrightarrow 0
+    $$
+    where the quotient module $Q := \mathcal{N}_m^{\alpha,k} \big/ \mathcal{N}_{m-1}^{\alpha,k}$
+    is a cyclic $\mathcal{D}_X[s]$-module generated by the image of $f^{s-k} \otimes e_{m-1}^\alpha$,
+    which we denote by $f^{s-k} \otimes \overline{e}_{m-1}^{\alpha}$.
 
-    Since $b_{f}(s-k-\alpha)$ kills $\mathcal{D}_{X}[s]f^{s-k-\alpha}$, and by induction, we have $(b_f(s-k-\alpha))^{m -1}$ kill $N_{m-1}^{\alpha,k}$, done.
+    Recall the $s$-action on the basis elements gives:
+    $$
+        s \cdot (f^{s-k} \otimes e^{\alpha}_{m-1}) = (s-\alpha) (f^{s-k} \otimes e^{\alpha}_{m-1}) - f^{s-k} \otimes e^{\alpha}_{m-2}
+    $$
+    In the quotient $Q$, the term belonging to $\mathcal{N}_{m-1}^{\alpha,k}$ vanishes, yielding
+    $$
+        s \cdot (f^{s-k} \otimes \overline{e}^\alpha_{m-1})=(s-\alpha)(f^{s-k} \otimes \overline{e}^\alpha_{m-1})
+    $$
+    We want to show that $(b_f(s-k-\alpha))^m$ kills $\mathcal{N}_m^{\alpha,k} \big/ \mathcal{N}_m^{\alpha,k-1}$.
+    Taking the above exact sequence modulo the submodule $\mathcal{N}_{m}^{\alpha, k-1}$, we get the exact sequence:
+    $$
+        0\longrightarrow \frac{\mathcal{N}_{m-1}^{\alpha,k}}{\mathcal{N}_{m-1}^{\alpha,k} \cap \mathcal{N}_m^{\alpha,k-1}} \longrightarrow \frac{\mathcal{N}_m^{\alpha,k}}{\mathcal{N}_m^{\alpha,k-1}} \longrightarrow \overline{Q} \longrightarrow 0
+    $$
+    where $\overline{Q} = Q \big/ (Q \cap N_m^{\alpha,k-1})$ is a cyclic $\mathcal{D}_X[s]$-module generated by the image of $f^{s-k} \otimes \overline{e}_{m-1}^{\alpha}$.
+
+    Rather than identifying $\overline{Q}$ with a quotient of $\mathcal{D}_X[s]$, we can calculate the action of $b_f(s-k+\alpha)$ directly.
+    Recall we have:
+    $$
+        s \cdot (f^{s-k} \otimes \overline{e}^\alpha_{m-1}) = (s f^{s-k}) \otimes \overline{e}^\alpha_{m-1} - \alpha (f^{s-k} \otimes \overline{e}^\alpha_{m-1}) = ((s-\alpha) f^{s-k}) \otimes \overline{e}^\alpha_{m-1}
+    $$
+    But what about the action of $\mathcal{D}_X \subset \mathcal{D}_X[s]$?
+
+    Recall the Step 2 of Def.~\ref{def:N_m_alpha_k}, we have:
+    \[
+        \theta(\psi \otimes s) = \theta(\psi) \otimes s + \psi \cdot \theta(t) \otimes \partial_t s
+    \]
+    Where $\theta \in \mathcal{T}_Y\subset\D_Y$,
+    section $\psi \in \mathcal{O}_Y = R[t]$, and $s \in K_m^{-\alpha}$, using the fact that $t$ is the coordinate of $\mathbb{A}^1_\C$ and $p_2^*(t) = t$.
+
+    Given $D\in\D_X$, since any vector field $\theta \in \mathcal{T}_X\subseteq\mathcal{T}_Y$ have $\theta(t)=0$, so:
+    $$
+        D \cdot (\eta \otimes \overline{e}^\alpha_{m-1}) = (D \cdot \eta) \otimes \overline{e}^\alpha_{m-1}.
+    $$
+    So for any polynomial $P(s) \in \mathcal{D}_X[s]$ with coefficients in $\mathcal{D}_X$, we have:
+    $$
+        P(s) \cdot (f^{s-k} \otimes \overline{e}^\alpha_{m-1}) = (P(s-\alpha) f^{s-k}) \otimes \overline{e}^\alpha_{m-1}
+    $$
+    We want to calculate the action of $b_f(s-k+\alpha)$.
+    Since by Thm~.\ref{thm:existence_of_b_function}, we have $\widetilde{P}(s) \in \mathcal{D}_X[s]$ such that
+    $$
+        b_f(s) f^s = \widetilde{P}(s) f^{s+1} \in R_f[s]f^s
+    $$
+    Shifting the variable $s \mapsto s-k$, we get $b_f(s-k)f^{s-k} = \widetilde{P}(s-k)f^{s-k+1}$.
+    Using this relation, we calculate:
+    \begin{align*}
+        b_f(s-k+\alpha) \cdot (f^{s-k} \otimes \overline{e}^\alpha_{m-1})
+         & = (b_f((s-\alpha)-k+\alpha) f^{s-k}) \otimes \overline{e}^\alpha_{m-1}          \\
+         & = (b_f(s-k) f^{s-k}) \otimes \overline{e}^\alpha_{m-1}                          \\
+         & = (\widetilde{P}(s-k) f^{s-k+1}) \otimes \overline{e}^\alpha_{m-1}              \\
+         & = \widetilde{P}(s-k+\alpha) \cdot (f^{s-k+1} \otimes \overline{e}^\alpha_{m-1})
+    \end{align*}
+    Thus $b_f(s-k+\alpha)$ exactly kills $\overline{Q}$.
+
+    Now we proceed by induction on $m$.
+    For the base case $m=1$, the submodule $\mathcal{N}_0^{\alpha,k}$ is 0 by definition.
+    Therefore $Q \simeq \mathcal{N}_1^{\alpha,k}$, and the quotient $\overline{Q}$ is exactly $\mathcal{N}_1^{\alpha,k} \big/ \mathcal{N}_1^{\alpha,k-1}$.
+    Since we just showed $b_f(s-k+\alpha)$ kills $\overline{Q}$, the base case holds.
+
+    For the induction step, we assume $(b_f(s-k+\alpha))^{m-1}$ kills $\mathcal{N}_{m-1}^{\alpha,k} \big/ \mathcal{N}_{m-1}^{\alpha,k-1}$. Recall the exact sequence:
+    $$
+        0\longrightarrow \frac{\mathcal{N}_{m-1}^{\alpha,k}}{\mathcal{N}_{m-1}^{\alpha,k} \cap \mathcal{N}_m^{\alpha,k-1}} \longrightarrow \frac{\mathcal{N}_m^{\alpha,k}}{\mathcal{N}_m^{\alpha,k-1}} \longrightarrow \overline{Q} \longrightarrow 0
+    $$
+    Since the left term in the sequence is a quotient of $\mathcal{N}_{m-1}^{\alpha,k} \big/ \mathcal{N}_{m-1}^{\alpha,k-1}$ (as $\mathcal{N}_{m-1}^{\alpha,k-1} \subset \mathcal{N}_{m-1}^{\alpha,k} \cap \mathcal{N}_m^{\alpha,k-1}$), $(b_f(s-k+\alpha))^{m-1}$ kills the left term as well.
+    Since $b_{f}(s-k+\alpha)$ kills the right term $\overline{Q}$, their product $(b_f(s-k+\alpha))^{m}$ kills the middle term $\mathcal{N}_m^{\alpha,k} \big/ \mathcal{N}_m^{\alpha,k-1}$, completing the proof.
+
 \end{proof}
+
 \begin{proposition}
     There exists $k_0 > 0$ such that for all $k \geq k_0$, we obtain that:
     \begin{enumerate}

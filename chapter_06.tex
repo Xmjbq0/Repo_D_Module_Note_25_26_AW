@@ -240,8 +240,8 @@ $$
 
 On the other side, also by associativity of tensor product, which is a natural isomorphism, so also gives the definitions of arrows on the second row:
 \begin{align*}
-    \mathrm{DR}(M) & = [0 \to M^{\mathrm{an}} \to M^{\mathrm{an}} \otimes_S \Omega_Y^1 \to \cdots \to M^{\mathrm{an}} \otimes_S \Omega_Y^n \to 0]                                                                                              \\
-                   & = [0 \to M^{\mathrm{an}} \to M^{\mathrm{an}} \otimes_{\mathcal{O}_{Y^{\mathrm{an}}}} \Omega_{Y^{\mathrm{an}}}^1 \to \cdots \to M^{\mathrm{an}} \otimes_{\mathcal{O}_{Y^{\mathrm{an}}}} \Omega_{Y^{\mathrm{an}}}^n \to 0].
+    \mathrm{DR}(M) & = \left[0 \to M^{\mathrm{an}} \to M^{\mathrm{an}} \otimes_S \Omega_Y^1 \to \cdots \to M^{\mathrm{an}} \otimes_S \Omega_Y^n \to 0\right]                                                                                              \\
+                   & = \left[0 \to M^{\mathrm{an}} \to M^{\mathrm{an}} \otimes_{\mathcal{O}_{Y^{\mathrm{an}}}} \Omega_{Y^{\mathrm{an}}}^1 \to \cdots \to M^{\mathrm{an}} \otimes_{\mathcal{O}_{Y^{\mathrm{an}}}} \Omega_{Y^{\mathrm{an}}}^n \to 0\right].
 \end{align*}
 
 One should note that, no matter algebraic case or analytic case, the de Rham complex is always a complex of sheaves of $\mathbb{C}$-vector spaces.
@@ -743,7 +743,7 @@ We justify this definition below:
                       \begin{lemma}[Graph-closure resolution produces $Y\hookrightarrow\widetilde Y\to X$]
                           There exist a smooth $k$-variety $\widetilde Y$, an open immersion
                           \[
-                              \tilde j:Y\hookrightarrow \widetilde Y
+                              \widetilde j:Y\hookrightarrow \widetilde Y
                           \]
                           and morphisms
                           \[
@@ -752,7 +752,7 @@ We justify this definition below:
                           such that:
                           \begin{enumerate}
                               \item $\pi$ is proper;
-                              \item $f\circ \tilde j = j$ and $\pi\circ \tilde j = i$.
+                              \item $f\circ \widetilde j = j$ and $\pi\circ \widetilde j = i$.
                           \end{enumerate}
                       \end{lemma}
 
@@ -768,7 +768,7 @@ We justify this definition below:
 
                           Take a resolution of singularities ($\mathcal{BR}$ in \cite[Thm.~36]{kollar-seattle}) $\mu:\widetilde Y\to \overline{\Gamma}$ which is an isomorphism
                           over the smooth open subset $\Gamma_i(Y)\simeq Y$.
-                          Let $\tilde j:Y\hookrightarrow \widetilde Y$ be the (rational map) inverse of this isomorphism onto its image.
+                          Let $\widetilde j:Y\hookrightarrow \widetilde Y$ be the (rational map) inverse of this isomorphism onto its image.
                           Define
                           \[
                               \pi := p_2\circ \iota\circ \mu:\widetilde Y\to X,\qquad
@@ -776,7 +776,7 @@ We justify this definition below:
                           \]
                           where $\iota:\overline{\Gamma}\hookrightarrow \overline Y\times X$ is the closed immersion and
                           $p_1$ is the projection to $\overline Y$.
-                          Then $\pi$ is proper and $f\circ \tilde j = j$ and $\pi\circ \tilde j = i$ as required.
+                          Then $\pi$ is proper and $f\circ \widetilde j = j$ and $\pi\circ \widetilde j = i$ as required.
                       \end{proof}
 
                       \medskip
@@ -787,9 +787,9 @@ We justify this definition below:
                           M^\bullet_{\widetilde Y} := f^\dagger(M_{\overline Y}) \in D^b_{\mathrm{hol}}(\mathcal D_{\widetilde Y}).
                       \]
                       Derived inverse image preserves KK-regularity, by definition, each cohomology of the complex $M^\bullet_{\widetilde Y}$ is KK-regular.
-                      Moreover, since $f\circ \tilde j=j$, we have
+                      Moreover, since $f\circ \widetilde j=j$, we have
                       \[
-                          \tilde j^\dagger M^\bullet_{\widetilde Y} = \tilde j^\dagger f^\dagger M_{\overline Y} \simeq j^\dagger M_{\overline Y} \simeq N.
+                          \widetilde j^\dagger M^\bullet_{\widetilde Y} = \widetilde j^\dagger f^\dagger M_{\overline Y} \simeq j^\dagger M_{\overline Y} \simeq N.
                       \]
                       The last isomorphism holds because for an \textbf{open immersion} $j: Y \hookrightarrow \overline Y$,
                       the \textbf{shifted derived inverse image} $j^\dagger$ (which includes a shift by $\dim Y - \dim \overline Y = 0$)
@@ -1069,7 +1069,7 @@ We justify this definition below:
         \[
             T^*Y|_X:=X\times_Y T^*Y,
         \]
-        and denote by $\tilde i:T^*Y|_X\to T^*Y$ the second projection (the natural inclusion of the
+        and denote by $\widetilde i:T^*Y|_X\to T^*Y$ the second projection (the natural inclusion of the
         restriction, or \textbf{scheme-theoretic inverse image}
         \cite[\href{https://stacks.math.columbia.edu/tag/01JV}{Tag 01JV}, \href{https://stacks.math.columbia.edu/tag/01HO}{Tag 01HO}]{stacks-project}),
         and by $\rho_i:T^*Y|_X\to T^*X$ the map induced by $(\mathrm{d}i)^*:i^*\Omega_Y^1\to \Omega_X^1$
@@ -1077,7 +1077,7 @@ We justify this definition below:
         Let $M$ be a coherent left $\mathcal{D}_X$-module, and set $N:=i_+M$ (the direct image for a closed embedding).
         Then
         \[
-            \mathrm{Ch}(N)=\tilde i\bigl(\rho_i^{-1}(\mathrm{Ch}(M))\bigr)\subset T^*Y.
+            \mathrm{Ch}(N)=\widetilde i\bigl(\rho_i^{-1}(\mathrm{Ch}(M))\bigr)\subset T^*Y.
         \]
     \end{lemma}
 
@@ -1169,23 +1169,23 @@ We justify this definition below:
             T^*X=\mathrm{Spec}(R),\qquad T^*Y|_X=\mathrm{Spec}(S),
         \]
         and that the morphism $\rho_i:T^*Y|_X\to T^*X$ corresponds to the inclusion $R\hookrightarrow S$
-        (adjoining the $\xi_t$ variables), while $\tilde i:T^*Y|_X\hookrightarrow T^*Y$ corresponds to the quotient map
+        (adjoining the $\xi_t$ variables), while $\widetilde i:T^*Y|_X\hookrightarrow T^*Y$ corresponds to the quotient map
         $A[\xi_x,\xi_y]\twoheadrightarrow (A/I)[\xi_x,\xi_y]=S$.
 
         Since $I$ acts trivially on $\gr N$, $\Supp(\gr N)\subset T^*Y$ is contained in $T^*Y|_X$ (viewed as a closed subscheme of $T^*Y$ \cite[\href{https://stacks.math.columbia.edu/tag/02RA}{Tag 02RA}]{stacks-project}), so
         \[
             \mathrm{Ch}(N)
-            =\tilde i\bigl(\mathrm{Supp}(\mathrm{gr}\,N)\bigr)
-            \subset \tilde i(T^*Y|_X).
+            =\widetilde i\bigl(\mathrm{Supp}(\mathrm{gr}\,N)\bigr)
+            \subset \widetilde i(T^*Y|_X).
         \]
 
         For summary,
         \[
             \mathrm{Ch}(N)
-            =\tilde i\bigl(\mathrm{Supp}(\mathrm{gr}\,N)\bigr)
-            =\tilde i\bigl(V(JS)\bigr)
-            =\tilde i\bigl(\rho_i^{-1}(V(J))\bigr)
-            =\tilde i\bigl(\rho_i^{-1}(\mathrm{Ch}(M))\bigr).
+            =\widetilde i\bigl(\mathrm{Supp}(\mathrm{gr}\,N)\bigr)
+            =\widetilde i\bigl(V(JS)\bigr)
+            =\widetilde i\bigl(\rho_i^{-1}(V(J))\bigr)
+            =\widetilde i\bigl(\rho_i^{-1}(\mathrm{Ch}(M))\bigr).
         \]
 
         For one wondering why $V(JS) = \rho_i^{-1}(V(J))$, see \cite[\href{https://stacks.math.columbia.edu/tag/05CK}{Tag 05CK}]{stacks-project} and \cite[Example~1.13]{cring-ch15-flatness}.
@@ -1196,7 +1196,7 @@ We justify this definition below:
 
     If $\mathrm{Ch}(N)=T_X^*Y$, the closed subset determined by $(y_1=\dots=y_n=\xi_{x_1}=\dots=\xi_{x_m}=0)$.
 
-    Then we apply Proposition~\ref{prop:charvar-closed-emb} and keep notation in it. First we calculate $\tilde i^{-1}(\mathrm{Ch}(N))$,
+    Then we apply Proposition~\ref{prop:charvar-closed-emb} and keep notation in it. First we calculate $\widetilde i^{-1}(\mathrm{Ch}(N))$,
     which is in $T^*_X Y = (y_1=\dots=y_n=0)$,
     and $\Supp \gr N = (\xi_{x_1}=\dots=\xi_{x_d}=0)$.
 
