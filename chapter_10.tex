@@ -541,7 +541,7 @@ Our next goal is to prove the following theorem:
               \begin{align*}
                   \mathcal{N}_m^{\alpha,k} := \sum_{\ell=0}^{m-1} \D_X[s] (f^{s-k} \otimes e_\ell^{\alpha}) = \bigoplus_{\ell=0}^{m-1} \D_X[s] (f^{s-k} \otimes e_\ell^{\alpha})
               \end{align*}
-              The freeness is also been claimed in this article.
+              The last equality is also been claimed in this article.
     \end{enumerate}
 \end{definition}
 
@@ -596,10 +596,6 @@ called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
     Intuitively, however, addition in the exponent corresponds to the multiplication of formal powers,
     and this multiplication will be formalized via a tensor product construction.
 \end{remark}
-% \begin{remark}
-%     This proof needs resolution of singularities and duality functor \cite[Sect.~2.6]{hotta2008d}.
-%     One can see \cite[Theorem~1.2]{Wu2021CharacteristicCyclesHolonomicDmodules} and \cite[Theorem~2.10]{Wu2020ComparisonNearbyCyclesBfunctions} for more detail of the proof.
-% \end{remark}
 \begin{proof}[Sketch of Proof]
 
     Take a $\C[s]$-free resolution of $\C_\alpha$:
@@ -693,7 +689,7 @@ called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
     the De Rham functor $\mathrm{DR}^{\mathrm{Hotta}}_X(M) := \Omega_X \otimes_{\mathcal{D}_X}^L M$ is concentrated in degrees $[-d_X, 0]$
     (The dualizing sheaf $\Omega_X$ is already at the highest degree).
 
-    However, in our notes,
+    However, in our notes Note.~\ref{note 6.2},
     $\mathrm{DR}_{X^{\mathrm{an}}}(M^\mathrm{an})$ is defined as the standard De Rham complex $0 \to M \to M \otimes \Omega^1 \to \dots $ sitting in degrees $[0, d_X]$.
     Therefore,
     \[
@@ -749,7 +745,7 @@ called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
               For an effective Cartier divisor $D$, since it is a closed set, so we have its corresponding ideal sheaf $\mathcal I_D$
               \cite[\href{https://stacks.math.columbia.edu/tag/01WR}{Tag 01WR}]{stacks-project}.
               \begin{enumerate}
-                  \item This definition don't guarantees $\mathcal I_D$ is reduced.
+                  \item This definition don't guarantee $\mathcal I_D$ is reduced.
                         But (the editor thinks) if one suggests that his divisor is just a closed set, then we should assume $\mathcal I_D$ is reduced.
                   \item For ringed space $(X,\Ox)$, the stalk $\mathcal{O}_{X,x}$ should be a local ring
                         to guarantee that $\mathcal I_D$ is principal \cite[\href{https://stacks.math.columbia.edu/tag/0B8M}{Tag 0B8M}]{stacks-project}.
@@ -767,6 +763,10 @@ called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
 
               On $U$ the multi-valued function $f^\alpha$ defines a rank-one integrable connection
               $\mathcal O_U\cdot f^\alpha$ (recall we defined it in the proof of (4) in Prop.~\ref{prop:properties_of_alpha_nearby_cycles}) and hence a rank-one local system $f^{-1}L_1^\lambda$.
+
+              $\mathcal O_U\cdot f^\alpha := f^\ast \big(\C[t,t^{-1}]t^{\alpha}\big)$ is regular holonomic on $U$ \cite[Theorem~6.1.5]{hotta2008d},
+              provided we prove that $\C[t,t^{-1}]t^{\alpha}$ is regular holonomic on $\mathbb{A}^1_\C \setminus \{0\}$.
+              To prove this one should embed it into $\mathbb{P}^1_\C$.
 
               Define the meromorphic $\mathcal D_X$-module
               \[
@@ -815,7 +815,7 @@ called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
                    & \mathrm{DR}_{(X')^\mathrm{an},(D')^\mathrm{an}}((\overline M(-kD'))^\mathrm{an})  \simeq j'_!\mathrm{DR}(M^\mathrm{an}|_{(U')^\mathrm{an}}).
               \end{align*}
               \cite[Thm.~1.2]{Wu2021CharacteristicCyclesHolonomicDmodules}.
-              `'
+
               Moreover, for an analytic integrable logarithmic connection $\mathcal E$ on $((X')^\mathrm{an},(D')^\mathrm{an})$ with local system $L$,
               the following are equivalent:
               \begin{enumerate}
@@ -831,37 +831,37 @@ called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
                   On $U$ we have $\mathrm{DR}\big((\mathcal O_U\cdot f^\alpha)^\mathrm{an}\big)\simeq f^{-1}L_1^\lambda$, see the proof of \ref{lemma 10.6}.
 
                   On $X'$ consider the meromorphic connection
-              \[
-                  M'^\alpha := \mathcal O_{X'}(*D')\cdot (f')^\alpha .
-              \]
-              ($f'$ is a regular function on $X'$, by Prop.~\ref{prop:functor_of_points})
-              Choose a $\mathcal D_{X',D'}$-lattice $N \subset (M'^\alpha)^\mathrm{an}$;
-              (Note: $N$ may not be induced by analytification of some \textbf{algebraic} $\mathcal D_{X',D'}$-module)
-              The choice can be arbitrary, and the existence is mentioned in Step 2.
+                  \[
+                      M'^\alpha := \mathcal O_{X'}(*D')\cdot (f')^\alpha .
+                  \]
+                  ($f'$ is a regular function on $X'$, by Prop.~\ref{prop:functor_of_points})
+                  Choose a $\mathcal D_{X',D'}$-lattice $N \subset (M'^\alpha)^\mathrm{an}$;
+                  (Note: $N$ may not be induced by analytification of some \textbf{algebraic} $\mathcal D_{X',D'}$-module)
+                  The choice can be arbitrary, and the existence is mentioned in Step 2.
 
-              Apply \cite[Thm.~1.2]{Wu2021CharacteristicCyclesHolonomicDmodules} to $M=(M'^\alpha)^\mathrm{an}$ and $\overline M=N$:
-              for $k\gg 0$,
-              \[
-                  \mathrm{DR}_{(X')^\mathrm{an},(D')^\mathrm{an}}(N(k(D')^\mathrm{an})) \simeq Rj'_*\, f^{-1}L_1^\lambda .
-              \]
-              By \cite[Thm.~2.1.1]{CMNM06}, the inclusion
+                  Apply \cite[Thm.~1.2]{Wu2021CharacteristicCyclesHolonomicDmodules} to $M=(M'^\alpha)^\mathrm{an}$ and $\overline M=N$:
+                  for $k\gg 0$,
+                  \[
+                      \mathrm{DR}_{(X')^\mathrm{an},(D')^\mathrm{an}}(N(k(D')^\mathrm{an})) \simeq Rj'_*\, f^{-1}L_1^\lambda .
+                  \]
+                  By \cite[Thm.~2.1.1]{CMNM06}, the inclusion
               $\mathrm{DR}_{(X')^\mathrm{an},(D')^\mathrm{an}}(N(k(D')^\mathrm{an}))\hookrightarrow \mathrm{DR}_{(X')^\mathrm{an}}((M'^\alpha)^\mathrm{an})$
-              is a quasi-isomorphism, hence
-              \[
-                  \mathrm{DR}_{(X')^\mathrm{an}}((M'^\alpha)^\mathrm{an})\simeq Rj'_*(f^{-1}L_1^\lambda).
-              \]
+                  is a quasi-isomorphism, hence
+                  \[
+                      \mathrm{DR}_{(X')^\mathrm{an}}((M'^\alpha)^\mathrm{an})\simeq Rj'_*(f^{-1}L_1^\lambda).
+                  \]
 
-              Finally, since $\sigma$ is proper, de Rham commutes with proper pushforward
-              \cite[Proposition~4.7.5]{hotta2008d}:
-              \[
-                  \mathrm{DR}_{(X)^\mathrm{an}}((\sigma_+M'^\alpha)^\mathrm{an})\simeq R\sigma_*\,\mathrm{DR}_{(X')^\mathrm{an}}((M'^\alpha)^\mathrm{an}).
-              \]
-              Using $j=\sigma\circ j'$ and $Rj_*\simeq R\sigma_*Rj'_*$, we obtain
-              \[
-                  \mathrm{DR}_{(X)^\mathrm{an}}((\sigma_+M'^\alpha)^\mathrm{an})\simeq Rj_*(f^{-1}L_1^\lambda).
-              \]
-              Since we $\sigma$ is an isomorphism over $U$.
-              We have $M'^\alpha = \mathcal O_{X'}(*D')\cdot (f')^\alpha \cong j'_+(\mathcal O_{U}\cdot f^\alpha)$.
+                  Finally, since $\sigma$ is proper, de Rham commutes with proper pushforward
+                  \cite[Proposition~4.7.5]{hotta2008d}:
+                  \[
+                      \mathrm{DR}_{(X)^\mathrm{an}}((\sigma_+M'^\alpha)^\mathrm{an})\simeq R\sigma_*\,\mathrm{DR}_{(X')^\mathrm{an}}((M'^\alpha)^\mathrm{an}).
+                  \]
+                  Using $j=\sigma\circ j'$ and $Rj_*\simeq R\sigma_*Rj'_*$, we obtain
+                  \[
+                      \mathrm{DR}_{(X)^\mathrm{an}}((\sigma_+M'^\alpha)^\mathrm{an})\simeq Rj_*(f^{-1}L_1^\lambda).
+                  \]
+                  Since $\sigma$ is an isomorphism over $U$.
+                  We have $M'^\alpha = \mathcal O_{X'}(*D')\cdot (f')^\alpha \cong j'_+(\mathcal O_{U}\cdot f^\alpha)$.
 
               So we have
               \[
@@ -874,24 +874,87 @@ called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
 
         \item \textbf{Step 5: Proof of sentence (2): $\mathrm{DR}(\mathcal D_X[s]f^{s+k}\otimes \mathbb C_\alpha)\simeq j_!(f^{-1}L_1^\lambda)$}
 
-              Let $M=\mathcal O_X$ and $M_0=\mathcal O_X$.
-              Wu proves that for every $\alpha$ there exists $k_0$ such that for all integers $k>k_0$,
+              Recall we have proved in Lem.~\ref{lemma 10.6} that:
               \[
-                  j_!\big(\mathcal O_U\cdot f^\alpha\big)\ \simeq\
-                  \mathcal D_X[s]_{\mathfrak m_\alpha}\,\mathcal O_X\cdot f^{s+k}\ \otimes^{\mathbf L}_{\mathbb C[s]}\ \mathbb C_\alpha
-                  \qquad
-                  \text{\cite[Thm.~2.10(3)]{Wu2020ComparisonNearbyCyclesBfunctions}}.
+                  \DR_{U^\mathrm{an}}\bigl((\mathcal M_U^\alpha)^{\an}\bigr)\ \simeq\ f^{-1}L_1^\lambda.
               \]
-              Applying the analytic de Rham functor and using that $\mathrm{DR}$ commutes with $j_!$
-              under Riemann--Hilbert (six-functor compatibility) \cite[Thm.~11.5]{MurayamaMHM}, we get
+
+              The lecturer (of this course) gives his construction of localization \cite[Definition~2.4]{Wu2020ComparisonNearbyCyclesBfunctions},
+              which is same as what is in Rmk.~\ref{rmk:base_change_of_R_f[s]_f^s}, for details:
+              \begin{align*}
+                  \mathcal D_X[s]_{\mathfrak{m}_\alpha}\cdot \mathcal O_X\cdot f^{s+k} & := \mathcal D_X[s] \cdot \mathcal O_X\cdot f^{s+k} \otimes_{\C[s]} \C[s]_{\mathfrak{m}_\alpha}                                                                       \\
+                                                                                       & =\mathcal D_X[s] \cdot \mathcal O_X\cdot f^{s+k} \otimes_{\C[s]} \big(\C[s]_{\mathfrak{m}_\alpha} \otimes_{\C[s]_{\mathfrak{m}_\alpha}} \C[s]_{\mathfrak{m}_\alpha}) \\
+                                                                                       & = \big(\mathcal D_X[s] \otimes_{\C[s]} \C[s]_{\mathfrak{m}_\alpha}\big) \cdot \big(\mathcal O_X\cdot f^{s+k} \otimes_{\C[s]} \C[s]_{\mathfrak{m}_\alpha})            \\
+                                                                                       & = \mathcal D_X[s]_{\mathfrak{m}_\alpha}\cdot \mathcal{O}_{X,\mathfrak{m}_\alpha}\cdot f^{s+k}
+              \end{align*}
+
+              For the open immersion $j$, he defines the $\mathcal D$-module ``$j_!$-extension'' by
               \[
-                  \mathrm{DR}_X\!\left(\left(\mathcal D_X[s] f^{s+k}\otimes_{\mathbb C[s]}\mathbb C_\alpha\right)^\mathrm{an}\right)
-                  \simeq
-                  j_!\,\mathrm{DR}_U\big((\mathcal O_U\cdot f^\alpha)^\mathrm{an}\big)
-                  \simeq
-                  j_!(f^{-1}L_1^\lambda),
+                  j_!^{\mathcal D}(-)\ :=\ \mathbb D\circ j_*^{\mathcal D}\circ \mathbb D(-),
               \]
-              as desired.
+              which is just similar to what in \cite[Definition~3.2.13]{hotta2008d}.
+
+              Now apply \cite[Theorem~2.10(2) and (3)]{Wu2020ComparisonNearbyCyclesBfunctions}
+              to the case $M_U=\mathcal O_U$ and $M_0=\mathcal O_X$:
+              for every $\alpha\in\C$ there exists $k_0$ such that for all integers $k>k_0$ we have a
+              quasi-isomorphism of complexes of holonomic $\mathcal D_X$-modules
+              \begin{align*}
+                  j_!^{\mathcal D}(\mathcal O_U\cdot f^\alpha) & \stackrel{{\mathrm{q.i.}}}{\simeq} \bigl(\mathcal D_X[s]_{\mathfrak{m}_\alpha}\cdot \mathcal O_X\cdot f^{s+k}\bigr) \otimes^L_{\C[s]} \C_\alpha  \\
+                                                               & = \Bigl(\bigl(\mathcal D_X[s]\cdot \mathcal O_X\cdot f^{s+k}\bigr)\otimes_{\C[s]} \C[s]_{\mathfrak{m}_\alpha}\Bigr) \otimes^L_{\C[s]} \C_\alpha.
+              \end{align*}
+              Since $\C[s]_{\mathfrak{m}_\alpha}$ is a localization, it is a flat $\C[s]$-algebra. Thus, the ordinary tensor product is exact and coincides with the derived tensor product:
+              \[
+                  - \otimes_{\C[s]} \C[s]_{\mathfrak{m}_\alpha} \simeq - \otimes^L_{\C[s]} \C[s]_{\mathfrak{m}_\alpha}.
+              \]
+              By the associativity of the derived tensor product, we can regroup the terms as:
+              \[
+                  \Bigl( \bigl(\mathcal D_X[s]\cdot \mathcal O_X\cdot f^{s+k}\bigr)\otimes^L_{\C[s]} \C[s]_{\mathfrak{m}_\alpha} \Bigr) \otimes^L_{\C[s]} \C_\alpha
+                  \simeq \bigl(\mathcal D_X[s]\cdot \mathcal O_X\cdot f^{s+k}\bigr) \otimes^L_{\C[s]} \Bigl( \C[s]_{\mathfrak{m}_\alpha} \otimes^L_{\C[s]} \C_\alpha \Bigr).
+              \]
+              Because $\C[s]_{\mathfrak{m}_\alpha}$ is flat (over $\C[s]$), computing the derived tensor product $\C[s]_{\mathfrak{m}_\alpha} \otimes^L_{\C[s]} \C_\alpha$
+              reduces to the ordinary tensor product $\C[s]_{\mathfrak{m}_\alpha} \otimes_{\C[s]} (\C[s]/(s-\alpha))$, which is just $\C_\alpha$,
+              because in derived category of $\C[s]$-modules we have (quasi-)isomorphism:
+              \[
+                  \C[s]\big/(s-\alpha) \stackrel{\sim}{\to}\C[s]_{\mathfrak{m}_\alpha} \big/\mathfrak{m}_\alpha\C[s]_{\mathfrak{m}_\alpha}.
+              \]
+              Substituting this back, the complex simplifies cleanly to:
+              \begin{align*}
+                  j_!^{\mathcal D}(\mathcal O_U\cdot f^\alpha) & \stackrel{\mathrm{q.i.}}{\simeq} \bigl(\mathcal D_X[s]\cdot \mathcal O_X\cdot f^{s+k}\bigr)\otimes^L_{\C[s]} \C_\alpha.
+              \end{align*}
+
+              Apply the analytic de Rham functor $\DR_X$.
+              Because $\DR_X$ (algebraic, in sense of \cite[Sect.~4.7]{hotta2008d}) is functorial on the derived category \cite[Sect.~4.7]{hotta2008d}, it sends quasi-isomorphisms to
+              quasi-isomorphisms:
+              \[
+                  \DR_{X^\mathrm{an}}\Bigl(\bigl(\mathcal D_X[s]\cdot f^{s+k}\otimes^L_{\C[s]}\C_\alpha\bigr)^{\an}\Bigr)
+                  \simeq
+                  \DR_{X^\mathrm{an}}\Bigl(\bigl(j_!^{\mathcal D}(\mathcal O_U\cdot f^\alpha)\bigr)^{\an}\Bigr).
+              \]
+
+              By the Riemann--Hilbert correspondence and its six-functor compatibility \cite[Theorem 7.1.1]{hotta2008d},
+              $\DR$ commutes with the exceptional direct image for open immersions:
+              \[
+                  \DR_{X^\mathrm{an}}\Bigl(\bigl(j_!^{\mathcal D}(\mathcal N)\bigr)^{\an}\Bigr)
+                  \simeq
+                  j_!^{\mathrm{sh}}\Bigl(\DR_{U^\mathrm{an}}(\mathcal N^{\an})\Bigr)
+                  \qquad (\mathcal N\ \text{regular holonomic on }U).
+              \]
+              Apply this to $\mathcal N=\mathcal O_U\cdot f^\alpha$:
+              \[
+                  \DR_{X^\mathrm{an}}\Bigl(\bigl(j_!^{\mathcal D}(\mathcal O_U\cdot f^\alpha)\bigr)^{\an}\Bigr)
+                  \simeq
+                  j_!^{\mathrm{sh}}\Bigl(\DR_{U^\mathrm{an}}\bigl((\mathcal O_U\cdot f^\alpha)^{\an}\bigr)\Bigr)
+                  \simeq
+                  j_!^{\mathrm{sh}}(f^{-1}L_1^\lambda).
+              \]
+
+              Combining the last two displays yields the desired statement:
+              \[
+                  \DR_{X^\mathrm{an}}\Bigl(\bigl(\mathcal D_X[s]\cdot f^{s+k}\ \otimes^L_{\C[s]}\ \C_\alpha \bigr)^{\an}\Bigr)
+                  \simeq j_!(f^{-1}L_1^\lambda),
+                  \qquad k\gg 0.
+              \]
+              \qed
 
     \end{enumerate}
 
@@ -981,14 +1044,28 @@ called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
 \end{proof}
 
 \begin{proposition}
-    There exists $k_0 > 0$ such that for all $k \geq k_0$, we obtain that:
+    There exists $k_0 > 0$ such that for all $k \geq k_0$, we obtain that (in derived category):
     \begin{enumerate}
         \item $\mathrm{DR}(N_m^{-\alpha,k} \xrightarrow{s} N_{m}^{-\alpha,k}) \simeq R j_*\left(f^{-1} L_m^{\lambda}\right)$;
         \item $\mathrm{DR}(N_m^{-\alpha,-k} \xrightarrow{s} N_{m}^{-\alpha,-k})\simeq j_!\left(f^{-1} L_m^{\lambda}\right)$.
     \end{enumerate}
 \end{proposition}
 \begin{proof}
-    Let $\underline{\mathfrak{m}}_0$ be the maximal ideal of $0 \in \mathbb{A}_{\mathbb{C}}^1$, then $$[N_{m}^{-\alpha,k} \xrightarrow{s} N_{m}^{-\alpha,k}]\stackrel{\text{q.i}}{\simeq}N^{-\alpha,k} \otimes^{L}_{\mathbb{C}[s]} \mathbb{C}_{0} \stackrel{\text{q.i}}{\simeq} [N^{-\alpha,k}_{m,\underline{\mathfrak{m}}_{0}} \xrightarrow{s}N^{-\alpha,k}_{m,\underline{\mathfrak{m}}_{0}}]\text{ localization}\atop \stackrel{\text{q.i}}{\simeq}[\bigoplus \limits_{\ell=1}^{m-1} R_{f}[s]f^{s} \cdot e_{\ell}^{-\alpha} \xrightarrow{s} \bigoplus \limits_{\ell=1}^{m-1}R_{f}[s]f^{s} \cdot e_{\ell}^{-\alpha}]\text{ by Lemma \ref{lemma 9.7}}.$$Using Lemma \ref{lemma 9.6} (1) for $\mathrm{DR}(R_{f}[s]f^{s+\alpha}\otimes_{\mathbb{C}[s]}\mathbb{C}_{0})$, by induction, Part (1) is proved. And part (2) is similar.
+    First we explain the notation, how can we apply De Rham to a complex?
+    We should use the derived version defined in \cite[Sect.~4.7]{hotta2008d}:
+    \[
+        \mathrm{DR}_X(M^\bullet) := \mathrm{DR}_{X^\mathrm{an}}\big((M^\bullet)^\mathrm{an}\big) = \Omega_{X^\mathrm{an}} \otimes^L_{\mathcal{D}_{X^\mathrm{an}}} (M^\bullet)^\mathrm{an}.
+    \]
+    We use this \cite{hotta2008d}'s version here. Note that it is different from our naive one by a shift of degree, see proof of Lem.~\ref{lemma 10.6}.
+
+    Let $\underline{\mathfrak{m}}_0$ be the maximal ideal of $0 \in \mathbb{A}_{\mathbb{C}}^1$, then
+    \begin{align*}
+        \left[N_{m}^{-\alpha,k} \xrightarrow{s} N_{m}^{-\alpha,k}\right] & \stackrel{\text{q.i}}{\simeq} N^{-\alpha,k} \otimes^{L}_{\mathbb{C}[s]} \mathbb{C}_{0}                                                                                                                                                          \\
+                                                                         & \stackrel{\text{q.i}}{\simeq} \left[N^{-\alpha,k}_{m,\underline{\mathfrak{m}}_{0}} \xrightarrow{s}N^{-\alpha,k}_{m,\underline{\mathfrak{m}}_{0}}\right]                                                   &  & \text{ localization}             \\
+                                                                         & \stackrel{\text{q.i}}{\simeq} \left[\bigoplus \limits_{\ell=1}^{m-1} R_{f}[s]f^{s} \cdot e_{\ell}^{-\alpha} \xrightarrow{s} \bigoplus \limits_{\ell=1}^{m-1}R_{f}[s]f^{s} \cdot e_{\ell}^{-\alpha}\right] &  & \text{ by Lemma \ref{lemma 9.7}}
+    \end{align*}
+
+    Using Lemma \ref{lemma 9.6} (1) for $\mathrm{DR}(R_{f}[s]f^{s+\alpha}\otimes_{\mathbb{C}[s]}\mathbb{C}_{0})$, by induction, Part (1) is proved. And part (2) is similar.
 \end{proof}
 
 \begin{lemma}
