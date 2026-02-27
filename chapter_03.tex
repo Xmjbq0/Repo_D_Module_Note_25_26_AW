@@ -156,8 +156,8 @@ basic properties. Throughout this section:
 Before moving on we recall some terminology. Let $N$ be a finitely generated $R$-module. We say that
 $N$ is \textbf{locally free} if $N_{\mathfrak p}$ is free over $R_{\mathfrak p}$ for every
 $\mathfrak p\in\Spec R$ (equivalently $N_{\mathfrak m}$ is free over $R_{\mathfrak m}$ for every
-maximal $\mathfrak m$). Given a $\D_X$-module $\mathcal M$, we call it an \textbf{integrable
-    connection} \phantomsection\label{def:integrable-connection} if $\mathcal M$ is locally free as an $R$-module.
+maximal $\mathfrak m$). Given a $\D_X$-module $\mathcal M$, we call it an \textbf{integrable connection} \phantomsection\label{def:integrable-connection}
+if $\mathcal M$ is locally free as an $R$-module, the $R$ action is given by inclusion $R\subseteq \D_X$.
 
 \begin{remark}
     One should note that $R_{\mathfrak{p}}$ is a further localization of $R_{\mathfrak{m}}$ for some maximal ideal $\mathfrak{m}$ containing $\mathfrak{p}$, i.e.
@@ -199,16 +199,20 @@ maximal $\mathfrak m$). Given a $\D_X$-module $\mathcal M$, we call it an \textb
 
     Define the order of vanishing:
     \[
-        d(f_i) = \max \{ k \mid f_i \in \mathfrak{m}^k \}
+        d(f_i) := \max \{ k \mid f_i \in \mathfrak{m}^k \}
     \]
     \[
-        d(f_1, \dots, f_{\ell}) = \min_{i} \{ d(f_i) \} \ge 1.
+        d(f_1, \dots, f_{\ell}) := \min_{i} \{ d(f_i) \} \ge 1.
     \]
 
     For some $j$, apply the derivation $\partial_{x_j}$:
-    \[
-        \partial_{x_j} \left( \sum f_i s_i \right) = \sum \partial_{x_j}(f_i) s_i + \sum f_i \partial_{x_j}(s_i) = \sum g_i s_i = 0.
-    \]
+    \begin{align*}
+        \partial_{x_j} \cdot \left( \sum f_i \cdot s_i \right) & = \sum [\partial_{x_j}, f_i] \cdot s_i + \sum f_i \cdot \partial_{x_j}(s_i)                                                              \\
+                                                               & = \sum \partial_{x_j}(f_i) \cdot s_i + \sum f_i \cdot \partial_{x_j}(s_i)   &  & \text{(see \cite[Prop~2.25(iii)]{mustata2023dmodules})} \\
+                                                               & = \sum g_i s_i = 0.
+    \end{align*}
+
+
     One can see that $d(g_1, \dots, g_{\ell}) < d(f_1, \dots, f_{\ell})$.
 
     If $d(g_1, \dots, g_{\ell}) \ge 1$, we take $\partial_{x_j}(\sum g_i s_i)$ again.
