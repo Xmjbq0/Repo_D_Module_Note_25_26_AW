@@ -550,8 +550,8 @@ Our next goal is to prove the following theorem:
 \end{definition}
 
 Now we can identify $s$-action on $\mathcal{N}_m^{\alpha,k}$ now, note $s = -t\partial_t \in \D_Y$, and $\partial_t\in\mathcal{T}_Y$ is a derivation:
-\begin{align*}
-    s \cdot (\eta \otimes e_\ell^{\alpha}) & = (s \cdot \eta) \otimes e_\ell^{\alpha} + \eta \cdot (s \cdot e_\ell^{\alpha})       &  & \text{(\cite[Proposition~1.2.9.(i)]{hotta2008d})}  \\
+\begin{align*}\phantomsection\label{eq:s_action_on_N_m_alpha_k}
+    s \cdot (\eta \otimes e_\ell^{\alpha}) & = (s \cdot \eta) \otimes e_\ell^{\alpha} + \eta \otimes (s \cdot e_\ell^{\alpha})     &  & \text{(\cite[Proposition~1.2.9.(i)]{hotta2008d})}  \\
                                            & = (s\eta) \otimes e_\ell^{\alpha}+\eta(-\alpha e^{\alpha}_{\ell}-e^{\alpha}_{\ell-1}) &  & \text{(There is a minus sign in $s=-t\partial_t$)} \\
                                            & =(s-\alpha)\eta \otimes e^{\alpha}_{\ell}-\eta \otimes e^{\alpha}_{\ell-1}
 \end{align*}
@@ -798,7 +798,7 @@ called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
               differential operators preserving the ideal of $D'$ (see Def.~\ref{def:definition_of_V_filtration}).
 
               A $\mathcal D_{(X')^\mathrm{an},(D')^\mathrm{an}}$-\textbf{lattice} $N \subset (M^\alpha(*D'))^\mathrm{an}$ is a coherent
-              $\mathcal D_{(X')^\mathrm{an},(D')^\mathrm{an}}$-submodule restricting to $(M^\alpha)^\mathrm{an}|_{(U')^\mathrm{an}}$ \cite[\S3.3]{Wu2021CharacteristicCyclesHolonomicDmodules},
+              $\mathcal D_{(X')^\mathrm{an},(D')^\mathrm{an}}$-submodule restricting to $(M^\alpha)^\mathrm{an}|_{(U')^\mathrm{an}}$ \cite[\S3.3]{Wu2021CharacteristicCyclesHolonomicDmodules}\cite[Def.~2.4]{WuZhou2019LogDmodules},
               existence in analytic case is guaranteed by \cite[Theorem~5.2.17]{hotta2008d}.
 
               Given any $\mathcal O_{X'}$-module $\mathcal F$, define the twist
@@ -816,23 +816,27 @@ called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
 
         \item \textbf{Step 3: [Black box] stabilization of log de Rham for lattices}
 
-              Let $M$ be a regular holonomic $\mathcal D_{X'}$-module and $\overline M$ a $\mathcal D_{X',D'}$-lattice.
-              Then for all integers $k\gg 0$ there are canonical quasi-isomorphisms
-              \begin{align*}
-                   & \mathrm{DR}_{(X')^\mathrm{an},(D')^\mathrm{an}}((\overline M(kD'))^\mathrm{an})   \simeq Rj'_*\mathrm{DR}(M^\mathrm{an}|_{(U')^\mathrm{an}}), \\
-                   & \mathrm{DR}_{(X')^\mathrm{an},(D')^\mathrm{an}}((\overline M(-kD'))^\mathrm{an})  \simeq j'_!\mathrm{DR}(M^\mathrm{an}|_{(U')^\mathrm{an}}).
-              \end{align*}
-              \cite[Thm.~1.2]{Wu2021CharacteristicCyclesHolonomicDmodules}.
+              \begin{theorem}[{\cite[Thm.~1.2]{Wu2021CharacteristicCyclesHolonomicDmodules}}]
+                  Let $M$ be a regular holonomic $\mathcal D_{X'}$-module and $\overline M$ a $\mathcal D_{X',D'}$-lattice.
+                  Then for all integers $k\gg 0$ there are canonical quasi-isomorphisms
+                  \begin{align*}
+                       & \mathrm{DR}_{(X')^\mathrm{an},(D')^\mathrm{an}}((\overline M(kD'))^\mathrm{an})   \simeq Rj'_*\mathrm{DR}(M^\mathrm{an}|_{(U')^\mathrm{an}}), \\
+                       & \mathrm{DR}_{(X')^\mathrm{an},(D')^\mathrm{an}}((\overline M(-kD'))^\mathrm{an})  \simeq j'_!\mathrm{DR}(M^\mathrm{an}|_{(U')^\mathrm{an}}).
+                  \end{align*}
+              \end{theorem}
 
-              Moreover, for an analytic integrable logarithmic connection $\mathcal E$ on $((X')^\mathrm{an},(D')^\mathrm{an})$ with local system $L$,
-              the following are equivalent:
-              \begin{enumerate}
-                  \item $\Omega^\bullet_{(X')^\mathrm{an}}(\log (D')^\mathrm{an})(\mathcal E)\to Rj'_*L$
-                  \item the inclusion
-                        $\Omega^\bullet_{(X')^\mathrm{an}}(\log (D')^\mathrm{an})(\mathcal E)\hookrightarrow \Omega^\bullet_{(X')^\mathrm{an}}(\mathcal E(*(D')^\mathrm{an}))$
-                        is a quasi-isomorphism
-              \end{enumerate}
-              \cite[Thm.~2.1.1]{CMNM06}.
+              \begin{theorem}[{\cite[Thm.~4.1]{CalderonMorenoNarvaezMacarro2005Dualite}}]
+                  Let $X$ be a smooth complex analytic variety of dimension $n$ and $D \subset X$ a free divisor ($=$ hypersurface),
+                  i.e., a divisor such that the sheaf $\mathrm{Der}(\log D)$ of logarithmic vector fields with respect to $D$ is a locally free $\mathcal{O}_X$-module (of rank $n$).
+
+                  Normal crossing divisors is an example of free divisors.
+
+                  Under the preceding hypotheses, for an analytic integrable logarithmic connection $\mathcal{E}$ with local system $L$, the following properties are equivalent:
+                  \begin{enumerate}
+                      \item The canonical morphism $\Omega_X^\bullet(\log D)(\mathcal{E}) \to Rj_*L$ is an isomorphism in the derived category.
+                      \item The inclusion $\Omega_X^\bullet(\log D)(\mathcal{E}) \hookrightarrow \Omega_X^\bullet(\mathcal{E}(\star D))$ is a quasi-isomorphism.
+                  \end{enumerate}
+              \end{theorem}
 
         \item \textbf{Step 4: Proof of sentence (1): $\mathrm{DR}((M^\alpha)^\mathrm{an})\simeq Rj_*(f^{-1}L_1^{\lambda^{-1}})$}
 
@@ -852,8 +856,10 @@ called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
               \[
                   \mathrm{DR}_{(X')^\mathrm{an},(D')^\mathrm{an}}(N(k(D')^\mathrm{an})) \simeq Rj'_*\, f^{-1}L_1^{\lambda^{-1}} .
               \]
-              By \cite[Thm.~2.1.1]{CMNM06}, the inclusion
-              $\mathrm{DR}_{(X')^\mathrm{an},(D')^\mathrm{an}}(N(k(D')^\mathrm{an}))\hookrightarrow \mathrm{DR}_{(X')^\mathrm{an}}((M'^\alpha)^\mathrm{an})$
+              Then by \cite[Thm.~4.1]{CalderonMorenoNarvaezMacarro2005Dualite} and \cite[Thm~4.2.4]{hotta2008d}, the inclusion
+              \[
+                  \mathrm{DR}_{(X')^\mathrm{an},(D')^\mathrm{an}}(N(k(D')^\mathrm{an}))\hookrightarrow \mathrm{DR}_{(X')^\mathrm{an}}((M'^\alpha)^\mathrm{an})
+              \]
               is a quasi-isomorphism, hence
               \[
                   \mathrm{DR}_{(X')^\mathrm{an}}((M'^\alpha)^\mathrm{an})\simeq Rj'_*(f^{-1}L_1^{\lambda^{-1}}).
@@ -1059,13 +1065,22 @@ called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
 \begin{proposition}\label{prop:20.8}
     There exists $k_0 > 0$ such that for all $k \geq k_0$, we obtain that (in derived category):
     \begin{enumerate}
-        \item $\mathrm{DR}(N_m^{-\alpha,k} \xrightarrow{s} N_{m}^{-\alpha,k}) \simeq R j_*\left(f^{-1} L_m^{\lambda}\right)$;
-        \item $\mathrm{DR}(N_m^{-\alpha,-k} \xrightarrow{s} N_{m}^{-\alpha,-k})\simeq j_!\left(f^{-1} L_m^{\lambda}\right)$.
+        \item $\mathrm{DR}(\mathcal{N}_m^{-\alpha,k} \xrightarrow{s} \mathcal{N}_{m}^{-\alpha,k}) \simeq R j_*\left(f^{-1} L_m^{\lambda}\right)$;
+        \item $\mathrm{DR}(\mathcal{N}_m^{-\alpha,-k} \xrightarrow{s} \mathcal{N}_{m}^{-\alpha,-k})\simeq j_!\left(f^{-1} L_m^{\lambda}\right)$.
     \end{enumerate}
 \end{proposition}
 \begin{remark}
     Here is where $\lambda\to {\lambda^{-1}}$ cancels out itself.
+    The De Rham functors are taken over $X$.
 \end{remark}
+% \begin{remark}
+%     At this point we have to explain the correct category that $\mathcal{N}_m^{-\alpha,k}$ lives in, in order to rigorously apply the De Rham functor.
+
+%     Strictly speaking, $\mathcal{N}_m^{-\alpha,k}$ is a coherent $\mathcal{D}_X[s]$-module. To geometrically evaluate its De Rham complex without passing through Hironaka's resolution of singularities, we utilize Kashiwara's graph embedding $\Gamma_f: X \to Y = X \times \mathbb{A}^1_\C$.
+%     By setting $s = -\partial_t t$, the category of $\mathcal{D}_X[s]$-modules can be faithfully identified with the category of $\mathcal{D}_Y$-modules equipped with a $V$-filtration along the smooth divisor $\widetilde{D} = X \times \{0\}$ defined by $t=0$.
+%     Under this geometric lens, $\mathcal{N}_m^{-\alpha,k}$ precisely matches the Kashiwara-Malgrange $V$-filtration of the regular holonomic $\mathcal{D}_Y$-module $\Gamma_{f,+}(j_*\mathcal{O}_U \cdot f^{-\alpha})$. Since $\widetilde{D}$ is a smooth divisor on $Y$, the $V$-filtration components are exactly the coherent logarithmic $\mathcal{D}_Y(\log \widetilde{D})$-lattices extending the connection across the boundary!
+%     Thus, by "logarithmic lattice", we rigorously mean a $\mathcal{D}_Y(\log \widetilde{D})$-lattice on the graph $Y$, which allows us to stably apply theorems designed for smooth log pairs.
+% \end{remark}
 \begin{proof}
     First we explain the notation, how can we apply De Rham to a complex?
     We should use the derived version defined in \cite[Sect.~4.7]{hotta2008d}:
@@ -1082,9 +1097,9 @@ called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
 
     Let $\underline{\mathfrak{m}}_0$ be the maximal ideal of $0 \in \mathbb{A}_{\mathbb{C}}^1$. We first consider the base change property:
     \begin{align*}
-        \left[N_{m}^{-\alpha,k} \xrightarrow{s} N_{m}^{-\alpha,k}\right] & \stackrel{\text{q.i}}{\simeq} N^{-\alpha,k} \otimes^{L}_{\mathbb{C}[s]} \mathbb{C}_{0}                                                                  \\
-                                                                         & \stackrel{\text{q.i}}{\simeq} \left[N^{-\alpha,k}_{m,\underline{\mathfrak{m}}_{0}} \xrightarrow{s}N^{-\alpha,k}_{m,\underline{\mathfrak{m}}_{0}}\right] \\
-                                                                         & \text{(See Step 5 of Rmk.~\ref{rmk:continue_prove_lemma_10.6}, taking localization has no effect on (derived) tensor with $\C_\alpha$)}
+        \left[\mathcal{N}_{m}^{-\alpha,k} \xrightarrow{s} \mathcal{N}_{m}^{-\alpha,k}\right] & \stackrel{\text{q.i}}{\simeq} \mathcal{N}^{-\alpha,k} \otimes^{L}_{\mathbb{C}[s]} \mathbb{C}_{0}                                                                            \\
+                                                                                             & \stackrel{\text{q.i}}{\simeq} \left[\mathcal{N}^{-\alpha,k}_{m,\underline{\mathfrak{m}}_{0}} \xrightarrow{s}\mathcal{N}^{-\alpha,k}_{m,\underline{\mathfrak{m}}_{0}}\right] \\
+                                                                                             & \text{(See Step 5 of Rmk.~\ref{rmk:continue_prove_lemma_10.6}, taking localization has no effect on (derived) tensor with $\C_\alpha$)}
     \end{align*}
 
     Next, we analyze the localization of $\mathcal{N}_m^{-\alpha,k}$ at $\underline{\mathfrak{m}}_0=(s)$.
@@ -1117,127 +1132,413 @@ called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
     Then do the reverse arguments at the begging of proof, which claims that adding localization doesn't change quasi-isomorphism.
     We can drop the localization here.
     \begin{align*}
-        \left[N^{-\alpha,k}_{m,\underline{\mathfrak{m}}_{0}} \xrightarrow{s}N^{-\alpha,k}_{m,\underline{\mathfrak{m}}_{0}}\right] & \cong \left[\left(\bigoplus \limits_{\ell=0}^{m-1} \left(R_{f}[s]f^{s}\right) \otimes e_{\ell}^{-\alpha}\right)_{\underline{\mathfrak{m}}_0} \xrightarrow{s} \left(\bigoplus \limits_{\ell=0}^{m-1}\left(R_{f}[s]f^{s}\right) \otimes e_{\ell}^{-\alpha}\right)_{\underline{\mathfrak{m}}_0}\right] \\
-                                                                                                                                  & \stackrel{\text{q.i}}{\simeq} \left[\bigoplus \limits_{\ell=0}^{m-1} \left(R_{f}[s]f^{s}\right) \otimes e_{\ell}^{-\alpha} \xrightarrow{s} \bigoplus \limits_{\ell=0}^{m-1}\left(R_{f}[s]f^{s}\right) \otimes e_{\ell}^{-\alpha}\right]
+        \left[\mathcal{N}^{-\alpha,k}_{m,\underline{\mathfrak{m}}_{0}} \xrightarrow{s}\mathcal{N}^{-\alpha,k}_{m,\underline{\mathfrak{m}}_{0}}\right] & \cong \left[\left(\bigoplus \limits_{\ell=0}^{m-1} \left(R_{f}[s]f^{s}\right) \otimes e_{\ell}^{-\alpha}\right)_{\underline{\mathfrak{m}}_0} \xrightarrow{s} \left(\bigoplus \limits_{\ell=0}^{m-1}\left(R_{f}[s]f^{s}\right) \otimes e_{\ell}^{-\alpha}\right)_{\underline{\mathfrak{m}}_0}\right] \\
+                                                                                                                                                      & \stackrel{\text{q.i}}{\simeq} \left[\bigoplus \limits_{\ell=0}^{m-1} \left(R_{f}[s]f^{s}\right) \otimes e_{\ell}^{-\alpha} \xrightarrow{s} \bigoplus \limits_{\ell=0}^{m-1}\left(R_{f}[s]f^{s}\right) \otimes e_{\ell}^{-\alpha}\right]
     \end{align*}
 
-    Now we prove Part (1) by induction on $m$.
+    The original lecture note says, one can prove (1) by induction on $m$.
+    But instead of doing that, we will prove it directly,
+    using the black box introduced in Step 3 of Rmk.~\ref{rmk:continue_prove_lemma_10.6}.
+
+    At this point we think
+    \[
+        C_m^\bullet := \left[\mathcal{N}_m^{-\alpha, k} \xrightarrow{s} \mathcal{N}_m^{-\alpha, k}\right] \stackrel{\mathrm{q.i.}}{\simeq} \left[\bigoplus_{\ell=0}^{m-1} \left(R_{f}[s]f^{s}\right) \otimes e_{\ell}^{-\alpha} \xrightarrow{s} \bigoplus_{\ell=0}^{m-1} \left(R_{f}[s]f^{s}\right) \otimes e_{\ell}^{-\alpha}\right]
+    \]
+    is a complex of $\D_X$(without $s$)-modules, and $\DR$ should be taken over $X$.
+
+    We localize at $U\subseteq X$, we discover there is no change in representation:
+    \[
+        C_m^\bullet|_{U} \stackrel{\mathrm{q.i.}}{\simeq} \left[\bigoplus_{\ell=0}^{m-1} \left(R_{f}[s]f^{s}\right) \otimes e_{\ell}^{-\alpha} \xrightarrow{s} \bigoplus_{\ell=0}^{m-1} \left(R_{f}[s]f^{s}\right) \otimes e_{\ell}^{-\alpha}\right]
+    \]
+    Multiplication by $s$ induce an injection, so we only need to compute the cokernel.
+
+    We claim that
+    \[
+        \mathrm{Coker}(s) \cong \bigoplus_{\ell=0}^{m-1} \left(R_{f} \cdot f^{0}\right) \otimes e_{\ell}^{-\alpha}
+    \]
+    Which is a \textbf{free} $R_f$-module of rank $m$.
+
+    We equip \textbf{two} (left) $R_f[s]$-modules structures on $\bigoplus_{\ell=0}^{m-1} \left(R_{f}[s]f^{s}\right) \otimes e_{\ell}^{-\alpha}$.
+    \begin{enumerate}
+        \item The \textbf{first} one induced by identification $s\mapsto -t\partial_t$ (still different with the previous section Sect.~\ref{sect:Bjork_s_approach_to_existence_of_b-functions}'s $-\partial_t {t}$).
+
+              This structure is used to define the differential $s_M := s$ in $C_m^\bullet$.
+
+        \item The \textbf{second} one is just to multiply on the first factor of $\left(R_{f}[s]f^{s}\right) \otimes e_{\ell}^{-\alpha}$.
+
+              This structure is used to calculate the cokernel of $s_M$.
+
+              And under the second structure, $s_M$ is $R_f[s]$-linear, recall the \hyperref[eq:s_action_on_N_m_alpha_k]{$s$-action formula}:
+              \begin{align*}
+                  s_M(a s^k \cdot u_\ell) & = s_M\big(as^k f^s \otimes e_\ell^{-\alpha}\big)                                                  \\
+                                          & = s_M\big(as^k f^s\big) \otimes e_\ell^{-\alpha} + as^k f^s \otimes s_M\big(e_\ell^{-\alpha}\big) \\
+                                          & =(s - \alpha)as^k f^s \otimes e_\ell^{-\alpha} - as^k f^s \otimes e_{\ell-1}^{-\alpha}            \\
+                                          & = as^k\big((s - \alpha)f^s \otimes e_\ell^{-\alpha} - f^s \otimes e_{\ell-1}^{-\alpha}\big)       \\
+                                          & = as^k \cdot s_M(u_\ell).
+              \end{align*}
+    \end{enumerate}
+    Using the second structure, we identify
+    \[
+        \bigoplus_{\ell=0}^{m-1} \left(R_{f}[s]f^{s}\right) \otimes e_{\ell}^{-\alpha} \cong \bigoplus_{\ell=0}^{m-1} R_{f}[s]
+    \]
+    We denote the standard basis (the second $s$ structure) of RHS as $u_\ell := f^s \otimes e^{-\alpha}_\ell$ for $\ell = 0, 1, \dots, m-1$.
+
+    Then $s_M$ corresponds to the following map:
+    \[
+        s_M(u_\ell) = (s+\alpha)u_\ell - u_{\ell-1}
+    \]
+    for $\ell = 0, 1, \dots, m-1$, where $u_{-1} := 0$.
+
+    Taking quotient to $M:=\bigoplus_{\ell=0}^{m-1} \left(R_{f}[s]f^{s}\right) \to \mathrm{Coker}(sR_f[s]\big/(s+\alpha)_M)$, we have $(s+\alpha)\overline u_0=0$ and recursively
+    \[
+        \overline u_{\ell-1}=(s+\alpha)\overline u_\ell\quad\Rightarrow\quad
+        \overline u_{m-1-k}=(s+\alpha)^k\overline u_{m-1}\qquad (k=0,\dots,m-1).
+    \]
+    Therefore $\mathrm{Coker}(s_M)$ is generated by $\overline u_{m-1}$ as an $R_f[s]$-module, and
+    \[
+        (s+\alpha)^m\overline u_{m-1}=\overline u_{-1}=0.
+    \]
+    Thus the $R_f[s]$-linear (we use the second $R_f[s]$ structure on) map
+    \[
+        \Phi:R_f[s]\longrightarrow \mathrm{Coker}(s_M),\qquad a\longmapsto a\overline u_{m-1}
+    \]
+    factors through a surjection
+    \[
+        \widetilde\Phi:R_f[s]\big/(s+\alpha)^m \twoheadrightarrow \mathrm{Coker}(s_M).
+    \]
+    Conversely, define an $R_f[s]$-linear map
+    \[
+        \Psi:M\longrightarrow R_f[s]\big/(s+\alpha)^m,\qquad
+        \Psi(u_\ell)=(s+\alpha)^{m-1-\ell}\bmod (s+\alpha)^m.
+    \]
+    Then:
+    \[
+        \Psi\bigl(s_M(u_\ell)\bigr)
+        =\Psi\bigl((s+\alpha)u_\ell-u_{\ell-1}\bigr)
+        =(s+\alpha)^{m-\ell}-(s+\alpha)^{m-\ell}=0,
+    \]
+    Hence $\Psi$ vanishes on $s_M(M)$ and factors through
+    \[
+        \widetilde\Psi:\mathrm{Coker}(s_M)\longrightarrow R_f[s]\big/(s+\alpha)^m.
+    \]
+    One can check $\widetilde\Phi$ and $\widetilde\Psi$ are inverse to each other. That is
+    \[
+        \widetilde\Psi\circ \widetilde\Phi=\mathrm{id}_{R_f[s]\big/(s+\alpha)^m} \quad \mathrm{\textbf{and}} \quad \widetilde\Phi\circ \widetilde\Psi=\mathrm{id}_{\mathrm{Coker}(s_M)}.
+    \]
+    Finally, since $(s+\alpha)^m$ is a monic polynomial of degree $m$ in the variable $s$,
+    every class in $R_f[s]\big/(s+\alpha)^m = R_f[s+\alpha]\big/(s+\alpha)^m$ has a unique representative of the form
+    $\sum_{k=0}^{m-1} a_k (s+\alpha)^k$ with $a_k\in R_f$.
+    Thus
+    \[
+        1,\, (s+\alpha),\, \dots,\, (s+\alpha)^{m-1}
+    \]
+    is an $R_f$-basis,
+    and transporting it via $\widetilde\Phi$ gives the claimed $R_f$-basis
+    \[
+        \overline u_{m-1},\, (s+\alpha)\overline u_{m-1},\, \dots,\, (s+\alpha)^{m-1}\overline u_{m-1}.
+    \]
+    And we note again, multiplying by $s$ here is of \textbf{the second} $R_f[s]$-module structure.
+
+    For any vector field $\theta \in \mathcal{T}_X \subset \mathcal{T}_Y$, since $\theta(t) = 0$,
+    recall Step 6 of Ex.~\ref{example:direct_image_of_graph_embedding} and proof in Lem.~\ref{lemma 10.7},
+    its action on $u_\ell = f^s \otimes e^{-\alpha}_\ell \in M$ under the first module structure is:
+    \begin{align*}
+         & \theta(\psi \otimes \eta) = \theta(\psi) \otimes \eta + \psi \cdot \theta(t) \otimes \partial_t \eta                                              \\
+         & \implies \theta \cdot u_\ell = \theta(f^s) \otimes e^{-\alpha}_\ell = s f^{s-1} \theta(f) \otimes e^{-\alpha}_\ell = \frac{\theta(f)}{f} s u_\ell
+    \end{align*}
+    where the $s$ multiplication on the right is exactly the $s$ acting through \textbf{the second} $R_f[s]$-module structure.
+
+    Thus, on the quotient $\mathrm{Coker}(s_M)$, the vector field $\theta$ acts on the basis elements $v_k := (s+\alpha)^k \overline u_{m-1}$ for $k = 0, \dots, m-1$ as follows:
+    \begin{align*}
+        \theta \cdot v_k & = \theta \cdot \big( (s+\alpha)^k \overline u_{m-1} \big)                                                                                                                           \\
+                         & = (s+\alpha)^k (\theta \cdot \overline u_{m-1})                                                              &  & \text{(all are in \textbf{the second} $R_f[s]$-module structure)} \\
+                         & = (s+\alpha)^k \left( \frac{\theta(f)}{f} s \overline u_{m-1} \right)                                                                                                               \\
+                         & = \frac{\theta(f)}{f} (s+\alpha)^k \big( (s+\alpha) \overline u_{m-1} - \alpha \overline u_{m-1} \big)                                                                              \\
+                         & = \frac{\theta(f)}{f} \big( (s+\alpha)^{k+1} \overline u_{m-1} - \alpha (s+\alpha)^k \overline u_{m-1} \big)                                                                        \\
+                         & = \frac{\theta(f)}{f} (v_{k+1} - \alpha v_k)
+    \end{align*}
+    where we identify $v_m = (s+\alpha)^m \overline u_{m-1} = 0$.
+
+    On the other hand,
+    \[
+        f^*\big( K^\alpha_m\mid_{\mathbb{A}^1_\C \setminus \{0\}} \big) = R_f \otimes_{\C[t,t^{-1}]}\bigoplus_{i=0}^{m-1} \mathbb{C}[t, t^{-1}] e^\alpha_i
+    \]
+    is also a rank $m$ $R_f$-module. And we calculate the $\D_U$-module structure on it by \cite[Sect.~1.3]{hotta2008d}:
+    for any vector field $\theta \in \mathcal{T}_U$, function $\psi \in R_f$, and section $s \in K^\alpha_m\mid_{\mathbb{A}^1_\C \setminus \{0\}}$, the inverse image connection is given by
+    \[
+        \theta(\psi \otimes s) = \theta(\psi) \otimes s + \psi \, \theta(t \circ f) \otimes \partial_t s
+    \]
+    Taking the canonical generic basis $s = e^\alpha_i$, we recall the connection on $K^\alpha_m$ is determined by $t\partial_t e^\alpha_i = \alpha e^\alpha_i + e^\alpha_{i-1}$ (where $e^\alpha_{-1} = 0$).
+    This implies $\partial_t e^\alpha_i = \frac{1}{t}(\alpha e^\alpha_i + e^\alpha_{i-1})$.
+    Applying the formula to the basis $1 \otimes e^\alpha_i$ of the pullback, and using the fact that the coordinate $t$ acts as $f$ on the pullback $f^* K^\alpha_m$:
+    \begin{align*}
+        \theta \cdot (1 \otimes e^\alpha_i) & = \theta(1) \otimes e^\alpha_i + 1 \cdot \theta(f) \otimes \partial_t e^\alpha_i             \\
+                                            & = \theta(f) \otimes \frac{1}{t}(\alpha e^\alpha_i + e^\alpha_{i-1})                          \\
+                                            & = \frac{\theta(f)}{f} \otimes (\alpha e^\alpha_i + e^\alpha_{i-1})                           \\
+                                            & = \frac{\theta(f)}{f} \big( \alpha (1 \otimes e^\alpha_i) + (1 \otimes e^\alpha_{i-1}) \big)
+    \end{align*}
+    Replacing $\alpha$ with $-\alpha$ to strictly match the parameter of the system we investigated, the pullback
+    $f^* K^{-\alpha}_m$ carries exactly the action
+    \[
+        \theta \cdot (1 \otimes e^{-\alpha}_i) = \frac{\theta(f)}{f} \big( -\alpha(1 \otimes e^{-\alpha}_i) + (1 \otimes e^{-\alpha}_{i-1}) \big)
+    \]
+    By matching our arbitrary basis elements $v_k \leftrightarrow 1 \otimes e^{-\alpha}_{m-1-k}$, we recover exactly the same matrix operator we derived strictly from algebraic quotients:
+    \[
+        \theta \cdot v_k = \frac{\theta(f)}{f} (v_{k+1} - \alpha v_k)
+    \]
+    This confirms that the module $\mathrm{Coker}(s_M)$ correctly recovers the restriction $f^* K^{-\alpha}_m$.
+
+    By the same ($f$ is) non-characteristic (with respect to $K^\alpha_m\mid_{\mathbb{A}^1_\C \setminus \{0\}}$) arguments presented in proof in Lem.~\ref{lemma 10.6}, we get:
+    \[
+        \mathrm{DR}_{U^\mathrm{an}} \big( (\mathrm{Coker}(s_M)\mid_U)^{\mathrm{an}} \big) \simeq f^{-1} L_m^{\lambda}.
+    \]
+
+    To conclude over the entire $X$, we (again) apply the Stabilization of Log De Rham for Lattices (see Step 3 and 4 in Rmk.~\ref{rmk:continue_prove_lemma_10.6}):
+    \[
+        \DR_{X^\mathrm{an}} \left(\left[\mathcal{N}_m^{-\alpha,k} \xrightarrow{s} \mathcal{N}_m^{-\alpha,k}\right]^\mathrm{an}\right) \simeq \DR_{X^\mathrm{an}} \left(\mathrm{Coker}(s_M)^\mathrm{an}\right) \simeq Rj_*\mathrm{DR}_{U^\mathrm{an}} \big( (\mathrm{Coker}(s_M)\mid_U)^{\mathrm{an}} \big)  \simeq Rj_*\big(f^{-1} L_m^\lambda\big)
+    \]
+    which establishes (1).
+
+    \bigskip
+
+    \noindent\textbf{For proving (2)}, assume $k\gg 0$, since we can't find a free $R_f$-module structure for :
+    \[
+        \mathrm{Coker}\left(\bigoplus_{\ell=0}^{m-1} \left(\D_X[s]f^{s+k}\right) \otimes e_{\ell}^{-\alpha} \xrightarrow{s} \bigoplus_{\ell=0}^{m-1} \left(\D_X[s]f^{s+k}\right) \otimes e_{\ell}^{-\alpha}\right)
+    \]
+    we use the five lemma (on $U$) by doing induction on $m$.
+
+    Fix $k\ge k_0$ and set
+    \[
+        C_m^{+}:=\Big[\ \mathcal N_m^{-\alpha,k}\xrightarrow{s}\mathcal N_m^{-\alpha,k}\ \Big],\qquad
+        C_m^{-}:=\Big[\ \mathcal N_m^{-\alpha,-k}\xrightarrow{s}\mathcal N_m^{-\alpha,-k}\ \Big],
+    \]
+    viewed as two--term complexes in degrees $-1, 0$.
 
     \medskip
 
-    \noindent\textbf{Base case ($m=1$):}
-    The right-hand complex is exactly
+    \noindent\textbf{Step 1 (assume the $Rj_*$ part is done).}
+    Assume Proposition~22.11(1) has been proved, i.e.
     \[
-        \left[ \left(R_{f}[s]f^{s}\right) \otimes e_{0}^{-\alpha} \xrightarrow{s} \left(R_{f}[s]f^{s}\right) \otimes e_{0}^{-\alpha} \right].
+        \mathrm{DR}_X(C_m^{+})\simeq Rj_*\bigl(f^{-1}L_m^\lambda\bigr)\qquad(\forall m).
     \]
+    Restricting to $U$ gives:
+    \[
+        j^{-1}\mathrm{DR}_X(C_m^{+})
+        \simeq j^{-1}Rj_*\bigl(f^{-1}L_m^\lambda\bigr)
+        \simeq f^{-1}L_m^\lambda,
+    \]
+    so $j^{-1}\mathrm{DR}_X(C_m^{+})$ is a local system sitting in degree $0$.
 
-    In Rmk.~\ref{rmk:justify_R_f[s]f^s}, we have claimed $R_f[s]f^s$ is a rank $1$ free $R_f[s]$-module with basis $1\otimes 1$.
+    Why $j^{-1}Rj_* \simeq \mathrm{id}$?
+    First, by \cite[Eq.~C.2.6]{hotta2008d} $j^{-1}$ is exact, so $j^{-1} = Rj^{-1}$.
+    Then by \cite[Proposition B.5.7.]{hotta2008d} and $j^{-1}$ is exact, we get $Rj^{-1}\circ Rj_* = R(j^{-1}\circ j_*)$.
+    Finally apply the counit isomorphism (since $j$ is an open immersion) of the adjunction pair in \cite[Eq.~C.1.10]{hotta2008d}, we get $R(j^{-1}\circ j_*) = R(\mathrm{id}) = \mathrm{id}$.
 
-    By our previous calculation of the $s$-action, we have
-    \[
-        s(\eta \otimes e_0^{-\alpha}) = (s+\alpha)\eta \otimes e_0^{-\alpha}.
-    \]
-    This allows us to define:
-    \[
-        R_{f}[s]f^{s+\alpha} := R_{f}[s]f^{s} \otimes e_{0}^{-\alpha}
-    \]
-    Consequently, the boundary map $s$ on the complex corresponds to the operator $s+\alpha$ acting on $R_{f}[s]f^{s}$, yielding the (quasi-isomorphic) complex of $\D_X[s]$-modules:
-    \[
-        \left[ \left(R_{f}[s]f^{s}\right) \otimes e_{0}^{-\alpha} \xrightarrow{s} \left(R_{f}[s]f^{s}\right) \otimes e_{0}^{-\alpha} \right] \stackrel{\mathrm{q.i.}}{\simeq}
-        \left[ R_{f}[s]f^{s} \xrightarrow{s+\alpha} R_{f}[s]f^{s} \right]
-    \]
-    which precisely computes the derived tensor product $R_f[s]f^s \otimes^L_{\mathbb{C}[s]} \mathbb{C}_{-\alpha}$.
-
-    On the other hand, substituting the formal symbol directly identifies our original complex as computing $R_f[s]f^{s+\alpha} \otimes^L_{\mathbb{C}[s]} \mathbb{C}_0$.
-
-    This completes the proof of quasi-isomorphism claimed in Lemma~\ref{lemma 10.6}:
-    \[
-        R_{f}[s]f^{s+\alpha}\otimes^L_{\mathbb{C}[s]}\mathbb{C}_{0} \simeq R_f[s]f^s \otimes^L_{\mathbb{C}[s]} \mathbb{C}_{-\alpha}
-    \]
-    Applying Lemma~\ref{lemma 10.6} (1), we immediately obtain:
-    \[
-        \mathrm{DR}(N_1^{-\alpha,k} \xrightarrow{s} N_{1}^{-\alpha,k}) \simeq \mathrm{DR}(R_{f}[s]f^{s+\alpha}\otimes^L_{\mathbb{C}[s]}\mathbb{C}_{0}) \simeq \mathrm{DR}(R_{f}[s]f^{s}\otimes^L_{\mathbb{C}[s]}\mathbb{C}_{-\alpha}) \simeq R j_* \left(f^{-1} L_1^{({\lambda}^{-1})^{-1}}\right),
-    \]
-    confirming the base case.
 
     \medskip
+    \noindent\textbf{Step 2 (exact sequences in $m$ and the map $C_m^{-}\to C_m^{+}$).}
+    The rank--$m$ connection $K_m^{-\alpha}$ on $\mathbb{A}^1\setminus\{0\}$ has the filtration of $\D_{\mathbb{A}^1\setminus\{0\}}$-module
+    \[
+        0\subset \C[t,t^{-1}] e^{-\alpha}_0\subset\cdots\subset\bigoplus_{\ell=0}^{m-2}\C[t,t^{-1}]  e^{-\alpha}_\ell \subset K_m^{-\alpha}
+    \]
+    with successive quotient $K_1^{-\alpha}$.
+    By functoriality of the construction of $\mathcal N_m^{-\alpha,\pm k}$ from the generators
+    $f^{s\mp k}\otimes e_\ell$, this gives short exact sequences of $\mathcal D_X[s]$--modules
+    \[
+        0\to \mathcal N_{m-1}^{-\alpha,\pm k}\longrightarrow \mathcal N_m^{-\alpha,\pm k}
+        \longrightarrow \mathcal N_1^{-\alpha,\pm k}\to 0,
+    \]
+    hence short exact sequences of complexes
+    \[
+        0\to C_{m-1}^{\pm}\longrightarrow C_m^{\pm}\longrightarrow C_1^{\pm}\to 0.
+        \tag{$\ast_\pm$}
+    \]
+    Moreover $f^{s+k}=f^{2k}f^{s-k}$ implies $\mathcal N_m^{-\alpha,-k}\subset \mathcal N_m^{-\alpha,k}$,
+    so we have a morphism of complexes $C_m^{-}\to C_m^{+}$ compatible with $(\ast_\pm)$.
 
-    \noindent\textbf{Induction step:}
-    Suppose Part (1) holds for $m-1$, which means $\mathrm{DR}(C_{m-1}^\bullet) \simeq R j_* (f^{-1} L_{m-1}^\lambda)$.
-    We denote the right-hand complex for size $m$ by $C_m^\bullet$:
+    \medskip
+    \noindent\textbf{Step 3 (restrict to $U$ and do the induction using the short five lemma).}
+    By \cite[Sect.~4.2]{hotta2008d}, $\DR$ has finitely many non-vanishing cohomology sheaves, define objects on $U$:
     \[
-        C_m^\bullet := \left[N_m^{-\alpha,k} \xrightarrow{s} N_m^{-\alpha,k}\right] \stackrel{\mathrm{q.i.}}{\simeq} \left[\bigoplus_{\ell=0}^{m-1} \left(R_{f}[s]f^{s}\right) \otimes e_{\ell}^{-\alpha} \xrightarrow{s} \bigoplus_{\ell=0}^{m-1} \left(R_{f}[s]f^{s}\right) \otimes e_{\ell}^{-\alpha}\right]
+        K_m^{-}:=j^{-1}\mathrm{DR}_X(C_m^{-})\in D^b(\underline{\C}_{U^{\mathrm{an}}}),\qquad
+        K_m^{+}:=j^{-1}\mathrm{DR}_X(C_m^{+})\simeq f^{-1}L_m^\lambda.
     \]
-    We have a natural $\mathcal{D}_X[s]$-submodule generated by the first $m-1$ basis elements $e_0^{-\alpha}, \dots, e_{m-2}^{-\alpha}$. This gives a short exact sequence of graded $\mathcal{D}_X[s]$-modules:
+    For $m=1$, Lemma~22.5(2) gives $\mathrm{DR}_X(C_1^{-})\simeq j_!(f^{-1}L_1^\lambda)$, hence
     \[
-        0 \longrightarrow \bigoplus_{\ell=0}^{m-2} \left(R_{f}[s]f^{s}\right) \otimes e_{\ell}^{-\alpha} \longrightarrow \bigoplus_{\ell=0}^{m-1} \left(R_{f}[s]f^{s}\right) \otimes e_{\ell}^{-\alpha} \longrightarrow \left(R_{f}[s]f^{s}\right) \otimes \overline{e}_{m-1}^{-\alpha} \longrightarrow 0
+        K_1^{-}=j^{-1}\mathrm{DR}_X(C_1^{-})\simeq f^{-1}L_1^\lambda
     \]
-    We claim that this exact sequence of modules is compatible with the differential boundary map $s$. Let $\eta \in R_f[s]f^s$, the action of $s$ on the basis element $e_\ell^{-\alpha}$ is:
-    \[
-        s \cdot (\eta \otimes e_\ell^{-\alpha}) = (s+\alpha)\eta \otimes e_\ell^{-\alpha} - \eta \otimes e_{\ell-1}^{-\alpha}
-    \]
-    Notice that the image lies purely in the linear span of $e_\ell^{-\alpha}$ and $e_{\ell-1}^{-\alpha}$. Therefore, the differential $s$ maps the submodule $\bigoplus_{\ell=0}^{m-2} \left(R_{f}[s]f^{s}\right) \otimes e_{\ell}^{-\alpha}$ to itself (it only shifts the index $\ell$ downwards, never upwards).
-    This fact allows the module exact sequence to induce a short exact sequence of corresponding complexes:
-    \[
-        0 \longrightarrow C_{m-1}^\bullet \longrightarrow C_m^\bullet \longrightarrow \left(C_m/C_{m-1}\right)^\bullet \longrightarrow 0
-    \]
-    Applying the exact De Rham functor $\mathrm{DR}$ (in the derived category) yields a distinguished triangle:
-    \[
-        \mathrm{DR}(C_{m-1}^\bullet) \longrightarrow \mathrm{DR}(C_m^\bullet) \longrightarrow \mathrm{DR}\big((C_m/C_{m-1})^\bullet\big) \xrightarrow{+1}
-    \]
-    By the induction hypothesis, the first term is $R j_* (f^{-1} L_{m-1}^\lambda)$.
-    Now we analyze the quotient complex $\left(C_m/C_{m-1}\right)^\bullet$. As a module, it is isomorphic to $\left(R_f[s]f^s\right) \otimes \overline{e}_{m-1}^{-\alpha}$.
-    When computing the boundary map $s$ on this quotient, the term involving $e_{m-2}^{-\alpha}$ vanishes because it lies in the submodule $C_{m-1}^\bullet$:
-    \[
-        s \cdot (\eta \otimes \overline{e}_{m-1}^{-\alpha}) = (s+\alpha)\eta \otimes \overline{e}_{m-1}^{-\alpha} - \underbrace{\eta \otimes \overline{e}_{m-2}^{-\alpha}}_{= 0 \text{ in quotient}} = (s+\alpha)\eta \otimes \overline{e}_{m-1}^{-\alpha}
-    \]
-    Thus, the quotient complex is exactly the complex from our base case ($m=1$).
-    By the result we just proved for the base case, its De Rham complex evaluates exactly to $R j_* (f^{-1} L_1^\lambda)$.
-    Substituting these components back into the distinguished triangle, we obtain an extension of $R j_* (f^{-1} L_1^\lambda)$ by $R j_* (f^{-1} L_{m-1}^\lambda)$:
-    \[
-        R j_* (f^{-1} L_{m-1}^\lambda) \longrightarrow \mathrm{DR}(C_m^\bullet) \longrightarrow R j_* (f^{-1} L_1^\lambda) \xrightarrow{+1}
-    \]
-    Since the derived functor $R j_*$ preserves distinguished triangles and local systems extend directly, the topological extension class specifying $\mathrm{DR}(C_m^\bullet)$ is determined strictly by the off-diagonal $s$-action in $C_m^\bullet$, which explicitly maps $e_{m-1}^{-\alpha}$ to $-e_{m-2}^{-\alpha}$. This off-diagonal mapping provides precisely the non-trivial nilpotent gluing required to assemble the $(m-1) \times (m-1)$ block with the $1 \times 1$ block into the full $m \times m$ Jordan block $J_{-\alpha, m}$.
-    Thus, the middle term $\mathrm{DR}(C_m^\bullet)$ reconstructs the rank-$m$ generalized eigenspace local system:
-    \[
-        \mathrm{DR}(C_m^\bullet) \simeq R j_* (f^{-1} L_m^\lambda).
-    \]
-    Part (1) is proved.
+    (concentrated in degree $0$).
 
-    Part (2) is proved by the exact same induction on $m$. The only difference is that replacing $k$ with $-k$ shifts the indices such that the complexes are built from $\mathcal{D}_X[s]f^{s+k}$ instead of $R_f[s]f^s$.
-    Using Lemma \ref{lemma 10.6} (2), the De Rham functor evaluates $j_! (f^{-1}L_1^\lambda)$ instead of $R j_*$, resulting in $j_!(f^{-1} L_m^\lambda)$ at the end of the induction.
+    Induction hypothesis: assume $K_{m-1}^{-}\simeq f^{-1}L_{m-1}^\lambda$ (degree $0$).
+    Apply $j^{-1}\mathrm{DR}_X$ to $(\ast_-)$ to get a distinguished triangle
+    \[
+        K_{m-1}^{-}\to K_m^{-}\to K_1^{-}\to.
+    \]
+    Since $K_{m-1}^{-}$ and $K_1^{-}$ are both concentrated in degree $0$,
+    the long exact sequence of cohomology sheaves implies:
+    (i) $K_m^{-}$ is also concentrated in degree $0$, and
+    (ii) we obtain a short exact sequence of local systems on $U$,
+    \[
+        0\to f^{-1}L_{m-1}^\lambda \longrightarrow K_m^{-}\longrightarrow f^{-1}L_1^\lambda\to 0.
+        \tag{$\dagger$}
+    \]
+
+    On the other hand, the Jordan local systems have the canonical short exact sequence
+    \[
+        0\to f^{-1}L_{m-1}^\lambda \longrightarrow f^{-1}L_m^\lambda\longrightarrow f^{-1}L_1^\lambda\to 0.
+        \tag{$\ddagger$}
+    \]
+    The morphism of complexes $C_\bullet^{-}\to C_\bullet^{+}$ induces a morphism
+    of exact sequences $(\dagger)\to(\ddagger)$:
+    \[
+        \begin{CD}
+            0 @>>> f^{-1}L_{m-1}^\lambda @>>> K_m^{-} @>>> f^{-1}L_1^\lambda @>>> 0\\
+            @. @VV{\simeq}V @VV{b_m}V @VV{\simeq}V @.\\
+            0 @>>> f^{-1}L_{m-1}^\lambda @>>> f^{-1}L_m^\lambda @>>> f^{-1}L_1^\lambda @>>> 0 .
+        \end{CD}
+    \]
+    The left and right vertical maps are isomorphisms by induction and the base case $m=1$.
+    Hence, by the short five lemma, $b_m$ is an isomorphism, i.e.
+    \[
+        j^{-1}\mathrm{DR}_X(C_m^{-})\simeq f^{-1}L_m^\lambda.
+        \tag{$\clubsuit$}
+    \]
+
+    \medskip
+    \noindent\textbf{Step 4 (show $\mathrm{DR}_X(C_m^{-})$ is supported on $U$).}
+    For $m=1$, $\mathrm{DR}_X(C_1^{-})\simeq j_!(f^{-1}L_1^\lambda)$ is supported on $U$.
+    Assuming $\mathrm{DR}_X(C_{m-1}^{-})$ is supported on $U$, apply $i^{-1}$ ($i:D\hookrightarrow X$)
+    to the triangle coming from $(\ast_-)$ after $\mathrm{DR}_X$:
+    \[
+        \mathrm{DR}_X(C_{m-1}^{-})\to \mathrm{DR}_X(C_m^{-})\to \mathrm{DR}_X(C_1^{-})\to.
+    \]
+    Since $i^{-1}$ is exact and kills the two end terms, it also kills the middle term;
+    hence $\mathrm{DR}_X(C_m^{-})$ has cohomology supported on $U$.
+
+    \medskip
+    \noindent\textbf{Step 5 (reverse Step 3: extend back to $X$).}
+    For an open immersion $j$, any complex $K$ with cohomology supported on $U$
+    satisfies $K\simeq j_!j^{-1}K$.
+    Applying this to $K=\mathrm{DR}_X(C_m^{-})$ and using $(\clubsuit)$ yields
+    \[
+        \mathrm{DR}_X(C_m^{-})
+        \simeq j_!j^{-1}\mathrm{DR}_X(C_m^{-})
+        \simeq j_!(f^{-1}L_m^\lambda).
+    \]
+    This proves Proposition~22.11(2) for $m$, completing the induction.
+
+
 \end{proof}
-
 
 \begin{lemma}
     Let $W$ be a $\mathbb{C}$-vector space, and let $\varphi$ be a $\mathbb{C}$-linear operator on $W$ admitting a minimal polynomial.
-    Set $W_{\infty} = \bigoplus_{k=0}^{\infty} W \otimes e_k$ and define $$\varphi_{\infty}(w \otimes e_i) = (\varphi - \alpha) \cdot w \otimes e_i - w \otimes e_{i-1} \quad \text{for all }  w \in W, \; (e_{-1} = 0).$$Then $\varphi_{\infty}$ is surjective and $\ker(\varphi_{\infty}) = W_{\alpha}$ is the generalized $\alpha$-eigenspace.
+    Set $W_{\infty} = \bigoplus_{k=0}^{\infty} W \otimes e_k$ and define $$\varphi_{\infty}(w \otimes e_i) = (\varphi - \alpha)w \otimes e_i - w \otimes e_{i-1} \quad \text{for all }  w \in W, \; (e_{-1} = 0).$$Then $\varphi_{\infty}$
+    is surjective and $\ker(\varphi_{\infty}) \cong W_{\alpha}$, where $W_{\alpha}$ is the generalized $\alpha$-eigenspace of $\varphi$ in $W$.
 \end{lemma}
 \begin{proof}
-    Define a map
+    Define the linear map:
     \begin{equation}
-        W_{\alpha} \longrightarrow \ker(\varphi_{\infty})\atop w \longmapsto \sum\limits_{i \geqslant 0} (\varphi - \alpha)^i w \otimes e_{i}.
-        \tag{$\ast$}
-        \label{eq}
+        \begin{aligned}\label{eq:alpha_eigenspace_map}
+            W_{\alpha} & \longrightarrow \ker(\varphi_{\infty})                                       \\
+            w          & \longmapsto \sum\limits_{i \geqslant 0} (\varphi - \alpha)^i w \otimes e_{i}
+        \end{aligned}
     \end{equation}
-    This map is an isomorphism.
+    Let us verify that this map is indeed an isomorphism:
+    \begin{itemize}
+        \item \textbf{Well-defined (maps to kernel):} For $w \in W_\alpha$, the operator $\varphi-\alpha$ is nilpotent, so the sum is finite. Evaluating $\varphi_\infty$ on the image yields a telescoping cancellation:
+              \[
+                  \varphi_{\infty} \left( \sum_{i \geqslant 0} (\varphi-\alpha)^i w \otimes e_i \right) = \sum_{i \geqslant 0} (\varphi-\alpha)^{i+1} w \otimes e_i - \sum_{i \geqslant 0} (\varphi-\alpha)^i w \otimes e_{i-1} = 0
+              \]
+              (where $e_{-1}=0$). Thus, the image strictly lies in $\ker(\varphi_{\infty})$.
+        \item \textbf{Injectivity:} The $e_0$ component of the image sequence is exactly $w \otimes e_0$. If the sum evaluates to zero, this dominant $e_0$ term forces $w=0$.
+        \item \textbf{Surjectivity:} Suppose $\eta = \sum_{i \geqslant 0} w_i \otimes e_i \in \ker(\varphi_\infty)$. Setting $\varphi_\infty(\eta) = 0$ implies the recurrence relation $(\varphi-\alpha) w_{i} - w_{i+1} = 0$ across all $i \geqslant 0$. This solves inductively to $w_{i} = (\varphi-\alpha)^i w_0$. Because $\eta$ is a structurally finite sum in $W_\infty$, there must exist some index $N$ where $w_N = 0$. Consequently, $(\varphi-\alpha)^N w_0 = 0$, which precisely dictates that $w_0 \in W_\alpha$. Therefore, $\eta$ is perfectly determined as the exact image of $w_0$.
+    \end{itemize}
 
-    Then we prove surjectivity: If $w\in W_{\alpha}$, then $\varphi_{\infty}( -\sum\limits_{i>j} (\varphi-\alpha)^{i-j-1}w\otimes e_{i})=w\otimes e_{j}$; If $w\in W_{\alpha}^{\perp}$, then $\varphi_{\infty}( \sum\limits_{i=1}^{j}(\varphi-\alpha)^{-i}w\otimes e_{j-i+1} )=w\otimes e_{j}$.
+    To show that $\varphi_{\infty}$ is surjective, we decompose $W = W_{\alpha} \oplus W_{\alpha}^{\perp}$, where $W_{\alpha}^{\perp} = \bigoplus_{\beta \neq \alpha} W_{\beta}$ is the direct sum of all other generalized eigenspaces (or equivalently, the kernel of $Q(\varphi)$ where the minimal polynomial $P(x) = (x-\alpha)^d Q(x)$ and $Q(\alpha) \neq 0$).
+    For any generator $w \otimes e_j \in W_\infty$, we construct its preimage under $\varphi_{\infty}$:
+
+    \begin{itemize}
+        \item For $w \in W_{\alpha}$, the operator $\varphi - \alpha$ is nilpotent, so the following sum is finite:
+              \begin{equation*}
+                  \varphi_{\infty}\left( -\sum\limits_{i=j+1}^{\infty} (\varphi-\alpha)^{i-j-1}w\otimes e_{i} \right) = w\otimes e_{j}
+              \end{equation*}
+
+        \item For $w \in W_{\alpha}^{\perp}$, the operator $\varphi - \alpha$ is invertible, thus:
+              \begin{equation*}
+                  \varphi_{\infty}\left( \sum\limits_{i=1}^{j+1}(\varphi-\alpha)^{-i}w\otimes e_{j-i+1} \right) = w\otimes e_{j}
+              \end{equation*}
+    \end{itemize}
+    Thus, $\varphi_{\infty}$ is surjective.
 \end{proof}
+
 \begin{corollary}
-    For $k \gg 0$, $$
-        \Psi_{f,\alpha}[1] \stackrel{\text{q.i}}{\simeq}\varinjlim_m \left( \frac{N_m^{\alpha,k}}{N_m^{\alpha,-k}} \xrightarrow{s} \frac{N_m^{\alpha,k}}{N_m^{\alpha,-k}} \right).
-    $$
+    For $k\gg 0$, one has a quasi-isomorphism
+    \[
+        \Psi_{f,\alpha}[1]\ \simeq\ \varinjlim_{m}\Bigl[\,
+        Q_m^{\alpha,k}\xrightarrow{s}Q_m^{\alpha,k}\Bigr],
+        \qquad
+        Q_m^{\alpha,k}:=\frac{N_m^{\alpha,k}}{N_m^{\alpha,-k}}.
+    \]
+    Here the two-term complex is placed in degrees $(-1,0)$.
 \end{corollary}
 
-\begin{proof}[Proof of  (\ref{Theorem 9.5})]
-    $$
-        \mathrm{DR}(\Psi_{f,-\alpha}[1]) \cong \mathrm{DR}\left( \varinjlim_m  \left( \frac{N_m^{-\alpha,k}}{N_m^{-\alpha,-k}} \xrightarrow{s} \frac{N_m^{-\alpha,k}}{N_m^{-\alpha,-k}} \right) \right)$$
-    $$ \cong \varinjlim_m  \mathrm{DR}\left( \frac{N_m^{-\alpha,k}}{N_m^{-\alpha,-k}} \xrightarrow{s} \frac{N_m^{-\alpha,k}}{N_m^{-\alpha,-k}} \right)$$
-    $$\simeq \varinjlim_m\ \text{cone}\left( DR\left(N_{m}^{-\alpha,-k} \xrightarrow{s} N_m^{-\alpha,-k}\right) \rightarrow DR\left(N_m^{-\alpha,k} \xrightarrow{s} N_m^{-\alpha,k}\right)\right)$$
-    $$\simeq\varinjlim_m\ \text{cone}\left(j_! f^{-1} L_m^{\lambda} \rightarrow R j_* f^{-1} L_m^{\lambda}\right)\simeq \Psi_{f,\lambda}$$
+\begin{proof}
+    Consider the direct system $\{Q_m^{\alpha,k}\}_{m\ge 1}$ coming from the stabilized quotients.
+    By construction of this direct system, its sequential colimit identifies with the infinite direct sum
+    \[
+        W_\infty\ :=\ \varinjlim_m Q_m^{\alpha,k}\ \cong\ \bigoplus_{i\ge 0} W\otimes e_i,
+    \]
+    where $W$ is the base module.
 
-    By $\eqref{eq}$, we consider $$   \Psi_{f,-\alpha} \longrightarrow \ker(-s_{\infty})\atop \eta \longmapsto \sum\limits_{i \geqslant 0} (-s-\alpha)^i \eta\otimes  e_{i}.$$
+    The endomorphism $s:Q_m^{\alpha,k}\to Q_m^{\alpha,k}$ is compatible with the transition maps,
+    hence induces an endomorphism
+    \[
+        s_\infty:W_\infty\longrightarrow W_\infty.
+    \]
+    Under the above identification $W_\infty\simeq \bigoplus_{i\ge 0} W\otimes e_i$,
+    this induced map $s_\infty$ is exactly the shift operator $\varphi_\infty$ from Lemma~22.13
+    (with eigenvalue $\alpha$). In particular, Lemma~22.13 implies that $s_\infty$ is surjective and
+    \[
+        \ker(s_\infty)\ \cong\ W_\alpha,
+    \]
+    the generalized $\alpha$-eigenspace.
+
+    Now form the two-term complex
+    \[
+        C_\infty^\bullet\ :=\ \Bigl[\,W_\infty\xrightarrow{s_\infty}W_\infty\Bigr],
+    \]
+    with $W_\infty$ in degrees $(-1,0)$. Since $s_\infty$ is surjective, $\mathrm{coker}(s_\infty)=0$,
+    so the only nonzero cohomology of $C_\infty^\bullet$ is
+    \[
+        H^{-1}(C_\infty^\bullet)=\ker(s_\infty),\qquad H^{0}(C_\infty^\bullet)=0.
+    \]
+    Hence $C_\infty^\bullet$ is quasi-isomorphic to $\ker(s_\infty)[1]$.
+
+    Finally, by the identification $\ker(s_\infty)\cong W_\alpha$ and the preceding construction of
+    algebraic nearby cycles, this kernel recovers $\Psi_{f,\alpha}$.
+    Therefore $C_\infty^\bullet\simeq \Psi_{f,\alpha}[1]$.
+
+    Since $C_\infty^\bullet$ is the sequential colimit of the complexes
+    $C_m^\bullet=[\,Q_m^{\alpha,k}\xrightarrow{s}Q_m^{\alpha,k}\,]$,
+    we obtain
+    \[
+        \Psi_{f,\alpha}[1]\ \simeq\ \varinjlim_m C_m^\bullet
+        \ =\ \varinjlim_{m}\Bigl[\,
+        Q_m^{\alpha,k}\xrightarrow{s}Q_m^{\alpha,k}\Bigr],
+    \]
+    as claimed.
+\end{proof}
+
+\begin{proof}[Proof of  (\ref{Theorem 9.5})]
+    \begin{align*}
+        \mathrm{DR}(\Psi_{f,-\alpha}[1]) & \cong \mathrm{DR}\left( \varinjlim_m  \left( \frac{N_m^{-\alpha,k}}{N_m^{-\alpha,-k}} \xrightarrow{s} \frac{N_m^{-\alpha,k}}{N_m^{-\alpha,-k}} \right) \right)                                \\
+                                         & \cong \varinjlim_m\  \mathrm{DR}\left( \frac{N_m^{-\alpha,k}}{N_m^{-\alpha,-k}} \xrightarrow{s} \frac{N_m^{-\alpha,k}}{N_m^{-\alpha,-k}} \right)                                              \\
+                                         & \simeq \varinjlim_m\ \text{cone}\left( \DR\left(N_{m}^{-\alpha,-k} \xrightarrow{s} N_m^{-\alpha,-k}\right) \rightarrow \DR\left(N_m^{-\alpha,k} \xrightarrow{s} N_m^{-\alpha,k}\right)\right) \\
+                                         & \simeq\varinjlim_m\ \text{cone}\left(j_! f^{-1} L_m^{\lambda} \rightarrow R j_* f^{-1} L_m^{\lambda}\right)\simeq \Psi_{f,\lambda}
+    \end{align*}
+
+
+    By Eq.~\ref{eq:alpha_eigenspace_map}, we consider $$   \Psi_{f,-\alpha} \longrightarrow \ker(-s_{\infty})\atop \eta \longmapsto \sum\limits_{i \geqslant 0} (-s-\alpha)^i \eta\otimes  e_{i}.$$
 
     Then $s+\alpha = -J_{0,\infty}$, and $e^{2\pi i(s+\alpha)} = e^{-2\pi i J_{0,\infty}}$. Furthermore, we obtain that $$e^{-2\pi i\alpha} \cdot e^{2\pi i(s+\alpha)} = e^{-2\pi i J_{\alpha,\infty}} = T$$
 \end{proof}
