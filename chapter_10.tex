@@ -1363,27 +1363,75 @@ called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
         K_m^{-}:=j^{-1}\mathrm{DR}_X(C_m^{-})\in D^b(\underline{\C}_{U^{\mathrm{an}}}),\qquad
         K_m^{+}:=j^{-1}\mathrm{DR}_X(C_m^{+})\simeq f^{-1}L_m^\lambda.
     \]
-    For $m=1$, Lemma~22.5(2) gives $\mathrm{DR}_X(C_1^{-})\simeq j_!(f^{-1}L_1^\lambda)$, hence
+    For $m=1$, Lemma~\ref{lemma 10.6} (2) gives $\mathrm{DR}_X(C_1^{-})\simeq j_!(f^{-1}L_1^\lambda)$, hence by
+    \cite[\href{https://stacks.math.columbia.edu/tag/00A7}{Tag 00A7}]{stacks-project} and equivalence between \cite[\href{https://stacks.math.columbia.edu/tag/00A4}{Tag 00A4}]{stacks-project} and \cite[Definition~C.1.1]{hotta2008d}, we get:
     \[
         K_1^{-}=j^{-1}\mathrm{DR}_X(C_1^{-})\simeq f^{-1}L_1^\lambda
     \]
     (concentrated in degree $0$).
 
+    \medskip
+
+    We recall a fact in derived category (of a homotopy category), all exact sequences of complexes are distinguished triangles.
+
+    To see this, using \cite[\href{https://stacks.math.columbia.edu/tag/08RI}{Tag 08RI}]{stacks-project}, we get $\varphi$ to make the diagram below commute:
+    \[
+        \begin{tikzcd}
+            \quad       & 0  \arrow[r]                   & L^\bullet \arrow[r] \arrow[d, equal] & \mathrm{Cone}(K^\bullet\to L^\bullet) \arrow[r] \arrow[d, "\varphi"] & K^\bullet[1] \arrow[r] & 0 \\
+            0 \arrow[r] & K^\bullet \arrow[r]                  & L^\bullet \arrow[r]                  & M^\bullet \arrow[r]                                                      &  0
+        \end{tikzcd}
+    \]
+    Since short exact sequence of complexes lead to long exact sequences of cohomology,
+    \[
+        \begin{tikzcd}
+            \cdots \arrow[r] & H^n(L^\bullet) \arrow[r] \arrow[d, equal] & H^n(\mathrm{Cone}(K^\bullet\to L^\bullet)) \arrow[r] \arrow[d, "H^n(\varphi)"] & H^{n+1}(K^\bullet) \arrow[r] \arrow[d, equal] & H^{n+1}(L^\bullet) \arrow[r] \arrow[d, equal] & \cdots \\
+            \cdots \arrow[r] & H^n(L^\bullet) \arrow[r]                  & H^n(M^\bullet) \arrow[r, "\delta"]                                             & H^{n+1}(K^\bullet) \arrow[r]                  & H^{n+1}(L^\bullet) \arrow[r]                  & \cdots
+        \end{tikzcd}
+    \]
+    and by five-lemma, we get $\varphi$ is a quasi-isomorphism.
+
+    Then by \cite[\href{https://stacks.math.columbia.edu/tag/014L}{Tag 014L} and \href{https://stacks.math.columbia.edu/tag/014Q}{Tag 014Q}]{stacks-project} the triangle
+    \[
+        K^\bullet \to L^\bullet \to \mathrm{Cone}(K^\bullet\to L^\bullet) \to K^\bullet[1]
+    \]
+    is a distinguished triangle in homotopy category.
+
+    So we get a morphism between triangles in derived category:
+    \[
+        \begin{tikzcd}
+            K^\bullet \arrow[r] \arrow[d, equal] & L^\bullet \arrow[r] \arrow[d, equal] & \mathrm{Cone}(K^\bullet\to L^\bullet) \arrow[r] \arrow[d, "\text{q.i.}"] &[4em] K^\bullet[1] \arrow[d, equal] \\
+            K^\bullet \arrow[r]                  & L^\bullet \arrow[r]                  & M^\bullet \arrow[r,"\text{NOT a chain map}"]                                  & K^\bullet[1]
+        \end{tikzcd}
+    \]
+    So
+    \[
+        K^\bullet \to L^\bullet \to M^\bullet \xrightarrow{\text{Not a chain map}} K^\bullet[1]
+    \]
+    is a distinguished triangle in the derived one \cite[\href{https://stacks.math.columbia.edu/tag/05RU}{Tag 05RU}, \href{https://stacks.math.columbia.edu/tag/05R6}{Tag 05R6} and TR1 of \href{https://stacks.math.columbia.edu/tag/0145}{Tag 0145}]{stacks-project}.
+
+    \medskip
+
     Induction hypothesis: assume $K_{m-1}^{-}\simeq f^{-1}L_{m-1}^\lambda$ (degree $0$).
     Apply $j^{-1}\mathrm{DR}_X$ to $(\ast_-)$ to get a distinguished triangle
+    (apply \cite[\href{https://stacks.math.columbia.edu/tag/014X}{Tag 0G6E}]{stacks-project} to
+    $\Omega_{X^{\mathrm{an}}} \otimes_{\D_{X^{\mathrm{an}}}} -$,
+    with \cite[\href{https://stacks.math.columbia.edu/tag/05S8}{Tag 05S8} and \href{https://stacks.math.columbia.edu/tag/05SC}{Tag 05SC}]{stacks-project},
+    we get $\DR_X$ is an exact functor \cite[\href{https://stacks.math.columbia.edu/tag/014V}{Tag 014V}]{stacks-project})
     \[
-        K_{m-1}^{-}\to K_m^{-}\to K_1^{-}\to.
+        K_{m-1}^{-}\to K_m^{-}\to K_1^{-}\to \cdots.
     \]
     Since $K_{m-1}^{-}$ and $K_1^{-}$ are both concentrated in degree $0$,
-    the long exact sequence of cohomology sheaves implies:
-    (i) $K_m^{-}$ is also concentrated in degree $0$, and
-    (ii) we obtain a short exact sequence of local systems on $U$,
-    \[
-        0\to f^{-1}L_{m-1}^\lambda \longrightarrow K_m^{-}\longrightarrow f^{-1}L_1^\lambda\to 0.
-        \tag{$\dagger$}
-    \]
+    the long exact sequence of cohomology sheaves \cite[TR2 in \href{https://stacks.math.columbia.edu/tag/0145}{Tag 0145}, \href{https://stacks.math.columbia.edu/tag/05QL}{Tag 05QL}, \href{https://stacks.math.columbia.edu/tag/0147}{Tag 0147}, \href{https://stacks.math.columbia.edu/tag/0148}{Tag 0148}, \href{https://stacks.math.columbia.edu/tag/05RS}{Tag 05RS} and \href{https://stacks.math.columbia.edu/tag/05RT}{Tag 05RT}]{stacks-project} implies:
+    \begin{enumerate}
+        \item $K_m^{-}$ is also concentrated in degree $0$, and
+        \item we obtain a short exact sequence of local systems on $U$,
+              \[
+                  0\to f^{-1}L_{m-1}^\lambda \longrightarrow K_m^{-}\longrightarrow f^{-1}L_1^\lambda\to 0.
+                  \tag{$\dagger$}
+              \]
+    \end{enumerate}
 
-    On the other hand, the Jordan local systems have the canonical short exact sequence
+    On the other hand, by Step 1, the Jordan local systems of the maximal extension $C^+_m$ have the canonical short exact sequence
     \[
         0\to f^{-1}L_{m-1}^\lambda \longrightarrow f^{-1}L_m^\lambda\longrightarrow f^{-1}L_1^\lambda\to 0.
         \tag{$\ddagger$}
@@ -1407,30 +1455,32 @@ called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
     \medskip
     \noindent\textbf{Step 4 (show $\mathrm{DR}_X(C_m^{-})$ is supported on $U$).}
     For $m=1$, $\mathrm{DR}_X(C_1^{-})\simeq j_!(f^{-1}L_1^\lambda)$ is supported on $U$.
-    Assuming $\mathrm{DR}_X(C_{m-1}^{-})$ is supported on $U$, apply $i^{-1}$ ($i:D\hookrightarrow X$)
+    Assuming $\mathrm{DR}_X(C_{m-1}^{-})$ is supported on $U$, apply $i^{-1}$ ($i:D = X\setminus U\hookrightarrow X$)
     to the triangle coming from $(\ast_-)$ after $\mathrm{DR}_X$:
     \[
-        \mathrm{DR}_X(C_{m-1}^{-})\to \mathrm{DR}_X(C_m^{-})\to \mathrm{DR}_X(C_1^{-})\to.
+        \mathrm{DR}_X(C_{m-1}^{-})\to \mathrm{DR}_X(C_m^{-})\to \mathrm{DR}_X(C_1^{-})\to \cdots.
     \]
-    Since $i^{-1}$ is exact and kills the two end terms, it also kills the middle term;
+    Since $i^{-1}$ is an exact functor (between derived categories) and kills the (cohomology of) two end terms,
+    it also kills the (cohomology of) middle term;
     hence $\mathrm{DR}_X(C_m^{-})$ has cohomology supported on $U$.
 
     \medskip
     \noindent\textbf{Step 5 (reverse Step 3: extend back to $X$).}
-    For an open immersion $j$, any complex $K$ with cohomology supported on $U$
-    satisfies $K\simeq j_!j^{-1}K$.
+    For an open immersion $j$, any complex $K = K^\bullet$ with cohomology supported on $U$
+    satisfies $K\simeq j_!j^{-1}K$
+    (since $j_!$ is exact by \cite[\href{https://stacks.math.columbia.edu/tag/01AK}{Tag 01AK}]{stacks-project}, we have $j_! = Rj_!$; moreover, \cite[\href{https://stacks.math.columbia.edu/tag/00A8}{Tag 00A8}]{stacks-project} establishes this isomorphism when the complex $K$ is concentrated in a single degree).
+
     Applying this to $K=\mathrm{DR}_X(C_m^{-})$ and using $(\clubsuit)$ yields
     \[
         \mathrm{DR}_X(C_m^{-})
         \simeq j_!j^{-1}\mathrm{DR}_X(C_m^{-})
         \simeq j_!(f^{-1}L_m^\lambda).
     \]
-    This proves Proposition~22.11(2) for $m$, completing the induction.
-
+    This proves (2) for $m$, completing the induction.
 
 \end{proof}
 
-\begin{lemma}
+\begin{lemma}\label{lem:the_linear_operator_in_colimit}
     Let $W$ be a $\mathbb{C}$-vector space, and let $\varphi$ be a $\mathbb{C}$-linear operator on $W$ admitting a minimal polynomial.
     Set $W_{\infty} = \bigoplus_{k=0}^{\infty} W \otimes e_k$ and define $$\varphi_{\infty}(w \otimes e_i) = (\varphi - \alpha)w \otimes e_i - w \otimes e_{i-1} \quad \text{for all }  w \in W, \; (e_{-1} = 0).$$Then $\varphi_{\infty}$
     is surjective and $\ker(\varphi_{\infty}) \cong W_{\alpha}$, where $W_{\alpha}$ is the generalized $\alpha$-eigenspace of $\varphi$ in $W$.
@@ -1483,62 +1533,108 @@ called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
 \end{corollary}
 
 \begin{proof}
-    Consider the direct system $\{Q_m^{\alpha,k}\}_{m\ge 1}$ coming from the stabilized quotients.
-    By construction of this direct system, its sequential colimit identifies with the infinite direct sum
+    We first calculate that:
     \[
-        W_\infty\ :=\ \varinjlim_m Q_m^{\alpha,k}\ \cong\ \bigoplus_{i\ge 0} W\otimes e_i,
+        Q_m^{\alpha,k} = \frac{\mathcal{N}_m^{\alpha,k}}{\mathcal{N}_m^{\alpha,-k}}
+        = \frac{\sum_{\ell=0}^{m-1} \mathcal{D}_X[s] \cdot f^{s-k} \otimes e_\ell^\alpha}{\sum_{\ell=0}^{m-1} \mathcal{D}_X[s] \cdot f^{s+k} \otimes e_\ell^\alpha}
+        \cong \bigoplus_{\ell=0}^{m-1} \left( \frac{\mathcal{D}_X[s] \cdot f^{s-k}}{\mathcal{D}_X[s] \cdot f^{s+k}} \right) \otimes e_\ell^\alpha
     \]
-    where $W$ is the base module.
 
-    The endomorphism $s:Q_m^{\alpha,k}\to Q_m^{\alpha,k}$ is compatible with the transition maps,
+    We have a \hyperref[construction_of_direct_system_of_N_m_alpha_k]{direct system} of $\D_X[s]$-modules, so it induce the direct system of $\{Q_m^{\alpha,k}\}_{m\ge 1}$.
+    And its sequential colimit identifies with the infinite direct sum
+    \[
+        W_\infty\ :=\ \varinjlim_m Q_m^{\alpha,k}\ \cong\ \bigoplus_{\ell\ge 0} W\otimes e_\ell^\alpha,
+    \]
+    where $W = \frac{\mathcal{D}_X[s] \cdot f^{s-k}}{\mathcal{D}_X[s] \cdot f^{s+k}}$ is the base module.
+
+    If we view $s$ as an endomorphism of $\frac{\mathcal{D}_X[s] \cdot f^{s-k}}{\mathcal{D}_X[s] \cdot f^{s+k}}$,
+    first it is $\C$-linear, and it indeed has a minimal polynomial, we get it by multiplying the polynomials $(b_f(s-k+\alpha))^m$ in Lem.~\ref{lemma 10.7}.
+
+    The endomorphism $s:Q_m^{\alpha,k}\to Q_m^{\alpha,k}$ is compatible with the transition maps in the direct system,
     hence induces an endomorphism
     \[
         s_\infty:W_\infty\longrightarrow W_\infty.
     \]
+
     Under the above identification $W_\infty\simeq \bigoplus_{i\ge 0} W\otimes e_i$,
-    this induced map $s_\infty$ is exactly the shift operator $\varphi_\infty$ from Lemma~22.13
-    (with eigenvalue $\alpha$). In particular, Lemma~22.13 implies that $s_\infty$ is surjective and
+    this induced map $s_\infty$ is exactly the shift operator $\varphi_\infty$ from Lemma~\ref{lem:the_linear_operator_in_colimit}
+    (with eigenvalue $\alpha$). In particular, Lemma~\ref{lem:the_linear_operator_in_colimit} implies that $s_\infty$ is surjective and
     \[
         \ker(s_\infty)\ \cong\ W_\alpha,
     \]
-    the generalized $\alpha$-eigenspace.
+    the generalized $\alpha$-eigenspace, again, if we view $s$ as an endomorphism of $\frac{\mathcal{D}_X[s] \cdot f^{s-k}}{\mathcal{D}_X[s] \cdot f^{s+k}}$.
 
-    Now form the two-term complex
+    So the two-term complex
     \[
         C_\infty^\bullet\ :=\ \Bigl[\,W_\infty\xrightarrow{s_\infty}W_\infty\Bigr],
     \]
-    with $W_\infty$ in degrees $(-1,0)$. Since $s_\infty$ is surjective, $\mathrm{coker}(s_\infty)=0$,
-    so the only nonzero cohomology of $C_\infty^\bullet$ is
+    is quasi-isomorphic to $\mathrm{Ker}(s_\infty)[1]$.
+    (The functor $[1]$ has different definition in \cite[\href{https://stacks.math.columbia.edu/tag/05RR}{Tag 05RR}]{stacks-project} and \cite[Translation~1.2.8]{Weibel1994HA}, so the editor don't know $[1]$ or $[-1]$ which one is correct, we follow the lecturer's notation.)
+
+    Finally, by the identification $\ker(s_\infty)\cong W_\alpha$, we link this back to the geometric construction via localization at the maximal ideal $\mathfrak{m}_\alpha = (s-\alpha)$ of $\mathbb{C}[s]$.
+
+    Recall from the proof of Lemma~\ref{lem:the_linear_operator_in_colimit} that by \textbf{primary decomposition}, $W \cong W_\alpha \oplus W_\alpha^\perp$,
+    both of them are $\C[s]$-modules ($s$-invariant subspace in Linear Algebra), and $W_\alpha^\perp$ is annihilated by some polynomial factor $Q(s)$ such that $Q(\alpha) \neq 0$.
+
+    When we localize the $\mathbb{C}[s]$-module $W$ at $\mathfrak{m}_\alpha$, the polynomial $Q(s) \notin \mathfrak{m}_\alpha$ becomes an invertible unit in the localized ring $\mathbb{C}[s]_{\mathfrak{m}_\alpha}$.
+    Since it annihilates $W_\alpha^\perp$, this invertibility forces the localized component $(W_\alpha^\perp)_{\mathfrak{m}_\alpha} = 0$.
+
+    Conversely, any polynomial $H(s) \notin \mathfrak{m}_\alpha$ satisfies $H(\alpha) \neq 0$.
+    We can expand $H(s)$ as a polynomial around $s=\alpha$:
     \[
-        H^{-1}(C_\infty^\bullet)=\ker(s_\infty),\qquad H^{0}(C_\infty^\bullet)=0.
+        H(s) = H(\alpha) + (s-\alpha)P(s)
     \]
-    Hence $C_\infty^\bullet$ is quasi-isomorphic to $\ker(s_\infty)[1]$.
+    for some polynomial $P(s)$.
 
-    Finally, by the identification $\ker(s_\infty)\cong W_\alpha$ and the preceding construction of
-    algebraic nearby cycles, this kernel recovers $\Psi_{f,\alpha}$.
-    Therefore $C_\infty^\bullet\simeq \Psi_{f,\alpha}[1]$.
-
-    Since $C_\infty^\bullet$ is the sequential colimit of the complexes
-    $C_m^\bullet=[\,Q_m^{\alpha,k}\xrightarrow{s}Q_m^{\alpha,k}\,]$,
-    we obtain
+    Because $s-\alpha$ acts nilpotently on $W_\alpha$, the operator
     \[
-        \Psi_{f,\alpha}[1]\ \simeq\ \varinjlim_m C_m^\bullet
-        \ =\ \varinjlim_{m}\Bigl[\,
-        Q_m^{\alpha,k}\xrightarrow{s}Q_m^{\alpha,k}\Bigr],
+        N := -\frac{s-\alpha}{H(\alpha)}P(s)
+    \]
+    is strictly nilpotent on $W_\alpha$ (i.e., $N^m = 0$ for sufficiently large $m$).
+
+    Then $H(s) / H(\alpha) = 1 - N$, and its inverse is exactly given by the \textbf{finite} geometric series operator
+    \[
+        \sum_{i=0}^{+\infty} N^i \quad \text{finitely many of } N^i \text{ are non-zero}.
+    \]
+    This shows $H(s)$ itself acts invertibly on $W_\alpha$. Consequently, localizing at $\mathfrak{m}_\alpha$ does absolutely nothing to $W_\alpha$, yielding $W_\alpha \cong (W_\alpha)_{\mathfrak{m}_\alpha}$.
+
+    Thus, the localization cleanly isolates the $\alpha$-generalized eigenspace:
+    \[
+        W_\alpha = (W_\alpha)_{\mathfrak{m}_\alpha} = (W_\alpha)_{\mathfrak{m}_\alpha} \oplus (W_\alpha^\perp)_{\mathfrak{m}_\alpha} = W_{\mathfrak{m}_\alpha} = \left( \frac{\mathcal{D}_X[s] \cdot f^{s-k}}{\mathcal{D}_X[s] \cdot f^{s+k}} \right)_{\mathfrak{m}_\alpha} = \Psi_{f,\alpha}.
+    \]
+    Therefore, since $\mathbb{N}$ is a \textbf{directed} set (induced by its partial order $\le$), the corresponding (filtered) direct limit is an exact functor (it commutes with taking cohomology/kernels)\cite[\href{https://stacks.math.columbia.edu/tag/00DB}{Tag 00DB}]{stacks-project}, we get
+    \[
+        \Psi_{f,\alpha}[1] = W_\alpha[1] = \ker(-s_\infty)[1]\ \simeq\  C_\infty^\bullet = \varinjlim_{m}\Bigl[Q_m^{\alpha,k}\xrightarrow{s}Q_m^{\alpha,k}\Bigr],
     \]
     as claimed.
+
 \end{proof}
 
 \begin{proof}[Proof of  (\ref{Theorem 9.5})]
+
+    All $\simeq$ below is quasi-isomorphism.
+
     \begin{align*}
         \mathrm{DR}(\Psi_{f,-\alpha}[1]) & \cong \mathrm{DR}\left( \varinjlim_m  \left( \frac{N_m^{-\alpha,k}}{N_m^{-\alpha,-k}} \xrightarrow{s} \frac{N_m^{-\alpha,k}}{N_m^{-\alpha,-k}} \right) \right)                                \\
                                          & \cong \varinjlim_m\  \mathrm{DR}\left( \frac{N_m^{-\alpha,k}}{N_m^{-\alpha,-k}} \xrightarrow{s} \frac{N_m^{-\alpha,k}}{N_m^{-\alpha,-k}} \right)                                              \\
-                                         & \simeq \varinjlim_m\ \text{cone}\left( \DR\left(N_{m}^{-\alpha,-k} \xrightarrow{s} N_m^{-\alpha,-k}\right) \rightarrow \DR\left(N_m^{-\alpha,k} \xrightarrow{s} N_m^{-\alpha,k}\right)\right) \\
-                                         & \simeq\varinjlim_m\ \text{cone}\left(j_! f^{-1} L_m^{\lambda} \rightarrow R j_* f^{-1} L_m^{\lambda}\right)\simeq \Psi_{f,\lambda}
+                                         & \text{($\DR$ is computed by $\mathrm{Tot}(-\otimes -)$, further by $\oplus$ and $\otimes$, see proof of Prop.~\ref{prop:20.8},}                                                               \\
+                                         & \text{and note filtered colimit preserves cohomology \cite[\href{https://stacks.math.columbia.edu/tag/00DB}{Tag 00DB}]{stacks-project})}                                                      \\
+                                         & \simeq \varinjlim_m\ \text{Cone}\left( \DR\left(N_{m}^{-\alpha,-k} \xrightarrow{s} N_m^{-\alpha,-k}\right) \rightarrow \DR\left(N_m^{-\alpha,k} \xrightarrow{s} N_m^{-\alpha,k}\right)\right) \\
+                                         & \text{($\DR$ is an exact functor, sends distinguished triangle to distinguished triangle, see proof of Prop.~\ref{prop:20.8})}                                                                \\
+                                         & \simeq\varinjlim_m\ \text{Cone}\left(j_! f^{-1} L_m^{\lambda} \rightarrow R j_* f^{-1} L_m^{\lambda}\right)                                                                                   \\
+                                         & \simeq \Psi_{f,\lambda}
     \end{align*}
 
 
-    By Eq.~\ref{eq:alpha_eigenspace_map}, we consider $$   \Psi_{f,-\alpha} \longrightarrow \ker(-s_{\infty})\atop \eta \longmapsto \sum\limits_{i \geqslant 0} (-s-\alpha)^i \eta\otimes  e_{i}.$$
+    By Eq.~\ref{eq:alpha_eigenspace_map}, we consider
+    \begin{align*}
+        \Psi_{f,-\alpha} & \longrightarrow \ker(-s_{\infty})                                         \\
+        \eta             & \longmapsto \sum\limits_{i \geqslant 0} (-s-\alpha)^i \eta\otimes  e_{i}.
+    \end{align*}
 
-    Then $s+\alpha = -J_{0,\infty}$, and $e^{2\pi i(s+\alpha)} = e^{-2\pi i J_{0,\infty}}$. Furthermore, we obtain that $$e^{-2\pi i\alpha} \cdot e^{2\pi i(s+\alpha)} = e^{-2\pi i J_{\alpha,\infty}} = T$$
+    Then $s+\alpha = -J_{0,\infty}$, and $e^{2\pi i(s+\alpha)} = e^{-2\pi i J_{0,\infty}}$. Furthermore, we obtain that
+    \[
+        e^{-2\pi i\alpha} \cdot e^{2\pi i(s+\alpha)} = e^{-2\pi i J_{\alpha,\infty}} = T
+    \]
+
 \end{proof}
