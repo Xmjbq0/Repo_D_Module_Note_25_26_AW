@@ -365,7 +365,7 @@ For closed point $\alpha \in \mathbb{A}_{\mathbb{C}}^{1} \simeq \operatorname{Sp
 
     \begin{enumerate}
         \item $s - \alpha$ acts on $\Psi_{f,\alpha}$ nilpotently
-        \item $\Psi_{f,\alpha} \cong \Psi_{f,\alpha+1}$ (Note: a $\D_X$-module homomorphism, not a $\D_X[s]$-module homomorphism)
+        \item $\Psi_{f,\alpha} \simeq \Psi_{f,\alpha+1}$ (Note: a $\D_X$-module homomorphism, not a $\D_X[s]$-module homomorphism)
         \item $\Psi_{f,\alpha} \neq 0$ if and only if $\alpha \in \Lambda$
         \item $\Psi_{f,\alpha}$ is a regular holonomic $D_X$-module.
     \end{enumerate}
@@ -434,7 +434,7 @@ For closed point $\alpha \in \mathbb{A}_{\mathbb{C}}^{1} \simeq \operatorname{Sp
               \end{align*}
               We admit the fact that the $\D$-module theoretical (derived) \textbf{inverse image} functor \cite[Sect.~1.5, It is the derived one that comptible with Thm.~6.1.5]{hotta2008d} preserves (algebraic we use here) regular holonomicity \cite[Thm.~6.1.5]{hotta2008d}, then
               \[
-                  f^{*} M_{\alpha}:=M_{\alpha}\otimes_{\mathbb{C}[t]} R\cong R_{f}\cdot f^\alpha= R\left[\frac{1}{f}\right] f^{\alpha}
+                  f^{*} M_{\alpha}:=M_{\alpha}\otimes_{\mathbb{C}[t]} R\simeq R_{f}\cdot f^\alpha= R\left[\frac{1}{f}\right] f^{\alpha}
               \]
               makes $R_{f}\cdot f^\alpha$ a regular holonomic $\mathcal{D}_{X}$-module.
 
@@ -447,7 +447,7 @@ For closed point $\alpha \in \mathbb{A}_{\mathbb{C}}^{1} \simeq \operatorname{Sp
 
               Here, the isomorphism
               \[
-                  \frac{R_f[s]_{\mathfrak{m}_{\alpha}} f^{s}}{(s-\alpha) R_f[s]_{\mathfrak{m}_{\alpha}} f^{s}} \cong R_{f} \cdot f^{\alpha}
+                  \frac{R_f[s]_{\mathfrak{m}_{\alpha}} f^{s}}{(s-\alpha) R_f[s]_{\mathfrak{m}_{\alpha}} f^{s}} \simeq R_{f} \cdot f^{\alpha}
               \]
               arises because quotienting out the $(s-\alpha)$-multiples algebraically corresponds to taking the evaluation map $s \mapsto \alpha$.
               \begin{enumerate}
@@ -478,7 +478,7 @@ For closed point $\alpha \in \mathbb{A}_{\mathbb{C}}^{1} \simeq \operatorname{Sp
               \]
               Since one can verify
               \begin{enumerate}
-                  \item $\mathcal{D}_{X}[s]_{\mathfrak{m}_{\alpha}}f^{s-k} \cong \mathcal{D}_{X}[s]_{\mathfrak{m}_{\alpha}}f^{s}$, even in the case one is a proper subset of the other, since then the isomorphism will not be the inclusion.
+                  \item $\mathcal{D}_{X}[s]_{\mathfrak{m}_{\alpha}}f^{s-k} \simeq \mathcal{D}_{X}[s]_{\mathfrak{m}_{\alpha}}f^{s}$, even in the case one is a proper subset of the other, since then the isomorphism will not be the inclusion.
                   \item Rmk.~\ref{rmk:D_X(s)f^s=R_f(s)f^s_and_D_X[s]_m_alpha_f^s=R_f[s]_m_alpha_f^s},
                         i.e.,
                         $\mathcal{D}_X[s]_{\mathfrak{m}_{\alpha}} f^{s}$ as a submodule $R_f[s]_{\mathfrak{m}_{\alpha}} f^{s}$ actually equals it.
@@ -493,8 +493,15 @@ For closed point $\alpha \in \mathbb{A}_{\mathbb{C}}^{1} \simeq \operatorname{Sp
 \section{Comparison theorem}
 Our next goal is to prove the following theorem:
 \begin{theorem}[Comparison] \label{Theorem 9.5}
-    For all $\alpha \in \mathbb{C}$, $\lambda = e^{2\pi i\alpha}$, $$\mathrm{DR}(\Psi_{f,-\alpha}) \simeq i_* \Psi_{f,\lambda}[-1]$$such that $e^{2\pi is} = \lambda^{-1}\cdot e^{2\pi i(s+\alpha)}$ is the corresponding $T$-action.
+    For all $\alpha \in \mathbb{C}$, $\lambda = e^{2\pi i\alpha}$,
+    $$
+        \mathrm{DR}(\Psi_{f,-\alpha}) \simeq i_* \Psi_{f,\lambda}[-1]
+    $$
+    such that $e^{2\pi is} = \lambda^{-1}\cdot e^{2\pi i(s+\alpha)}$ is the corresponding $T$-action on $\Psi_{f,\lambda}$.
 \end{theorem}
+\begin{remark}
+    The actual definition of a (analytic/topological) \textbf{nearby cycle} will induce a $\mathbb{Z} = \pi_1{\C^*}$ action on $\Psi_{f,\lambda}$, denoted by $T$, see \cite[\S~3.1]{Wu2017NearbyVanishingCycles}.
+\end{remark}
 \begin{remark}
     This section $\lambda = e^{2\pi i \alpha}$ is different with the previous section Sect.~\ref{sect:two_definitions_of_nearby_cycles} definition $\lambda = e^{-2\pi i \alpha}$,
     in subsequent proofs, we will see this ``error'' cancel out itself.
@@ -655,7 +662,7 @@ called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
     \]
     The fiber product $S$ has coordinate ring
     \[
-        \mathcal{O}_S = R_f \otimes_{\mathbb{C}[t,t^{-1}]} \mathbb{C}[t,t^{-1},\tau] \cong R_f[\tau]
+        \mathcal{O}_S = R_f \otimes_{\mathbb{C}[t,t^{-1}]} \mathbb{C}[t,t^{-1},\tau] \simeq R_f[\tau]
     \]
     The map $\varpi$ corresponds to
     \begin{align*}
@@ -875,7 +882,7 @@ called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
                   \mathrm{DR}_{(X)^\mathrm{an}}((\sigma_+M'^\alpha)^\mathrm{an})\simeq Rj_*(f^{-1}L_1^{\lambda^{-1}}).
               \]
               Since $\sigma$ is an isomorphism over $U$.
-              We have $M'^\alpha = \mathcal O_{X'}(*D')\cdot (f')^\alpha \cong j'_+(\mathcal O_{U}\cdot f^\alpha)$.
+              We have $M'^\alpha = \mathcal O_{X'}(*D')\cdot (f')^\alpha \simeq j'_+(\mathcal O_{U}\cdot f^\alpha)$.
 
               So we have
               \[
@@ -1115,11 +1122,11 @@ called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
     \]
     This implies an isomorphism of the localized modules for sufficiently large indices:
     \[
-        (\mathcal{N}_m^{-\alpha,j})_{\underline{\mathfrak{m}}_0} \cong (\mathcal{N}_m^{-\alpha,j-1})_{\underline{\mathfrak{m}}_0}, \quad \text{for } j \gg 0.
+        (\mathcal{N}_m^{-\alpha,j})_{\underline{\mathfrak{m}}_0} \simeq (\mathcal{N}_m^{-\alpha,j-1})_{\underline{\mathfrak{m}}_0}, \quad \text{for } j \gg 0.
     \]
     Therefore, for any fixed $k \gg 0$, the localized module stabilizes as we take the sequential limit going upward to infinity (tensor product commutes with direct limits):
     \[
-        (\mathcal{N}_m^{-\alpha,k})_{\underline{\mathfrak{m}}_0} \cong \varinjlim_{j} (\mathcal{N}_m^{-\alpha,j})_{\underline{\mathfrak{m}}_0} \cong \left( \varinjlim_j \mathcal{N}_m^{-\alpha,j} \right)_{\underline{\mathfrak{m}}_0}.
+        (\mathcal{N}_m^{-\alpha,k})_{\underline{\mathfrak{m}}_0} \simeq \varinjlim_{j} (\mathcal{N}_m^{-\alpha,j})_{\underline{\mathfrak{m}}_0} \simeq \left( \varinjlim_j \mathcal{N}_m^{-\alpha,j} \right)_{\underline{\mathfrak{m}}_0}.
     \]
     Note this is NOT the \hyperref[construction_of_direct_system_of_N_m_alpha_k]{direct system} for $\mathcal{N}_m^{-\alpha,k}$ mentioned before.
 
@@ -1132,7 +1139,7 @@ called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
     Then do the reverse arguments at the begging of proof, which claims that adding localization doesn't change quasi-isomorphism.
     We can drop the localization here.
     \begin{align*}
-        \left[\mathcal{N}^{-\alpha,k}_{m,\underline{\mathfrak{m}}_{0}} \xrightarrow{s}\mathcal{N}^{-\alpha,k}_{m,\underline{\mathfrak{m}}_{0}}\right] & \cong \left[\left(\bigoplus \limits_{\ell=0}^{m-1} \left(R_{f}[s]f^{s}\right) \otimes e_{\ell}^{-\alpha}\right)_{\underline{\mathfrak{m}}_0} \xrightarrow{s} \left(\bigoplus \limits_{\ell=0}^{m-1}\left(R_{f}[s]f^{s}\right) \otimes e_{\ell}^{-\alpha}\right)_{\underline{\mathfrak{m}}_0}\right] \\
+        \left[\mathcal{N}^{-\alpha,k}_{m,\underline{\mathfrak{m}}_{0}} \xrightarrow{s}\mathcal{N}^{-\alpha,k}_{m,\underline{\mathfrak{m}}_{0}}\right] & \simeq \left[\left(\bigoplus \limits_{\ell=0}^{m-1} \left(R_{f}[s]f^{s}\right) \otimes e_{\ell}^{-\alpha}\right)_{\underline{\mathfrak{m}}_0} \xrightarrow{s} \left(\bigoplus \limits_{\ell=0}^{m-1}\left(R_{f}[s]f^{s}\right) \otimes e_{\ell}^{-\alpha}\right)_{\underline{\mathfrak{m}}_0}\right] \\
                                                                                                                                                       & \stackrel{\text{q.i}}{\simeq} \left[\bigoplus \limits_{\ell=0}^{m-1} \left(R_{f}[s]f^{s}\right) \otimes e_{\ell}^{-\alpha} \xrightarrow{s} \bigoplus \limits_{\ell=0}^{m-1}\left(R_{f}[s]f^{s}\right) \otimes e_{\ell}^{-\alpha}\right]
     \end{align*}
 
@@ -1154,7 +1161,7 @@ called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
 
     We claim that
     \[
-        \mathrm{Coker}(s) \cong \bigoplus_{\ell=0}^{m-1} \left(R_{f} \cdot f^{0}\right) \otimes e_{\ell}^{-\alpha}
+        \mathrm{Coker}(s) \simeq \bigoplus_{\ell=0}^{m-1} \left(R_{f} \cdot f^{0}\right) \otimes e_{\ell}^{-\alpha}
     \]
     Which is a \textbf{free} $R_f$-module of rank $m$.
 
@@ -1179,7 +1186,7 @@ called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
     \end{enumerate}
     Using the second structure, we identify
     \[
-        \bigoplus_{\ell=0}^{m-1} \left(R_{f}[s]f^{s}\right) \otimes e_{\ell}^{-\alpha} \cong \bigoplus_{\ell=0}^{m-1} R_{f}[s]
+        \bigoplus_{\ell=0}^{m-1} \left(R_{f}[s]f^{s}\right) \otimes e_{\ell}^{-\alpha} \simeq \bigoplus_{\ell=0}^{m-1} R_{f}[s]
     \]
     We denote the standard basis (the second $s$ structure) of RHS as $u_\ell := f^s \otimes e^{-\alpha}_\ell$ for $\ell = 0, 1, \dots, m-1$.
 
@@ -1381,13 +1388,17 @@ called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
             0 \arrow[r] & K^\bullet \arrow[r]                  & L^\bullet \arrow[r]                  & M^\bullet \arrow[r]                                                      &  0
         \end{tikzcd}
     \]
-    Since short exact sequence of complexes lead to long exact sequences of cohomology,
+    Since short exact sequence of complexes lead to long exact sequences of cohomology, we get commutative diagram:
     \[
         \begin{tikzcd}
             \cdots \arrow[r] & H^n(L^\bullet) \arrow[r] \arrow[d, equal] & H^n(\mathrm{Cone}(K^\bullet\to L^\bullet)) \arrow[r] \arrow[d, "H^n(\varphi)"] & H^{n+1}(K^\bullet) \arrow[r] \arrow[d, equal] & H^{n+1}(L^\bullet) \arrow[r] \arrow[d, equal] & \cdots \\
             \cdots \arrow[r] & H^n(L^\bullet) \arrow[r]                  & H^n(M^\bullet) \arrow[r, "\delta"]                                             & H^{n+1}(K^\bullet) \arrow[r]                  & H^{n+1}(L^\bullet) \arrow[r]                  & \cdots
         \end{tikzcd}
     \]
+    \begin{enumerate}
+        \item  by \cite[Lemma~1.5.3]{Weibel1994HA}, the right square is commutative.
+        \item  by \cite[Exercise.~1.5.6]{Weibel1994HA}, the middle square is commutative.
+    \end{enumerate}
     and by five-lemma, we get $\varphi$ is a quasi-isomorphism.
 
     Then by \cite[\href{https://stacks.math.columbia.edu/tag/014L}{Tag 014L} and \href{https://stacks.math.columbia.edu/tag/014Q}{Tag 014Q}]{stacks-project} the triangle
@@ -1483,7 +1494,7 @@ called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
 \begin{lemma}\label{lem:the_linear_operator_in_colimit}
     Let $W$ be a $\mathbb{C}$-vector space, and let $\varphi$ be a $\mathbb{C}$-linear operator on $W$ admitting a minimal polynomial.
     Set $W_{\infty} = \bigoplus_{k=0}^{\infty} W \otimes e_k$ and define $$\varphi_{\infty}(w \otimes e_i) = (\varphi - \alpha)w \otimes e_i - w \otimes e_{i-1} \quad \text{for all }  w \in W, \; (e_{-1} = 0).$$Then $\varphi_{\infty}$
-    is surjective and $\ker(\varphi_{\infty}) \cong W_{\alpha}$, where $W_{\alpha}$ is the generalized $\alpha$-eigenspace of $\varphi$ in $W$.
+    is surjective and $\ker(\varphi_{\infty}) \simeq W_{\alpha}$, where $W_{\alpha}$ is the generalized $\alpha$-eigenspace of $\varphi$ in $W$.
 \end{lemma}
 \begin{proof}
     Define the linear map:
@@ -1537,13 +1548,13 @@ called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
     \[
         Q_m^{\alpha,k} = \frac{\mathcal{N}_m^{\alpha,k}}{\mathcal{N}_m^{\alpha,-k}}
         = \frac{\sum_{\ell=0}^{m-1} \mathcal{D}_X[s] \cdot f^{s-k} \otimes e_\ell^\alpha}{\sum_{\ell=0}^{m-1} \mathcal{D}_X[s] \cdot f^{s+k} \otimes e_\ell^\alpha}
-        \cong \bigoplus_{\ell=0}^{m-1} \left( \frac{\mathcal{D}_X[s] \cdot f^{s-k}}{\mathcal{D}_X[s] \cdot f^{s+k}} \right) \otimes e_\ell^\alpha
+        \simeq \bigoplus_{\ell=0}^{m-1} \left( \frac{\mathcal{D}_X[s] \cdot f^{s-k}}{\mathcal{D}_X[s] \cdot f^{s+k}} \right) \otimes e_\ell^\alpha
     \]
 
     We have a \hyperref[construction_of_direct_system_of_N_m_alpha_k]{direct system} of $\D_X[s]$-modules, so it induce the direct system of $\{Q_m^{\alpha,k}\}_{m\ge 1}$.
     And its sequential colimit identifies with the infinite direct sum
     \[
-        W_\infty\ :=\ \varinjlim_m Q_m^{\alpha,k}\ \cong\ \bigoplus_{\ell\ge 0} W\otimes e_\ell^\alpha,
+        W_\infty\ :=\ \varinjlim_m Q_m^{\alpha,k}\ \simeq\ \bigoplus_{\ell\ge 0} W\otimes e_\ell^\alpha,
     \]
     where $W = \frac{\mathcal{D}_X[s] \cdot f^{s-k}}{\mathcal{D}_X[s] \cdot f^{s+k}}$ is the base module.
 
@@ -1560,7 +1571,7 @@ called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
     this induced map $s_\infty$ is exactly the shift operator $\varphi_\infty$ from Lemma~\ref{lem:the_linear_operator_in_colimit}
     (with eigenvalue $\alpha$). In particular, Lemma~\ref{lem:the_linear_operator_in_colimit} implies that $s_\infty$ is surjective and
     \[
-        \ker(s_\infty)\ \cong\ W_\alpha,
+        \ker(s_\infty)\ \simeq\ W_\alpha,
     \]
     the generalized $\alpha$-eigenspace, again, if we view $s$ as an endomorphism of $\frac{\mathcal{D}_X[s] \cdot f^{s-k}}{\mathcal{D}_X[s] \cdot f^{s+k}}$.
 
@@ -1571,9 +1582,9 @@ called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
     is quasi-isomorphic to $\mathrm{Ker}(s_\infty)[1]$.
     (The functor $[1]$ has different definition in \cite[\href{https://stacks.math.columbia.edu/tag/05RR}{Tag 05RR}]{stacks-project} and \cite[Translation~1.2.8]{Weibel1994HA}, so the editor don't know $[1]$ or $[-1]$ which one is correct, we follow the lecturer's notation.)
 
-    Finally, by the identification $\ker(s_\infty)\cong W_\alpha$, we link this back to the geometric construction via localization at the maximal ideal $\mathfrak{m}_\alpha = (s-\alpha)$ of $\mathbb{C}[s]$.
+    Finally, by the identification $\ker(s_\infty)\simeq W_\alpha$, we link this back to the geometric construction via localization at the maximal ideal $\mathfrak{m}_\alpha = (s-\alpha)$ of $\mathbb{C}[s]$.
 
-    Recall from the proof of Lemma~\ref{lem:the_linear_operator_in_colimit} that by \textbf{primary decomposition}, $W \cong W_\alpha \oplus W_\alpha^\perp$,
+    Recall from the proof of Lemma~\ref{lem:the_linear_operator_in_colimit} that by \textbf{primary decomposition}, $W \simeq W_\alpha \oplus W_\alpha^\perp$,
     both of them are $\C[s]$-modules ($s$-invariant subspace in Linear Algebra), and $W_\alpha^\perp$ is annihilated by some polynomial factor $Q(s)$ such that $Q(\alpha) \neq 0$.
 
     When we localize the $\mathbb{C}[s]$-module $W$ at $\mathfrak{m}_\alpha$, the polynomial $Q(s) \notin \mathfrak{m}_\alpha$ becomes an invertible unit in the localized ring $\mathbb{C}[s]_{\mathfrak{m}_\alpha}$.
@@ -1596,7 +1607,7 @@ called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
     \[
         \sum_{i=0}^{+\infty} N^i \quad \text{finitely many of } N^i \text{ are non-zero}.
     \]
-    This shows $H(s)$ itself acts invertibly on $W_\alpha$. Consequently, localizing at $\mathfrak{m}_\alpha$ does absolutely nothing to $W_\alpha$, yielding $W_\alpha \cong (W_\alpha)_{\mathfrak{m}_\alpha}$.
+    This shows $H(s)$ itself acts invertibly on $W_\alpha$. Consequently, localizing at $\mathfrak{m}_\alpha$ does absolutely nothing to $W_\alpha$, yielding $W_\alpha \simeq (W_\alpha)_{\mathfrak{m}_\alpha}$.
 
     Thus, the localization cleanly isolates the $\alpha$-generalized eigenspace:
     \[
@@ -1611,12 +1622,58 @@ called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
 \end{proof}
 
 \begin{proof}[Proof of  (\ref{Theorem 9.5})]
+    \mbox{}
 
-    All $\simeq$ below is quasi-isomorphism.
+    All $\simeq$ below is quasi-isomorphism in derived category,
+    which means there may not be a \textbf{chain map} between them (we force quasi-isomorphism \textbf{chain map} to be invertible in derived category), and only guarantee
+    the isomorphism of cohomology groups.
+
+    We have
+    \[
+        \mathrm{DR}(\Psi_{f,-\alpha}[1]) \simeq \mathrm{DR}\left( \varinjlim_m  \left( \frac{N_m^{-\alpha,k}}{N_m^{-\alpha,-k}} \xrightarrow{s} \frac{N_m^{-\alpha,k}}{N_m^{-\alpha,-k}} \right) \right)
+    \]
+    Since we compute $\DR$ by $\mathrm{Tot}(-\otimes -)$ (see proof of Prop.~\ref{prop:20.8}), we get
+    \begin{align*}
+        \mathrm{DR}\left(\varinjlim_m C_m^\bullet\right) & = \Omega \otimes^L_{\D_{X^\mathrm{an}}}\left(\varinjlim_m C_m^\bullet\right)                                                                                                                                 \\
+                                                         & = \mathrm{Tot}\left(\Omega^\bullet\otimes_{\D_{X^\mathrm{an}}}\varinjlim_m C_m^\bullet\right)                          &  & (\text{use $\mathrm{Tot}(-\otimes -)$ to compute }\otimes^L)                     \\
+                                                         & = \mathrm{Tot}\left(\varinjlim_m (\Omega^\bullet\otimes_{\D_{X^\mathrm{an}}} C_m^\bullet)\right)                       &  & (\text{ordinary $\otimes$ commutes with $\mathrm{colim}$; this is left adjoint}) \\
+                                                         & = \varinjlim_m \mathrm{Tot}\left(\Omega^\bullet\otimes_{\D_{X^\mathrm{an}}} C_m^\bullet\right)                         &  & (\text{filtered colim commutes with finite direct sum})                          \\
+                                                         & = \varinjlim_m \left(\Omega \otimes^L_{\D_{X^\mathrm{an}}} C_m^\bullet\right) = \varinjlim_m \mathrm{DR}(C_m^\bullet).
+    \end{align*}
+    Where $\Omega^\bullet$ is given in \cite[Sect.~4.2 and 4.7]{hotta2008d}
+    \[
+        \Omega^0_{X^\mathrm{an}}\otimes_{\mathcal O_{X^\mathrm{an}}}\D_{X^\mathrm{an}} \to \Omega^1_{X^\mathrm{an}}\otimes_{\mathcal O_{X^\mathrm{an}}}\D_{X^\mathrm{an}} \to \dots \to \Omega^n_{X^\mathrm{an}}\otimes_{\mathcal O_{X^\mathrm{an}}}\D_{X^\mathrm{an}}.
+    \]
+    So we have
+    \[
+        \mathrm{DR}\left( \varinjlim_m  \left( \frac{N_m^{-\alpha,k}}{N_m^{-\alpha,-k}} \xrightarrow{s} \frac{N_m^{-\alpha,k}}{N_m^{-\alpha,-k}} \right) \right) = \varinjlim_m\  \mathrm{DR}\left( \frac{N_m^{-\alpha,k}}{N_m^{-\alpha,-k}} \xrightarrow{s} \frac{N_m^{-\alpha,k}}{N_m^{-\alpha,-k}} \right)
+    \]
+    Since in the category of \textbf{complexes} of $\D_X$-modules, we have an exact sequence
+    \[
+        0 \to \left[ N_m^{-\alpha,-k} \xrightarrow{s} N_m^{-\alpha,-k} \right] \to \left[ N_m^{-\alpha,k} \xrightarrow{s} N_m^{-\alpha,k} \right] \to \left[ \frac{N_m^{-\alpha,k}}{N_m^{-\alpha,-k}} \xrightarrow{s} \frac{N_m^{-\alpha,k}}{N_m^{-\alpha,-k}} \right] \to 0
+    \]
+    Which induce a distinguished triangle in the corresponding derived category (see discussion in proof of Prop.~\ref{prop:20.8})
+    \[
+        \left[ N_m^{-\alpha,-k} \xrightarrow{s} N_m^{-\alpha,-k} \right] \to \left[ N_m^{-\alpha,k} \xrightarrow{s} N_m^{-\alpha,k} \right] \to \left[ \frac{N_m^{-\alpha,k}}{N_m^{-\alpha,-k}} \xrightarrow{s} \frac{N_m^{-\alpha,k}}{N_m^{-\alpha,-k}} \right] \to \left[ N_m^{-\alpha,-k} \xrightarrow{s} N_m^{-\alpha,-k} \right][1]
+    \]
+    Here the confusion about definition of $[1]$ will not affect other part.
+
+    Since $\DR$ is an exact functor, it sends distinguished triangle to distinguished triangle, we have (also see discussion in proof of Prop.~\ref{prop:20.8})
+    \[
+        \mathrm{DR}\left( \frac{N_m^{-\alpha,k}}{N_m^{-\alpha,-k}} \xrightarrow{s} \frac{N_m^{-\alpha,k}}{N_m^{-\alpha,-k}} \right) \simeq \mathrm{Cone}\left( \DR\left(N_m^{-\alpha,-k} \xrightarrow{s} N_m^{-\alpha,-k}\right) \rightarrow \DR\left(N_m^{-\alpha,k} \xrightarrow{s} N_m^{-\alpha,k}\right)\right)
+    \]
+    So we get
+    \begin{align*}
+        \varinjlim_m\  \mathrm{DR}\left( \frac{N_m^{-\alpha,k}}{N_m^{-\alpha,-k}} \xrightarrow{s} \frac{N_m^{-\alpha,k}}{N_m^{-\alpha,-k}} \right) & \simeq \varinjlim_m\  \mathrm{Cone}\left( \DR\left(N_m^{-\alpha,-k} \xrightarrow{s} N_m^{-\alpha,-k}\right) \rightarrow \DR\left(N_m^{-\alpha,k} \xrightarrow{s} N_m^{-\alpha,k}\right)\right) \\
+                                                                                                                                                   & = \varinjlim_m\ \mathrm{Cone}\left(j_! f^{-1} L_m^{\lambda} \rightarrow R j_* f^{-1} L_m^{\lambda}\right)
+    \end{align*}
+    In sheaf theory we
+
+
 
     \begin{align*}
-        \mathrm{DR}(\Psi_{f,-\alpha}[1]) & \cong \mathrm{DR}\left( \varinjlim_m  \left( \frac{N_m^{-\alpha,k}}{N_m^{-\alpha,-k}} \xrightarrow{s} \frac{N_m^{-\alpha,k}}{N_m^{-\alpha,-k}} \right) \right)                                \\
-                                         & \cong \varinjlim_m\  \mathrm{DR}\left( \frac{N_m^{-\alpha,k}}{N_m^{-\alpha,-k}} \xrightarrow{s} \frac{N_m^{-\alpha,k}}{N_m^{-\alpha,-k}} \right)                                              \\
+        \mathrm{DR}(\Psi_{f,-\alpha}[1]) & \simeq \mathrm{DR}\left( \varinjlim_m  \left( \frac{N_m^{-\alpha,k}}{N_m^{-\alpha,-k}} \xrightarrow{s} \frac{N_m^{-\alpha,k}}{N_m^{-\alpha,-k}} \right) \right)                               \\
+                                         & \simeq \varinjlim_m\  \mathrm{DR}\left( \frac{N_m^{-\alpha,k}}{N_m^{-\alpha,-k}} \xrightarrow{s} \frac{N_m^{-\alpha,k}}{N_m^{-\alpha,-k}} \right)                                             \\
                                          & \text{($\DR$ is computed by $\mathrm{Tot}(-\otimes -)$, further by $\oplus$ and $\otimes$, see proof of Prop.~\ref{prop:20.8},}                                                               \\
                                          & \text{and note filtered colimit preserves cohomology \cite[\href{https://stacks.math.columbia.edu/tag/00DB}{Tag 00DB}]{stacks-project})}                                                      \\
                                          & \simeq \varinjlim_m\ \text{Cone}\left( \DR\left(N_{m}^{-\alpha,-k} \xrightarrow{s} N_m^{-\alpha,-k}\right) \rightarrow \DR\left(N_m^{-\alpha,k} \xrightarrow{s} N_m^{-\alpha,k}\right)\right) \\
