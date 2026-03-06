@@ -454,7 +454,7 @@ For closed point $\alpha \in \mathbb{A}_{\mathbb{C}}^{1} \simeq \operatorname{Sp
                   \item The ring $\mathbb{C}[s]_{\mathfrak{m}_{\alpha}}$ is a local ring with (its unique) maximal ideal $(s-\alpha)$ reduces canonically to $\mathbb{C}$, collapsing the coefficients from $R_f[s]_{\mathfrak{m}_{\alpha}}$ down to $R_{f}$.
                   \item And the formal symbol $f^{s}$ becomes $f^{\alpha}$, this step didn't actually do evaulation, since they are \textbf{both} the canonical section $1\otimes 1$ in their respective presentations. So the real thing goes:
                         \[
-                            1\otimes 1 \mapsto 1\otimes 1.
+                            f^s:=1\otimes 1 \mapsto 1\otimes 1=:f^\alpha.
                         \]
               \end{enumerate}
               Thus, this quotient module is precisely the regular holonomic $\mathcal{D}_X$-module $R_{f} \cdot f^{\alpha}$.
@@ -1097,6 +1097,12 @@ called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
     One should recall the actual formula for $-\otimes^L -$ is $\mathrm{Tot}(-\otimes-)$, see \cite[\href{https://stacks.math.columbia.edu/tag/064M}{Tag 064M}, \href{https://stacks.math.columbia.edu/tag/06XZ}{Tag 06XZ}, \href{https://stacks.math.columbia.edu/tag/06Y0}{Tag 06Y0}, \href{https://stacks.math.columbia.edu/tag/064K}{Tag 064K}, \href{https://stacks.math.columbia.edu/tag/0GWN}{Tag 0GWN}]{stacks-project}.
     We use this \cite{hotta2008d}'s version here. Note that it is different from our naive one by a shift of degree, see proof of Lem.~\ref{lemma 10.6}.
 
+    \bigskip
+
+    \noindent\textbf{For proving (1):}
+
+    \noindent\textbf{Step 1: (Identification through quasi-isomorphism).}
+
     And the definiion in \cite{hotta2008d} is also a proposition, it claims such defined De Rham functor preserve quasi-isomorphisms.
     So the next step is first to manipulate in derived category, before applying the De Rham functor.
 
@@ -1146,6 +1152,10 @@ called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
     The original lecture note says, one can prove (1) by induction on $m$.
     But instead of doing that, we will prove it directly,
     using the black box introduced in Step 3 of Rmk.~\ref{rmk:continue_prove_lemma_10.6}.
+
+    \medskip
+
+    \noindent\textbf{Step 2: (Restricting to $U$ to get an explicit presentation).}
 
     At this point we think
     \[
@@ -1295,10 +1305,18 @@ called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
     \]
     This confirms that the module $\mathrm{Coker}(s_M)$ correctly recovers the restriction $f^* K^{-\alpha}_m$.
 
+    \medskip
+
+    \noindent\textbf{Step 3: (Apply $\DR$ functor on $U$).}
+
     By the same ($f$ is) non-characteristic (with respect to $K^\alpha_m\mid_{\mathbb{A}^1_\C \setminus \{0\}}$) arguments presented in proof in Lem.~\ref{lemma 10.6}, we get:
     \[
         \mathrm{DR}_{U^\mathrm{an}} \big( (\mathrm{Coker}(s_M)\mid_U)^{\mathrm{an}} \big) \simeq f^{-1} L_m^{\lambda}.
     \]
+
+    \medskip
+
+    \noindent\textbf{Step 4: (Extend $\DR$ functor to $X$).}
 
     To conclude over the entire $X$, we (again) apply the Stabilization of Log De Rham for Lattices (see Step 3 and 4 in Rmk.~\ref{rmk:continue_prove_lemma_10.6}):
     \[
@@ -1419,6 +1437,7 @@ called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
         K^\bullet \to L^\bullet \to M^\bullet \xrightarrow{\text{Not a chain map}} K^\bullet[1]
     \]
     is a distinguished triangle in the derived one \cite[\href{https://stacks.math.columbia.edu/tag/05RU}{Tag 05RU}, \href{https://stacks.math.columbia.edu/tag/05R6}{Tag 05R6} and TR1 of \href{https://stacks.math.columbia.edu/tag/0145}{Tag 0145}]{stacks-project}.
+    (The above process is equivalent to say we have a (structure of) canonical $\delta$ functor \cite[\href{https://stacks.math.columbia.edu/tag/0152}{Tag 0152}, \href{https://stacks.math.columbia.edu/tag/0150}{Tag 0150}]{stacks-project}.)
 
     \medskip
 
@@ -1622,13 +1641,21 @@ called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
 \end{proof}
 
 \begin{proof}[Proof of  (\ref{Theorem 9.5})]
-    \mbox{}
+    \mbox{}\\
 
-    All $\simeq$ below is quasi-isomorphism in derived category,
-    which means there may not be a \textbf{chain map} between them (we force quasi-isomorphism \textbf{chain map} to be invertible in derived category), and only guarantee
-    the isomorphism of cohomology groups.
+    \textbf{Notation:}
+    \begin{enumerate}
+        \item $=$ means there is a single (``real'') chain map, which induce isomorphism of chain complexes.
+        \item $\simeq$ means quasi-isomorphism in derived category,
+              which means there may not be a single \textbf{chain map} connecting two complexes.
 
-    We have
+              In detail, the morphism is of form made by composing
+              an inverted quasi-isomorphism (a ``fake'' chain map, since a non-bijective map can not be inverted)
+              with a chain map (a ``real'' chain map),
+              and only guarantee the isomorphism of cohomology groups.
+    \end{enumerate}
+
+    Firstly, we have
     \[
         \mathrm{DR}(\Psi_{f,-\alpha}[1]) \simeq \mathrm{DR}\left( \varinjlim_m  \left( \frac{N_m^{-\alpha,k}}{N_m^{-\alpha,-k}} \xrightarrow{s} \frac{N_m^{-\alpha,k}}{N_m^{-\alpha,-k}} \right) \right)
     \]
@@ -1665,23 +1692,269 @@ called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
     So we get
     \begin{align*}
         \varinjlim_m\  \mathrm{DR}\left( \frac{N_m^{-\alpha,k}}{N_m^{-\alpha,-k}} \xrightarrow{s} \frac{N_m^{-\alpha,k}}{N_m^{-\alpha,-k}} \right) & \simeq \varinjlim_m\  \mathrm{Cone}\left( \DR\left(N_m^{-\alpha,-k} \xrightarrow{s} N_m^{-\alpha,-k}\right) \rightarrow \DR\left(N_m^{-\alpha,k} \xrightarrow{s} N_m^{-\alpha,k}\right)\right) \\
-                                                                                                                                                   & = \varinjlim_m\ \mathrm{Cone}\left(j_! f^{-1} L_m^{\lambda} \rightarrow R j_* f^{-1} L_m^{\lambda}\right)
+                                                                                                                                                   & \simeq \varinjlim_m\ \mathrm{Cone}\left(j_! f^{-1} L_m^{\lambda} \rightarrow R j_* f^{-1} L_m^{\lambda}\right)
     \end{align*}
-    In sheaf theory we
 
+    In sheaf theory, we have the following exact sequence, governed by the unit/counit map of their corresponding adjunction pairs \cite[23.4.G. and 2.7.B.]{VakilRisingSea2025}.
+    Recall our \hyperref[commutative_diagram_of_hyper_surface]{diagram}, $i: D = f^{-1}(0) \hookrightarrow X$ be the closed immersion complement to $j: U \hookrightarrow X$, then:
+    \[
+        0\to j_! j^{-1} \mathcal{F} \to \mathcal{F} \to i_*i^{-1} \mathcal{F} \to 0
+    \]
+    where $i_* = i_!$ for the closed immersion $i$.
+    Insert $\mathcal{F} = Rj_*f^{-1}L_m^{\lambda}$, and using the property $j^{-1} Rj_* \simeq \mathrm{id}$ (as derived in Step 1 of the proof of Prop.~\ref{prop:20.8}(2)), we get
+    \[
+        0\to j_! f^{-1}L_m^{\lambda} \to Rj_*f^{-1}L_m^{\lambda} \to i_*i^{-1} Rj_*f^{-1}L_m^{\lambda} \to 0
+    \]
+    Applying \cite[\href{https://stacks.math.columbia.edu/tag/08RI}{Tag 08RI}]{stacks-project} (or \cite[\href{https://stacks.math.columbia.edu/tag/014F}{Tag 014F}]{stacks-project} to $\left[j_! f^{-1}L_m^{\lambda} \to Rj_*f^{-1}L_m^{\lambda}\right] \to \left[0\to i_*i^{-1} Rj_*f^{-1}L_m^{\lambda}\right]$), we get the induced distinguished triangle and its cone:
+    \[
+        \mathrm{Cone}\left(j_! f^{-1}L_m^{\lambda} \rightarrow Rj_*f^{-1}L_m^{\lambda}\right) \simeq i_*i^{-1} Rj_*f^{-1}L_m^{\lambda}
+    \]
+    The construction given by \cite[\href{https://stacks.math.columbia.edu/tag/014F}{Tag 014F}]{stacks-project}
+    constitute a morphism between diagrams of direct limit, so we get
+    \[
+        \varinjlim_m\ \mathrm{Cone}\left(j_! f^{-1} L_m^{\lambda} \rightarrow R j_* f^{-1} L_m^{\lambda}\right) \simeq \varinjlim_m\ \mathrm{Cone}\left(0 \to i_*i^{-1} Rj_*f^{-1}L_m^{\lambda}\right) = \varinjlim_m\ i_*i^{-1} Rj_*f^{-1}L_m^{\lambda}
+    \]
+    So we get a result, all cohomology sheaf of
+    \[
+        \mathrm{DR}(\Psi_{f,-\alpha}[1]) \simeq \varinjlim_m\ \mathrm{Cone}\left(j_! f^{-1} L_m^{\lambda} \rightarrow R j_* f^{-1} L_m^{\lambda}\right)
+    \]
+    is supported on $D = f^{-1}(0)$ \cite[\href{https://stacks.math.columbia.edu/tag/00AG}{Tag 00AG}]{stacks-project}.
 
-
+    Then we apply the $i^{-1}$ functor to the entire sequence. Since $i^{-1}$ is an exact functor between derived categories,
+    it commutes with the Cone construction. Moreover, since $i^{-1}$ is a left adjoint \cite[\href{https://stacks.math.columbia.edu/tag/00AD}{Tag 00AD}]{stacks-project},
+    it commutes with (filtered) colimits \cite[\href{https://stacks.math.columbia.edu/tag/0038}{Tag 0038}]{stacks-project}.
     \begin{align*}
-        \mathrm{DR}(\Psi_{f,-\alpha}[1]) & \simeq \mathrm{DR}\left( \varinjlim_m  \left( \frac{N_m^{-\alpha,k}}{N_m^{-\alpha,-k}} \xrightarrow{s} \frac{N_m^{-\alpha,k}}{N_m^{-\alpha,-k}} \right) \right)                               \\
-                                         & \simeq \varinjlim_m\  \mathrm{DR}\left( \frac{N_m^{-\alpha,k}}{N_m^{-\alpha,-k}} \xrightarrow{s} \frac{N_m^{-\alpha,k}}{N_m^{-\alpha,-k}} \right)                                             \\
-                                         & \text{($\DR$ is computed by $\mathrm{Tot}(-\otimes -)$, further by $\oplus$ and $\otimes$, see proof of Prop.~\ref{prop:20.8},}                                                               \\
-                                         & \text{and note filtered colimit preserves cohomology \cite[\href{https://stacks.math.columbia.edu/tag/00DB}{Tag 00DB}]{stacks-project})}                                                      \\
-                                         & \simeq \varinjlim_m\ \text{Cone}\left( \DR\left(N_{m}^{-\alpha,-k} \xrightarrow{s} N_m^{-\alpha,-k}\right) \rightarrow \DR\left(N_m^{-\alpha,k} \xrightarrow{s} N_m^{-\alpha,k}\right)\right) \\
-                                         & \text{($\DR$ is an exact functor, sends distinguished triangle to distinguished triangle, see proof of Prop.~\ref{prop:20.8})}                                                                \\
-                                         & \simeq\varinjlim_m\ \text{Cone}\left(j_! f^{-1} L_m^{\lambda} \rightarrow R j_* f^{-1} L_m^{\lambda}\right)                                                                                   \\
-                                         & \simeq \Psi_{f,\lambda}
+        i^{-1}\varinjlim_m\ \mathrm{Cone}\left(j_! f^{-1} L_m^{\lambda} \rightarrow R j_* f^{-1} L_m^{\lambda}\right) & = \varinjlim_m\ i^{-1}\mathrm{Cone}\left(j_! f^{-1} L_m^{\lambda} \rightarrow R j_* f^{-1} L_m^{\lambda}\right)       \\
+                                                                                                                      & = \varinjlim_m\ \mathrm{Cone}\left(i^{-1}j_! f^{-1} L_m^{\lambda} \rightarrow i^{-1}R j_* f^{-1} L_m^{\lambda}\right) \\
+                                                                                                                      & \simeq \varinjlim_m\ \mathrm{Cone}\left(0 \to i^{-1}i_*i^{-1} Rj_*f^{-1}L_m^{\lambda}\right)                          \\
+                                                                                                                      & = \varinjlim_m\ i^{-1} Rj_*f^{-1}L_m^{\lambda}
     \end{align*}
+    We finally conclude:
+    \[
+        i^{-1} \mathrm{DR}(\Psi_{f,-\alpha}[1]) \simeq \varinjlim_m\ i^{-1} Rj_*f^{-1}L_m^{\lambda} = \Psi_{f,\lambda}.
+    \]
+    Since De Rham complex $\mathrm{DR}(\Psi_{f,-\alpha}[1])$ is also supported on $D$ (we have mentioned it above).
+    Therefore, the adjunction morphism
+    \[
+        \mathrm{DR}(\Psi_{f,-\alpha}[1]) \to i_* i^{-1} \mathrm{DR}(\Psi_{f,-\alpha}[1])
+    \]
+    is an isomorphism (again by \cite[\href{https://stacks.math.columbia.edu/tag/00AG}{Tag 00AG}]{stacks-project}).
+    Combining this with the above calculation, we get:
+    \[
+        \mathrm{DR}(\Psi_{f,-\alpha}[1]) = i_* i^{-1} \mathrm{DR}(\Psi_{f,-\alpha}[1]) \simeq i_* \Psi_{f,\lambda}
+    \]
+    which exactly establishes the Comparison Theorem in derived category.
 
+    \bigskip
+
+    At this point we have to talk about the induced monodromy action seriously, through several steps:
+
+    \noindent\textbf{Step1: }Correctly define the topological \textbf{nearby cycle},
+    and using the \textbf{Poincar\'e-Verdier duality}, to \underline{acquire} the monodromy action.
+
+    Given diagram below, for a holomorphic function $f$ on $X$ (all spaces below are complex manifolds), consider the following commutative diagram:
+    \[
+        \begin{tikzcd}
+            &&\widetilde{X}\arrow{r}\arrow{d}{p}&\widetilde{\C}^*\arrow[d, "\pi"]\\
+            X_0\arrow[r, hook, "i"]&\arrow[ur, leftarrow, "\widetilde{p}"] X\arrow[r, hookleftarrow, "j"]  \arrow[rr, bend right, "f"]& X^*  \arrow[r, "f_0"]&\C
+        \end{tikzcd}
+    \]
+    where
+    \begin{enumerate}
+        \item $X^* = f^{-1}(\C^*)$ and $X_0=f^{-1}(0)$,
+        \item $\pi$ is the composition of the universal covering map of $\C^*$ and the open embedding $j_0:\C^*\hookrightarrow \C$ (the notation $j_0$ here is different from the original one in \cite{Wu2017NearbyVanishingCycles}).
+        \item $\widetilde{X} := X^* \times_{\C} \widetilde{\C}^*$, through the fiber product diagram (in category of topological spaces, \cite[Notation~2.3.12]{KashiwaraSchapira1994Sheaves}):
+              \[
+                  \begin{tikzcd}[row sep=2.5em]
+                      & X^* \times \widetilde{\C}^* \\
+                      & \widetilde{X} \arrow[u, hook] \arrow[dl, "p"'] \arrow[dd, "f_0 \circ p" description] \arrow[dr] \\
+                      X^* \arrow[dr, "f_0"'] & & \widetilde{\C}^* \arrow[dl, "\pi"] \\
+                      & \C
+                  \end{tikzcd}
+              \]
+              where $p$ is just $(x,c) \mapsto x$, for $x\in X^*$ and $c\in \widetilde{\C}^*$.
+    \end{enumerate}
+    For a constructible complex $\d{K}$ on $X$ (\cite[Definition~4.5.3.]{hotta2008d}, just view it as a $\underline{C}_X$ module/complex),
+    we define the nearby cycle as,
+    \[
+        \nearby{K} = i^{-1}Rj_*Rp_*p^{-1}j^{-1}\d{K}=i^{-1}R\widetilde{p}_*\widetilde{p}^{-1}\d{K}.
+    \]
+    From definition, it only depends on $j^{-1}\d{K}$.
+
+    By Poincar\'e-Verdier duality (we will explain it later), we know
+    \[
+        \nearby{K}=i^{-1}R\hm_{{\C_{X}}}(f^{-1}{\pi}_!\C_{\widetilde{\C^*}}, \d{K}).
+    \]
+    \begin{enumerate}
+        \item $T$ of course acts on $\pi_!\underline{\C}_{\widetilde{\C^*}}$
+              (\cite[Definition~C.1.1]{hotta2008d} and \cite[Eq.~2.5.1]{KashiwaraSchapira1994Sheaves}, note $\pi$ is not an embedding, so $\pi_!$ is different from \cite[23.4.7]{VakilRisingSea2025}),
+              \cite{Wu2017NearbyVanishingCycles} define $T$ (viewed as a generator of $\pi_1(\C^*)$) is around the origin \textbf{counterclockwise}.
+        \item So we identify it as a functor in $\mathrm{Mod}(\underline{\C}_{\C^*})$.
+        \item So the induced monodromy action on $i^{-1}R\hm_{{\C_{X}}}(f^{-1}{\pi}_!\C_{\widetilde{\C^*}}, \d{K})$ is
+              \[
+                  T_{\Psi} := i^{-1}R\mathcal Hom_X\bigl(f^{-1}T,\mathrm{id}_K\bigr).
+              \]
+              (At this point, we finally \underline{defined/acquired} the monodromy action.)
+    \end{enumerate}
+    The question becomes how can we identify this Poincar\'e-Verdier duality. Here we just take $K^\bullet = \underline{\C}_X$.
+    \begin{enumerate}
+        \item \textbf{The first push-pull diagram:} $f^{-1} j_{0!} \cong j_! (f|_{X^*})^{-1}$
+
+              First note that, we have a cartesian diagram (in the category of topological spaces):
+              \[
+                  \begin{tikzcd}[row sep=2.5em, column sep=2.5em]
+                      X^* \arrow[r, hook, "j"] \arrow[d, "f|_{X^*}"'] & X \arrow[d, "f"] \\
+                      \C^* \arrow[r, hook, "j_0"']                    & \C
+                  \end{tikzcd}
+              \]
+              By \cite[Proposition~C.1.2]{hotta2008d}, we have an explicit isomorphism
+              \[
+                  f^{-1} j_{0!} \cong j_! (f|_{X^*})^{-1}.
+              \]
+              Therefore (letting $q: \widetilde{\C}^* \to \C^*$ be the universal cover, such that $\pi = j_0 \circ q$),
+              \[
+                  f^{-1} \pi_! \underline{\C}_{\widetilde{\C}^*} \cong j_! (f|_{X^*})^{-1} q_! \underline{\C}_{\widetilde{\C}^*}.
+              \]
+
+        \item \textbf{The second push-pull diagram:} $(f|_{X^*})^{-1} Rq_! \cong R\tilde{p}_!$
+
+              Consider the cartesian square:
+              \[
+                  \begin{tikzcd}[row sep=2.5em, column sep=2.5em]
+                      \widetilde{X} := X^* \times_{\C^*} \widetilde{\C}^* \arrow[r, "\tilde{f}"] \arrow[d, "p"'] & \widetilde{\C}^* \arrow[d, "q"] \\
+                      X^* \arrow[r, "f|_{X^*}"']                                                                 & \C^*
+                  \end{tikzcd}
+              \]
+              For $f_!$ (lower shriek), we have the base change isomorphism (\cite[Proposition~C.2.1]{hotta2008d}, which is induced from \cite[Proposition~C.1.2]{hotta2008d}).
+
+              Applying it to the square above, and taking $\mathcal{F} = \underline{\C}_{\widetilde{\C}^*}$, we obtain
+              \[
+                  (f|_{X^*})^{-1} Rq_! \underline{\C}_{\widetilde{\C}^*} \cong Rp_! \tilde{f}^{-1} \underline{\C}_{\widetilde{\C}^*} = Rp_! \underline{\C}_{\widetilde{X}}.
+              \]
+              ($\widetilde{f}^{-1}\underline{\C}_{\widetilde{\C^*}}$ is a locally constant sheaf, so its inverse image is again locally constant, i.e., $\underline{\C}_{\widetilde{X}}$)
+              Therefore,
+              \[
+                  f^{-1} \pi_! \underline{\C}_{\widetilde{\C}^*} \cong j_! Rp_! \underline{\C}_{\widetilde{X}}.
+              \]
+
+        \item \textbf{The first Poincar\'e Verdier duality:}
+
+              We simulate the \textbf{construction} given in \cite[Section~3.1]{KashiwaraSchapira1994Sheaves}, to ensure we give the correct (quasi-)isomorphism.
+
+              First for the open embedding $j: X^* \hookrightarrow X$, we have adjunction
+              \begin{align*}
+                  \operatorname{Hom}_X(j_!F,G)      & \cong \operatorname{Hom}_{X^*}(F,j^{-1}G) \\
+                  u:j_!F\to G                       & \mapsto u^\sharp=j^{-1}(u)\circ \eta_F    \\
+                  v^\flat=\varepsilon_G\circ j_!(v) & \mapsfrom v:F\to j^{-1}G
+              \end{align*}
+              (We use $\Hom_X$ to denote $\Hom_{\underline{\C}_X}$, and the derived category below has similar abuses of notation.)
+
+              Using \cite[\href{https://stacks.math.columbia.edu/tag/0FND}{Tag 0FND}]{stacks-project}, we give rise to derived category:
+              \[
+                  \operatorname{Hom}_{D(X)}(L j_! F,K) \cong \operatorname{Hom}_{D(X^*)}(F,R j^{-1} K)
+              \]
+              Since $j$ is open immersion, $j_!$ and $j^{-1}$ are exact functors, so we can drop the $L,R$ on them ($j_! = Lj_!$ and $j^{-1} = R j^{-1}$), getting:
+              \[
+                  \operatorname{Hom}_{D(X)}(j_! F,K) \cong \operatorname{Hom}_{D(X^*)}(F,j^{-1} K)
+              \]
+              We use this $j^{-1}$ to replace the functor $f^!_K$, defined in \cite[Thm.~3.1.5]{KashiwaraSchapira1994Sheaves} as:
+              \[
+                  (f^!_K F^\bullet)(V) = \mathrm{Tot}\left(\Hom_{A_X}\left(f_!\left(A_Y \otimes_{\mathbb{Z}_Y} K^\bullet_V\right), F^\bullet\right)\right).
+              \]
+              (We omit the details of the construction of $f^!_K$.)
+              %   Where
+              %   \begin{enumerate}
+              %       \item $A_X$ is a sheaf of rings on $X$ (in our context, the constant sheaf $\underline{\C}_X$).
+              %       \item $K^\bullet$ is a resolution of $\underline{\Z}_Y$ ($0 \to \underline{\Z}_Y \to K^0 \to \cdots \to K^r \to 0$)
+              %             such that all $K^j$'s are flat and $f$-soft \cite[Def.~3.1.1]{KashiwaraSchapira1994Sheaves} $\underline{\Z}_Y$-modules.
+              %       \item $K^\bullet_V$ is defined by $\operatorname{Ker}(K^\bullet \to K^\bullet_{Y \setminus V})$ since $V$ is open in $Y$.
+              %             The latter one $K^\bullet_{Y \setminus V}$ is defined in \cite[Definition~C.1.3]{hotta2008d}.
+              %             This is essentially the extension by zero $j_! j^{-1} K^\bullet$ where $j: V \hookrightarrow Y$.
+              %       \item The restriction map for $V' \subset V$ is induced by the natural morphism $f_!\left(A_Y \otimes_{\underline{\Z}_Y} K^\bullet_{V'}\right) \to f_!\left(A_Y \otimes_{\underline{\Z}_Y} K^\bullet_V\right)$.
+              %   \end{enumerate}
+              This replacement is (somehow) justified by the proof of \cite[Thm.~3.1.12]{KashiwaraSchapira1994Sheaves}.
+
+              In \cite[Prop.~3.10]{KashiwaraSchapira1994Sheaves} the (explicit) (isomorphic) morphism is given by:
+              \[
+                  Rf_*R\mathcal Hom(F^\bullet,f^!G^\bullet) \longrightarrow R\mathcal Hom(Rf_!F^\bullet,Rf_!f^!G^\bullet) \longrightarrow R\mathcal Hom(Rf_!F^\bullet,G^\bullet).
+              \]
+              The second arrow is induced exactly by the counit map $Rf_!f^!G^\bullet \to G^\bullet$.
+
+              This composition is exactly the \textbf{construction} we want to \underline{simulate}.
+
+              Since we have constructed our adjunction
+              \[
+                  \operatorname{Hom}_{D(X)}(j_! F,K) \cong \operatorname{Hom}_{D(X^*)}(F,j^{-1} K),
+              \]
+              we have the counit map
+              \[
+                  \varepsilon_K: j_! j^{-1} K \longrightarrow K.
+              \]
+              Then we insert this counit map to the composition introduced by \cite[Prop.~3.10]{KashiwaraSchapira1994Sheaves}:
+              \[
+                  Rj_* R\mathcal Hom_{X^*}(F, j^{-1}K) \longrightarrow R\mathcal Hom_X(j_! F, j_! j^{-1}K) \xrightarrow{\varepsilon_K \circ -} R\mathcal Hom_X(j_! F, K).
+              \]
+              Note that we only need \textbf{one} resolution here even though there are two right derived functors ($Rj_*$ and $R\mathcal Hom$).
+              This is because if $I^\bullet$ is $K$-injective,
+              then $j^{-1}I^\bullet$ is also $K$-injective on $X^*$ (since $j^{-1}$ is right adjoint to the exact functor $j_!$).
+
+              Furthermore, the internal hom complex $\mathcal Hom_{X^*}(F, j^{-1}I^\bullet)$ consists of flabby sheaves (thus $j_*$-acyclic),
+              so we can apply $j_*$ directly without a second resolution.
+
+              The composition is then realized at the level of chain complexes.
+              A local section (which is a cochain map) $v^\bullet: F^\bullet \to j^{-1}I^\bullet$ evaluates exactly as:
+              \[
+                  v^\bullet \longmapsto j_!(v^\bullet) \longmapsto \varepsilon_{I^\bullet} \circ j_!(v^\bullet) = (v^\bullet)^\flat.
+              \]
+              This matches exactly the adjoint map $(v^\bullet)^\flat$ we explicitly wrote down in our first calculation!
+
+              Therefore, taking $f=j$, $F=Rp_!\underline{\mathbb{C}}_{\widetilde{X}}$, and $G=K$, we obtain the isomorphism:
+              \[
+                  R\mathcal Hom_X\left(j_! Rp_! \underline{\mathbb{C}}_{\widetilde{X}}, K\right) \cong Rj_* R\mathcal Hom_{X^*}\left(Rp_! \underline{\mathbb{C}}_{\widetilde{X}}, j^{-1} K\right).
+              \]
+              Combining this with the equality from steps 1-3, we get:
+              \[
+                  R\mathcal Hom_X\left(f^{-1}\pi_! \underline{\mathbb{C}}_{\widetilde{\mathbb{C}}^*}, K\right) \cong Rj_* R\mathcal Hom_{X^*}\left(Rp_! \underline{\mathbb{C}}_{\widetilde{X}}, j^{-1} K\right).
+              \]
+
+        \item \textbf{The second Poincar\'e Verdier duality, and the final identification:}
+
+              To identify the right hand side, we apply the adjunction formula \cite[Proposition~4.5.6(b)]{KashiwaraSchapira1994Sheaves} again, but this time for the map $p: \widetilde{X} \to X^*$. By setting $f=p$, $F=\underline{\mathbb{C}}_{\widetilde{X}}$, and $G=j^{-1}K$ in the formula, we obtain:
+              \[
+                  Rp_* R\mathcal Hom_{\widetilde{X}}\left(\underline{\mathbb{C}}_{\widetilde{X}}, p^!(j^{-1}K)\right) \cong R\mathcal Hom_{X^*}\left(Rp_! \underline{\mathbb{C}}_{\widetilde{X}}, j^{-1} K\right).
+              \]
+              On the left hand side, $R\mathcal Hom_{\widetilde{X}}(\underline{\mathbb{C}}_{\widetilde{X}}, -)$ is simply the identity functor, so it simplifies to $Rp_* p^!(j^{-1}K)$.
+              Furthermore, since $p: \widetilde{X} \to X^*$ is a covering map (a local homeomorphism, that is, a relative dimension $0$ manifold bundle), by \cite[Theorem~1.6]{Scholze2018} (taking $d=0$), we have the isomorphism:
+              \[
+                  p^! \cong p^* \cong p^{-1}.
+              \]
+              Thus, we obtain the core explicit isomorphism we desired:
+              \[
+                  R\mathcal Hom_{X^*}\left(Rp_!\underline{\mathbb{C}}_{\widetilde{X}}, j^{-1}K\right) \cong Rp_* p^{-1} j^{-1}K.
+              \]
+              Substituting this back into our expression for step 3:
+              \[
+                  R\mathcal Hom_X\left(f^{-1}\pi_!\underline{\mathbb{C}}_{\widetilde{\mathbb{C}}^*}, K\right) \cong Rj_* Rp_* p^{-1} j^{-1}K.
+              \]
+              Finally, to relate this to nearby cycles, we restrict to the central fiber $X_0$ by applying the inverse image functor $i^{-1}$ (where $i: X_0 \hookrightarrow X$):
+              \[
+                  i^{-1} R\mathcal Hom_X\left(f^{-1}\pi_!\underline{\mathbb{C}}_{\widetilde{\mathbb{C}}^*}, K\right) \cong i^{-1} Rj_* Rp_* p^{-1} j^{-1}K = \Psi_f K.
+              \]
+              This sequence of explicit equivalences rigorously unpacks the statement ``By Poincar\'e-Verdier duality \dots'' in \cite{Wu2017NearbyVanishingCycles}.
+
+
+    \end{enumerate}
+
+
+    \medskip
+
+    \noindent\textbf{Step2: }Decompose it to generalized $\lambda$-eigen spaces, and prove each of them is an invariant subspace of the monodromy action.
+
+    \medskip
+
+    \noindent\textbf{Step3: }Introduce the map $tr_\infty$ in \cite[Thm.~3.10]{Wu2017NearbyVanishingCycles}, transport the decomposed monodromy action to our definition.
+
+    \medskip
 
     By Eq.~\ref{eq:alpha_eigenspace_map}, we consider
     \begin{align*}
