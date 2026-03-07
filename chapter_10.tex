@@ -1763,7 +1763,8 @@ called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
     \begin{enumerate}
         \item $X^* = f^{-1}(\C^*)$ and $X_0=f^{-1}(0)$,
         \item $\pi$ is the composition of the universal covering map of $\C^*$ and the open embedding $j_0:\C^*\hookrightarrow \C$ (the notation $j_0$ here is different from the original one in \cite{Wu2017NearbyVanishingCycles}).
-        \item $\widetilde{X} := X^* \times_{\C} \widetilde{\C}^*$, through the fiber product diagram (in category of topological spaces, \cite[Notation~2.3.12]{KashiwaraSchapira1994Sheaves}):
+        \item $\widetilde{X} := X^* \times_{\C} \widetilde{\C}^*$ (or equivalently $X^* \times_{\C^*} \widetilde{\C}^*$).
+              In the category of topological spaces we define fiber products \cite[Notation~2.3.12]{KashiwaraSchapira1994Sheaves} using the commutative diagram below:
               \[
                   \begin{tikzcd}[row sep=2.5em]
                       & X^* \times \widetilde{\C}^* \\
@@ -1773,15 +1774,25 @@ called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
                   \end{tikzcd}
               \]
               where $p$ is just $(x,c) \mapsto x$, for $x\in X^*$ and $c\in \widetilde{\C}^*$.
+
+              This space has a structure of a complex manifold, recall $\widetilde{\C}^* \to \C^*$ is the universal covering essentially equivalent to $\exp: \C \to \C^*$.
+              Locally on $X^* \subset \C^n$ with coordinates $x_1, \dots, x_n$ and on $\widetilde{\C}^* = \C$ with coordinate $\tau$, $\widetilde{X}$ is defined as the zero locus of the holomorphic function
+              $F(x, \tau) = f(x) - e^\tau = 0$ in $X^* \times \C$.
+              The Jacobi matrix of $F$ is:
+              \[
+                  J_F = \begin{bmatrix} \frac{\partial F}{\partial x_1} & \cdots & \frac{\partial F}{\partial x_n} & \frac{\partial F}{\partial \tau} \end{bmatrix}
+                  = \begin{bmatrix} \frac{\partial f}{\partial x_1} & \cdots & \frac{\partial f}{\partial x_n} & -e^\tau \end{bmatrix}
+              \]
+              Since $-e^\tau \neq 0$ for all $\tau \in \C$, the Jacobi matrix $J_F$ always has maximal rank $1$.
     \end{enumerate}
-    For a constructible complex $\d{K}$ on $X$ (\cite[Definition~4.5.3.]{hotta2008d}, just view it as a $\underline{C}_X$ module/complex),
+    For a constructible complex $\d{K}$ on $X$ (\cite[Definition~4.5.3.]{hotta2008d}, just view it as a $\underline{\C}_X$ module/complex),
     we define the nearby cycle as,
     \[
         \nearby{K} = i^{-1}Rj_*Rp_*p^{-1}j^{-1}\d{K}=i^{-1}R\widetilde{p}_*\widetilde{p}^{-1}\d{K}.
     \]
     From definition, it only depends on $j^{-1}\d{K}$.
 
-    By Poincar\'e-Verdier duality (we will explain it later), we know
+    By Poincar\'e-Verdier duality (we will explain the formula below later), we know
     \[
         \nearby{K}=i^{-1}R\hm_{{\C_{X}}}(f^{-1}{\pi}_!\C_{\widetilde{\C^*}}, \d{K}).
     \]
@@ -1816,12 +1827,12 @@ called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
                   f^{-1} \pi_! \underline{\C}_{\widetilde{\C}^*} \cong j_! (f|_{X^*})^{-1} q_! \underline{\C}_{\widetilde{\C}^*}.
               \]
 
-        \item \textbf{The second push-pull diagram:} $(f|_{X^*})^{-1} Rq_! \cong R\tilde{p}_!$
+        \item \textbf{The second push-pull diagram:} $(f|_{X^*})^{-1} Rq_! \cong R\widetilde{p}_!$
 
               Consider the cartesian square:
               \[
                   \begin{tikzcd}[row sep=2.5em, column sep=2.5em]
-                      \widetilde{X} := X^* \times_{\C^*} \widetilde{\C}^* \arrow[r, "\tilde{f}"] \arrow[d, "p"'] & \widetilde{\C}^* \arrow[d, "q"] \\
+                      \widetilde{X} := X^* \times_{\C^*} \widetilde{\C}^* \arrow[r, "\widetilde{f}"] \arrow[d, "p"'] & \widetilde{\C}^* \arrow[d, "q"] \\
                       X^* \arrow[r, "f|_{X^*}"']                                                                 & \C^*
                   \end{tikzcd}
               \]
@@ -1829,7 +1840,7 @@ called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
 
               Applying it to the square above, and taking $\mathcal{F} = \underline{\C}_{\widetilde{\C}^*}$, we obtain
               \[
-                  (f|_{X^*})^{-1} Rq_! \underline{\C}_{\widetilde{\C}^*} \cong Rp_! \tilde{f}^{-1} \underline{\C}_{\widetilde{\C}^*} = Rp_! \underline{\C}_{\widetilde{X}}.
+                  (f|_{X^*})^{-1} Rq_! \underline{\C}_{\widetilde{\C}^*} \cong Rp_! \widetilde{f}^{-1} \underline{\C}_{\widetilde{\C}^*} = Rp_! \underline{\C}_{\widetilde{X}}.
               \]
               ($\widetilde{f}^{-1}\underline{\C}_{\widetilde{\C^*}}$ is a locally constant sheaf, so its inverse image is again locally constant, i.e., $\underline{\C}_{\widetilde{X}}$)
               Therefore,
@@ -1843,13 +1854,19 @@ called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
 
               First for the open embedding $j: X^* \hookrightarrow X$, we have adjunction
               \begin{align*}
-                  \operatorname{Hom}_X(j_!F,G)      & \cong \operatorname{Hom}_{X^*}(F,j^{-1}G) \\
-                  u:j_!F\to G                       & \mapsto u^\sharp=j^{-1}(u)\circ \eta_F    \\
-                  v^\flat=\varepsilon_G\circ j_!(v) & \mapsfrom v:F\to j^{-1}G
+                  \operatorname{Hom}_X(j_!F,G)      & \; \cong \;  \operatorname{Hom}_{X^*}(F,j^{-1}G) \\
+                  u=\left[j_!F\to G\right]          & \longmapsto u^\sharp=j^{-1}(u)\circ \eta_F       \\
+                  v^\flat=\varepsilon_G\circ j_!(v) & \longmapsfrom v=\left[F\to j^{-1}G\right]
               \end{align*}
-              (We use $\Hom_X$ to denote $\Hom_{\underline{\C}_X}$, and the derived category below has similar abuses of notation.)
+              In this case, the unit $\eta_F: F \to j^{-1}j_!F$ and counit $\varepsilon_G: j_!j^{-1}G \to G$ \cite[\href{https://stacks.math.columbia.edu/tag/0036}{Tag 0036}]{stacks-project} natural transformations are relatively easy to identify,
+              if we view $j_!F \subset F$ and $j_!j^{-1}G \subset j^{-1}G$ as subsheave, then on varying open sets $V \subset X^*$ and $W \subset X$:
+              \begin{alignat*}{2}
+                  \eta_F(V): \quad        & F(V) \to (j^{-1}j_!F)(V), & \qquad & s \longmapsto [s]                                                                         \\
+                  \varepsilon_G(W): \quad & (j_!j^{-1}G)(W) \to G(W), & \qquad & [s] \longmapsto \begin{cases} s & W \subset X^* \\ 0 = [s] & \text{otherwise} \end{cases}
+              \end{alignat*}
+              (We use $\Hom_X$ to denote $\Hom_{\mathrm{Mod}_{\underline{\C}_X}}$, and the derived category below has similar abuses of notation.)
 
-              Using \cite[\href{https://stacks.math.columbia.edu/tag/0FND}{Tag 0FND}]{stacks-project}, we give rise to derived category:
+              Using \cite[\href{https://stacks.math.columbia.edu/tag/0FND}{Tag 0FND}]{stacks-project}, we give rise to the adjunction in the (unbounded) derived category:
               \[
                   \operatorname{Hom}_{D(X)}(L j_! F,K) \cong \operatorname{Hom}_{D(X^*)}(F,R j^{-1} K)
               \]
@@ -1895,10 +1912,13 @@ called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
                   Rj_* R\mathcal Hom_{X^*}(F, j^{-1}K) \longrightarrow R\mathcal Hom_X(j_! F, j_! j^{-1}K) \xrightarrow{\varepsilon_K \circ -} R\mathcal Hom_X(j_! F, K).
               \]
               Note that we only need \textbf{one} resolution here even though there are two right derived functors ($Rj_*$ and $R\mathcal Hom$).
-              This is because if $I^\bullet$ is $K$-injective,
-              then $j^{-1}I^\bullet$ is also $K$-injective on $X^*$ (since $j^{-1}$ is right adjoint to the exact functor $j_!$).
+              We mention that in \cite[Example~1.10.11]{KashiwaraSchapira1994Sheaves}, we should assume $K^\bullet$ is \textbf{bounded below}.
+              So the chosen injective resolution $K^\bullet\to I^\bullet$ \cite[Proposition~C.1.7]{hotta2008d} \cite[\href{https://stacks.math.columbia.edu/tag/05TI}{Tag 05TI}]{stacks-project} should also be bounded below.
 
-              Furthermore, the internal hom complex $\mathcal Hom_{X^*}(F, j^{-1}I^\bullet)$ consists of flabby sheaves (thus $j_*$-acyclic),
+              Since $j^{-1}$ is right adjoint to the exact functor $j_!$, then $j^{-1}I^\bullet$ is also a bounded below complex of injective objects \cite[\href{https://stacks.math.columbia.edu/tag/015Z}{Tag 015Z}]{stacks-project}.
+
+              Furthermore, the internal hom complex $\mathcal Hom_{X^*}(F, j^{-1}I^\bullet)$ consists of flabby/flasque sheaves \cite[Corollary~C.1.14]{hotta2008d}
+              (thus $j_*$-acyclic \cite[\href{https://stacks.math.columbia.edu/tag/09T0}{Tag 09T0}, \href{https://stacks.math.columbia.edu/tag/09SW}{Tag 09SW}]{stacks-project}),
               so we can apply $j_*$ directly without a second resolution.
 
               The composition is then realized at the level of chain complexes.
@@ -1906,7 +1926,8 @@ called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
               \[
                   v^\bullet \longmapsto j_!(v^\bullet) \longmapsto \varepsilon_{I^\bullet} \circ j_!(v^\bullet) = (v^\bullet)^\flat.
               \]
-              This matches exactly the adjoint map $(v^\bullet)^\flat$ we explicitly wrote down in our first calculation!
+              This matches exactly the adjoint map $(v^\bullet)^\flat$ we explicitly wrote down in our adjunction pair above.
+              And \cite[Thm.~3.10]{KashiwaraSchapira1994Sheaves} says it is a quasi-isomorphism.
 
               Therefore, taking $f=j$, $F=Rp_!\underline{\mathbb{C}}_{\widetilde{X}}$, and $G=K$, we obtain the isomorphism:
               \[
@@ -1917,22 +1938,35 @@ called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
                   R\mathcal Hom_X\left(f^{-1}\pi_! \underline{\mathbb{C}}_{\widetilde{\mathbb{C}}^*}, K\right) \cong Rj_* R\mathcal Hom_{X^*}\left(Rp_! \underline{\mathbb{C}}_{\widetilde{X}}, j^{-1} K\right).
               \]
 
-        \item \textbf{The second Poincar\'e Verdier duality, and the final identification:}
+        \item \textbf{The second Poincar\'e Verdier duality, and the identification:}
 
-              To identify the right hand side, we apply the adjunction formula \cite[Proposition~4.5.6(b)]{KashiwaraSchapira1994Sheaves} again, but this time for the map $p: \widetilde{X} \to X^*$. By setting $f=p$, $F=\underline{\mathbb{C}}_{\widetilde{X}}$, and $G=j^{-1}K$ in the formula, we obtain:
+              To identify the right hand side, we again use \cite[Thm.~3.1.10]{KashiwaraSchapira1994Sheaves}, we obtain:
               \[
                   Rp_* R\mathcal Hom_{\widetilde{X}}\left(\underline{\mathbb{C}}_{\widetilde{X}}, p^!(j^{-1}K)\right) \cong R\mathcal Hom_{X^*}\left(Rp_! \underline{\mathbb{C}}_{\widetilde{X}}, j^{-1} K\right).
               \]
-              On the left hand side, $R\mathcal Hom_{\widetilde{X}}(\underline{\mathbb{C}}_{\widetilde{X}}, -)$ is simply the identity functor, so it simplifies to $Rp_* p^!(j^{-1}K)$.
-              Furthermore, since $p: \widetilde{X} \to X^*$ is a covering map (a local homeomorphism, that is, a relative dimension $0$ manifold bundle), by \cite[Theorem~1.6]{Scholze2018} (taking $d=0$), we have the isomorphism:
+              On the left hand side, $R\mathcal Hom_{\widetilde{X}}(\underline{\mathbb{C}}_{\widetilde{X}}, -)$ is simply (natural isomorphic to) the identity functor, so it simplifies to $Rp_* p^!(j^{-1}K)$.
+
+              Furthermore, since $p: \widetilde{X} \to X^*$ is a covering map, it is a local homeomorphism,
+              which can be viewed as a topological submersion with fiber dimension $l = 0$ \cite[Definition 3.3.1]{KashiwaraSchapira1994Sheaves}.
+
+              By \cite[Proposition~3.3.2(i)]{KashiwaraSchapira1994Sheaves}, substituting $f = p$ and $l = 0$, we get:
+              \begin{enumerate}
+                  \item $H^k(p^! \underline{\mathbb{C}}_{X^*}) = 0$ for $k \neq 0$,
+                  \item and $H^0(p^! \underline{\mathbb{C}}_{X^*}) \cong \underline{\mathbb{C}}_{\widetilde{X}}$ (locally by \cite[Proposition~3.3.2]{KashiwaraSchapira1994Sheaves}, and globally by \cite[Proposition~3.3.6(iii)]{KashiwaraSchapira1994Sheaves}, since complex manifolds are orientable as real manifolds).
+              \end{enumerate}
+              This implies that the relative dualizing complex $\omega_{\widetilde{X}/X^*} := p^! \underline{\mathbb{C}}_{X^*}$ (\cite[Definition~3.1.16]{KashiwaraSchapira1994Sheaves}) is isomorphic to the constant sheaf $\underline{\mathbb{C}}_{\widetilde{X}}$ placed in degree 0.
+
+              Then, by \cite[Proposition~3.3.2(ii)]{KashiwaraSchapira1994Sheaves}, we obtain the functors defined in \cite[Prop.~3.11]{KashiwaraSchapira1994Sheaves} is an isomorphism:
               \[
-                  p^! \cong p^* \cong p^{-1}.
+                  p^!(\underline{\mathbb{C}}_{X^*}) \otimes^{(L)}_{\underline{\mathbb{C}}_{\widetilde{X}}} p^{-1}(\cdot) \xrightarrow{\sim} p^!(\cdot).
               \]
+              Substituting $p^! \underline{\mathbb{C}}_{X^*} \cong \underline{\mathbb{C}}_{\widetilde{X}}$ into the left side, we have an isomorphism of functors $p^{-1} \cong p^!$.
+
               Thus, we obtain the core explicit isomorphism we desired:
               \[
                   R\mathcal Hom_{X^*}\left(Rp_!\underline{\mathbb{C}}_{\widetilde{X}}, j^{-1}K\right) \cong Rp_* p^{-1} j^{-1}K.
               \]
-              Substituting this back into our expression for step 3:
+              Substituting this back into our expression obtain in our first application of Poincar\'e Verdier duality, then:
               \[
                   R\mathcal Hom_X\left(f^{-1}\pi_!\underline{\mathbb{C}}_{\widetilde{\mathbb{C}}^*}, K\right) \cong Rj_* Rp_* p^{-1} j^{-1}K.
               \]
@@ -1940,19 +1974,162 @@ called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
               \[
                   i^{-1} R\mathcal Hom_X\left(f^{-1}\pi_!\underline{\mathbb{C}}_{\widetilde{\mathbb{C}}^*}, K\right) \cong i^{-1} Rj_* Rp_* p^{-1} j^{-1}K = \Psi_f K.
               \]
-              This sequence of explicit equivalences rigorously unpacks the statement ``By Poincar\'e-Verdier duality \dots'' in \cite{Wu2017NearbyVanishingCycles}.
-
+              This sequence of (explicit) equivalences unpacks the statement ``By Poincar\'e-Verdier duality, we know
+              $\nearby{K}=i^{-1}R\hm_{{\C_{X}}}(f^{-1}{\pi}_!\C_{\widetilde{\C^*}}, \d{K})$'' in \cite[\S~3.1]{Wu2017NearbyVanishingCycles}.
 
     \end{enumerate}
-
 
     \medskip
 
     \noindent\textbf{Step2: }Decompose it to generalized $\lambda$-eigen spaces, and prove each of them is an invariant subspace of the monodromy action.
 
+    (With regard to the fact that there is a notation $\lambda$ in our definition of nearby cycle, we have to continue.)
+
+    \begin{enumerate}
+        \item The ``derived'' category of constructible sheaves $D_c(X)$ \cite[Definition~4.5.3, Notation~4.5.4]{hotta2008d} is a triangulated subcategory of $D(\underline{\C}_X)$, by \cite[\href{https://stacks.math.columbia.edu/tag/06UP}{06UP}, \href{https://stacks.math.columbia.edu/tag/06UQ}{06UQ}, \href{https://stacks.math.columbia.edu/tag/02MO}{02MO}]{stacks-project},
+              provided \cite[Definition~4.5.3]{hotta2008d} is a \textbf{Serre subcategory} of $\mathrm{Mod}_{\underline{\C}_X}$.
+
+              The editor didn't find a direct reference of this, but a somehow relative one \cite[Thm.~8.4.2, Def.~8.4.3 with the discussion below]{KashiwaraSchapira1994Sheaves}, the author of this book thinks it (``Serre subcategory'') is immediate.
+
+        \item By \cite[Def.~4.5.10, Def.~8.1.1, Thm.~8.1.9, Def.~8.1.20, Thm.~8.1.27 and Def.~8.1.28]{KashiwaraSchapira1994Sheaves} (a series propositions to define a \textbf{heart} of a triangulated category), we obtain $\mathrm{Perv}(\underline{\C}_X)$ is an abelian  (sub)category.
+
+        \item By \cite[Lemma~3.2]{Wu2017NearbyVanishingCycles}, we globally (using category theory) define the generalized eigenspace decomposition of an objects in abelian category.
+
+        \item By \cite[Prop~3.3]{Wu2017NearbyVanishingCycles} (which is similar to the proof in Lem.~\ref{lemma 8.5}, since the definition of constructible sheaf require the stratification to be \textbf{locally finite}), using \cite[Lemma~3.2]{Wu2017NearbyVanishingCycles} once we get a locally defined generalized eigenspace.
+              we locally find a minimal polynomial of $T$ acting on $\Psi_f K$.
+
+        \item If we further assume the construction in \cite[Lemma~3.2, Not 3.3]{Wu2017NearbyVanishingCycles} is functorial,
+              then combine \cite[2.5.1~Thm.]{VakilRisingSea2025}, we get a globally defined $\lambda$-generalized eigenspace $\Psi_{f,\lambda} K$ of $\Psi_f K$.
+    \end{enumerate}
+
+
     \medskip
 
     \noindent\textbf{Step3: }Introduce the map $tr_\infty$ in \cite[Thm.~3.10]{Wu2017NearbyVanishingCycles}, transport the decomposed monodromy action to our definition.
+
+    We should upgrade the result in Step 1 to
+    \[
+        \biG{L_{(T-\lambda)^m}}=i^{-1}Rj_*(L^\vee_{(T-\lambda)^m}\otimes \d K)
+    \]
+    Where
+    \begin{enumerate}
+        \item $K^\bullet$ is a complex of constructible shaves.
+        \item $G(\bullet,\bullet)=i^{-1}R\hm_{\C_{{X}}}(f^{-1}\bullet,\bullet)$.
+        \item $L_{(T-\lambda)^m}$ is a local system on $\C^*$ \cite[\S~3.2.1]{Wu2017NearbyVanishingCycles}.
+
+              Under the categorical equivalence of Prop.~\ref{prop:classification-of-local-system},
+              since a (group) $G$-representation can be viewed as a (associative algebra) $\mathbb{Z}[G]$-representation/module,
+              so a local system is a $\mathbb{Z}[\pi_1(\C^*)]=\mathbb{Z}[T]$ module.
+
+              Since the fiber of local system $L_x$ forms a $\C$ vector space,
+              then we have a ring map $\C\otimes_\mathbb{Z} \mathbb{Z}[T] \to \End_{\mathbb{Z}}(L_x)$ so $L_x$ becomes a $\C[T]$-module.
+              so we can use result for module over PID.
+
+              Through above identifications, we define $L_{(T-\lambda)^m}$ as the finitely generated, indecomposable $\C[T]$-module with minimal polynomial $(T-\lambda)^m$.
+        \item $\vee$ is the dual of a local system, here we take open set $U=\C^*$:
+              \[
+                  L^\vee:=\mathcal Hom_{\mathbb C_U}(L,\mathbb C_U)
+              \]
+    \end{enumerate}
+
+    In \cite[\S~3.2.1]{Wu2017NearbyVanishingCycles}, he (the lecturer of this course) require the local system to be \textbf{regular}.
+    That is the $T$ action is invertible.
+
+    % So the $\C[T]$ action on a regular local system $L$ upgrade to a $\C[T, T^{-1}]$ action.
+
+    But note that the section of $\pi_!(\underline{\C}_{\widetilde{\C^*}})\mid_{\C^*}$ constitute an
+    (countably, since $\pi_!$ is a proper pushforward) \textbf{infinite} dimensional $\C$-vector space, so rigorously speaking,
+    it is not a local system in the sense of \cite[Definition~1.1]{DeligneLNM163}.
+
+    So at this point we have to upgrade Prop.~\ref{prop:classification-of-local-system} to its infinite-dimensional
+    version \cite[Proposition~1.7]{ElZeinSnoussi2009LocalSystems}
+    and note that $\C$ is of characteristic $0$, so we have a ring map $\mathbb{Q}\hookrightarrow\C$.
+
+    So $\pi_!(\underline{\C}_{\widetilde{\C^*}})\mid_{\C^*}$ correspond to $\C[T, T^{-1}]$ as a (non-finitely generated) $\C[T]$-module.
+
+    % Then we have, in the category of (possibly non-finitely generated) $\C[T]$-modules:
+    % \[
+    %     \Hom_{\C[T]}(\C[T,T^{-1}], L) = \Hom_{\C[T]}(\C[T], L) = L
+    % \]
+
+    Recall Step 1, we elaborate the Poincar\'e Verdier duality when $f$ in \cite[Thm.~3.10]{KashiwaraSchapira1994Sheaves} is an open embedding.
+
+    So we have
+    \begin{align*}
+        \biG{L_{(T-\lambda)^m}} & := i^{-1}R\hm_{\C_{{X}}}(f^{-1}j_{0!}L_{(T-\lambda)^m},K^\bullet)              &  & \text{(Definition, here $j_0$ should be inserted)}  \\
+                                & = i^{-1}R\hm_{\C_{{X}}}(j_!f_0^{-1}L_{(T-\lambda)^m},K^\bullet)                &  & \text{(First push-pull diagram in Step 1)}          \\
+                                & \simeq i^{-1}Rj_* R\hm_{\C_{{X^*}}}(f_0^{-1}L_{(T-\lambda)^m},j^{-1}K^\bullet) &  & \text{(First Poincar\'e Verdier duality in Step 1)}
+    \end{align*}
+    In \cite[Lemma~3.9]{Wu2017NearbyVanishingCycles}, we have exact sequence
+    \[
+        \begin{CD}
+            0@>>>\C[T,T^{-1}]@>g(T)>>\C[T,T^{-1}] @>>>\frac{\C[T]}{(g(T))}@>>>0.
+        \end{CD}
+    \]
+    With categorical equivalence talked above, on $\C$, we get
+    \[
+        \begin{CD}
+            S_g: 0@>>>\pi_!\C_{\widetilde{\C^*}}@>g(T)>>\pi_!\C_{\widetilde{\C^*}} @>tr_g>>j_{0!} L_g @>>>0.
+        \end{CD}
+    \]
+    Applying the contravariant functor $i^{-1}R\hm_{\C_{{X}}}(f^{-1}(-), K^\bullet)$ to the exact sequence $S_g$ yields a distinguished triangle:
+    \[
+        i^{-1}R\hm_{\C_{{X}}}(f^{-1} j_{0!} L_g, K^\bullet) \xrightarrow{(tr_g)^*} i^{-1}R\hm_{\C_{{X}}}(f^{-1}\pi_!\C_{\widetilde{\C^*}}, K^\bullet) \xrightarrow{g(T)^*} i^{-1}R\hm_{\C_{{X}}}(f^{-1}\pi_!\C_{\widetilde{\C^*}}, K^\bullet) \xrightarrow{+1}
+    \]
+    Insert our definition:
+    \[
+        \biG{L_g} = i^{-1}R\hm_{\C_{{X}}}(f^{-1} j_{0!} L_g, K^\bullet) \quad \text{and} \quad \Psi_f K^\bullet = i^{-1}R\hm_{\C_{{X}}}(f^{-1}\pi_!\C_{\widetilde{\C^*}}, K^\bullet)
+    \]
+    This translates exactly to (provided we use $L_g$ to represent $j_{0!}L_g$):
+    \[
+        \biG{L_g} \longrightarrow \Psi_f K^\bullet \xrightarrow{g(T_\Psi)} \Psi_f K^\bullet \xrightarrow{+1}
+    \]
+    which implies that $\biG{L_g}$ is quasi-isomorphic to the shifted cone of the operator $g(T_\Psi)$:
+    \[
+        \biG{L_g} \simeq \mathrm{Cone}\left( \Psi_f K^\bullet \xrightarrow{g(T_\Psi)} \Psi_f K^\bullet \right)[-1]
+    \]
+    This expresses $\biG{L_g}$ as exactly the derived generalized eigenspace of $\Psi_f K^\bullet$ with respect to the polynomial $g(T_\Psi)$.
+
+    Now taking $g(T) = (T-\lambda)^m$ for $m > 0$. The $T$-action on $S_{(T-\lambda)^m}$ induces a $T$-action on $\biG{S_{(T-\lambda)^m}}$. Because the $T$-action on $\biG{L_{(T-\lambda)^m}} = i^{-1}Rj_*(f_0^{-1} L^\vee_{(T-\lambda)^m}\otimes j^{-1} K^\bullet)$ has only 1 eigenvalue $\lambda$ (by the definition of $L_{(T-\lambda)^m}$), we obtain a distinguished triangle (which we denote as $D_m$):
+    \[
+        D_m:\begin{CD} i^{-1}Rj_*(j^{-1} K^\bullet \otimes f_0^{-1}L^\vee_{(T-\lambda)^m}) @>{tr_{(T-\lambda)^m}^*}>> \Psi_{f,\lambda}(K^\bullet) @>{(T_\Psi-\lambda )^m} >> \Psi_{f,\lambda}(K^\bullet) @>{+1}>>
+        \end{CD}
+    \]
+    where we have projected onto the generalized $\lambda$-eigenspace $\Psi_{f,\lambda}(K^\bullet)$ of the nearby cycle.
+
+    The multiplication by $T-\lambda$ induces a natural morphism of complexes
+    \[T-\lambda: S_{(T-\lambda)^{m+1}}\arr S_{(T-\lambda)^{m}};\]
+    to be precise, the morphism of short exact sequences is
+    \[
+        \begin{CD}
+            0@>>>\pi_!\C_{\widetilde{\C^*}}@>(T-\lambda)^{m+1}>>\pi_!\C_{\widetilde{\C^*}} @>>> j_{0!} L_{(T-\lambda)^{m+1}} @>>>0\\
+            @.@V{T-\lambda}VV @V{\text{id}}VV @VVV\\
+            0@>>>\pi_!\C_{\widetilde{\C^*}}@>(T-\lambda)^{m}>>\pi_!\C_{\widetilde{\C^*}} @>>> j_{0!} L_{(T-\lambda)^m} @>>>0 .
+        \end{CD}
+    \]
+    As $m\to \infty$, we obtain an inverse system of short exact sequences. It is obvious that $T$ also acts on this inverse system.
+    Applying our contravariant functor $\biG{\bullet}$ reverses the arrows, yielding a direct system of distinguished triangles:
+    \[
+        \begin{CD}
+            \biG{L_{(T-\lambda)^m}} @>>> \Psi_f K^\bullet @>(T_\Psi-\lambda)^m>> \Psi_f K^\bullet @>{+1}>> \\
+            @VVV @V{\text{id}}VV @V{T_\Psi-\lambda}VV \\
+            \biG{L_{(T-\lambda)^{m+1}}} @>>> \Psi_f K^\bullet @>(T_\Psi-\lambda)^{m+1}>> \Psi_f K^\bullet @>{+1}>>
+        \end{CD}
+    \]
+    After taking the $\lambda$-eigenspaces of this direct system (which is an exact functor extracting the relevant blocks), we get exactly the direct system sequence of distinguished triangles $D_m$:
+    \[\cdots\to D_m \to D_{m+1}\to \cdots.\]
+
+    By the definition of the generalized eigenspace $\Psi_{f,\lambda}(K^\bullet)$, any section is annihilated by $(T_\Psi-\lambda)^m$ for $m \gg 0$. This means that the direct limit $\varinjlim_m (T_\Psi-\lambda)^m$ acts as $0$ on $\Psi_{f,\lambda}(K^\bullet)$, so the direct limit of the third term in $D_m$ vanishes; hence
+    \[
+        \varinjlim_m D_m = \left[ \varinjlim_m i^{-1}Rj_*(j^{-1} K^\bullet \otimes f_0^{-1}L^\vee_{(T-\lambda)^m}) \xrightarrow{tr^\infty_{\lambda}} \Psi_{f,\lambda}(K^\bullet) \to 0 \xrightarrow{+1} \right].
+    \]
+    Since the filtered direct limit functor $\varinjlim$ is exact, we know $\varinjlim_m D_m$ is itself a distinguished triangle. Therefore, we see
+    \[
+        tr^{\infty}_\lambda : \varinjlim_m i^{-1}Rj_*(j^{-1} K^\bullet \otimes f_0^{-1}L^\vee_{(T-\lambda)^m})[-1] \longrightarrow \Psi_{f,\lambda}(K^\bullet)[-1]
+    \]
+    is a quasi-isomorphism (hence an isomorphism as perverse sheaves up to a shift of degree).
+
+    Finally, replacing the dual local system $L^\vee_{(T-\lambda)^m}$ with the algebraic module $H_{-\alpha, m}$ via the Riemann-Hilbert correspondence (specifically using Lemma \ref{dualrr} and the isomorphism in \eqref{JordanLS} tracking the connection $\nabla = d - \alpha \frac{dt}{t}$), the operator $T$ maps to $e^{-2\pi\sqrt{-1}J_{-\alpha,m}}$. This concludes the identification of the underlying geometric representation.
 
     \medskip
 
