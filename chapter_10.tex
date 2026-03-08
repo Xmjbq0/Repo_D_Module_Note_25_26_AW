@@ -71,6 +71,7 @@ We have a local system, recall the equivalence given in Prop.~\ref{prop:classifi
 $$
     L_m^{\lambda}=\left(\bigoplus \limits_{i=0}^{m-1}\mathbb{C}\cdot v_{i}, e^{-2\pi iJ_{\alpha,m}}\right)
 $$
+\phantomsection\label{eq:local_system_L^lambda_m}
 There are several things to be point out:
 \begin{enumerate}
     \item Taking fiber (not stalk) at any given point $p\in(\mathbb{A}_{\mathbb{C}}^1 \setminus \{0\})^{\mathrm{an}}$, $\Ker(\nabla)$ becomes a finite ($m$) dimensional $\C$ vector space.
@@ -1082,14 +1083,6 @@ called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
     Here is where $\lambda\to {\lambda^{-1}}$ cancels out itself.
     The De Rham functors are taken over $X$.
 \end{remark}
-% \begin{remark}
-%     At this point we have to explain the correct category that $\mathcal{N}_m^{-\alpha,k}$ lives in, in order to rigorously apply the De Rham functor.
-
-%     Strictly speaking, $\mathcal{N}_m^{-\alpha,k}$ is a coherent $\mathcal{D}_X[s]$-module. To geometrically evaluate its De Rham complex without passing through Hironaka's resolution of singularities, we utilize Kashiwara's graph embedding $\Gamma_f: X \to Y = X \times \mathbb{A}^1_\C$.
-%     By setting $s = -\partial_t t$, the category of $\mathcal{D}_X[s]$-modules can be faithfully identified with the category of $\mathcal{D}_Y$-modules equipped with a $V$-filtration along the smooth divisor $\widetilde{D} = X \times \{0\}$ defined by $t=0$.
-%     Under this geometric lens, $\mathcal{N}_m^{-\alpha,k}$ precisely matches the Kashiwara-Malgrange $V$-filtration of the regular holonomic $\mathcal{D}_Y$-module $\Gamma_{f,+}(j_*\mathcal{O}_U \cdot f^{-\alpha})$. Since $\widetilde{D}$ is a smooth divisor on $Y$, the $V$-filtration components are exactly the coherent logarithmic $\mathcal{D}_Y(\log \widetilde{D})$-lattices extending the connection across the boundary!
-%     Thus, by "logarithmic lattice", we rigorously mean a $\mathcal{D}_Y(\log \widetilde{D})$-lattice on the graph $Y$, which allows us to stably apply theorems designed for smooth log pairs.
-% \end{remark}
 \begin{proof}
     First we explain the notation, how can we apply De Rham to a complex?
     We should use the derived version defined in \cite[Sect.~4.7]{hotta2008d}:
@@ -1515,13 +1508,13 @@ called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
 \begin{lemma}\label{lem:the_linear_operator_in_colimit}
     Let $W$ be a $\mathbb{C}$-vector space, and let $\varphi$ be a $\mathbb{C}$-linear operator on $W$ admitting a minimal polynomial.
     Set $W_{\infty} = \bigoplus_{k=0}^{\infty} W \otimes e_k$ and define $$\varphi_{\infty}(w \otimes e_i) = (\varphi - \alpha)w \otimes e_i - w \otimes e_{i-1} \quad \text{for all }  w \in W, \; (e_{-1} = 0).$$Then $\varphi_{\infty}$
-    is surjective and $\ker(\varphi_{\infty}) \simeq W_{\alpha}$, where $W_{\alpha}$ is the generalized $\alpha$-eigenspace of $\varphi$ in $W$.
+    is surjective and $\mathrm{Ker}(\varphi_{\infty}) \simeq W_{\alpha}$, where $W_{\alpha}$ is the generalized $\alpha$-eigenspace of $\varphi$ in $W$.
 \end{lemma}
 \begin{proof}
     Define the linear map:
     \begin{equation}
         \begin{aligned}\label{eq:alpha_eigenspace_map}
-            W_{\alpha} & \longrightarrow \ker(\varphi_{\infty})                                       \\
+            W_{\alpha} & \longrightarrow \mathrm{Ker}(\varphi_{\infty})                                       \\
             w          & \longmapsto \sum\limits_{i \geqslant 0} (\varphi - \alpha)^i w \otimes e_{i}
         \end{aligned}
     \end{equation}
@@ -1531,9 +1524,9 @@ called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
               \[
                   \varphi_{\infty} \left( \sum_{i \geqslant 0} (\varphi-\alpha)^i w \otimes e_i \right) = \sum_{i \geqslant 0} (\varphi-\alpha)^{i+1} w \otimes e_i - \sum_{i \geqslant 0} (\varphi-\alpha)^i w \otimes e_{i-1} = 0
               \]
-              (where $e_{-1}=0$). Thus, the image strictly lies in $\ker(\varphi_{\infty})$.
+              (where $e_{-1}=0$). Thus, the image strictly lies in $\mathrm{Ker}(\varphi_{\infty})$.
         \item \textbf{Injectivity:} The $e_0$ component of the image sequence is exactly $w \otimes e_0$. If the sum evaluates to zero, this dominant $e_0$ term forces $w=0$.
-        \item \textbf{Surjectivity:} Suppose $\eta = \sum_{i \geqslant 0} w_i \otimes e_i \in \ker(\varphi_\infty)$. Setting $\varphi_\infty(\eta) = 0$ implies the recurrence relation $(\varphi-\alpha) w_{i} - w_{i+1} = 0$ across all $i \geqslant 0$. This solves inductively to $w_{i} = (\varphi-\alpha)^i w_0$. Because $\eta$ is a structurally finite sum in $W_\infty$, there must exist some index $N$ where $w_N = 0$. Consequently, $(\varphi-\alpha)^N w_0 = 0$, which precisely dictates that $w_0 \in W_\alpha$. Therefore, $\eta$ is perfectly determined as the exact image of $w_0$.
+        \item \textbf{Surjectivity:} Suppose $\eta = \sum_{i \geqslant 0} w_i \otimes e_i \in \mathrm{Ker}(\varphi_\infty)$. Setting $\varphi_\infty(\eta) = 0$ implies the recurrence relation $(\varphi-\alpha) w_{i} - w_{i+1} = 0$ across all $i \geqslant 0$. This solves inductively to $w_{i} = (\varphi-\alpha)^i w_0$. Because $\eta$ is a structurally finite sum in $W_\infty$, there must exist some index $N$ where $w_N = 0$. Consequently, $(\varphi-\alpha)^N w_0 = 0$, which precisely dictates that $w_0 \in W_\alpha$. Therefore, $\eta$ is perfectly determined as the exact image of $w_0$.
     \end{itemize}
 
     To show that $\varphi_{\infty}$ is surjective, we decompose $W = W_{\alpha} \oplus W_{\alpha}^{\perp}$, where $W_{\alpha}^{\perp} = \bigoplus_{\beta \neq \alpha} W_{\beta}$ is the direct sum of all other generalized eigenspaces (or equivalently, the kernel of $Q(\varphi)$ where the minimal polynomial $P(x) = (x-\alpha)^d Q(x)$ and $Q(\alpha) \neq 0$).
@@ -1592,7 +1585,7 @@ called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
     this induced map $s_\infty$ is exactly the shift operator $\varphi_\infty$ from Lemma~\ref{lem:the_linear_operator_in_colimit}
     (with eigenvalue $\alpha$). In particular, Lemma~\ref{lem:the_linear_operator_in_colimit} implies that $s_\infty$ is surjective and
     \[
-        \ker(s_\infty)\ \simeq\ W_\alpha,
+        \mathrm{Ker}(s_\infty)\ \simeq\ W_\alpha,
     \]
     the generalized $\alpha$-eigenspace, again, if we view $s$ as an endomorphism of $\frac{\mathcal{D}_X[s] \cdot f^{s-k}}{\mathcal{D}_X[s] \cdot f^{s+k}}$.
 
@@ -1603,7 +1596,7 @@ called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
     is quasi-isomorphic to $\mathrm{Ker}(s_\infty)[1]$.
     (The functor $[1]$ has different definition in \cite[\href{https://stacks.math.columbia.edu/tag/05RR}{Tag 05RR}]{stacks-project} and \cite[Translation~1.2.8]{Weibel1994HA}, so the editor don't know $[1]$ or $[-1]$ which one is correct, we follow the lecturer's notation.)
 
-    Finally, by the identification $\ker(s_\infty)\simeq W_\alpha$, we link this back to the geometric construction via localization at the maximal ideal $\mathfrak{m}_\alpha = (s-\alpha)$ of $\mathbb{C}[s]$.
+    Finally, by the identification $\mathrm{Ker}(s_\infty)\simeq W_\alpha$, we link this back to the geometric construction via localization at the maximal ideal $\mathfrak{m}_\alpha = (s-\alpha)$ of $\mathbb{C}[s]$.
 
     Recall from the proof of Lemma~\ref{lem:the_linear_operator_in_colimit} that by \textbf{primary decomposition}, $W \simeq W_\alpha \oplus W_\alpha^\perp$,
     both of them are $\C[s]$-modules ($s$-invariant subspace in Linear Algebra), and $W_\alpha^\perp$ is annihilated by some polynomial factor $Q(s)$ such that $Q(\alpha) \neq 0$.
@@ -1636,7 +1629,7 @@ called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
     \]
     Therefore, since $\mathbb{N}$ is a \textbf{directed} set (induced by its partial order $\le$), the corresponding (filtered) direct limit is an exact functor (it commutes with taking cohomology/kernels)\cite[\href{https://stacks.math.columbia.edu/tag/00DB}{Tag 00DB}]{stacks-project}, we get
     \[
-        \Psi_{f,\alpha}[1] = W_\alpha[1] = \ker(-s_\infty)[1]\ \simeq\  C_\infty^\bullet = \varinjlim_{m}\Bigl[Q_m^{\alpha,k}\xrightarrow{s}Q_m^{\alpha,k}\Bigr],
+        \Psi_{f,\alpha}[1] = W_\alpha[1] = \mathrm{Ker}(s_\infty)[1]\ \simeq\  C_\infty^\bullet = \varinjlim_{m}\Bigl[Q_m^{\alpha,k}\xrightarrow{s}Q_m^{\alpha,k}\Bigr],
     \]
     as claimed.
 
@@ -1749,65 +1742,88 @@ called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
 
     \medskip
 
-    Now we explicitly identify the geometric monodromy operator $T$ through this quasi-isomorphism.
-    The result should be compatible with \cite[Corollary~5.2]{Wu2020ComparisonNearbyCyclesBfunctions}'s (up to sign changes in exponent):
-    \[
-        T=\DR(e^{2\pi i s}) = \DR(\lambda^{-1}e^{2\pi i (s+\alpha)})
-    \]
-    Where $\lambda = e^{2\pi i \alpha}$, which is different from Sect.~\ref{sect:two_definitions_of_nearby_cycles}.
-
-    First recall Step 2 of the proof of Prop.~\ref{prop:20.8}(1), we have the isomorphism
-    \[
-        \mathrm{Coker}(s) \simeq \bigoplus_{\ell=0}^{m-1} \left(R_{f} \cdot f^{0}\right) \otimes e_{\ell}^{-\alpha}
-    \]
-    Which shows
-
-
-    Through we haven't defined $T$-action on algebraic $-\alpha$ nearby cycle, it is equivalent to give it a definition
-    (by pullback the $T$ action on topological $\lambda$ nearby cycle through this quasi-isomorphism).
-
-    By Eq.~\ref{eq:alpha_eigenspace_map}, we have the isomorphism maps:
+    By Eq.~\ref{eq:alpha_eigenspace_map}, applied to the endomorphism $s$ and calculate its $-\alpha$ generalized eigenspace, we have the isomorphism
     \begin{align*}
-        \Psi_{f,-\alpha} & \xrightarrow{\;\sim\;} \ker(-s_{\infty})                                  \\
-        \eta             & \longmapsto \sum\limits_{i \geqslant 0} (-s-\alpha)^i \eta\otimes  e_{i}.
+        \Psi_{f,-\alpha} & \xrightarrow{\;\sim\;} \mathrm{Ker}(s_{\infty})                                  \\
+        \eta             & \longmapsto \sum\limits_{i \geqslant 0} (s+\alpha)^i \eta\otimes  e_{i}.
     \end{align*}
-    Indeed, we can explicitly verify this by tracing the operator $(s+\alpha)$. Applying $(s+\alpha)$ to an element $\eta \in \Psi_{f,-\alpha}$ and mapping it through the isomorphism yields:
+    where
     \[
-        (s+\alpha)\eta \longmapsto \sum_{i \geqslant 0} (-s-\alpha)^i (s+\alpha)\eta \otimes e_i = - \sum_{i \geqslant 0} (-s-\alpha)^{i+1} \eta \otimes e_i = - \sum_{i \geqslant 1} (-s-\alpha)^i \eta \otimes e_{i-1}.
+        s_{\infty}(w \otimes e_i)=(s+\alpha)w \otimes e_i - w \otimes e_{i-1}
+        \qquad (e_{-1}=0).
     \]
-    On the right-hand side, we have the formal nilpotent operator $J_{0,\infty}$ acting purely on the tensor factor spanned by $\{e_i\}$, which by convention operates as $J_{0,\infty}(e_i) = -e_{i-1}$ (with $J_{0,\infty}(e_0) = 0$). By linearity, its action on the mapped element is:
+    Applying $(s+\alpha)$ to an element $\eta \in \Psi_{f,-\alpha}$ and mapping it through the isomorphism yields:
     \[
-        J_{0,\infty} \left( \sum_{i \geqslant 0} (-s-\alpha)^i \eta \otimes e_i \right) = \sum_{i \geqslant 1} (-s-\alpha)^i \eta \otimes (-e_{i-1}) = - \sum_{i \geqslant 1} (-s-\alpha)^{i} \eta \otimes e_{i-1}.
+        (s+\alpha)\eta \longmapsto \sum_{i \geqslant 0} (s+\alpha)^i (s+\alpha)\eta \otimes e_i =  \sum_{i \geqslant 0} (s+\alpha)^{i+1} \eta \otimes e_i = \sum_{i \geqslant 1} (s+\alpha)^i \eta \otimes e_{i-1}.
     \]
-    Thus, under this quasi-isomorphism limit, the abstract shift action of $(s+\alpha)$ on $\Psi_{f,-\alpha}$ perfectly intertwines with and corresponds to the regular nilpotent Jordan block operator $J_{0,\infty}$.
+    That is equivalent to say we have the formal nilpotent operator
+    \[
+        J_{0,\infty}(w \otimes e_i) := w \otimes e_{i-1}
+    \]
+    acting on the second factor, with the convention $e_{-1}=0$.
 
-    To explicitly compute this under the De Rham functor $\mathrm{DR}$, let us evaluate its action on flat sections.
-    By definition of the Riemann-Hilbert correspondence (as computed in Section \ref{subsec:two_definitions_of_nearby_cycles}), the canonical connection matrix over the generalized $\lambda$-eigenspace ($\lambda = e^{2\pi i\alpha}$) takes the form $\nabla = d - (\alpha I + J_{0,\infty})\frac{dt}{t}$.
-    A flat section $v(t)$ satisfying $\nabla v = 0$ must therefore be of the form
-    \[
-        v(t) = \exp\left((\alpha I + J_{0,\infty})\log t\right) \cdot v_0 = t^\alpha \exp(J_{0,\infty} \log t) \cdot v_0.
-    \]
-    The topological monodromy $T$ acts by analytically continuing this section along a counter-clockwise loop $t \mapsto t e^{2\pi \sqrt{-1}}$. Upon this continuation, $\log t \mapsto \log t + 2\pi \sqrt{-1}$, so the section transforms as:
-    \begin{align*}
-        Tv(t) & = v(t e^{2\pi \sqrt{-1}})                                                                          \\
-              & = e^{2\pi \sqrt{-1}\alpha} t^\alpha \exp\big(J_{0,\infty} (\log t + 2\pi \sqrt{-1})\big) \cdot v_0 \\
-              & = \lambda e^{2\pi \sqrt{-1} J_{0,\infty}} \cdot v(t).
-    \end{align*}
-    Therefore, the strict unipotent part of the geometric monodromy operator uniquely acts on the flat sections as $T_u = e^{2\pi \sqrt{-1} J_{0,\infty}}$.
-    Inverting this exponential mapping on the nilpotent cone yields $J_{0,\infty} = \frac{\log T_u}{2\pi \sqrt{-1}}$ (the minus sign discrepancy depending on standard convention of exponent sign, but the structural correspondence $\Psi_{f,-\alpha} \to \Psi_{f,\lambda}(K^\bullet)$ maps the formal shift $(s+\alpha) \iff J_{0,\infty}$ to this unipotent logarithm up to sign convention).
-    Here, mapping strictly to the screenshot's formula, the operator $J_{0,\infty}$ on the algebraic limit evaluates to $-\frac{\log T_u}{2\pi \sqrt{-1}}$ on $\psi_{f,\lambda}\mathrm{DR}(\mathcal{M}_U)$.
-    Thus we have the formal identification:
-    \[
-        s+\alpha \iff -\frac{\log T_u}{2\pi \sqrt{-1}} \implies T_u = e^{-2\pi \sqrt{-1} (s+\alpha)}.
-    \]
-    Because we defined the eigenvalue as $\lambda = e^{2\pi \sqrt{-1} \alpha}$, the full monodromy operator $T = \lambda \cdot T_u$ equivalently corresponds to:
-    \[
-        T \simeq \mathrm{DR}\Big(e^{-2\pi \sqrt{-1} s}\Big) = \mathrm{DR}\Big(\lambda \cdot e^{-2\pi \sqrt{-1} (s+\alpha)}\Big).
-    \]
-    This exactly solidifies our Comparison Theorem, strictly matching the De Rham functor of the algebraic generalized eigenspace with the topological nearby cycle and concisely identifying their generalized monodromy actions!
+    \medskip
 
+    If we further assume the identifications in Proposition~\ref{prop:20.8} are functorial. That means if we set
+    \[
+        C_m^{+}:=\Big[\mathcal N_m^{-\alpha,k}\xrightarrow{s}\mathcal N_m^{-\alpha,k}\Big],\qquad
+        C_m^{-}:=\Big[\mathcal N_m^{-\alpha,-k}\xrightarrow{s}\mathcal N_m^{-\alpha,-k}\Big].
+    \]
+    Since $s$ and $s+\alpha$ commute in $\D_X[s]$, and both of them commute with $\D_X$, then
+    multiplication by $(s+\alpha)$ defines chain endomorphisms
+    \[
+        u_m^\pm:(C_m^\pm)\longrightarrow (C_m^\pm).
+    \]
+    When we restrict to the open set $U$, the two-term complex $C_m^+$ is identified with the single-term complex $f^*K_m^{-\alpha}$,
+    so the relevant functoriality is the functoriality of the de Rham map in \cite[Prop.~4.7.6]{hotta2008d}.
+    Moreover, the explicit computation of $\DR\bigl((f^*K_m^{-\alpha})^\an\bigr)$ in the basis $\{v_i\}$ shows that the operator induced by $(s+\alpha)$ on $f^{-1}L_m^\lambda$ is the nilpotent endomorphism
+    \[
+        J_{0,m}(v_i)=v_{i-1},\qquad v_{-1}=0.
+    \]
+    Then we extend back to $X$, recall our proof strategy in Proposition~\ref{prop:20.8}, the functoriality quasi-isomorphisms
+    \[
+        \DR(C_m^+) \simeq Rj_*f^{-1}L_m^\lambda,\qquad \DR(C_m^-) \simeq j_!f^{-1}L_m^\lambda
+    \]
+    is reduced to check the functoriality of the two things below
+    \begin{enumerate}
+        \item Functoriality of \cite[Thm.~1.2]{Wu2021CharacteristicCyclesHolonomicDmodules} and \cite[Thm.~4.1]{CalderonMorenoNarvaezMacarro2005Dualite} in Step 3 of Rmk.~\ref{rmk:continue_prove_lemma_10.6}.
+        \item Functoriality of \cite[Theorem~2.10(2) and (3)]{Wu2020ComparisonNearbyCyclesBfunctions} in Step 5 of Rmk.~\ref{rmk:continue_prove_lemma_10.6}.
+    \end{enumerate}
+    If we assume these above, therefore, inserting $(s+\alpha)$ as a $\D_X$ chain map before applying $\DR$ gives a commutative diagram in $D^b(\underline{\C}_{X^\an})$:
+    \[
+        \begin{tikzcd}[column sep=large]
+            \DR\!\left(\mathcal N_m^{-\alpha,k}\xrightarrow{s}\mathcal N_m^{-\alpha,k}\right) \arrow[r, "\DR(s+\alpha)"] \arrow[d, "\sim"'] & \DR\!\left(\mathcal N_m^{-\alpha,k}\xrightarrow{s}\mathcal N_m^{-\alpha,k}\right) \arrow[d, "\sim"] \\
+            Rj_*f^{-1}L_m^\lambda \arrow[r, "J_{0,m}"]                                                                                      & Rj_*f^{-1}L_m^\lambda
+        \end{tikzcd}
+    \]
+    and similarly for $\mathcal N_m^{-\alpha,-k}$ with $j_!f^{-1}L_m^\lambda$.
 
-    \bigskip
+    Passing to the quotient complexes, then to $\varinjlim_m$, and finally applying $i^{-1}$, this induces exactly the operator $J_{0,\infty}$ on $\Psi_{f,\lambda}$.
+    
+    Note we have another $J_{0,\infty}$ that acts on $\mathrm{Ker}(s_\infty)$, so we abuse of notation here.
+    But through the functoriality of the identification in each step in this proof, on the open set $U$, the two $J_{0,\infty}$ are identified through taking flat sections/De Rham complexes.
+
+    \medskip
+
+    Combined with the calculation above (identifying $(s+\alpha)$ with $J_{0,\infty}$), 
+    and recall:
+    \begin{enumerate}
+        \item $T$ action on $\Psi_{f,\lambda}=\varinjlim_m\ i^{-1} Rj_*f^{-1}L_m^{\lambda}$ by \ref{prop:classification-of-local-system}.
+        \item Where $\lambda := e^{-2\pi i \alpha}$ in Sect.\ref{sect:two_definitions_of_nearby_cycles}.
+    \end{enumerate}
+    In this section we have chosen $\lambda = e^{2\pi i \alpha}$, 
+    so we use $-\alpha$ algebraic nearby cycle to correspond the topological nearby cycle is $\Psi_{f,\lambda}$.
+    
+    Then we obtain
+    \[
+        T= e^{-2\pi i J_{-\alpha,\infty}} = e^{-2\pi i J_{0,\infty} - 2\pi i (-\alpha)} = e^{-2\pi i[(s+\alpha)-\alpha]}=e^{-2\pi i s},
+    \]
+    where $\lambda = e^{2\pi i \alpha}$ is consistent with our choice in this section, then we get:
+    \[
+    T= \DR(e^{-2\pi i s}).
+    \]
+    Which is consistent with \cite{Wu2020ComparisonNearbyCyclesBfunctions}.
+
 \end{proof}
 
 \begin{remark}\label{rmk:elaborate_wu17_sect_3.1}
