@@ -149,7 +149,7 @@ We define
 $$
     \Psi_{f,\lambda} = \lim_{\substack{\longrightarrow \\ m \to \infty}} i^{-1} Rj_\ast L_m^{\lambda}
 $$
-which is called the $\lambda\textbf{-nearby cycles}$ of $f$.
+which is called the (topological, may not standard name) $\lambda\textbf{-nearby cycles}$ of $f$.
 And $T$-action ($\pi_1((\mathbb{A}_{\mathbb{C}}^1 \setminus \{0\})^\mathrm{an})$-action) on $L_m^{\lambda}$ induces $T$-action on $\Psi_{f,\lambda}$.
 
 
@@ -335,11 +335,11 @@ For closed point $\alpha \in \mathbb{A}_{\mathbb{C}}^{1} \simeq \operatorname{Sp
     \]
 \end{proof}
 
-\begin{definition}
+\begin{definition}\label{def:algebraic_nearby_cycle}
     For all $\alpha \in \mathbb{C}$:
     \begin{enumerate}
         \item $\mathcal{D}_X[s]_{\mathfrak{m}_\alpha} f^{s+k},  k \gg 0$ is stabled, called the $\textbf{minimal extension}$ of $R[\frac{1}{f}][s]_{\mathfrak{m}_\alpha} f^s$.
-        \item $\Psi_{f,\alpha} := \frac{\mathcal{D}_X[s]_{\mathfrak{m}_\alpha} f^{s-k}}{\mathcal{D}_X[s]_{\mathfrak{m}_\alpha} f^{s+k}}$ is called the $\alpha\textbf{-nearby cycles}$ of $R$ along $f$.
+        \item $\Psi_{f,\alpha} := \frac{\mathcal{D}_X[s]_{\mathfrak{m}_\alpha} f^{s-k}}{\mathcal{D}_X[s]_{\mathfrak{m}_\alpha} f^{s+k}}$ is called the (algebraic, may not standard name) $\alpha\textbf{-nearby cycles}$ of $R$ along $f$.
 
               \cite[Definition~3.3.2.]{PopaDMBG2021} defines that $\alpha$-nearby cycles is a $\mathcal{D}_X$-module, NOT a $\mathcal{D}_X[s]$-module.
         \item $\Lambda := \mathbb{Z} + \{\text{roots of } b_{f}(s)\}$.
@@ -1635,7 +1635,7 @@ called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
 
 \end{proof}
 
-\begin{proof}[Proof of  (\ref{Theorem 9.5})]
+\begin{proof}[Proof of Thm.~\ref{Theorem 9.5}]
     \mbox{}\\
 
     \textbf{Notation:}
@@ -1742,7 +1742,7 @@ called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
 
     \medskip
 
-    By Eq.~\ref{eq:alpha_eigenspace_map}, applied to the endomorphism $s$ and calculate its $-\alpha$ generalized eigenspace, we have the isomorphism
+    By Eq.~\ref{eq:alpha_eigenspace_map} (which should be a $\D_X$-module morphism, see Def.~\ref{def:algebraic_nearby_cycle}), applied to the endomorphism $s$ and calculate its $-\alpha$ generalized eigenspace, we have the isomorphism
     \begin{align*}
         \Psi_{f,-\alpha} & \xrightarrow{\;\sim\;} \mathrm{Ker}(s_{\infty})                                  \\
         \eta             & \longmapsto \sum\limits_{i \geqslant 0} (s+\alpha)^i \eta\otimes  e_{i}.
@@ -1801,14 +1801,19 @@ called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
     Passing to the quotient complexes, then to $\varinjlim_m$, and finally applying $i^{-1}$, this induces exactly the operator $J_{0,\infty}$ on $\Psi_{f,\lambda}$.
     
     Note we have another $J_{0,\infty}$ that acts on $\mathrm{Ker}(s_\infty)$, so we abuse of notation here.
-    But through the functoriality of the identification in each step in this proof, on the open set $U$, the two $J_{0,\infty}$ are identified through taking flat sections/De Rham complexes.
+    But through 
+    \begin{enumerate}
+        \item The functoriality of the identification in each step in this proof of Thm.~\ref{Theorem 9.5}.
+        \item Both (topological and algebraic nearby cycle) side take $e^{\alpha}_i$ as standard basis (for topological nearby cycle case, see the third point below \hyperref[eq:local_system_L^lambda_m]{equation}).
+    \end{enumerate}
+    Then on the open set $U$, the two $J_{0,\infty}$ are identified through taking flat sections/De Rham complexes.
 
     \medskip
 
     Combined with the calculation above (identifying $(s+\alpha)$ with $J_{0,\infty}$), 
     and recall:
     \begin{enumerate}
-        \item $T$ action on $\Psi_{f,\lambda}=\varinjlim_m\ i^{-1} Rj_*f^{-1}L_m^{\lambda}$ by \ref{prop:classification-of-local-system}.
+        \item $T$ action on $\Psi_{f,\lambda}=\varinjlim_m\ i^{-1} Rj_*f^{-1}L_m^{\lambda}$ by \hyperref[eq:local_system_L^lambda_m]{equation}.
         \item Where $\lambda := e^{-2\pi i \alpha}$ in Sect.\ref{sect:two_definitions_of_nearby_cycles}.
     \end{enumerate}
     In this section we have chosen $\lambda = e^{2\pi i \alpha}$, 
