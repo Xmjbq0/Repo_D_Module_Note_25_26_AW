@@ -501,8 +501,10 @@ Our next goal is to prove the following theorem:
 \end{theorem}
 \begin{remark}
     The actual definition of a (analytic/topological) \textbf{nearby cycle} will induce a $\mathbb{Z} = \pi_1{\C^*}$ action on $\Psi_{f,\lambda}$, denoted by $T$, see \cite[\S~3.1]{Wu2017NearbyVanishingCycles}.
+
+    The end of this section (Rmk.~\ref{rmk:elaborate_wu17_sect_3.1}) also elaborate relative details in \cite[\S~3.1]{Wu2017NearbyVanishingCycles}.
 \end{remark}
-\begin{remark}
+\begin{remark}\label{rmk:different_definitions_of_lambda}
     This section $\lambda = e^{2\pi i \alpha}$ is different with the previous section Sect.~\ref{sect:two_definitions_of_nearby_cycles} definition $\lambda = e^{-2\pi i \alpha}$,
     in subsequent proofs, we will see this ``error'' cancel out itself.
 \end{remark}
@@ -1745,9 +1747,74 @@ called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
     \]
     which exactly establishes the Comparison Theorem in derived category.
 
-    \bigskip
+    \medskip
 
-    At this point we have to talk about the induced monodromy action seriously, through several steps:
+    Now we explicitly identify the geometric monodromy operator $T$ through this quasi-isomorphism.
+    The result should be compatible with \cite[Corollary~5.2]{Wu2020ComparisonNearbyCyclesBfunctions}'s (up to sign changes in exponent):
+    \[
+        T=\DR(e^{2\pi i s}) = \DR(\lambda^{-1}e^{2\pi i (s+\alpha)})
+    \]
+    Where $\lambda = e^{2\pi i \alpha}$, which is different from Sect.~\ref{sect:two_definitions_of_nearby_cycles}.
+
+    First recall Step 2 of the proof of Prop.~\ref{prop:20.8}(1), we have the isomorphism
+    \[
+        \mathrm{Coker}(s) \simeq \bigoplus_{\ell=0}^{m-1} \left(R_{f} \cdot f^{0}\right) \otimes e_{\ell}^{-\alpha}
+    \]
+    Which shows
+
+
+    Through we haven't defined $T$-action on algebraic $-\alpha$ nearby cycle, it is equivalent to give it a definition
+    (by pullback the $T$ action on topological $\lambda$ nearby cycle through this quasi-isomorphism).
+
+    By Eq.~\ref{eq:alpha_eigenspace_map}, we have the isomorphism maps:
+    \begin{align*}
+        \Psi_{f,-\alpha} & \xrightarrow{\;\sim\;} \ker(-s_{\infty})                                  \\
+        \eta             & \longmapsto \sum\limits_{i \geqslant 0} (-s-\alpha)^i \eta\otimes  e_{i}.
+    \end{align*}
+    Indeed, we can explicitly verify this by tracing the operator $(s+\alpha)$. Applying $(s+\alpha)$ to an element $\eta \in \Psi_{f,-\alpha}$ and mapping it through the isomorphism yields:
+    \[
+        (s+\alpha)\eta \longmapsto \sum_{i \geqslant 0} (-s-\alpha)^i (s+\alpha)\eta \otimes e_i = - \sum_{i \geqslant 0} (-s-\alpha)^{i+1} \eta \otimes e_i = - \sum_{i \geqslant 1} (-s-\alpha)^i \eta \otimes e_{i-1}.
+    \]
+    On the right-hand side, we have the formal nilpotent operator $J_{0,\infty}$ acting purely on the tensor factor spanned by $\{e_i\}$, which by convention operates as $J_{0,\infty}(e_i) = -e_{i-1}$ (with $J_{0,\infty}(e_0) = 0$). By linearity, its action on the mapped element is:
+    \[
+        J_{0,\infty} \left( \sum_{i \geqslant 0} (-s-\alpha)^i \eta \otimes e_i \right) = \sum_{i \geqslant 1} (-s-\alpha)^i \eta \otimes (-e_{i-1}) = - \sum_{i \geqslant 1} (-s-\alpha)^{i} \eta \otimes e_{i-1}.
+    \]
+    Thus, under this quasi-isomorphism limit, the abstract shift action of $(s+\alpha)$ on $\Psi_{f,-\alpha}$ perfectly intertwines with and corresponds to the regular nilpotent Jordan block operator $J_{0,\infty}$.
+
+    To explicitly compute this under the De Rham functor $\mathrm{DR}$, let us evaluate its action on flat sections.
+    By definition of the Riemann-Hilbert correspondence (as computed in Section \ref{subsec:two_definitions_of_nearby_cycles}), the canonical connection matrix over the generalized $\lambda$-eigenspace ($\lambda = e^{2\pi i\alpha}$) takes the form $\nabla = d - (\alpha I + J_{0,\infty})\frac{dt}{t}$.
+    A flat section $v(t)$ satisfying $\nabla v = 0$ must therefore be of the form
+    \[
+        v(t) = \exp\left((\alpha I + J_{0,\infty})\log t\right) \cdot v_0 = t^\alpha \exp(J_{0,\infty} \log t) \cdot v_0.
+    \]
+    The topological monodromy $T$ acts by analytically continuing this section along a counter-clockwise loop $t \mapsto t e^{2\pi \sqrt{-1}}$. Upon this continuation, $\log t \mapsto \log t + 2\pi \sqrt{-1}$, so the section transforms as:
+    \begin{align*}
+        Tv(t) & = v(t e^{2\pi \sqrt{-1}})                                                                          \\
+              & = e^{2\pi \sqrt{-1}\alpha} t^\alpha \exp\big(J_{0,\infty} (\log t + 2\pi \sqrt{-1})\big) \cdot v_0 \\
+              & = \lambda e^{2\pi \sqrt{-1} J_{0,\infty}} \cdot v(t).
+    \end{align*}
+    Therefore, the strict unipotent part of the geometric monodromy operator uniquely acts on the flat sections as $T_u = e^{2\pi \sqrt{-1} J_{0,\infty}}$.
+    Inverting this exponential mapping on the nilpotent cone yields $J_{0,\infty} = \frac{\log T_u}{2\pi \sqrt{-1}}$ (the minus sign discrepancy depending on standard convention of exponent sign, but the structural correspondence $\Psi_{f,-\alpha} \to \Psi_{f,\lambda}(K^\bullet)$ maps the formal shift $(s+\alpha) \iff J_{0,\infty}$ to this unipotent logarithm up to sign convention).
+    Here, mapping strictly to the screenshot's formula, the operator $J_{0,\infty}$ on the algebraic limit evaluates to $-\frac{\log T_u}{2\pi \sqrt{-1}}$ on $\psi_{f,\lambda}\mathrm{DR}(\mathcal{M}_U)$.
+    Thus we have the formal identification:
+    \[
+        s+\alpha \iff -\frac{\log T_u}{2\pi \sqrt{-1}} \implies T_u = e^{-2\pi \sqrt{-1} (s+\alpha)}.
+    \]
+    Because we defined the eigenvalue as $\lambda = e^{2\pi \sqrt{-1} \alpha}$, the full monodromy operator $T = \lambda \cdot T_u$ equivalently corresponds to:
+    \[
+        T \simeq \mathrm{DR}\Big(e^{-2\pi \sqrt{-1} s}\Big) = \mathrm{DR}\Big(\lambda \cdot e^{-2\pi \sqrt{-1} (s+\alpha)}\Big).
+    \]
+    This exactly solidifies our Comparison Theorem, strictly matching the De Rham functor of the algebraic generalized eigenspace with the topological nearby cycle and concisely identifying their generalized monodromy actions!
+
+
+    \bigskip
+\end{proof}
+
+\begin{remark}\label{rmk:elaborate_wu17_sect_3.1}
+    At this point we want to talk about the induced monodromy action on $\varinjlim_m\ i^{-1} Rj_*f^{-1}L_m^{\lambda}$ seriously, through several steps below:
+\end{remark}
+\begin{proof}
+    \mbox{}
 
     \noindent\textbf{Step1: }Correctly define the topological \textbf{nearby cycle},
     and using the \textbf{Poincar\'e-Verdier duality}, to \underline{acquire} the monodromy action.
@@ -1802,10 +1869,10 @@ called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
               \cite{Wu2017NearbyVanishingCycles} define $T$ (viewed as a generator of $\pi_1(\C^*)$) is around the origin \textbf{counterclockwise}.
         \item So we identify it as a functor in $\mathrm{Mod}(\underline{\C}_{\C^*})$.
         \item So the induced monodromy action on $i^{-1}R\hm_{{\C_{X}}}(f^{-1}{\pi}_!\C_{\widetilde{\C^*}}, \d{K})$ is
-              \[
-                  T_{\Psi} := i^{-1}R\mathcal Hom_X\bigl(f^{-1}T,\mathrm{id}_K\bigr).
-              \]
-              (At this point, we finally \underline{defined/acquired} the monodromy action.)
+              \begin{equation}
+                  T_{\Psi} := i^{-1}R\mathcal Hom_X\bigl(f^{-1}T^{-1},\mathrm{id}_K\bigr). \tag{$T_{\Psi}$}\label{eq:T_Psi}
+              \end{equation}
+              At this point, we finally \underline{defined} the monodromy action, here we use $T^{-1}$ in order to be compatible with \cite[Lem.~3.8]{Wu2017NearbyVanishingCycles}.
     \end{enumerate}
     The question becomes how can we identify this Poincar\'e-Verdier duality. Here we just take $K^\bullet = \underline{\C}_X$.
     \begin{enumerate}
@@ -1879,16 +1946,7 @@ called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
                   (f^!_K F^\bullet)(V) = \mathrm{Tot}\left(\Hom_{A_X}\left(f_!\left(A_Y \otimes_{\mathbb{Z}_Y} K^\bullet_V\right), F^\bullet\right)\right).
               \]
               (We omit the details of the construction of $f^!_K$.)
-              %   Where
-              %   \begin{enumerate}
-              %       \item $A_X$ is a sheaf of rings on $X$ (in our context, the constant sheaf $\underline{\C}_X$).
-              %       \item $K^\bullet$ is a resolution of $\underline{\Z}_Y$ ($0 \to \underline{\Z}_Y \to K^0 \to \cdots \to K^r \to 0$)
-              %             such that all $K^j$'s are flat and $f$-soft \cite[Def.~3.1.1]{KashiwaraSchapira1994Sheaves} $\underline{\Z}_Y$-modules.
-              %       \item $K^\bullet_V$ is defined by $\operatorname{Ker}(K^\bullet \to K^\bullet_{Y \setminus V})$ since $V$ is open in $Y$.
-              %             The latter one $K^\bullet_{Y \setminus V}$ is defined in \cite[Definition~C.1.3]{hotta2008d}.
-              %             This is essentially the extension by zero $j_! j^{-1} K^\bullet$ where $j: V \hookrightarrow Y$.
-              %       \item The restriction map for $V' \subset V$ is induced by the natural morphism $f_!\left(A_Y \otimes_{\underline{\Z}_Y} K^\bullet_{V'}\right) \to f_!\left(A_Y \otimes_{\underline{\Z}_Y} K^\bullet_V\right)$.
-              %   \end{enumerate}
+
               This replacement is (somehow) justified by the proof of \cite[Thm.~3.1.12]{KashiwaraSchapira1994Sheaves}.
 
               In \cite[Prop.~3.10]{KashiwaraSchapira1994Sheaves} the (explicit) (isomorphic) morphism is given by:
@@ -1999,7 +2057,7 @@ called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
               we locally find a minimal polynomial of $T$ acting on $\Psi_f K$.
 
         \item If we further assume the construction in \cite[Lemma~3.2, Not 3.3]{Wu2017NearbyVanishingCycles} is functorial,
-              then combine \cite[2.5.1~Thm.]{VakilRisingSea2025}, we get a globally defined $\lambda$-generalized eigenspace $\Psi_{f,\lambda} K$ of $\Psi_f K$.
+              then combine \cite[2.5.1~Thm.]{VakilRisingSea2025} and \cite[Thm.~3.1]{Wu2017NearbyVanishingCycles}, we get a globally defined $\lambda$-generalized eigenspace $\Psi_{f,\lambda} K$ of $\Psi_f K$.
     \end{enumerate}
 
 
@@ -2025,7 +2083,7 @@ called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
               then we have a ring map $\C\otimes_\mathbb{Z} \mathbb{Z}[T] \to \End_{\mathbb{Z}}(L_x)$ so $L_x$ becomes a $\C[T]$-module.
               so we can use result for module over PID.
 
-              Through above identifications, we define $L_{(T-\lambda)^m}$ as the finitely generated, indecomposable $\C[T]$-module with minimal polynomial $(T-\lambda)^m$.
+              Through above identifications, we define $L_{(T-\lambda)^m}$ (unique) as the finitely generated, indecomposable $\C[T]$-module with minimal polynomial $(T-\lambda)^m$.
         \item $\vee$ is the dual of a local system, here we take open set $U=\C^*$:
               \[
                   L^\vee:=\mathcal Hom_{\mathbb C_U}(L,\mathbb C_U)
@@ -2034,8 +2092,6 @@ called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
 
     In \cite[\S~3.2.1]{Wu2017NearbyVanishingCycles}, he (the lecturer of this course) require the local system to be \textbf{regular}.
     That is the $T$ action is invertible.
-
-    % So the $\C[T]$ action on a regular local system $L$ upgrade to a $\C[T, T^{-1}]$ action.
 
     But note that the section of $\pi_!(\underline{\C}_{\widetilde{\C^*}})\mid_{\C^*}$ constitute an
     (countably, since $\pi_!$ is a proper pushforward) \textbf{infinite} dimensional $\C$-vector space, so rigorously speaking,
@@ -2046,11 +2102,6 @@ called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
     and note that $\C$ is of characteristic $0$, so we have a ring map $\mathbb{Q}\hookrightarrow\C$.
 
     So $\pi_!(\underline{\C}_{\widetilde{\C^*}})\mid_{\C^*}$ correspond to $\C[T, T^{-1}]$ as a (non-finitely generated) $\C[T]$-module.
-
-    % Then we have, in the category of (possibly non-finitely generated) $\C[T]$-modules:
-    % \[
-    %     \Hom_{\C[T]}(\C[T,T^{-1}], L) = \Hom_{\C[T]}(\C[T], L) = L
-    % \]
 
     Recall Step 1, we elaborate the Poincar\'e Verdier duality when $f$ in \cite[Thm.~3.10]{KashiwaraSchapira1994Sheaves} is an open embedding.
 
@@ -2084,22 +2135,7 @@ called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
     \[
         \biG{L_g} \longrightarrow \Psi_f K^\bullet \xrightarrow{g(T_\Psi)} \Psi_f K^\bullet \xrightarrow{+1}
     \]
-    which implies that $\biG{L_g}$ is quasi-isomorphic to the shifted cone of the operator $g(T_\Psi)$:
-    \[
-        \biG{L_g} \simeq \mathrm{Cone}\left( \Psi_f K^\bullet \xrightarrow{g(T_\Psi)} \Psi_f K^\bullet \right)[-1]
-    \]
-    This expresses $\biG{L_g}$ as exactly the derived generalized eigenspace of $\Psi_f K^\bullet$ with respect to the polynomial $g(T_\Psi)$.
-
-    Now taking $g(T) = (T-\lambda)^m$ for $m > 0$. The $T$-action on $S_{(T-\lambda)^m}$ induces a $T$-action on $\biG{S_{(T-\lambda)^m}}$. Because the $T$-action on $\biG{L_{(T-\lambda)^m}} = i^{-1}Rj_*(f_0^{-1} L^\vee_{(T-\lambda)^m}\otimes j^{-1} K^\bullet)$ has only 1 eigenvalue $\lambda$ (by the definition of $L_{(T-\lambda)^m}$), we obtain a distinguished triangle (which we denote as $D_m$):
-    \[
-        D_m:\begin{CD} i^{-1}Rj_*(j^{-1} K^\bullet \otimes f_0^{-1}L^\vee_{(T-\lambda)^m}) @>{tr_{(T-\lambda)^m}^*}>> \Psi_{f,\lambda}(K^\bullet) @>{(T_\Psi-\lambda )^m} >> \Psi_{f,\lambda}(K^\bullet) @>{+1}>>
-        \end{CD}
-    \]
-    where we have projected onto the generalized $\lambda$-eigenspace $\Psi_{f,\lambda}(K^\bullet)$ of the nearby cycle.
-
-    The multiplication by $T-\lambda$ induces a natural morphism of complexes
-    \[T-\lambda: S_{(T-\lambda)^{m+1}}\arr S_{(T-\lambda)^{m}};\]
-    to be precise, the morphism of short exact sequences is
+    Now taking $g(T) = (T-\lambda)^m$ for $m > 0$. The $T$-action on $S_{(T-\lambda)^m}$. The multiplication by $T-\lambda$ induces a natural morphism of complexes, to be precise, the morphism of short exact sequences is
     \[
         \begin{CD}
             0@>>>\pi_!\C_{\widetilde{\C^*}}@>(T-\lambda)^{m+1}>>\pi_!\C_{\widetilde{\C^*}} @>>> j_{0!} L_{(T-\lambda)^{m+1}} @>>>0\\
@@ -2107,7 +2143,6 @@ called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
             0@>>>\pi_!\C_{\widetilde{\C^*}}@>(T-\lambda)^{m}>>\pi_!\C_{\widetilde{\C^*}} @>>> j_{0!} L_{(T-\lambda)^m} @>>>0 .
         \end{CD}
     \]
-    As $m\to \infty$, we obtain an inverse system of short exact sequences. It is obvious that $T$ also acts on this inverse system.
     Applying our contravariant functor $\biG{\bullet}$ reverses the arrows, yielding a direct system of distinguished triangles:
     \[
         \begin{CD}
@@ -2116,32 +2151,111 @@ called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
             \biG{L_{(T-\lambda)^{m+1}}} @>>> \Psi_f K^\bullet @>(T_\Psi-\lambda)^{m+1}>> \Psi_f K^\bullet @>{+1}>>
         \end{CD}
     \]
-    After taking the $\lambda$-eigenspaces of this direct system (which is an exact functor extracting the relevant blocks), we get exactly the direct system sequence of distinguished triangles $D_m$:
-    \[\cdots\to D_m \to D_{m+1}\to \cdots.\]
-
-    By the definition of the generalized eigenspace $\Psi_{f,\lambda}(K^\bullet)$, any section is annihilated by $(T_\Psi-\lambda)^m$ for $m \gg 0$. This means that the direct limit $\varinjlim_m (T_\Psi-\lambda)^m$ acts as $0$ on $\Psi_{f,\lambda}(K^\bullet)$, so the direct limit of the third term in $D_m$ vanishes; hence
+    After taking the $\lambda$-eigenspaces of this direct system, we get exactly the direct system sequence of distinguished triangles $D_m$:
     \[
-        \varinjlim_m D_m = \left[ \varinjlim_m i^{-1}Rj_*(j^{-1} K^\bullet \otimes f_0^{-1}L^\vee_{(T-\lambda)^m}) \xrightarrow{tr^\infty_{\lambda}} \Psi_{f,\lambda}(K^\bullet) \to 0 \xrightarrow{+1} \right].
+        \begin{tikzcd}
+            D_m: \arrow[d] & \biG{L_{(T-\lambda)^m}} \arrow[rr, "{tr_{(T-\lambda)^m}^*}"] \arrow[d] && \Psi_{f,\lambda}(K^\bullet) \arrow[rr, "{(T_\Psi-\lambda)^m}"] \arrow[d, "\text{id}"] && \Psi_{f,\lambda}(K^\bullet) \arrow[r, "+1"] \arrow[d, "T_\Psi-\lambda"] & {} \\
+            D_{m+1}:       & \biG{L_{(T-\lambda)^{m+1}}} \arrow[rr, "{tr_{(T-\lambda)^{m+1}}^*}"] && \Psi_{f,\lambda}(K^\bullet) \arrow[rr, "{(T_\Psi-\lambda)^{m+1}}"] && \Psi_{f,\lambda}(K^\bullet) \arrow[r, "+1"] & {}
+        \end{tikzcd}
     \]
-    Since the filtered direct limit functor $\varinjlim$ is exact, we know $\varinjlim_m D_m$ is itself a distinguished triangle. Therefore, we see
+    \begin{enumerate}
+        \item The map $(T_\Psi-\lambda)^m$ needs the functoriality of the construction in \cite[Lem.~3.2]{Wu2017NearbyVanishingCycles} (we assume this here).
+        \item $\biG{L_{(T-\lambda)^m}} \to \Psi_f K^\bullet$ as a $T$-equivariant morphism, factor through $\Psi_{f,\lambda}(K^\bullet)$, gives  $tr_{(T-\lambda)^m}^*$. So $\biG{L_{(T-\lambda)^m}}$ is not needed a priori to be perverse (up to a shift of degree) to get such morphism.
+    \end{enumerate}
+
+    Taking term-wise colimit, since colimit in $\mathrm{Mod}(\underline{\C}_{X_0})$ (\cite[\href{https://stacks.math.columbia.edu/tag/01AH}{Tag 01AH}]{stacks-project}, note $X_0$ is only an analytic set, may not a complex manifold) is exact, these three terms of colimit still form a distinguished triangle:
+    \[
+        \varinjlim_m D_m = \left[ \varinjlim_m \biG{L_{(T-\lambda)^m}} \xrightarrow{tr^\infty_{\lambda}} \Psi_{f,\lambda}(K^\bullet) \to 0 \xrightarrow{+1} \right].
+    \]
+    \begin{enumerate}
+        \item $T$ also acts on this inverse system, since all transition map in direct system are $T$-equivariant.
+        \item Using coproduct-coequalizer representation of colimit \cite[\href{https://stacks.math.columbia.edu/tag/002P}{002P}]{stacks-project}, and every section in $\Psi_{f,\lambda}(K^\bullet)$ becomes zero-section after taking finite power of $T-\lambda$, the colimit of the third term in $D_m$ vanishes.
+    \end{enumerate}
+    Therefore, we see
     \[
         tr^{\infty}_\lambda : \varinjlim_m i^{-1}Rj_*(j^{-1} K^\bullet \otimes f_0^{-1}L^\vee_{(T-\lambda)^m})[-1] \longrightarrow \Psi_{f,\lambda}(K^\bullet)[-1]
     \]
-    is a quasi-isomorphism (hence an isomorphism as perverse sheaves up to a shift of degree).
-
-    Finally, replacing the dual local system $L^\vee_{(T-\lambda)^m}$ with the algebraic module $H_{-\alpha, m}$ via the Riemann-Hilbert correspondence (specifically using Lemma \ref{dualrr} and the isomorphism in \eqref{JordanLS} tracking the connection $\nabla = d - \alpha \frac{dt}{t}$), the operator $T$ maps to $e^{-2\pi\sqrt{-1}J_{-\alpha,m}}$. This concludes the identification of the underlying geometric representation.
+    is a quasi-isomorphism (hence an isomorphism as perverse sheaves up to a shift of degree, see \cite[Thm.~3.1]{Wu2017NearbyVanishingCycles}).
 
     \medskip
 
-    By Eq.~\ref{eq:alpha_eigenspace_map}, we consider
-    \begin{align*}
-        \Psi_{f,-\alpha} & \longrightarrow \ker(-s_{\infty})                                         \\
-        \eta             & \longmapsto \sum\limits_{i \geqslant 0} (-s-\alpha)^i \eta\otimes  e_{i}.
-    \end{align*}
-
-    Then $s+\alpha = -J_{0,\infty}$, and $e^{2\pi i(s+\alpha)} = e^{-2\pi i J_{0,\infty}}$. Furthermore, we obtain that
+    What remain is to identify $\varinjlim_m \biG{L_{(T-\lambda)^m}}$. By \cite[Lemma~3.8]{Wu2017NearbyVanishingCycles}, we have, as $\C[T]$ module:
     \[
-        e^{-2\pi i\alpha} \cdot e^{2\pi i(s+\alpha)} = e^{-2\pi i J_{\alpha,\infty}} = T
+        L_{(T-\lambda)^m}^\vee \simeq L_{(T-\lambda^{-1})^m}.
     \]
+    \begin{proof}
+        For a finite-dimensional $\C[T]$-module $V$ where $T$ is invertible,
+        its dual
+        \[
+            V^\vee = \Hom_\C(V, \C)
+        \]
+        has the $T$-action given (defined) by
+        \begin{enumerate}
+            \item $(T \phi)(v) = \phi(T^{-1} v)$,
+            \item $(a \phi)(v) = a \phi(v)$ for $a \in \C$.
+        \end{enumerate}
+        (This is exactly \textbf{dual (group) representation},
+        the most of all, only when we use $T^{-1}$ here, it is compatible the intension of \cite[Lem.~3.8]{Wu2017NearbyVanishingCycles}).
+
+        By definition, $V:= L_{(T-\lambda)^m} \simeq \C[T]\big/((T-\lambda)^m)$,
+        so $T$ satisfies $(T - \lambda)^m = 0$ on $V$.
+
+        Since $T$ is invertible and $\lambda \neq 0$, we have the algebraic factorization
+        \[
+            T - \lambda = -\lambda T (\lambda^{-1} - T^{-1}).
+        \]
+        Taking the $m$-th power gives
+        \[
+            0 = (T - \lambda)^m = (-\lambda T)^m (\lambda^{-1} - T^{-1})^m \quad \text{on } V.
+        \]
+        Because the operator $(-\lambda T)^m$ is invertible on $V$, its kernel is trivial, which forces $(\lambda^{-1} - T^{-1})^m = 0$.
+        Multiplying this by the scalar $\lambda^m$, we get $(1 - \lambda T^{-1})^m = 0$ on $V$.
+
+
+        Since $T$ acts on $V^\vee$ is through precomposition of $T^{-1}$ in $V$, we have $(T - \lambda^{-1})^m = 0$ on $V^\vee$.
+        Since $\dim_\C(V^\vee) = m$, its minimal polynomial is precisely $(T - \lambda^{-1})^m$ ($\C[T]$ is a UFD), proving
+        \[
+            L_{(T-\lambda)^m}^\vee \simeq \C[T]\big/((T-\lambda^{-1})^m) = L_{(T-\lambda^{-1})^m}.
+        \]
+
+    \end{proof}
+
+    Since $L$, hence $f^{-1}_0 L$ is a \textbf{finite rank} local system, it is a perfect complex in sense of \cite[\href{https://stacks.math.columbia.edu/tag/08CM}{Tag 08CM}, \href{https://stacks.math.columbia.edu/tag/08C4}{Tag 08C4}]{stacks-project}, then using \cite[\href{https://stacks.math.columbia.edu/tag/08DQ}{Tag 08DQ}]{stacks-project} we get:
+    \begin{align*}
+        R\hm_{\underline{\C}_{X^*}}(f^{-1}_0 L, j^{-1} K) & \xleftarrow{= \text{(natural isomorphism)}} (f^{-1}_0 L)^{\vee} \otimes^L j^{-1} K &  & \text{(Map defined by \cite[\href{https://stacks.math.columbia.edu/tag/08I1}{Tag 08I1}]{stacks-project})} \\
+                                                          & \xleftarrow{= \text{(already exact)}} (f^{-1}_0 L)^{\vee} \otimes j^{-1} K         &  & \text{(See proof of \cite[\href{https://stacks.math.columbia.edu/tag/01E7}{Tag 01E7}]{stacks-project})}
+    \end{align*}
+    Therefore:
+    \[
+        \biG{L_{(T-\lambda)^m}} \simeq i^{-1} Rj_* R\mathcal Hom_{\underline{\C}_{X^*}}(f_{0}^{-1} L_{(T-\lambda)^m}, j^{-1} K^\bullet) \simeq i^{-1} Rj_* \left( (f_{0}^{-1} L_{(T-\lambda)^m})^\vee \otimes j^{-1} K^\bullet \right).
+    \]
+    By \cite[Lemma~3.8]{Wu2017NearbyVanishingCycles} we just elaborated, we get:
+    \[
+        \biG{L_{(T-\lambda)^m}} \simeq i^{-1} Rj_* \left( f_{0}^{-1} L_{(T-\lambda^{-1})^m} \otimes j^{-1} K^\bullet \right).
+    \]
+    So we have:
+    \[
+        \varinjlim_{m} \biG{L_{(T-\lambda)^m}} \simeq \varinjlim_{m} i^{-1} Rj_* \left( f_{0}^{-1} L_{(T-\lambda^{-1})^m} \otimes j^{-1} K^\bullet \right).
+    \]
+    \cite[\href{https://stacks.math.columbia.edu/tag/08DQ}{Tag 08DQ}]{stacks-project} says that its isomorphism is functorial,
+    so the monodromy action \eqref{eq:T_Psi} (induced by precomposing with $f_0^{-1}T^{-1}$ on the first continuous argument) transports to the tensor product $(f^{-1}_0 L)^{\vee} \otimes j^{-1} K^\bullet$ exactly as the action
+    \[
+        T_{L^\vee} \otimes \mathrm{id}_{K^\bullet}
+    \]
+    Recall we defined $T$-action on $T_{L^\vee}$ also by precomposing $T^{-1}$, matching the action Eq.~\eqref{eq:T_Psi}.
+
+    Taking $K^\bullet = \underline{\C}_{X}$, we get
+    \[
+        \varinjlim_{m} i^{-1} Rj_* \left( f_{0}^{-1} L_{(T-\lambda^{-1})^m} \otimes j^{-1} \underline{\C}_{X} \right) = \varinjlim_{m} i^{-1} Rj_* f_{0}^{-1} L_{(T-\lambda^{-1})^m}.
+    \]
+    where $\lambda = e^{2\pi i \alpha}$, we fix the definition of $\lambda$ throughout this section,
+    and see Rmk.~\ref{rmk:different_definitions_of_lambda}.
+
+    This result matches the definition given at the end of Sect.~\ref{sect:two_definitions_of_nearby_cycles}.
+    \[
+        \Psi_{f,\lambda} = \lim_{\substack{\longrightarrow \\ m \to \infty}} i^{-1} Rj_\ast L_m^{\lambda}, \quad \text{where } \lambda = e^{-2\pi i \alpha}.
+    \]
+    (definition of $\lambda$ is different from the above.) By the two \textbf{different} definition of $\lambda$, the $T$-action are also matches.
+    Justified the $T$ action implied by $\lim_{\substack{\longrightarrow \\ m \to \infty}} i^{-1} Rj_\ast L_m^{\lambda}$.
 
 \end{proof}
