@@ -75,11 +75,11 @@ $$
 There are several things to be point out:
 \begin{enumerate}
     \item On a simply connected neighborhood $U\subset (\mathbb{A}_{\mathbb{C}}^1 \setminus \{0\})^{\mathrm{an}}$, $\Ker(\nabla)\mid_U\subsetneq (K^\alpha_m)^{\mathrm{an}}\mid_U$ is a (proper) $\C$-vector subspace, with dimension $m$.
-    
-        So taking fiber (not stalk) at any given point $p\in(\mathbb{A}_{\mathbb{C}}^1 \setminus \{0\})^{\mathrm{an}}$, $\Ker(\nabla)_{p}$ is also a finite ($m$) dimensional $\C$ vector space.
-          
+
+          So taking fiber (not stalk) at any given point $p\in(\mathbb{A}_{\mathbb{C}}^1 \setminus \{0\})^{\mathrm{an}}$, $\Ker(\nabla)_{p}$ is also a finite ($m$) dimensional $\C$ vector space.
+
     \item On a simply connected Euclidean open set $p \in U \subset (\mathbb{A}_{\mathbb{C}}^1 \setminus \{0\})^{\mathrm{an}}$, we can give $\log\, t(p)$ a concrete $\C$-value.
-    
+
     \item Then we identify this vector space $\Ker(\nabla)_{p}$, let $e^\alpha_i(p)$ as the canonical basis vector (the $i+1$-th entry is $1$, others are $0$)
           \[
               \begin{bmatrix}
@@ -96,9 +96,9 @@ There are several things to be point out:
                   0 \\ \vdots \\ 1 \\ \vdots \\ 0
               \end{bmatrix} \in \C^m.
           \]
-    \item Then we identify the monodromy action 
-        (of a generator of $\pi_1((\mathbb{A}_{\mathbb{C}}^1 \setminus \{0\})^{\mathrm{an}}, p)$) 
-        acting on $\C^m$ by left multiplication with the matrix $e^{-2\pi i J_{\alpha,m}}$.
+    \item Then we identify the monodromy action
+          (of a generator of $\pi_1((\mathbb{A}_{\mathbb{C}}^1 \setminus \{0\})^{\mathrm{an}}, p)$)
+          acting on $\C^m$ by left multiplication with the matrix $e^{-2\pi i J_{\alpha,m}}$.
 \end{enumerate}
 We denote $\lambda = e^{-2\pi i \alpha}\in \C$.
 
@@ -1520,7 +1520,7 @@ called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
     Define the linear map:
     \begin{equation}
         \begin{aligned}\label{eq:alpha_eigenspace_map}
-            W_{\alpha} & \longrightarrow \mathrm{Ker}(\varphi_{\infty})                                       \\
+            W_{\alpha} & \longrightarrow \mathrm{Ker}(\varphi_{\infty})                               \\
             w          & \longmapsto \sum\limits_{i \geqslant 0} (\varphi - \alpha)^i w \otimes e_{i}
         \end{aligned}
     \end{equation}
@@ -1577,8 +1577,8 @@ called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
     $t$ acts invertibly on both the first factor $R_f[s]f^s$ (by graph embedding $t\mapsto f$, see Step 1 of Ex.~\ref{example:direct_image_of_graph_embedding})
     and the second factor $\bigoplus_{i=0}^{m-1} R[t, t^{-1}] e^\alpha_i$, so:
     \begin{align*}
-        R_f[s]f^s \otimes_{R[t]} \bigoplus_{i=0}^{m-1} R[t, t^{-1}] e^\alpha_i &= R_f[s]f^s \otimes_{R[t, t^{-1}]} \bigoplus_{i=0}^{m-1} R[t, t^{-1}] e^\alpha_i\\
-        &= R_f[s]f^s \otimes_{\C} \bigoplus_{i=0}^{m-1} \C e^\alpha_i. & & \text{($R[t,t^{-1}]$ has an induced structure of $\C$-alg.)}
+        R_f[s]f^s \otimes_{R[t]} \bigoplus_{i=0}^{m-1} R[t, t^{-1}] e^\alpha_i & = R_f[s]f^s \otimes_{R[t, t^{-1}]} \bigoplus_{i=0}^{m-1} R[t, t^{-1}] e^\alpha_i                                                                   \\
+                                                                               & = R_f[s]f^s \otimes_{\C} \bigoplus_{i=0}^{m-1} \C e^\alpha_i.                    &  & \text{($R[t,t^{-1}]$ has an induced structure of $\C$-alg.)}
     \end{align*}
 
 
@@ -1775,7 +1775,7 @@ called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
 
     By Eq.~\ref{eq:alpha_eigenspace_map} (which should be a $\D_X$-module morphism, see Def.~\ref{def:algebraic_nearby_cycle} and proof of Cor.~\ref{cor:colimit_of_quotients_calculates_nearby_cycles}), applied to the endomorphism $s$ and calculate its $-\alpha$ generalized eigenspace, we have the isomorphism
     \begin{align*}
-        \Psi_{f,-\alpha} & \xrightarrow{\;\sim\;} \mathrm{Ker}(s_{\infty})                                  \\
+        \Psi_{f,-\alpha} & \xrightarrow{\;\sim\;} \mathrm{Ker}(s_{\infty})                          \\
         \eta             & \longmapsto \sum\limits_{i \geqslant 0} (s+\alpha)^i \eta\otimes  e_{i}.
     \end{align*}
     where
@@ -1792,9 +1792,9 @@ called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
         J_{0,\infty}(w \otimes e_i) := w \otimes e_{i-1}
     \]
     acting on the second factor, with the convention $e_{-1}=0$.
-    (This notation is not rigorous, 
-    since pure tensor $w \otimes e_i$ may not belong to $\mathrm{Ker}(s_{\infty})$, 
-    but the \hyperref[eq:local_system_L^lambda_m]{topological nearby side} also has exactly the same mistake, 
+    (This notation is not rigorous,
+    since pure tensor $w \otimes e_i$ may not belong to $\mathrm{Ker}(s_{\infty})$,
+    but the \hyperref[eq:local_system_L^lambda_m]{topological nearby side} also has exactly the same mistake,
     $v^\alpha_i$ is also ``not pure'' with respect to the basis $\{e^\alpha_i\}$, so we can ignore this issue.)
 
 
@@ -1835,9 +1835,9 @@ called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
     and similarly for $\mathcal N_m^{-\alpha,-k}$ with $j_!f^{-1}L_m^\lambda$.
 
     Passing to the quotient complexes, then to $\varinjlim_m$, and finally applying $i^{-1}$, this induces exactly the operator $J_{0,\infty}$ on $\Psi_{f,\lambda}$.
-    
+
     Note we have another $J_{0,\infty}$ that acts on $\mathrm{Ker}(s_\infty)$, so we abuse of notation here.
-    But through 
+    But through
     \begin{enumerate}
         \item The functoriality of the identification in each step in this proof of Thm.~\ref{Theorem 9.5}.
         \item Both (topological and algebraic nearby cycle) side take $e^{\alpha}_i$ as standard basis (for topological nearby cycle case, see the third point below \hyperref[eq:local_system_L^lambda_m]{equation}).
@@ -1846,22 +1846,22 @@ called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
 
     \medskip
 
-    Combined with the calculation above (identifying $(s+\alpha)$ with $J_{0,\infty}$), 
+    Combined with the calculation above (identifying $(s+\alpha)$ with $J_{0,\infty}$),
     and recall:
     \begin{enumerate}
         \item $T$ action on $\Psi_{f,\lambda}=\varinjlim_m\ i^{-1} Rj_*f^{-1}L_m^{\lambda}$ by \hyperref[eq:local_system_L^lambda_m]{equation}.
         \item Where $\lambda := e^{-2\pi i \alpha}$ in Sect.\ref{sect:two_definitions_of_nearby_cycles}.
     \end{enumerate}
-    In this section we have chosen $\lambda = e^{2\pi i \alpha}$, 
+    In this section we have chosen $\lambda = e^{2\pi i \alpha}$,
     so we use $-\alpha$ algebraic nearby cycle to correspond the topological nearby cycle is $\Psi_{f,\lambda}$.
-    
+
     Then we obtain
     \[
         T= e^{-2\pi i J_{-\alpha,\infty}} = e^{-2\pi i J_{0,\infty} - 2\pi i (-\alpha)} = e^{-2\pi i[(s+\alpha)-\alpha]}=e^{-2\pi i s},
     \]
     where $\lambda = e^{2\pi i \alpha}$ is consistent with our choice in this section, then we get:
     \[
-    T= \DR(e^{-2\pi i s}).
+        T= \DR(e^{-2\pi i s}).
     \]
     Which is consistent with \cite{Wu2020ComparisonNearbyCyclesBfunctions}.
 
@@ -2313,6 +2313,6 @@ called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
         \Psi_{f,\lambda} = \lim_{\substack{\longrightarrow \\ m \to \infty}} i^{-1} Rj_\ast L_m^{\lambda}, \quad \text{where } \lambda = e^{-2\pi i \alpha}.
     \]
     (definition of $\lambda$ is different from the above.) By the two \textbf{different} definition of $\lambda$, the $T$-action are also matches.
-    Justified the $T$ action implied by $\lim_{\substack{\longrightarrow \\ m \to \infty}} i^{-1} Rj_\ast L_m^{\lambda}$.
+    This justifies the induced $T$-action on $\varinjlim_m i^{-1} Rj_\ast L_m^{\lambda}$.
 
 \end{proof}
