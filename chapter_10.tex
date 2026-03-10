@@ -74,13 +74,17 @@ $$
 \phantomsection\label{eq:local_system_L^lambda_m}
 There are several things to be point out:
 \begin{enumerate}
-    \item Taking fiber (not stalk) at any given point $p\in(\mathbb{A}_{\mathbb{C}}^1 \setminus \{0\})^{\mathrm{an}}$, $\Ker(\nabla)$ becomes a finite ($m$) dimensional $\C$ vector space.
-    \item On a simply connected Euclidean open set $p \in U \subset (\mathbb{A}_{\mathbb{C}}^1 \setminus \{0\})^{\mathrm{an}}$, we can give $\log\, t(p)$ a concreate $\C$-value.
-    \item View $e^\alpha_i(p)$ as the canonical basis vector (the $i+1$-th entry is $1$, others are $0$)
+    \item On a simply connected neighborhood $U\subset (\mathbb{A}_{\mathbb{C}}^1 \setminus \{0\})^{\mathrm{an}}$, $\Ker(\nabla)\mid_U\subsetneq (K^\alpha_m)^{\mathrm{an}}\mid_U$ is a (proper) $\C$-vector subspace, with dimension $m$.
+    
+        So taking fiber (not stalk) at any given point $p\in(\mathbb{A}_{\mathbb{C}}^1 \setminus \{0\})^{\mathrm{an}}$, $\Ker(\nabla)_{p}$ is also a finite ($m$) dimensional $\C$ vector space.
+          
+    \item On a simply connected Euclidean open set $p \in U \subset (\mathbb{A}_{\mathbb{C}}^1 \setminus \{0\})^{\mathrm{an}}$, we can give $\log\, t(p)$ a concrete $\C$-value.
+    
+    \item Then we identify this vector space $\Ker(\nabla)_{p}$, let $e^\alpha_i(p)$ as the canonical basis vector (the $i+1$-th entry is $1$, others are $0$)
           \[
-              \begin{pmatrix}
+              \begin{bmatrix}
                   0 \\ \vdots \\ 1 \\ \vdots \\ 0
-              \end{pmatrix}\in\C^m,
+              \end{bmatrix}\in\C^m,
           \]
           where the $1$ is at the $(i+1)$-th row. Then we identify
           \[
@@ -88,11 +92,13 @@ There are several things to be point out:
           \]
           with
           \[
-              e^{-J_{\alpha,m} \log t}(p) \cdot \begin{pmatrix}
+              e^{-J_{\alpha,m} \log t}(p) \cdot \begin{bmatrix}
                   0 \\ \vdots \\ 1 \\ \vdots \\ 0
-              \end{pmatrix} \in \C^m.
+              \end{bmatrix} \in \C^m.
           \]
-    \item So the monodromy action (of a generator of $\pi_1((\mathbb{A}_{\mathbb{C}}^1 \setminus \{0\})^{\mathrm{an}}, p)$) acts on $\C^m$ by left multiplication with $e^{-2\pi i J_{\alpha,m}}$.
+    \item Then we identify the monodromy action 
+        (of a generator of $\pi_1((\mathbb{A}_{\mathbb{C}}^1 \setminus \{0\})^{\mathrm{an}}, p)$) 
+        acting on $\C^m$ by left multiplication with the matrix $e^{-2\pi i J_{\alpha,m}}$.
 \end{enumerate}
 We denote $\lambda = e^{-2\pi i \alpha}\in \C$.
 
@@ -498,7 +504,7 @@ Our next goal is to prove the following theorem:
     $$
         \mathrm{DR}(\Psi_{f,-\alpha}) \simeq i_* \Psi_{f,\lambda}[-1]
     $$
-    such that $e^{2\pi is} = \lambda^{-1}\cdot e^{2\pi i(s+\alpha)}$ is the corresponding $T$-action on $\Psi_{f,\lambda}$.
+    such that $e^{-2\pi is} = \lambda^{-1}\cdot e^{-2\pi i(s+\alpha)}$ is the corresponding $T$-action on $\Psi_{f,\lambda}$.
 \end{theorem}
 \begin{remark}
     The actual definition of a (analytic/topological) \textbf{nearby cycle} will induce a $\mathbb{Z} = \pi_1{\C^*}$ action on $\Psi_{f,\lambda}$, denoted by $T$, see \cite[\S~3.1]{Wu2017NearbyVanishingCycles}.
@@ -510,7 +516,7 @@ Our next goal is to prove the following theorem:
     in subsequent proofs, we will see this ``error'' cancel out itself.
 \end{remark}
 \begin{remark}
-    With $(s-\alpha)$ acts on $\Psi_{f,\alpha}$ nilpotently, (the action of) $e^{2\pi i(s+\alpha)}$ is essentially a finite sum, hence it is a well-defined operator for $\Psi_{f,\alpha}$.
+    Since $(s+\alpha)$ acts on $\Psi_{f,-\alpha}$ nilpotently, the operator $e^{-2\pi i(s+\alpha)}$ is a finite sum, hence it is well-defined on $\Psi_{f,-\alpha}$.
 \end{remark}
 
 \begin{definition}\label{def:N_m_alpha_k}
@@ -1546,7 +1552,7 @@ called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
     Thus, $\varphi_{\infty}$ is surjective.
 \end{proof}
 
-\begin{corollary}
+\begin{corollary}\label{cor:colimit_of_quotients_calculates_nearby_cycles}
     For $k\gg 0$, one has a quasi-isomorphism
     \[
         \Psi_{f,\alpha}[1]\ \simeq\ \varinjlim_{m}\Bigl[\,
@@ -1564,6 +1570,17 @@ called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
         = \frac{\sum_{\ell=0}^{m-1} \mathcal{D}_X[s] \cdot f^{s-k} \otimes e_\ell^\alpha}{\sum_{\ell=0}^{m-1} \mathcal{D}_X[s] \cdot f^{s+k} \otimes e_\ell^\alpha}
         \simeq \bigoplus_{\ell=0}^{m-1} \left( \frac{\mathcal{D}_X[s] \cdot f^{s-k}}{\mathcal{D}_X[s] \cdot f^{s+k}} \right) \otimes e_\ell^\alpha
     \]
+    Here $\otimes_{\mathcal{O}_Y}$ is reduced to $\otimes_{\C}$, because in the ambient space of $\mathcal{N}^{\alpha,k}_m$:
+    \[
+        \Gamma_{f,+}(j_*(\mathcal{O}_U)) \otimes_{\Oy} p_2^* K_m^{\alpha} = R_f[s]f^s \otimes_{R[t]} \bigoplus_{i=0}^{m-1} R[t, t^{-1}] e^\alpha_i
+    \]
+    $t$ acts invertibly on both the first factor $R_f[s]f^s$ (by graph embedding $t\mapsto f$, see Step 1 of Ex.~\ref{example:direct_image_of_graph_embedding})
+    and the second factor $\bigoplus_{i=0}^{m-1} R[t, t^{-1}] e^\alpha_i$, so:
+    \begin{align*}
+        R_f[s]f^s \otimes_{R[t]} \bigoplus_{i=0}^{m-1} R[t, t^{-1}] e^\alpha_i &= R_f[s]f^s \otimes_{R[t, t^{-1}]} \bigoplus_{i=0}^{m-1} R[t, t^{-1}] e^\alpha_i\\
+        &= R_f[s]f^s \otimes_{\C} \bigoplus_{i=0}^{m-1} \C e^\alpha_i. & & \text{($R[t,t^{-1}]$ has an induced structure of $\C$-alg.)}
+    \end{align*}
+
 
     We have a \hyperref[construction_of_direct_system_of_N_m_alpha_k]{direct system} of $\D_X[s]$-modules, so it induce the direct system of $\{Q_m^{\alpha,k}\}_{m\ge 1}$.
     And its sequential colimit identifies with the infinite direct sum
@@ -1588,6 +1605,20 @@ called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
         \mathrm{Ker}(s_\infty)\ \simeq\ W_\alpha,
     \]
     the generalized $\alpha$-eigenspace, again, if we view $s$ as an endomorphism of $\frac{\mathcal{D}_X[s] \cdot f^{s-k}}{\mathcal{D}_X[s] \cdot f^{s+k}}$.
+
+    And the map induced by Eq.~\ref{eq:alpha_eigenspace_map}
+    \[
+        \Phi:W_\alpha \longrightarrow \mathrm{Ker}(s_\infty),\qquad
+        w\longmapsto \sum_{i\ge 0}(s-\alpha)^i w\otimes e_i
+    \]
+    is a $\D_X$-module morphism. Indeed, since $s$ commutes with $\D_X$ inside $\D_X[s]$,
+    the generalized eigenspace $W_\alpha$ is $\D_X$-stable. And in $\mathcal{N}_m^{\alpha,k}$, the $\D_X$-action is on the first factor (see proof of Lem.~\ref{lemma 10.7}, which essentially use Step 2 of Def.~\ref{def:N_m_alpha_k}),
+    hence for every $P\in \D_X$ and $w\in W_\alpha$ we have
+    \[
+        \Phi(Pw)=\sum_{i\ge 0}(s-\alpha)^i(Pw)\otimes e_i
+        =\sum_{i\ge 0}P\bigl((s-\alpha)^i w\bigr)\otimes e_i
+        =P\cdot \Phi(w).
+    \]
 
     So the two-term complex
     \[
@@ -1742,7 +1773,7 @@ called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
 
     \medskip
 
-    By Eq.~\ref{eq:alpha_eigenspace_map} (which should be a $\D_X$-module morphism, see Def.~\ref{def:algebraic_nearby_cycle}), applied to the endomorphism $s$ and calculate its $-\alpha$ generalized eigenspace, we have the isomorphism
+    By Eq.~\ref{eq:alpha_eigenspace_map} (which should be a $\D_X$-module morphism, see Def.~\ref{def:algebraic_nearby_cycle} and proof of Cor.~\ref{cor:colimit_of_quotients_calculates_nearby_cycles}), applied to the endomorphism $s$ and calculate its $-\alpha$ generalized eigenspace, we have the isomorphism
     \begin{align*}
         \Psi_{f,-\alpha} & \xrightarrow{\;\sim\;} \mathrm{Ker}(s_{\infty})                                  \\
         \eta             & \longmapsto \sum\limits_{i \geqslant 0} (s+\alpha)^i \eta\otimes  e_{i}.
@@ -1756,11 +1787,16 @@ called the \textbf{b-function} or \textbf{Bernstein-Sato polynomial of} $f$.
     \[
         (s+\alpha)\eta \longmapsto \sum_{i \geqslant 0} (s+\alpha)^i (s+\alpha)\eta \otimes e_i =  \sum_{i \geqslant 0} (s+\alpha)^{i+1} \eta \otimes e_i = \sum_{i \geqslant 1} (s+\alpha)^i \eta \otimes e_{i-1}.
     \]
-    That is equivalent to say we have the formal nilpotent operator
+    That is to say, $(s+\alpha)$ acts as the formal operator $J_{0,\infty}$ on $\mathrm{Ker}(s_{\infty})$:
     \[
         J_{0,\infty}(w \otimes e_i) := w \otimes e_{i-1}
     \]
     acting on the second factor, with the convention $e_{-1}=0$.
+    (This notation is not rigorous, 
+    since pure tensor $w \otimes e_i$ may not belong to $\mathrm{Ker}(s_{\infty})$, 
+    but the \hyperref[eq:local_system_L^lambda_m]{topological nearby side} also has exactly the same mistake, 
+    $v^\alpha_i$ is also ``not pure'' with respect to the basis $\{e^\alpha_i\}$, so we can ignore this issue.)
+
 
     \medskip
 

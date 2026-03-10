@@ -530,60 +530,62 @@ And work out its definition when $X$ is a smooth affine $\C$ variety, and the re
               \]
               we can take $Q=1$ in the following calculation.
 
+              In the following calculations, $m\in M$ and $\nu \in \mathbb{Z}_{\ge 0}$.
+
               The following calculations heavily depend on the identified right $\D_X$-module structure and left $\Gamma_f^{-1}\D_Y$-module structure on $\D_{Y\leftarrow X}$ in Step 3.
               All following Lie bracket are taken in $\D_Y\to \D_Y\otimes_{\Oy}\Ox = \D_{Y\leftarrow X} \to \D_{Y\leftarrow X}\otimes_{\D_X} M$.
 
               For $g\in \Ox\subseteq\Oy\subseteq\D_Y$, we have
               \[
-                  g\cdot(\partial_t^\nu \otimes n) = \partial_t^\nu\otimes (gn)
+                  g\cdot(\partial_t^\nu \otimes m) = \partial_t^\nu\otimes (gm)
               \]
               The derivation is as follows:
               \begin{align*}
-                  g\cdot(\partial_t^\nu\otimes 1 \otimes n) & := (g\cdot (\partial_t^\nu\otimes 1))\otimes n                                                                                        \\
-                                                            & = ([g,\partial_t^\nu]\otimes 1 + \partial_t^\nu\otimes g)\otimes n                                                                    \\
-                                                            & = ([g,\partial_t^\nu]\otimes 1)\otimes n + (\partial_t^\nu\otimes 1)\otimes (gn)                                                      \\
-                                                            & = (\partial_t^\nu\otimes 1)\otimes (gn)                                          &  & \text{($[g,\partial_t^\nu]=0$, for $g\in\Ox$)}.
+                  g\cdot(\partial_t^\nu\otimes 1 \otimes m) & := (g\cdot (\partial_t^\nu\otimes 1))\otimes m                                                                                        \\
+                                                            & = ([g,\partial_t^\nu]\otimes 1 + \partial_t^\nu\otimes g)\otimes m                                                                    \\
+                                                            & = ([g,\partial_t^\nu]\otimes 1)\otimes m + (\partial_t^\nu\otimes 1)\otimes (gm)                                                      \\
+                                                            & = (\partial_t^\nu\otimes 1)\otimes (gm)                                          &  & \text{($[g,\partial_t^\nu]=0$, for $g\in\Ox$)}.
               \end{align*}
 
               For $t\in (\Oy\setminus\Ox) \subseteq \D_Y$, we have
               \[
-                  t\cdot(\partial_t^\nu\otimes n) = \partial_t^\nu\otimes (fn) - \nu\cdot(\partial_t^{\nu-1}\otimes n)
+                  t\cdot(\partial_t^\nu\otimes m) = \partial_t^\nu\otimes (fm) - \nu\cdot(\partial_t^{\nu-1}\otimes m)
               \]
               The derivation is as follows:
               \begin{align*}
-                  t\cdot(\partial_t^\nu\otimes 1 \otimes n) & := (t\cdot (\partial_t^\nu\otimes 1))\otimes n                                        \\
-                                                            & = ([t,\partial_t^\nu]\otimes 1 + \partial_t^\nu\otimes f)\otimes n                    \\
-                                                            & = (-\nu\partial_t^{\nu-1}\otimes 1 + \partial_t^\nu\otimes f)\otimes n                \\
-                                                            & = (-\nu\partial_t^{\nu-1}\otimes 1)\otimes n + (\partial_t^\nu\otimes 1)\otimes (fn).
+                  t\cdot(\partial_t^\nu\otimes 1 \otimes m) & := (t\cdot (\partial_t^\nu\otimes 1))\otimes m                                        \\
+                                                            & = ([t,\partial_t^\nu]\otimes 1 + \partial_t^\nu\otimes f)\otimes m                    \\
+                                                            & = (-\nu\partial_t^{\nu-1}\otimes 1 + \partial_t^\nu\otimes f)\otimes m                \\
+                                                            & = (-\nu\partial_t^{\nu-1}\otimes 1)\otimes m + (\partial_t^\nu\otimes 1)\otimes (fm).
               \end{align*}
 
 
               For $\partial^{(t)}_{x_i}$, we have
               \[
-                  \partial^{(t)}_{x_i}\cdot(\partial_t^\nu\otimes n) = \partial_t^\nu\otimes(\partial_{x_i}n) - \partial_t^{\nu+1}\otimes\bigl((\partial_{x_i}f)n\bigr)
+                  \partial^{(t)}_{x_i}\cdot(\partial_t^\nu\otimes m) = \partial_t^\nu\otimes(\partial_{x_i}m) - \partial_t^{\nu+1}\otimes\bigl((\partial_{x_i}f)m\bigr)
               \]
-              The derivation is as follows, we first consider what $\partial_t^\nu\otimes 1 \otimes (\partial_{x_i}n)$ is:
+              The derivation is as follows, we first consider what $\partial_t^\nu\otimes 1 \otimes (\partial_{x_i}m)$ is:
               \begin{align*}
-                  \partial_t^\nu\otimes 1 \otimes (\partial_{x_i}n) & = ((\partial_t^\nu\otimes 1)\cdot\partial_{x_i})\otimes n                                                                                                  \\
-                                                                    & = (\partial_t^\nu \otimes \partial^{(t)}_{x_i} + (\partial_t^{\nu+1})\otimes \partial_{x_i}f)1 + \partial_t^\nu \otimes (\partial^{(t)}_{x_i}(1))\otimes n \\
-                                                                    & = (\partial_t^\nu \otimes \partial^{(t)}_{x_i} + (\partial_t^{\nu+1})\otimes \partial_{x_i}f)\otimes n                                                     \\
-                                                                    & =  (\partial_t^\nu \otimes \partial^{(t)}_{x_i})\otimes n + (\partial_t^{\nu+1}\otimes \partial_{x_i}f)\otimes n.
+                  \partial_t^\nu\otimes 1 \otimes (\partial_{x_i}m) & = ((\partial_t^\nu\otimes 1)\cdot\partial_{x_i})\otimes m                                                                                                  \\
+                                                                    & = (\partial_t^\nu \otimes \partial^{(t)}_{x_i} + (\partial_t^{\nu+1})\otimes \partial_{x_i}f)1 + \partial_t^\nu \otimes (\partial^{(t)}_{x_i}(1))\otimes m \\
+                                                                    & = (\partial_t^\nu \otimes \partial^{(t)}_{x_i} + (\partial_t^{\nu+1})\otimes \partial_{x_i}f)\otimes m                                                     \\
+                                                                    & =  (\partial_t^\nu \otimes \partial^{(t)}_{x_i})\otimes m + (\partial_t^{\nu+1}\otimes \partial_{x_i}f)\otimes m.
               \end{align*}
               So we have
               \begin{align*}
-                  \partial^{(t)}_{x_i}\cdot(\partial_t^\nu\otimes 1\otimes n) & := (\partial^{(t)}_{x_i}\cdot(\partial_t^\nu\otimes 1))\otimes n                                                        \\
-                                                                              & =(\partial_t^\nu \otimes \partial^{(t)}_{x_i})\otimes n                                                                 \\
-                                                                              & = \partial_t^\nu\otimes 1 \otimes (\partial_{x_i}n) - (\partial_t^{\nu+1}\otimes \partial_{x_i}f)\otimes n              \\
-                                                                              & =\partial_t^\nu\otimes 1 \otimes (\partial_{x_i}n) - \partial_t^{\nu+1}\otimes 1\otimes \bigl((\partial_{x_i}f)n\bigr).
+                  \partial^{(t)}_{x_i}\cdot(\partial_t^\nu\otimes 1\otimes m) & := (\partial^{(t)}_{x_i}\cdot(\partial_t^\nu\otimes 1))\otimes m                                                        \\
+                                                                              & =(\partial_t^\nu \otimes \partial^{(t)}_{x_i})\otimes m                                                                 \\
+                                                                              & = \partial_t^\nu\otimes 1 \otimes (\partial_{x_i}m) - (\partial_t^{\nu+1}\otimes \partial_{x_i}f)\otimes m              \\
+                                                                              & =\partial_t^\nu\otimes 1 \otimes (\partial_{x_i}m) - \partial_t^{\nu+1}\otimes 1\otimes \bigl((\partial_{x_i}f)m\bigr).
               \end{align*}
 
 
               In summary, we have
               \begin{align*}
-                  \text{Block A: } & \quad g\cdot(\partial_t^\nu\otimes n) =\partial_t^\nu\otimes(gn),                                                                                         \\
-                  \text{Block B: } & \quad \partial_{t}\cdot(\partial_t^\nu\otimes n) =\partial_t^{\nu+1}\otimes n,                                                                            \\
-                  \text{Block C: } & \quad \partial_{x_i}^{(t)}\cdot(\partial_t^\nu\otimes n) =\partial_t^\nu\otimes(\partial_{x_i}n)-\partial_t^{\nu+1}\otimes\bigl((\partial_{x_i}f)n\bigr), \\
-                  \text{Block D: } & \quad t\cdot(\partial_t^\nu\otimes n) =\partial_t^\nu\otimes fn-\nu_j\,\partial_t^{\nu-1}\otimes n,
+                  \text{Block A: } & \quad g\cdot(\partial_t^\nu\otimes m) =\partial_t^\nu\otimes(gm),                                                                                         \\
+                  \text{Block B: } & \quad \partial_{t}\cdot(\partial_t^\nu\otimes m) =\partial_t^{\nu+1}\otimes m,                                                                            \\
+                  \text{Block C: } & \quad \partial_{x_i}^{(t)}\cdot(\partial_t^\nu\otimes m) =\partial_t^\nu\otimes(\partial_{x_i}m)-\partial_t^{\nu+1}\otimes\bigl((\partial_{x_i}f)m\bigr), \\
+                  \text{Block D: } & \quad t\cdot(\partial_t^\nu\otimes m) =\partial_t^\nu\otimes fm-\nu\,\partial_t^{\nu-1}\otimes m,
               \end{align*}
               Which is consistent with \cite[discussion above Prop.~1.4]{Budur04}.
 
@@ -740,6 +742,10 @@ And work out its definition when $X$ is a smooth affine $\C$ variety, and the re
     Since $\Ox$ is an integrable connection, push it forward to a divisor completion $j:X\to Y$ such that $Y\setminus X =: D$.
     We get $(j_*(\Ox))^{\mathrm{an}} = \Oy^{\mathrm{an}}(\ast D)$, which is a regular holonomic $\D^{\mathrm{an}}_Y$-module (WLOG $D$ is normal crossing, and use curve test Def.~\ref{def:analytic_regular_holmonicity}).
     By Thm.~\ref{thm:equivalence_regular_holonomic_on_algebraic_with_analytic} (i.e., \cite[Thm.~6.1.12]{hotta2008d}), $\Ox$ is a regular holonomic $\D_X$-module.
+    
+    (We choose to prove $\Ox$ is \textbf{algebraic} regular holonomic, 
+    since it implies ananlytic regular holonomicity by \cite[Thm~6.1.12]{hotta2008d}, 
+    and the editor don't now which kind of regular holonomicity is used as the condition in Thm.~\ref{thm:V-filtration_of_RH_D-module_is_not_trivial}.)
 
     \bigskip
 
