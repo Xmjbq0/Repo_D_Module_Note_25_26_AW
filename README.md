@@ -1,26 +1,37 @@
-# Repo_D_Module_Note_25_26_AW
+﻿# Repo_D_Module_Note_25_26_AW
 
-D模25秋的笔记。注意：不要上传老师上课的手写笔记，只上传整理好的 `.tex` 内容。
+Lecture notes for the Fall 2025 D-modules course at Zhejiang University.
 
-## 仓库结构（与 GitHub 保持一致）
-- `D-module.tex`：主入口，汇总各周内容并生成最终 PDF。
-- `Week1_content.tex`/`Week2_content.tex`/`Week3_content.tex`：每周的正文模块；继续新增周次时按同样命名。
-- `ref.bib`：参考文献库。
-- `.github/workflows/latex_build.yml`：GitHub Actions 工作流，自动编译 LaTeX 并上传生成的 PDF。
-- `.gitignore`：忽略 LaTeX 中间文件和 `*.pdf`，避免把编译产物提交到仓库。
-- `.gitattributes`：文本文件自动行尾规范，即`LF`与`CR+LF`之别，规范的是前者即`LF`。
-- `D-module.pdf`：本地或 CI 编译产物，默认被 `.gitignore` 忽略，所以仓库主页里没有；不过你在页面上找 Actions ，在 Actions 里面的 artifact 中下载。
-- LaTeX 中间文件（如 `.aux/.log/.out/.toc/.bbl/.blg` 等）：由编译产生，已被忽略，无需提交，所以你也在仓库里找不到。
+You can also download the **compiled PDF** directly from the **Releases** section of this repository.
 
-## GitHub Actions（自动编译 PDF）
-- 触发：对 `.tex`、`.bib` 或工作流文件的 push / PR，或在 Actions 页面手动 `Run workflow`。
-- 编译：使用 `xu-cheng/latex-action@v3`，入口 `D-module.tex`，参数 `-pdf -interaction=nonstopmode -halt-on-error -file-line-error`，自动运行 `pdflatex`。
-- 产物：运行结束后上传 `D-module.pdf` artifact，可在对应运行记录里下载。
 
-## 提交/上传流程
-1. 克隆：`git clone https://github.com/Xmjbq0/Repo_D_Module_Note_25_26_AW.git`，进入目录。
-2. 分支：`git checkout -b feature/<描述>`（如 `feature/week4-notes`），不要直接在 `main` 上改。
-3. 编辑：更新相应的 `WeekX_content.tex` 或 `ref.bib`。需要预览可本地跑 `pdflatex D-module.tex`（可能需多跑几次让引用刷新）。
-4. 检查：`git status` 确认只有 `.tex/.bib` 等源码被修改，`.gitignore` 会自动屏蔽中间文件和 PDF。
-5. 提交：`git add <改动文件>` → `git commit -m "描述本次修改"`。
-6. 推送与合并：`git push origin feature/<描述>`，在 GitHub 发起 PR 到 `main`，写清楚改动的周次和要点。CI 会自动编译 PDF，artifact 可供 reviewers 下载查看。
+## Content Overview
+| Module | File | Overview |
+| --- | --- | --- |
+| Main file | `D-module.tex` | Main LaTeX entry point of the repository. It organizes the 10 lecture-note chapters, the homework section, and the bibliography, and builds the final PDF. |
+| Chapter 1 | `chapter_01.tex` | Reviews the basic objects of smooth affine algebraic geometry, introduces Kahler differentials, vector fields, and differential operators, and then moves to the definition of `\D`-modules on smooth affine varieties. |
+| Chapter 2 | `chapter_02.tex` | Develops filtered rings and filtered modules, together with associated graded objects and the Rees ring, as preparation for the order filtration on `\mathcal{D}_X`. |
+| Chapter 3 | `chapter_03.tex` | Defines characteristic varieties and characteristic cycles of `\D_X`-modules, explains the relation between `\operatorname{gr}\mathcal{D}_X` and the coordinate ring of the cotangent bundle, and summarizes their first properties. |
+| Chapter 4 | `chapter_04.tex` | Introduces Poisson structures and the involutive/coisotropic condition, then states and applies Gabber's involutivity theorem to characteristic varieties. |
+| Chapter 5 | `chapter_05.tex` | Reviews symplectic vector spaces and the symplectic structure on `T^*X`, including isotropic, coisotropic, and Lagrangian subspaces and conic Lagrangian subvarieties. |
+| Chapter 6 | `chapter_06.tex` | Centers on holonomic and regular holonomic `\mathcal{D}`-modules, including the de Rham complex, analytification, a basic form of the Riemann-Hilbert correspondence, and Kashiwara's equivalence. |
+| Chapter 7 | `chapter_07.tex` | Introduces Auslander regular rings, spectral sequences for filtered complexes, further properties of filtered rings, and duality for `\mathcal{D}`-modules. |
+| Chapter 8 | `chapter_08.tex` | Constructs the `V`-filtration along a smooth subvariety and explains its algebraic origin through normal deformation and the Rees construction, preparing for nearby cycles. |
+| Chapter 9 | `chapter_09.tex` | Uses Bjork's approach to prove the existence of the `b`-function for holonomic `\mathcal{D}_X`-modules. |
+| Chapter 10 | `chapter_10.tex` | Compares two definitions of nearby cycles and proves the comparison theorem, linking the earlier `V`-filtration, `b`-function, and algebraic or analytic constructions. |
+| Homework Week 1 | `HwWeek1.tex` | Homework notes for week 1, corresponding to `Homework: week 1 (September 19, 2025)` in the main file. |
+| Homework Week 2 | `HWweek2.tex` | Homework notes for week 2, corresponding to `Homework: week 2 (October 7, 2025)` in the main file. |
+| Homework Week 3 | `HWweek3.tex` | Homework notes for week 3, corresponding to `Homework: week 3 (September 30, 2025)` in the main file. |
+| Homework Week 4-5 | `HwWeek4_5.tex` | Combined homework notes for weeks 4 and 5, corresponding to `Homework: week 4 and 5 (October 16, 2025)` in the main file. |
+| Homework Week 6 | `HwWeek6.tex` | Homework notes for week 6, corresponding to `Homework: week 6 (October 23, 2025)` in the main file. |
+| Homework Week 8 | `HwWeek8.tex` | Homework notes for week 8, corresponding to `Homework: week 8 (November 6, 2025)` in the main file. |
+| Bibliography | `ref.bib` | BibTeX database that collects the books, lecture notes, and papers cited throughout the notes. |
+
+## Contributors
+- `Wu Lei`: Lecturer of this course. He also provided the handwritten lecture notes and homework. 
+Homepage: `https://sites.google.com/view/leiwuswebsite/`.
+- `Yang Lintao`: Prepared Chapters 1-5 and reviewed this online version of the repository. 
+- `Xiang Fanghan`: Prepared the first version of Chapters 6-10.
+
+## Feedback
+For feedback, please contact `xmjbq256@foxmail.com` or open an **issue** on this GitHub repository.
